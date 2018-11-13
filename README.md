@@ -1,2 +1,2 @@
-# A2D2-iOS
+# a2d2-ios
 iOS repository for Airmen Against Drunk Driving application.
