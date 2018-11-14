@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,24 +17,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jkj-OY-gna">
-                                <rect key="frame" x="73" y="340" width="217" height="54"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jkj-OY-gna">
+                                <rect key="frame" x="48" y="401" width="279" height="64"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="15y-am-awC"/>
+                                </constraints>
                                 <state key="normal" title="Request ride">
                                     <color key="titleColor" red="0.086274509799999996" green="0.35686274509999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="requestRideButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LVK-Nf-dXf"/>
+                                </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="a2d2logo" translatesAutoresizingMaskIntoConstraints="NO" id="U0r-Oc-gw1">
-                                <rect key="frame" x="29" y="54" width="317" height="217"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a2d2logo" translatesAutoresizingMaskIntoConstraints="NO" id="U0r-Oc-gw1">
+                                <rect key="frame" x="29" y="84" width="317" height="217"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="U0r-Oc-gw1" secondAttribute="height" multiplier="317:217" id="Oe5-aD-A6F"/>
+                                    <constraint firstAttribute="width" constant="317" id="TpN-AO-0vx"/>
+                                    <constraint firstAttribute="height" constant="217" id="Z41-Wd-YtL"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.086274509799999996" green="0.35686274509999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Jkj-OY-gna" secondAttribute="bottom" constant="273" id="HzW-bg-hhJ"/>
-                            <constraint firstItem="Jkj-OY-gna" firstAttribute="top" secondItem="U0r-Oc-gw1" secondAttribute="bottom" constant="67" id="SGU-lP-zSv"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jkj-OY-gna" secondAttribute="trailing" constant="85" id="UGz-dJ-vsn"/>
-                            <constraint firstItem="Jkj-OY-gna" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="73" id="sJt-Za-76C"/>
+                            <constraint firstItem="U0r-Oc-gw1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="V4C-yC-rHv"/>
+                            <constraint firstItem="Jkj-OY-gna" firstAttribute="top" secondItem="U0r-Oc-gw1" secondAttribute="bottom" constant="100" id="aYo-nx-MM4"/>
+                            <constraint firstItem="U0r-Oc-gw1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bgh-Q9-N9d"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jkj-OY-gna" secondAttribute="trailing" constant="48" id="k7f-rU-DIa"/>
+                            <constraint firstItem="Jkj-OY-gna" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="rPM-QK-lH7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

@@ -17,7 +17,10 @@ class ViewController: UIViewController {
         requestRideButton.layer.cornerRadius = 15
         
     }
-
-
+    
+    @IBAction func requestRideButtonPressed(sender: AnyObject) {
+        
+    }
+    
 }
 

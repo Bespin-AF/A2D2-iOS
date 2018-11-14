@@ -18,11 +18,20 @@ class A2D2_iOSTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testRequestButton_IsEnabled() {
+        //This is to test if the request ride button is enabled and ready to go
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let sut = storyboard.instantiateInitialViewController() as! ViewController
+        sut.loadViewIfNeeded()
+        XCTAssertTrue(sut.requestRideButton.isEnabled)
     }
+//    func testBtnRequestRide() {
+//        //This is to test if the request ride button takes you to the next ViewController
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let sut = storyboard.instantiateInitialViewController() as! ViewController
+//        sut.loadViewIfNeeded()
+//        sut.requestRideButton(for: .touchUpInside)
+//    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
