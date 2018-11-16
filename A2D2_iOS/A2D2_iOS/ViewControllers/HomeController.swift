@@ -8,19 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeController: UIViewController {
 
     @IBOutlet var requestRideButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        requestRideButton.layer.cornerRadius = 15
-        
     }
-    
-    @IBAction func requestRideButtonPressed(sender: AnyObject) {
-        
-    }
-    
 }
 
