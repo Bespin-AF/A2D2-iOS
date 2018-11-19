@@ -32,24 +32,22 @@ class A2D2_iOSUITests: XCTestCase {
     func testRequestRideView_IsShowing(){
         //Tests that Request ride view exists
         XCTAssert(app.images["a2d2logo"].exists)
-        XCTAssert(app.buttons["Request ride"].exists)
-        XCTAssert(app.buttons["Request ride"].isEnabled)
+        XCTAssert(app.buttons["Request Ride"].exists)
+        XCTAssert(app.buttons["Request Ride"].isEnabled)
     }
 
     
     func testRequestRideButton_DoesNavigate(){
         //Tests that the Request ride button navigates away
-        app.buttons["Request ride"].tap()
+        app.buttons["Request Ride"].tap()
         XCTAssert(!app.images["a2d2logo"].exists)
-        XCTAssert(!app.buttons["Request ride"].exists)
+        XCTAssert(!app.buttons["Request Ride"].exists)
     }
     
     
     func testA2D2RulesView_DoesShow(){
         //Test that the Request ride button navigates to A2D2Rules
-        app.buttons["Request ride"].tap()
+        app.buttons["Request Ride"].tap()
         XCTAssert(app.staticTexts["A2D2 Program Rules"].exists)
-        XCTAssert(app.buttons["Acknowledge Rules"].exists)
-        XCTAssert(app.buttons["Acknowledge Rules"].isEnabled)
     }
 }

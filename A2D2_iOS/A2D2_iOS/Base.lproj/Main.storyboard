@@ -23,7 +23,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="15y-am-awC"/>
                                 </constraints>
-                                <state key="normal" title="Request ride">
+                                <state key="normal" title="Request Ride">
                                     <color key="titleColor" red="0.086274509799999996" green="0.35686274509999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -72,34 +72,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="A2D2 Program Rules" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAA-dw-1yg">
-                                <rect key="frame" x="30" y="70" width="315" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A2D2 Program Rules" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAA-dw-1yg">
+                                <rect key="frame" x="67" y="35" width="241.5" height="32.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iem-iC-77k">
-                                <rect key="frame" x="30" y="131" width="315" height="399"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.20826181769999999" green="0.43334984780000002" blue="0.66277182099999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <string key="text">1. A2D2 is a volunteer organization of airmen dedicated to fighting crime at night and will never ever fail. Not fail to failure or nothing of the sort               
-2.  If you find yourself in immediate danger and are kinda scared just call an us. We love to pick up stranded airmen that hate drinking and driving as much as us.
-3. Under no circumstances will we be assosciated with Warner Bros. ent. We are Airmen against drunken driving not looney toons</string>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fq4-Ko-c7d">
+                                <rect key="frame" x="30" y="117.5" width="315" height="451.5"/>
+                                <mutableString key="text">1. A2D2 is a volunteer organization of airmen dedicated to reducing the number of DUIs in the Air Force. Use of this program should be your last resort, not your Plan A.
+
+2. If you find yourself with no safe alternative, simply press the “Request Driver” button. The app will use your current GPS location and you will receive a notification when a driver is dispatched.
+
+3. A2D2 drivers will only transport you to your home address. If you are making a request on behalf of a group, the driver is only required to take the group to a single address. If members of the group need to go to multiple homes, those individuals will need to make separate pickup requests.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lE-bF-x9d" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
-                                <rect key="frame" x="111" y="586" width="153" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Acknowledge Rules">
-                                    <color key="titleColor" red="0.20826181769999999" green="0.43334984780000002" blue="0.66277182099999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                            </button>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.20826181769999999" green="0.43334984780000002" blue="0.66277182099999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="66q-KU-gMc" firstAttribute="trailing" secondItem="fq4-Ko-c7d" secondAttribute="trailing" constant="30" id="1Ro-ES-hNu"/>
+                            <constraint firstItem="fq4-Ko-c7d" firstAttribute="leading" secondItem="66q-KU-gMc" secondAttribute="leading" constant="30" id="Eku-pb-as7"/>
+                            <constraint firstItem="aAA-dw-1yg" firstAttribute="centerX" secondItem="66q-KU-gMc" secondAttribute="centerX" id="Pth-W0-CjG"/>
+                            <constraint firstItem="fq4-Ko-c7d" firstAttribute="top" secondItem="aAA-dw-1yg" secondAttribute="bottom" constant="50" id="Z2D-BW-QpU"/>
+                            <constraint firstItem="aAA-dw-1yg" firstAttribute="top" secondItem="66q-KU-gMc" secondAttribute="top" constant="15" id="geq-9c-VL1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="66q-KU-gMc"/>
                     </view>
                 </viewController>
