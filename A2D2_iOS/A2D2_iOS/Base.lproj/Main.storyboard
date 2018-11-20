@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2M8-3l-1ah">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jkj-OY-gna" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
-                                <rect key="frame" x="48" y="401" width="279" height="64"/>
+                                <rect key="frame" x="48" y="445" width="279" height="64"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="15y-am-awC"/>
@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a2d2logo" translatesAutoresizingMaskIntoConstraints="NO" id="U0r-Oc-gw1">
-                                <rect key="frame" x="29" y="84" width="317" height="217"/>
+                                <rect key="frame" x="29" y="128" width="317" height="217"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="U0r-Oc-gw1" secondAttribute="height" multiplier="317:217" id="Oe5-aD-A6F"/>
                                     <constraint firstAttribute="width" constant="317" id="TpN-AO-0vx"/>
@@ -56,54 +56,115 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="aVV-DR-hTz"/>
                     <connections>
                         <outlet property="requestRideButton" destination="Jkj-OY-gna" id="WVE-n6-3dC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53.600000000000001" y="27.436281859070466"/>
+            <point key="canvasLocation" x="-364" y="136"/>
         </scene>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="sFf-nk-znI">
+            <objects>
+                <navigationController id="2M8-3l-1ah" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Br5-i9-xdG">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.086274509799999996" green="0.35686274509999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xdQ-Qj-K5o"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ej2-fl-9Pj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="89" y="-670"/>
+        </scene>
+        <!--Rules View Controller-->
         <scene sceneID="L4P-bT-MFL">
             <objects>
-                <viewController id="aIU-SF-W91" sceneMemberID="viewController">
+                <viewController id="aIU-SF-W91" customClass="RulesViewController" customModule="A2D2_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H1t-g5-0Kh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A2D2 Program Rules" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAA-dw-1yg">
-                                <rect key="frame" x="67" y="35" width="241.5" height="32.5"/>
+                                <rect key="frame" x="67" y="79" width="241.5" height="32.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fq4-Ko-c7d">
-                                <rect key="frame" x="30" y="117.5" width="315" height="451.5"/>
-                                <mutableString key="text">1. A2D2 is a volunteer organization of airmen dedicated to reducing the number of DUIs in the Air Force. Use of this program should be your last resort, not your Plan A.
+                                <rect key="frame" x="30" y="161.5" width="315" height="451.5"/>
+                                <string key="text">1. A2D2 is a volunteer organization of airmen dedicated to reducing the number of DUIs in the Air Force. Use of this program should be your last resort, not your Plan A.
 
 2. If you find yourself with no safe alternative, simply press the “Request Driver” button. The app will use your current GPS location and you will receive a notification when a driver is dispatched.
 
-3. A2D2 drivers will only transport you to your home address. If you are making a request on behalf of a group, the driver is only required to take the group to a single address. If members of the group need to go to multiple homes, those individuals will need to make separate pickup requests.</mutableString>
+3. A2D2 drivers will only transport you to your home address. If you are making a request on behalf of a group, the driver is only required to take the group to a single address. If members of the group need to go to multiple homes, those individuals will need to make separate pickup requests.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" misplaced="YES" restorationIdentifier="Agree to Rules" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qc-zU-U2r" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
+                                <rect key="frame" x="145" y="591" width="97" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Agree">
+                                    <color key="titleColor" red="0.086274509799999996" green="0.35686274509999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="agreeButtonTapped" destination="aIU-SF-W91" eventType="touchUpInside" id="fNz-eK-JDi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20826181769999999" green="0.43334984780000002" blue="0.66277182099999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="66q-KU-gMc" firstAttribute="trailing" secondItem="fq4-Ko-c7d" secondAttribute="trailing" constant="30" id="1Ro-ES-hNu"/>
                             <constraint firstItem="fq4-Ko-c7d" firstAttribute="leading" secondItem="66q-KU-gMc" secondAttribute="leading" constant="30" id="Eku-pb-as7"/>
                             <constraint firstItem="aAA-dw-1yg" firstAttribute="centerX" secondItem="66q-KU-gMc" secondAttribute="centerX" id="Pth-W0-CjG"/>
+                            <constraint firstItem="5qc-zU-U2r" firstAttribute="centerX" secondItem="66q-KU-gMc" secondAttribute="centerX" id="VFr-RV-UoK"/>
                             <constraint firstItem="fq4-Ko-c7d" firstAttribute="top" secondItem="aAA-dw-1yg" secondAttribute="bottom" constant="50" id="Z2D-BW-QpU"/>
+                            <constraint firstItem="66q-KU-gMc" firstAttribute="bottom" secondItem="5qc-zU-U2r" secondAttribute="bottom" constant="44" id="fC2-iL-5b9"/>
                             <constraint firstItem="aAA-dw-1yg" firstAttribute="top" secondItem="66q-KU-gMc" secondAttribute="top" constant="15" id="geq-9c-VL1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="66q-KU-gMc"/>
                     </view>
+                    <connections>
+                        <outlet property="agreeButton" destination="5qc-zU-U2r" id="MWh-6c-LZ6"/>
+                        <segue destination="pkP-yb-wPx" kind="show" identifier="seque_Request_Ride_Page" id="yJG-9s-HeW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jEH-WU-f7D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="797.60000000000002" y="29.23538230884558"/>
+            <point key="canvasLocation" x="527" y="136"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="nDW-WE-Z1A">
+            <objects>
+                <viewController id="pkP-yb-wPx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AQS-3g-yaY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pickup Request Options" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q12-v0-PeL">
+                                <rect key="frame" x="85" y="34" width="205" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.086274509799999996" green="0.35686274509999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="q12-v0-PeL" firstAttribute="centerX" secondItem="wu9-Qc-Xoy" secondAttribute="centerX" id="MUT-XO-elA"/>
+                            <constraint firstItem="q12-v0-PeL" firstAttribute="top" secondItem="wu9-Qc-Xoy" secondAttribute="top" constant="14" id="QFc-Gy-Bjy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wu9-Qc-Xoy"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NF5-Sz-uTj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1542" y="137"/>
         </scene>
     </scenes>
     <resources>

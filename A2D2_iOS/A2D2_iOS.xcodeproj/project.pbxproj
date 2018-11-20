@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5D47466F219F1C9300131FE2 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D47466E219F1C9300131FE2 /* MyButton.swift */; };
+		7C193E3621A45C660095728D /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C193E3521A45C660095728D /* RulesViewController.swift */; };
 		7C94E7C4219B4E0900A623D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C94E7C3219B4E0900A623D9 /* AppDelegate.swift */; };
 		7C94E7C6219B4E0900A623D9 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C94E7C5219B4E0900A623D9 /* HomeController.swift */; };
 		7C94E7C9219B4E0900A623D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C94E7C7219B4E0900A623D9 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		5D47466E219F1C9300131FE2 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
+		7C193E3521A45C660095728D /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		7C94E7C0219B4E0900A623D9 /* A2D2_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = A2D2_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C94E7C3219B4E0900A623D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C94E7C5219B4E0900A623D9 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 		5D3206A5219F1867008C1F78 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7C193E3521A45C660095728D /* RulesViewController.swift */,
 				7C94E7C5219B4E0900A623D9 /* HomeController.swift */,
 			);
 			path = ViewControllers;
@@ -269,6 +272,7 @@
 			files = (
 				7C94E7C6219B4E0900A623D9 /* HomeController.swift in Sources */,
 				7C94E7C4219B4E0900A623D9 /* AppDelegate.swift in Sources */,
+				7C193E3621A45C660095728D /* RulesViewController.swift in Sources */,
 				5D47466F219F1C9300131FE2 /* MyButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
