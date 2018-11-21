@@ -26,16 +26,7 @@ class A2D2_iOSUITests: XCTestCase {
         app.launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-        
-        addUIInterruptionMonitor(withDescription: "Location Dialog") { (alert) ->Bool in
-            let button = alert.buttons["Allow"]
-            self.didAlertShow = true
-            if button.exists{
-                button.tap()
-                return true
-            }
-            return false
-        }
+
     }
 
     
@@ -74,24 +65,38 @@ class A2D2_iOSUITests: XCTestCase {
     }
     
     
-    func testAgreeButton_DoesPrompt(){
-        //Test that the Agree button prompts user with a location request pop-up
-        //CLLocationManager.authorizationStatus()
-        app.buttons[RequestRideBtn].tap()
-        app.buttons[RulesAgreeBtn].tap()
-        app.tap()
-        sleep(1)
-        XCTAssert(didAlertShow)
-
-    }
-    
-    
-    func testAgreeButton_DoesNavigate(){
+    func testAllowButton_DoesNavigate(){
         //When Agree is selected user is navigated to the request ride page
+        addUIInterruptionMonitor(withDescription: "Location Dialog") { (alert) ->Bool in
+            let agreeButton = alert.buttons["Allow"]
+            if agreeButton.exists{
+                agreeButton.tap()
+            }
+            return true
+        }
+        
         app.buttons[RequestRideBtn].tap()
         app.buttons[RulesAgreeBtn].tap()
         app.tap()
         sleep(1)
         XCTAssert(app.staticTexts["Pickup Request Options"].exists)
+    }
+    
+    
+    func testDenyButton_DoesAlert(){
+        //When Agree is selected user is navigated to the request ride page
+        addUIInterruptionMonitor(withDescription: "Location Dialog") { (alert) ->Bool in
+            let denyButton = alert.buttons["Deny"]
+            if denyButton.exists{
+                denyButton.tap()
+            }
+            return false
+        }
+        
+        app.buttons[RequestRideBtn].tap()
+        app.buttons[RulesAgreeBtn].tap()
+        app.tap()
+        sleep(1)
+        XCTAssert(app.alerts.count > 0)
     }
 }

@@ -26,6 +26,14 @@ class RulesViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        performSegue(withIdentifier: "seque_Request_Ride_Page", sender: self)
+        switch status {
+        case .authorizedAlways, .authorizedWhenInUse:
+            performSegue(withIdentifier: "seque_Request_Ride_Page", sender: self)
+        case .denied:
+            let alert = UIAlertController(title: "Permissions Alert", message: "Need to turn on Permissions.", preferredStyle: .alert)
+            self.present(alert, animated: true)
+        default:
+            return
+        }
     }
 }
