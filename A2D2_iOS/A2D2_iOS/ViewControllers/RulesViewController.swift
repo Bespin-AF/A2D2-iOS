@@ -9,21 +9,23 @@
 import UIKit
 import CoreLocation
 import Foundation
-class RulesViewController: UIViewController {
-    
-    
-    let locationManager = CLLocationManager()
+
+class RulesViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet var agreeButton: MyButton!
-    
-    
-    @IBAction func agreeButtonTapped(){
-        locationManager.requestWhenInUseAuthorization()
-        performSegue(withIdentifier: "seque_Request_Ride_Page", sender: self)
-    }
+    var locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    
+    @IBAction func agreeButtonTapped(){
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        performSegue(withIdentifier: "seque_Request_Ride_Page", sender: self)
+    }
 }
