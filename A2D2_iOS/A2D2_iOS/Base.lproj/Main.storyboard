@@ -73,6 +73,9 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.086274509799999996" green="0.35686274509999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xdQ-Qj-K5o"/>
@@ -82,31 +85,14 @@
             </objects>
             <point key="canvasLocation" x="-1127" y="136"/>
         </scene>
-        <!--Rules View Controller-->
+        <!--A2D2 Rules-->
         <scene sceneID="L4P-bT-MFL">
             <objects>
-                <viewController id="aIU-SF-W91" customClass="RulesViewController" customModule="A2D2_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="A2D2 Rules" id="aIU-SF-W91" customClass="RulesViewController" customModule="A2D2_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H1t-g5-0Kh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A2D2 Rules" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAA-dw-1yg">
-                                <rect key="frame" x="119" y="79" width="137.5" height="32.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="240" verticalCompressionResistancePriority="240" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fq4-Ko-c7d">
-                                <rect key="frame" x="30" y="161.5" width="315" height="426.5"/>
-                                <string key="text">1. A2D2 is a volunteer organization of airmen dedicated to reducing the number of DUIs in the Air Force. Use of this program should be your last resort, not your Plan A.
-
-2. If you find yourself with no safe alternative, simply press the “Request Driver” button. The app will use your current GPS location and you will receive a notification when a driver is dispatched.
-
-3. A2D2 drivers will only transport you to your home address. If you are making a request on behalf of a group, the driver is only required to take the group to a single address. If members of the group need to go to multiple homes, those individuals will need to make separate pickup requests.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="240" verticalHuggingPriority="240" horizontalCompressionResistancePriority="760" verticalCompressionResistancePriority="760" restorationIdentifier="Agree to Rules" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qc-zU-U2r" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
                                 <rect key="frame" x="127.5" y="588" width="120" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -122,17 +108,25 @@
                                     <action selector="agreeButtonTapped" destination="aIU-SF-W91" eventType="touchUpInside" id="fNz-eK-JDi"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="240" verticalCompressionResistancePriority="240" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fq4-Ko-c7d">
+                                <rect key="frame" x="30" y="94" width="315" height="451.5"/>
+                                <string key="text">1. A2D2 is a volunteer organization of airmen dedicated to reducing the number of DUIs in the Air Force. Use of this program should be your last resort, not your Plan A.
+
+2. If you find yourself with no safe alternative, simply press the “Request Driver” button. The app will use your current GPS location and you will receive a notification when a driver is dispatched.
+
+3. A2D2 drivers will only transport you to your home address. If you are making a request on behalf of a group, the driver is only required to take the group to a single address. If members of the group need to go to multiple homes, those individuals will need to make separate pickup requests.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.20826181769999999" green="0.43334984780000002" blue="0.66277182099999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="66q-KU-gMc" firstAttribute="trailing" secondItem="fq4-Ko-c7d" secondAttribute="trailing" constant="30" id="1Ro-ES-hNu"/>
-                            <constraint firstItem="fq4-Ko-c7d" firstAttribute="leading" secondItem="66q-KU-gMc" secondAttribute="leading" constant="30" id="Eku-pb-as7"/>
-                            <constraint firstItem="aAA-dw-1yg" firstAttribute="centerX" secondItem="66q-KU-gMc" secondAttribute="centerX" id="Pth-W0-CjG"/>
+                            <constraint firstItem="fq4-Ko-c7d" firstAttribute="leading" secondItem="66q-KU-gMc" secondAttribute="leading" constant="30" id="3G1-p1-AUB"/>
+                            <constraint firstItem="fq4-Ko-c7d" firstAttribute="trailing" secondItem="66q-KU-gMc" secondAttribute="trailing" constant="-30" id="3YT-kb-5nJ"/>
+                            <constraint firstItem="fq4-Ko-c7d" firstAttribute="top" secondItem="66q-KU-gMc" secondAttribute="top" constant="30" id="K3D-Np-rGa"/>
                             <constraint firstItem="5qc-zU-U2r" firstAttribute="centerX" secondItem="66q-KU-gMc" secondAttribute="centerX" id="VFr-RV-UoK"/>
-                            <constraint firstItem="fq4-Ko-c7d" firstAttribute="top" secondItem="aAA-dw-1yg" secondAttribute="bottom" constant="50" id="Z2D-BW-QpU"/>
                             <constraint firstItem="66q-KU-gMc" firstAttribute="bottom" secondItem="5qc-zU-U2r" secondAttribute="bottom" constant="44" id="fC2-iL-5b9"/>
-                            <constraint firstItem="aAA-dw-1yg" firstAttribute="top" secondItem="66q-KU-gMc" secondAttribute="top" constant="15" id="geq-9c-VL1"/>
-                            <constraint firstItem="5qc-zU-U2r" firstAttribute="firstBaseline" secondItem="fq4-Ko-c7d" secondAttribute="baseline" constant="30" id="m9p-yl-9fp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="66q-KU-gMc"/>
                     </view>
@@ -145,26 +139,14 @@
             </objects>
             <point key="canvasLocation" x="357.60000000000002" y="135.38230884557723"/>
         </scene>
-        <!--View Controller-->
+        <!--Pickup Request Options-->
         <scene sceneID="nDW-WE-Z1A">
             <objects>
-                <viewController id="pkP-yb-wPx" sceneMemberID="viewController">
+                <viewController title="Pickup Request Options" id="pkP-yb-wPx" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AQS-3g-yaY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup Request Options" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q12-v0-PeL">
-                                <rect key="frame" x="90.5" y="78" width="194" height="21.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" red="0.086274509799999996" green="0.35686274509999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="q12-v0-PeL" firstAttribute="centerX" secondItem="wu9-Qc-Xoy" secondAttribute="centerX" id="MUT-XO-elA"/>
-                            <constraint firstItem="q12-v0-PeL" firstAttribute="top" secondItem="wu9-Qc-Xoy" secondAttribute="top" constant="14" id="QFc-Gy-Bjy"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wu9-Qc-Xoy"/>
                     </view>
                 </viewController>

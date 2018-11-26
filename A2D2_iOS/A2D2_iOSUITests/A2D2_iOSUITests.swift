@@ -97,6 +97,7 @@ class A2D2_iOSUITests: XCTestCase {
         app.buttons[RulesAgreeBtn].tap()
         app.tap()
         sleep(1)
-        XCTAssert(app.alerts.count > 0)
+        let title = app.navigationBars["Pickup Request Options"].otherElements["Pickup Request Options"]
+        XCTAssert(title.exists)
     }
 }
