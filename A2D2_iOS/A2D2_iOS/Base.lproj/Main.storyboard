@@ -73,6 +73,9 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.086274509799999996" green="0.35686274509999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xdQ-Qj-K5o"/>
@@ -145,26 +148,14 @@
             </objects>
             <point key="canvasLocation" x="357.60000000000002" y="135.38230884557723"/>
         </scene>
-        <!--View Controller-->
+        <!--Pickup Request Options-->
         <scene sceneID="nDW-WE-Z1A">
             <objects>
-                <viewController id="pkP-yb-wPx" sceneMemberID="viewController">
+                <viewController title="Pickup Request Options" id="pkP-yb-wPx" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AQS-3g-yaY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup Request Options" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q12-v0-PeL">
-                                <rect key="frame" x="90.5" y="78" width="194" height="21.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" red="0.086274509799999996" green="0.35686274509999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="q12-v0-PeL" firstAttribute="centerX" secondItem="wu9-Qc-Xoy" secondAttribute="centerX" id="MUT-XO-elA"/>
-                            <constraint firstItem="q12-v0-PeL" firstAttribute="top" secondItem="wu9-Qc-Xoy" secondAttribute="top" constant="14" id="QFc-Gy-Bjy"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wu9-Qc-Xoy"/>
                     </view>
                 </viewController>
