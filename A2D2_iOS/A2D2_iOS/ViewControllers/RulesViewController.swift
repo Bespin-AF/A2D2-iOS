@@ -30,7 +30,7 @@ class RulesViewController: UIViewController, CLLocationManagerDelegate {
         case .authorizedAlways, .authorizedWhenInUse:
             performSegue(withIdentifier: "seque_Request_Ride_Page", sender: self)
         case .denied:
-            let alert = UIAlertController(title: "Permissions Alert", message: "Need to turn on Permissions.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Location Not Enabled", message: "You have not allowed the A2D2 app to access your GPS location. Without this permission this app cannot function. Please go to you settings and enable the GPS permission", preferredStyle: .alert)
             self.present(alert, animated: true)
         default:
             return
