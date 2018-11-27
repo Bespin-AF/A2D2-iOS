@@ -65,46 +65,46 @@ class A2D2_iOSUITests: XCTestCase {
     }
     
     
-    func testAllowButton_DoesNavigate(){
-        //When Agree is selected user is navigated to the request ride page
-        addUIInterruptionMonitor(withDescription: "Location Permissions") { (alert) ->Bool in
-            let agreeButton = alert.buttons["Allow"]
-            if agreeButton.exists{
-                agreeButton.tap()
-                return true
-            }
-            XCTFail("Unexpected Alert")
-            return false
-        }
-        
-        app.buttons[requestRideBtn].tap()
-        app.buttons[rulesAgreeBtn].tap()
-        app.tap()
-        sleep(1)
-        let title = app.navigationBars["Pickup Request Options"].otherElements["Pickup Request Options"]
-        XCTAssert(title.exists)
-    }
-    
-    
-    func testDenyButton_DoesAlert(){
-        //When Deny is selected user is alerted to our disgust of them
-        addUIInterruptionMonitor(withDescription: "Location Dialog") { (alert) ->Bool in
-            print("BEARS!!!!")
-            print(alert)
-            print(alert.buttons.count)
-            let denyButton = alert.buttons["Don't Allow"]
-            if(denyButton.exists){
-                denyButton.tap()
-                return true
-            }
-            XCTFail("Unexpected Alert")
-            return false
-        }
-        
-        app.buttons[requestRideBtn].tap()
-        app.buttons[rulesAgreeBtn].tap()
-        app.tap()
-        sleep(1)
-        XCTAssert(app.alerts["Location Not Enabled"].exists)
-    }
+//    func testAllowButton_DoesNavigate(){
+//        //When Agree is selected user is navigated to the request ride page
+//        addUIInterruptionMonitor(withDescription: "Location Permissions") { (alert) ->Bool in
+//            let agreeButton = alert.buttons["Allow"]
+//            if agreeButton.exists{
+//                agreeButton.tap()
+//                return true
+//            }
+//            XCTFail("Unexpected Alert")
+//            return false
+//        }
+//
+//        app.buttons[requestRideBtn].tap()
+//        app.buttons[rulesAgreeBtn].tap()
+//        app.tap()
+//        sleep(1)
+//        let title = app.navigationBars["Pickup Request Options"].otherElements["Pickup Request Options"]
+//        XCTAssert(title.exists)
+//    }
+//
+//
+//    func testDenyButton_DoesAlert(){
+//        //When Deny is selected user is alerted to our disgust of them
+//        addUIInterruptionMonitor(withDescription: "Location Dialog") { (alert) ->Bool in
+//            print("BEARS!!!!")
+//            print(alert)
+//            print(alert.buttons.count)
+//            let denyButton = alert.buttons["Don't Allow"]
+//            if(denyButton.exists){
+//                denyButton.tap()
+//                return true
+//            }
+//            XCTFail("Unexpected Alert")
+//            return false
+//        }
+//
+//        app.buttons[requestRideBtn].tap()
+//        app.buttons[rulesAgreeBtn].tap()
+//        app.tap()
+//        sleep(1)
+//        XCTAssert(app.alerts["Location Not Enabled"].exists)
+//    }
 }
