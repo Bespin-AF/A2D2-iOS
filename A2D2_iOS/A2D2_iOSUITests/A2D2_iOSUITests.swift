@@ -107,4 +107,10 @@ class A2D2_iOSUITests: XCTestCase {
 //        sleep(1)
 //        XCTAssert(app.alerts["Location Not Enabled"].exists)
 //    }
+    
+    func testAgreeAfterDenied_HasOK(){
+        app.buttons[requestRideBtn].tap()
+        app.buttons[rulesAgreeBtn].tap()
+        XCTAssert(app.alerts["Location Not Enabled"].buttons["Okay"].exists)
+    }
 }
