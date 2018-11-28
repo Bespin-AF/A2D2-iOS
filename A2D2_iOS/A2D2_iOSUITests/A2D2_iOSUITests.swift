@@ -46,6 +46,7 @@ class A2D2_iOSUITests: XCTestCase {
     func testRequestRideButton_DoesNavigate(){
         //Tests that the Request ride button navigates away
         app.buttons[requestRideBtn].tap()
+        sleep(1)
         XCTAssert(!app.images["a2d2logo"].exists)
         XCTAssert(!app.buttons[requestRideBtn].exists)
     }
@@ -54,7 +55,7 @@ class A2D2_iOSUITests: XCTestCase {
     func testA2D2RulesView_DoesShow(){
         //Test that the Request ride button navigates to A2D2Rules
         app.buttons[requestRideBtn].tap()
-        XCTAssert(app.staticTexts["A2D2 Rules"].exists)
+        XCTAssert(app.navigationBars["A2D2 Rules"].exists)
     }
 
     
@@ -112,5 +113,11 @@ class A2D2_iOSUITests: XCTestCase {
         app.buttons[requestRideBtn].tap()
         app.buttons[rulesAgreeBtn].tap()
         XCTAssert(app.alerts["Location Not Enabled"].buttons["Okay"].exists)
+    }
+    
+    func testAgreeAfterAccepted_DoesNavigate() {
+        app.buttons[requestRideBtn].tap()
+        app.buttons[rulesAgreeBtn].tap()
+        XCTAssert(app.navigationBars["Pickup Request Options"].exists)
     }
 }
