@@ -28,6 +28,9 @@ class RulesViewController: UIViewController, CLLocationManagerDelegate {
             alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
             self.present(alert, animated: true)
         }
+        else {
+            performSegue(withIdentifier: "seque_Request_Ride_Page", sender: self)
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
