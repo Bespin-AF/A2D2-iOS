@@ -113,4 +113,11 @@ class A2D2_iOSUITests: XCTestCase {
         app.buttons[rulesAgreeBtn].tap()
         XCTAssert(app.alerts["Location Not Enabled"].buttons["Okay"].exists)
     }
+    
+    
+    func testRequest_HasGroupSize(){
+        app.buttons[requestRideBtn].tap()
+        app.buttons[rulesAgreeBtn].tap()
+        XCTAssert(app.staticTexts["Group Size"].exists)
+    }
 }
