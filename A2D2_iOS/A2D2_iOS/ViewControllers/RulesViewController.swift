@@ -27,6 +27,8 @@ class RulesViewController: UIViewController, CLLocationManagerDelegate {
             let alert = UIAlertController(title: "Location Not Enabled", message: "You have not allowed the A2D2 app to access your GPS location. Without this permission this app cannot function. Please go to you settings and enable the GPS permission", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
             self.present(alert, animated: true)
+        } else {
+            performSegue(withIdentifier: "seque_Request_Ride_Page", sender: self)
         }
     }
     
