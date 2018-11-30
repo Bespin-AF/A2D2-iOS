@@ -120,4 +120,10 @@ class A2D2_iOSUITests: XCTestCase {
         app.buttons[rulesAgreeBtn].tap()
         XCTAssert(app.navigationBars["Pickup Request Options"].exists)
     }
+    
+    func testRequest_HasGroupSize(){
+        app.buttons[requestRideBtn].tap()
+        app.buttons[rulesAgreeBtn].tap()
+        XCTAssert(app.staticTexts["Group Size"].exists)
+    }
 }
