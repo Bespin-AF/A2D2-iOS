@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D2E769821B1998E00F9EF84 /* RequestOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E769721B1998E00F9EF84 /* RequestOptionsController.swift */; };
 		5D47466F219F1C9300131FE2 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D47466E219F1C9300131FE2 /* MyButton.swift */; };
 		7C193E3621A45C660095728D /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C193E3521A45C660095728D /* RulesViewController.swift */; };
 		7C94E7C4219B4E0900A623D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C94E7C3219B4E0900A623D9 /* AppDelegate.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D2E769721B1998E00F9EF84 /* RequestOptionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestOptionsController.swift; sourceTree = "<group>"; };
 		5D47466E219F1C9300131FE2 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 		7C193E3521A45C660095728D /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		7C94E7C0219B4E0900A623D9 /* A2D2_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = A2D2_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +83,7 @@
 		5D3206A5219F1867008C1F78 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1D2E769721B1998E00F9EF84 /* RequestOptionsController.swift */,
 				7C193E3521A45C660095728D /* RulesViewController.swift */,
 				7C94E7C5219B4E0900A623D9 /* HomeController.swift */,
 			);
@@ -270,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D2E769821B1998E00F9EF84 /* RequestOptionsController.swift in Sources */,
 				7C94E7C6219B4E0900A623D9 /* HomeController.swift in Sources */,
 				7C94E7C4219B4E0900A623D9 /* AppDelegate.swift in Sources */,
 				7C193E3621A45C660095728D /* RulesViewController.swift in Sources */,

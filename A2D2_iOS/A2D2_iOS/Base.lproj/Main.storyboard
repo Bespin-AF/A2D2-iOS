@@ -142,17 +142,38 @@
         <!--Pickup Request Options-->
         <scene sceneID="nDW-WE-Z1A">
             <objects>
-                <viewController title="Pickup Request Options" id="pkP-yb-wPx" sceneMemberID="viewController">
+                <viewController title="Pickup Request Options" id="pkP-yb-wPx" customClass="RequestOptionsController" customModule="A2D2_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AQS-3g-yaY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pMu-UC-eEr">
+                                <rect key="frame" x="27" y="155" width="320" height="245"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Size" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OpZ-A4-5Ve">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1f-TN-bho">
+                                        <rect key="frame" x="0.0" y="29" width="320" height="216"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </pickerView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="0.086274509799999996" green="0.35686274509999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="wu9-Qc-Xoy"/>
                     </view>
+                    <connections>
+                        <outlet property="groupSizePicker" destination="o1f-TN-bho" id="mmf-lK-QQz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NF5-Sz-uTj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1094" y="135"/>
+            <point key="canvasLocation" x="1093.5999999999999" y="134.48275862068968"/>
         </scene>
     </scenes>
     <resources>
