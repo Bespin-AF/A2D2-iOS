@@ -126,4 +126,10 @@ class A2D2_iOSUITests: XCTestCase {
         app.buttons[rulesAgreeBtn].tap()
         XCTAssert(app.staticTexts["Group Size"].exists)
     }
+    
+    func testRequest_HasGender(){
+        app.buttons[requestRideBtn].tap()
+        app.buttons[rulesAgreeBtn].tap()
+        XCTAssert(app.staticTexts["Gender"].exists)
+    }
 }
