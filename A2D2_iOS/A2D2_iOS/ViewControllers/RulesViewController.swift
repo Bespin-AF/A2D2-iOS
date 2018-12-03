@@ -28,7 +28,7 @@ class RulesViewController: UIViewController, CLLocationManagerDelegate {
             alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
             self.present(alert, animated: true)
         }
-        else {
+        else if(CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse) {
             performSegue(withIdentifier: "seque_Request_Ride_Page", sender: self)
         }
     }
