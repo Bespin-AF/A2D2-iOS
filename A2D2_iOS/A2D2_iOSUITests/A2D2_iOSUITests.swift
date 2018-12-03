@@ -109,11 +109,11 @@ class A2D2_iOSUITests: XCTestCase {
 //        XCTAssert(app.alerts["Location Not Enabled"].exists)
 //    }
     
-    func testAgreeAfterDenied_HasOK(){
-        app.buttons[requestRideBtn].tap()
-        app.buttons[rulesAgreeBtn].tap()
-        XCTAssert(app.alerts["Location Not Enabled"].buttons["Okay"].exists)
-    }
+//    func testAgreeAfterDenied_HasOK(){
+//        app.buttons[requestRideBtn].tap()
+//        app.buttons[rulesAgreeBtn].tap()
+//        XCTAssert(app.alerts["Location Not Enabled"].buttons["Okay"].exists)
+//    }
     
     func testAgreeAfterAccepted_DoesNavigate() {
         app.buttons[requestRideBtn].tap()
@@ -125,5 +125,11 @@ class A2D2_iOSUITests: XCTestCase {
         app.buttons[requestRideBtn].tap()
         app.buttons[rulesAgreeBtn].tap()
         XCTAssert(app.staticTexts["Group Size"].exists)
+    }
+    
+    func testRequest_HasGender(){
+        app.buttons[requestRideBtn].tap()
+        app.buttons[rulesAgreeBtn].tap()
+        XCTAssert(app.staticTexts["Gender"].exists)
     }
 }
