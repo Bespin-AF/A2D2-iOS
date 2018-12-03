@@ -148,22 +148,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PzP-lk-ovY">
-                                <rect key="frame" x="0.0" y="88" width="640" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sWe-zz-Ha8">
-                                        <rect key="frame" x="0.0" y="0.0" width="640" height="244.66666666666666"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="244.66666666666666"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pMu-UC-eEr">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="244.66666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="207" height="244.66666666666666"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Size" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OpZ-A4-5Ve">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="28.666666666666668"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="207" height="28.666666666666668"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1f-TN-bho">
-                                                        <rect key="frame" x="0.0" y="28.666666666666686" width="320" height="216"/>
+                                                        <rect key="frame" x="0.0" y="28.666666666666686" width="207" height="216"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </pickerView>
                                                 </subviews>
@@ -172,16 +172,16 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bNC-cy-wx4">
-                                                <rect key="frame" x="320" y="0.0" width="320" height="244.66666666666666"/>
+                                                <rect key="frame" x="207" y="0.0" width="207" height="244.66666666666666"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYN-mQ-Oik">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="28.666666666666668"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="207" height="28.666666666666668"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CMp-g0-f8I">
-                                                        <rect key="frame" x="0.0" y="28.666666666666686" width="320" height="216"/>
+                                                        <rect key="frame" x="0.0" y="28.666666666666686" width="207" height="216"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </pickerView>
                                                 </subviews>
@@ -195,13 +195,13 @@
                                         </constraints>
                                     </stackView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Remarks (optional)" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hdV-r7-vfk">
-                                        <rect key="frame" x="0.0" y="244.66666666666669" width="640" height="392.00000000000006"/>
+                                        <rect key="frame" x="0.0" y="244.66666666666669" width="414" height="392.00000000000006"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" smartDashesType="no"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCy-fH-ZvE">
-                                        <rect key="frame" x="0.0" y="636.66666666666663" width="640" height="137.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="636.66666666666663" width="414" height="137.33333333333337"/>
                                         <state key="normal" title="Button"/>
                                     </button>
                                 </subviews>
@@ -219,9 +219,15 @@
                     <connections>
                         <outlet property="groupSizePicker" destination="o1f-TN-bho" id="mmf-lK-QQz"/>
                         <outlet property="requesterGenderPicker" destination="CMp-g0-f8I" id="15n-Yk-gRo"/>
+                        <outlet property="textView" destination="hdV-r7-vfk" id="HdJ-XF-tCQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NF5-Sz-uTj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="V6b-X7-kAc">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="pkP-yb-wPx" id="ARo-uz-vNe"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1093.5999999999999" y="134.48275862068968"/>
         </scene>

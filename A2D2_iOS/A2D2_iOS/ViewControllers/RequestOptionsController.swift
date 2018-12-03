@@ -12,6 +12,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
 
     @IBOutlet weak var groupSizePicker: UIPickerView!
     @IBOutlet weak var requesterGenderPicker: UIPickerView!
+    @IBOutlet var textView: UITextView!
     let groupSizeData = [1,2,3,4]
     let requesterGender = ["Male", "Female"]
     
@@ -46,5 +47,9 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
             str = "\(requesterGender[row])"
         }
         return NSAttributedString(string: str, attributes: [NSAttributedString.Key.foregroundColor:UIColor.white])
+    }
+    
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        textView.resignFirstResponder()
     }
 }
