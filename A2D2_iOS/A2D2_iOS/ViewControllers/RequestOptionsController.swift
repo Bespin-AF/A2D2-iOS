@@ -11,13 +11,18 @@ import UIKit
 class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var groupSizePicker: UIPickerView!
+    @IBOutlet weak var requesterGenderPicker: UIPickerView!
     let groupSizeData = [1,2,3,4]
+    let requesterGender = ["Male", "Female"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         groupSizePicker.delegate = self
         groupSizePicker.dataSource = self
         groupSizePicker.setValue(UIColor.white, forKeyPath: "textColor")
+        requesterGenderPicker.delegate = self
+        requesterGenderPicker.dataSource = self
+        requesterGenderPicker.setValue(UIColor.white, forKeyPath: "textColor")
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -25,12 +30,21 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return groupSizeData.count
+        if(pickerView == groupSizePicker){
+            return groupSizeData.count
+        } else if (pickerView == requesterGenderPicker) {
+            return requesterGender.count
+        }
+        return 0
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let str = "\(groupSizeData[row])"
+        var str = ""
+        if(pickerView == groupSizePicker){
+            str = "\(groupSizeData[row])"
+        } else if (pickerView == requesterGenderPicker) {
+            str = "\(requesterGender[row])"
+        }
         return NSAttributedString(string: str, attributes: [NSAttributedString.Key.foregroundColor:UIColor.white])
     }
-   
 }
