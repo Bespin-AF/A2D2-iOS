@@ -8,12 +8,14 @@
 
 import UIKit
 
-class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate {
 
     @IBOutlet weak var groupSizePicker: UIPickerView!
     @IBOutlet weak var requesterGenderPicker: UIPickerView!
+    @IBOutlet var textView: UITextView!
     let groupSizeData = [1,2,3,4]
     let requesterGender = ["Male", "Female"]
+    let commentsPlaceholderText = "Comments (Optional)"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,25 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         requesterGenderPicker.delegate = self
         requesterGenderPicker.dataSource = self
         requesterGenderPicker.setValue(UIColor.white, forKeyPath: "textColor")
+        textView.delegate = self
+        textView.text = commentsPlaceholderText
+        textView.textColor = UIColor.lightGray
+
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if  textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+            textView.becomeFirstResponder()
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = commentsPlaceholderText
+            textView.textColor = UIColor.lightGray
+        }
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -46,5 +67,13 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
             str = "\(requesterGender[row])"
         }
         return NSAttributedString(string: str, attributes: [NSAttributedString.Key.foregroundColor:UIColor.white])
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
     }
 }
