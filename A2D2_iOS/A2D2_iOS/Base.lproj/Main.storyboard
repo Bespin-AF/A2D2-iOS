@@ -201,14 +201,14 @@
                                 </subviews>
                                 <gestureRecognizers/>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cJ-gz-nSJ" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cJ-gz-nSJ" customClass="requestRideBtn">
                                 <rect key="frame" x="44.666666666666657" y="728" width="325" height="90"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="325" id="139-lk-0Fx"/>
                                     <constraint firstAttribute="height" constant="90" id="4y6-Bw-lTN"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Request Ride">
                                     <color key="titleColor" red="0.20826181769999999" green="0.43334984780000002" blue="0.66277182099999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>

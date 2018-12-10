@@ -132,14 +132,22 @@ class A2D2_iOSUITests: XCTestCase {
         app.buttons[rulesAgreeBtn].tap()
         XCTAssert(app.staticTexts["Gender"].exists)
     }
+    
     func testRequest_DoesRemarksExists(){
         app.buttons[requestRideBtn].tap()
         app.buttons[rulesAgreeBtn].tap()
         XCTAssert(app.textViews.count > 0)
     }
+    
     func testRequest_DoesPlaceHolderExist(){
         app.buttons[requestRideBtn].tap()
         app.buttons[rulesAgreeBtn].tap()
         XCTAssert(app.textViews["Comments (Optional)"].exists)
+    }
+    
+    func testRequestRideButton_DoesShow(){
+        //Test that the Agree button exists
+        app.buttons[requestRideBtn].tap()
+        XCTAssert(app.buttons[requestRideBtn].exists)
     }
 }
