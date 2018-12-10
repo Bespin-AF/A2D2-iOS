@@ -211,6 +211,9 @@
                                 <state key="normal" title="Button">
                                     <color key="titleColor" red="0.20826181769999999" green="0.43334984780000002" blue="0.66277182099999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="button" destination="pkP-yb-wPx" eventType="touchUpInside" id="Z5Y-OD-8Bu"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.086274509799999996" green="0.35686274509999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
