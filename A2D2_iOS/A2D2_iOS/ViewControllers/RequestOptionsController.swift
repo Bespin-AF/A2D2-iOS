@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate {
+class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var groupSizePicker: UIPickerView!
     @IBOutlet weak var requesterGenderPicker: UIPickerView!
@@ -16,6 +17,8 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     let groupSizeData = [1,2,3,4]
     let requesterGender = ["Male", "Female"]
     let commentsPlaceholderText = "Comments (Optional)"
+    let locationManager = CLLocationManager()
+    var request = Request()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +31,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         textView.delegate = self
         textView.text = commentsPlaceholderText
         textView.textColor = UIColor.lightGray
-
+        locationManager.delegate = self
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -63,8 +66,10 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         var str = ""
         if(pickerView == groupSizePicker){
             str = "\(groupSizeData[row])"
+            request.groupSize = groupSizeData[row]
         } else if (pickerView == requesterGenderPicker) {
             str = "\(requesterGender[row])"
+            request.gender = requesterGender[row]
         }
         return NSAttributedString(string: str, attributes: [NSAttributedString.Key.foregroundColor:UIColor.white])
     }
@@ -75,5 +80,26 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
             return false
         }
         return true
+    }
+    
+    @IBAction func button(){
+        buildRequest()
+        let alert = UIAlertController(title: "Confirm Driver Request", message: "Are u sure u wan a drivey boi?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler:{ action in
+            self.performSegue(withIdentifier: "request_sent", sender: self)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
+    func buildRequest(){
+        guard let location = locationManager.location else {
+            print("This ain't it, chief.")
+            return
+        }
+        //Avoid sending placeholder text
+        request.comments = textView.textColor == UIColor.black ? textView.text : ""
+        request.latitude = location.coordinate.latitude
+        request.longitude = location.coordinate.longitude
     }
 }

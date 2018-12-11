@@ -12,6 +12,7 @@ import CoreLocation
 class A2D2_iOSUITests: XCTestCase {
     let requestRideBtn = "Request Ride"
     let rulesAgreeBtn = "Agree"
+    let requestDriverBtn = "Request Driver"
     var app: XCUIApplication!
     var didAlertShow = false
     
@@ -132,14 +133,37 @@ class A2D2_iOSUITests: XCTestCase {
         app.buttons[rulesAgreeBtn].tap()
         XCTAssert(app.staticTexts["Gender"].exists)
     }
+    
     func testRequest_DoesRemarksExists(){
         app.buttons[requestRideBtn].tap()
         app.buttons[rulesAgreeBtn].tap()
         XCTAssert(app.textViews.count > 0)
     }
+    
     func testRequest_DoesPlaceHolderExist(){
         app.buttons[requestRideBtn].tap()
         app.buttons[rulesAgreeBtn].tap()
         XCTAssert(app.textViews["Comments (Optional)"].exists)
+    }
+    func testConfirmPickup_DoesNavigate() {
+        app.buttons[requestRideBtn].tap()
+        app.buttons[rulesAgreeBtn].tap()
+        app.buttons[requestDriverBtn].tap()
+        app.alerts["Confirm Driver Request"].buttons["Confirm"].tap()
+        XCTAssert(app.navigationBars["Ride Status"].exists)
+    }
+    func testCancelsPickup() {
+        app.buttons[requestRideBtn].tap()
+        app.buttons[rulesAgreeBtn].tap()
+        app.buttons[requestDriverBtn].tap()
+        sleep(1)
+        app.alerts["Confirm Driver Request"].buttons["Cancel"].tap()
+        sleep(1)
+        XCTAssert(app.navigationBars["Pickup Request Options"].exists)
+    }
+    func testRequestRideButton_DoesShow(){
+        //Test that the Agree button exists
+        app.buttons[requestRideBtn].tap()
+        XCTAssert(app.buttons[requestRideBtn].exists)
     }
 }
