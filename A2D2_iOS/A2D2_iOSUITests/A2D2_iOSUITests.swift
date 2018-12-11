@@ -12,6 +12,7 @@ import CoreLocation
 class A2D2_iOSUITests: XCTestCase {
     let requestRideBtn = "Request Ride"
     let rulesAgreeBtn = "Agree"
+    let requestDriverBtn = "Request Driver"
     var app: XCUIApplication!
     var didAlertShow = false
     
@@ -141,5 +142,12 @@ class A2D2_iOSUITests: XCTestCase {
         app.buttons[requestRideBtn].tap()
         app.buttons[rulesAgreeBtn].tap()
         XCTAssert(app.textViews["Comments (Optional)"].exists)
+    }
+    func testConfirmPickup_DoesNavigate() {
+        app.buttons[requestRideBtn].tap()
+        app.buttons[rulesAgreeBtn].tap()
+        app.buttons[requestDriverBtn].tap()
+        app.alerts["Confirm Driver Request"].buttons["Confirm"].tap()
+        XCTAssert(app.navigationBars["Ride Status"].exists)
     }
 }

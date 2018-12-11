@@ -18,8 +18,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     let requesterGender = ["Male", "Female"]
     let commentsPlaceholderText = "Comments (Optional)"
     let locationManager = CLLocationManager()
-    var selectedSize = 0
-    var selectedGender = ""
+    var request = Request()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,10 +66,10 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         var str = ""
         if(pickerView == groupSizePicker){
             str = "\(groupSizeData[row])"
-            selectedSize = groupSizeData[row]
+            request.groupSize = groupSizeData[row]
         } else if (pickerView == requesterGenderPicker) {
             str = "\(requesterGender[row])"
-            selectedGender = requesterGender[row]
+            request.gender = requesterGender[row]
         }
         return NSAttributedString(string: str, attributes: [NSAttributedString.Key.foregroundColor:UIColor.white])
     }
@@ -84,28 +83,23 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     @IBAction func button(){
-        let json = getJSON()
+        buildRequest()
         let alert = UIAlertController(title: "Confirm Driver Request", message: "Are u sure u wan a drivey boi?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes please!", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Sure", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler:{ action in
+            self.performSegue(withIdentifier: "request_sent", sender: self)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alert, animated: true)
     }
     
-    func getJSON() -> Data{
-        var data : Data = Data.init()
+    func buildRequest(){
         guard let location = locationManager.location else {
             print("This ain't it, chief.")
-            return data
+            return
         }
-        let pageData : [String: Any] = [
-            "gender": selectedGender,
-            "size" : selectedSize,
-            "comments" : textView.text,
-            "latitude" : location.coordinate.latitude,
-            "longitude" : location.coordinate.longitude]
-        if  JSONSerialization.isValidJSONObject(pageData) {
-            data = try! JSONSerialization.data(withJSONObject: pageData, options: [])
-        }
-        return data
+        //Avoid sending placeholder text
+        request.comments = textView.textColor == UIColor.black ? textView.text : ""
+        request.latitude = location.coordinate.latitude
+        request.longitude = location.coordinate.longitude
     }
 }
