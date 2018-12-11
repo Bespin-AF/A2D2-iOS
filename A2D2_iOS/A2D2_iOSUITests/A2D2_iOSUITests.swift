@@ -152,6 +152,15 @@ class A2D2_iOSUITests: XCTestCase {
         app.alerts["Confirm Driver Request"].buttons["Confirm"].tap()
         XCTAssert(app.navigationBars["Ride Status"].exists)
     }
+    func testCancelsPickup() {
+        app.buttons[requestRideBtn].tap()
+        app.buttons[rulesAgreeBtn].tap()
+        app.buttons[requestDriverBtn].tap()
+        sleep(1)
+        app.alerts["Confirm Driver Request"].buttons["Cancel"].tap()
+        sleep(1)
+        XCTAssert(app.navigationBars["Pickup Request Options"].exists)
+    }
     func testRequestRideButton_DoesShow(){
         //Test that the Agree button exists
         app.buttons[requestRideBtn].tap()
