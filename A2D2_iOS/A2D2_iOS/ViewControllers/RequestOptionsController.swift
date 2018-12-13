@@ -9,11 +9,12 @@
 import UIKit
 import CoreLocation
 
-class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate, CLLocationManagerDelegate {
+class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate, UITextFieldDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var groupSizePicker: UIPickerView!
     @IBOutlet weak var requesterGenderPicker: UIPickerView!
     @IBOutlet var textView: UITextView!
+    @IBOutlet var nameField: UITextField!
     let groupSizeData = [1,2,3,4]
     let requesterGender = ["Male", "Female"]
     let commentsPlaceholderText = "Comments (Optional)"
@@ -32,6 +33,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         textView.text = commentsPlaceholderText
         textView.textColor = UIColor.lightGray
         locationManager.delegate = self
+        nameField.delegate = self
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -81,6 +83,12 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         }
         return true
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+
     
     @IBAction func button(){
         buildRequest()
