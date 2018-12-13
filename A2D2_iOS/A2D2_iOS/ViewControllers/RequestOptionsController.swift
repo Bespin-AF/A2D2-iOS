@@ -84,7 +84,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     
     @IBAction func button(){
         buildRequest()
-        let alert = UIAlertController(title: "Confirm Driver Request", message: "Are u sure u wan a drivey boi?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Confirm Driver Request", message: "Are you sure you want to dispatch a driver to your current location?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler:{ action in
             self.performSegue(withIdentifier: "request_sent", sender: self)
         }))
@@ -94,7 +94,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     
     func buildRequest(){
         guard let location = locationManager.location else {
-            print("This ain't it, chief.")
+            print("TCan't get location.")
             return
         }
         //Avoid sending placeholder text

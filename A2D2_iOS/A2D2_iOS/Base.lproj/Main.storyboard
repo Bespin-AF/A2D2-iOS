@@ -248,22 +248,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your driver is on the way!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G50-bG-4AM">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your driver is on the way!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G50-bG-4AM">
                                 <rect key="frame" x="111" y="357" width="192" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Request Sent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fg3-4I-XIT">
-                                <rect key="frame" x="135" y="319" width="145" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request Sent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fg3-4I-XIT">
+                                <rect key="frame" x="134.66666666666666" y="319" width="144.99999999999997" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.20826181769999999" green="0.43334984780000002" blue="0.66277182099999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="fg3-4I-XIT" firstAttribute="top" secondItem="kMJ-kx-Jum" secondAttribute="top" constant="231" id="9xE-dr-UZh"/>
+                            <constraint firstItem="G50-bG-4AM" firstAttribute="top" secondItem="fg3-4I-XIT" secondAttribute="bottom" constant="8" id="DGg-09-GEV"/>
+                            <constraint firstItem="fg3-4I-XIT" firstAttribute="centerX" secondItem="kMJ-kx-Jum" secondAttribute="centerX" id="O06-9f-OLR"/>
+                            <constraint firstItem="G50-bG-4AM" firstAttribute="centerX" secondItem="kMJ-kx-Jum" secondAttribute="centerX" id="SfT-0h-D41"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="kMJ-kx-Jum"/>
                     </view>
                 </viewController>
