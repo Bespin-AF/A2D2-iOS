@@ -9,11 +9,12 @@
 import UIKit
 import CoreLocation
 
-class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate, CLLocationManagerDelegate {
+class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate, UITextFieldDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var groupSizePicker: UIPickerView!
     @IBOutlet weak var requesterGenderPicker: UIPickerView!
     @IBOutlet var textView: UITextView!
+    @IBOutlet var nameField: UITextField!
     let groupSizeData = [1,2,3,4]
     let requesterGender = ["Male", "Female"]
     let commentsPlaceholderText = "Comments (Optional)"
@@ -32,6 +33,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         textView.text = commentsPlaceholderText
         textView.textColor = UIColor.lightGray
         locationManager.delegate = self
+        nameField.delegate = self
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -82,9 +84,15 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         return true
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+
+    
     @IBAction func button(){
         buildRequest()
-        let alert = UIAlertController(title: "Confirm Driver Request", message: "Are u sure u wan a drivey boi?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Confirm Driver Request", message: "Are you sure you want to dispatch a driver to your current location?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler:{ action in
             self.performSegue(withIdentifier: "request_sent", sender: self)
         }))
@@ -94,7 +102,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     
     func buildRequest(){
         guard let location = locationManager.location else {
-            print("This ain't it, chief.")
+            print("TCan't get location.")
             return
         }
         //Avoid sending placeholder text
