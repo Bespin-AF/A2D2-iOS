@@ -134,6 +134,12 @@ class A2D2_iOSUITests: XCTestCase {
         XCTAssert(app.textFields["Name"].exists)
     }
     
+    func testRequest_HasPhoneNumber(){
+        app.buttons[requestRideBtn].tap()
+        app.buttons[rulesAgreeBtn].tap()
+        XCTAssert(app.textFields["Phone Number"].exists)
+    }
+    
     func testRequest_HasGender(){
         app.buttons[requestRideBtn].tap()
         app.buttons[rulesAgreeBtn].tap()
