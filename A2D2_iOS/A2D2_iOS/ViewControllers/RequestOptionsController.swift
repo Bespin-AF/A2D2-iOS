@@ -10,11 +10,12 @@ import UIKit
 import CoreLocation
 
 class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate, UITextFieldDelegate, CLLocationManagerDelegate {
-
+    @IBOutlet var dismissKeyboardTap: UITapGestureRecognizer!
     @IBOutlet weak var groupSizePicker: UIPickerView!
     @IBOutlet weak var requesterGenderPicker: UIPickerView!
     @IBOutlet var textView: UITextView!
     @IBOutlet var nameField: UITextField!
+    @IBOutlet var phoneNumberField: UITextField!
     let groupSizeData = [1,2,3,4]
     let requesterGender = ["Male", "Female"]
     let commentsPlaceholderText = "Comments (Optional)"
@@ -34,6 +35,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         textView.textColor = UIColor.lightGray
         locationManager.delegate = self
         nameField.delegate = self
+        phoneNumberField.delegate = self
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -76,13 +78,6 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         return NSAttributedString(string: str, attributes: [NSAttributedString.Key.foregroundColor:UIColor.white])
     }
     
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if(text == "\n") {
-            textView.resignFirstResponder()
-            return false
-        }
-        return true
-    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
@@ -102,12 +97,18 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     
     func buildRequest(){
         guard let location = locationManager.location else {
-            print("TCan't get location.")
+            print("Can't get location.")
             return
         }
         //Avoid sending placeholder text
         request.comments = textView.textColor == UIColor.black ? textView.text : ""
         request.latitude = location.coordinate.latitude
         request.longitude = location.coordinate.longitude
+        request.name = nameField.text!
+        request.phoneNumber = phoneNumberField.text!
+    }
+    
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        view.endEditing(true)
     }
 }

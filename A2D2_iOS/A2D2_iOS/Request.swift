@@ -13,7 +13,7 @@ class Request {
     var gender : String
     var comments : String
     var groupSize : Int
-    var phoneNumber : Int
+    var phoneNumber : String
     var latitude : Double
     var longitude : Double
     
@@ -22,7 +22,7 @@ class Request {
         gender = ""
         comments = ""
         groupSize = 0
-        phoneNumber = 0
+        phoneNumber = ""
         latitude = 0
         longitude = 0
     }
