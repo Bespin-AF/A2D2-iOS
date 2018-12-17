@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D26CC5F21C40AF000EB44A2 /* RideStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D26CC5E21C40AF000EB44A2 /* RideStatusViewController.swift */; };
 		1D2E769821B1998E00F9EF84 /* RequestOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E769721B1998E00F9EF84 /* RequestOptionsController.swift */; };
 		5D47466F219F1C9300131FE2 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D47466E219F1C9300131FE2 /* MyButton.swift */; };
 		5DF94CB921C013BF002B3D9E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF94CB821C013BF002B3D9E /* Request.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D26CC5E21C40AF000EB44A2 /* RideStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideStatusViewController.swift; sourceTree = "<group>"; };
 		1D2E769721B1998E00F9EF84 /* RequestOptionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestOptionsController.swift; sourceTree = "<group>"; };
 		5D47466E219F1C9300131FE2 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 		5DF94CB821C013BF002B3D9E /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		5D3206A5219F1867008C1F78 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1D26CC5E21C40AF000EB44A2 /* RideStatusViewController.swift */,
 				1D2E769721B1998E00F9EF84 /* RequestOptionsController.swift */,
 				7C193E3521A45C660095728D /* RulesViewController.swift */,
 			);
@@ -277,6 +280,7 @@
 				5DF94CB921C013BF002B3D9E /* Request.swift in Sources */,
 				7C94E7C4219B4E0900A623D9 /* AppDelegate.swift in Sources */,
 				7C193E3621A45C660095728D /* RulesViewController.swift in Sources */,
+				1D26CC5F21C40AF000EB44A2 /* RideStatusViewController.swift in Sources */,
 				5D47466F219F1C9300131FE2 /* MyButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

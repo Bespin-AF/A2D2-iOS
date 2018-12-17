@@ -266,7 +266,7 @@
         <!--Ride Status-->
         <scene sceneID="TVo-JK-Y02">
             <objects>
-                <viewController title="Ride Status" id="bfc-Lc-yho" sceneMemberID="viewController">
+                <viewController title="Ride Status" id="bfc-Lc-yho" customClass="RideStatusViewController" customModule="A2D2_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rqy-Dy-uLo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -283,6 +283,20 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CfF-a5-IOh" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
+                                <rect key="frame" x="212" y="728" width="170" height="70"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="10G-KK-gMu"/>
+                                    <constraint firstAttribute="height" constant="70" id="PNS-wL-LNW"/>
+                                </constraints>
+                                <state key="normal" title="Call A2D2">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="callA2D2" destination="bfc-Lc-yho" eventType="touchUpInside" id="gDM-ng-rp2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20826181769999999" green="0.43334984780000002" blue="0.66277182099999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -290,6 +304,8 @@
                             <constraint firstItem="G50-bG-4AM" firstAttribute="top" secondItem="fg3-4I-XIT" secondAttribute="bottom" constant="8" id="DGg-09-GEV"/>
                             <constraint firstItem="fg3-4I-XIT" firstAttribute="centerX" secondItem="kMJ-kx-Jum" secondAttribute="centerX" id="O06-9f-OLR"/>
                             <constraint firstItem="G50-bG-4AM" firstAttribute="centerX" secondItem="kMJ-kx-Jum" secondAttribute="centerX" id="SfT-0h-D41"/>
+                            <constraint firstItem="kMJ-kx-Jum" firstAttribute="bottom" secondItem="CfF-a5-IOh" secondAttribute="bottom" constant="64" id="gIq-he-rcB"/>
+                            <constraint firstItem="kMJ-kx-Jum" firstAttribute="trailing" secondItem="CfF-a5-IOh" secondAttribute="trailing" constant="32" id="yJ9-ge-rW2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kMJ-kx-Jum"/>
                     </view>
