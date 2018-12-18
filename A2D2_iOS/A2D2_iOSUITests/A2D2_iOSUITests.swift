@@ -10,11 +10,7 @@ import XCTest
 import CoreLocation
 
 class A2D2_iOSUITests: XCTestCase {
-    let requestRideBtn = "Request Ride"
-    let rulesAgreeBtn = "Agree"
-    let requestDriverBtn = "Request Driver"
     var app: XCUIApplication!
-    var didAlertShow = false
     
     
     override func setUp() {
@@ -26,156 +22,176 @@ class A2D2_iOSUITests: XCTestCase {
         app = XCUIApplication()
         app.launch()
 
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-
+        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this."Request Driver"
     }
 
     
     override func tearDown() {
         app.terminate()
     }
+    
+    
+    /***** Navigation Functions *****/
+    
+    func goToRulesPage(){
+        app.buttons["Request Ride"].tap()
+    }
+    
+    
+    func goToPickupRequestOptionsPage() {
+        goToRulesPage()
+        app.buttons["Agree"].tap()
+        //Will need to handle Navigations Permissions here
+    }
+    
+    
+    func goToRideStatusPage(){
+        goToPickupRequestOptionsPage()
+        app.buttons["Request Driver"].tap()
+        //Will need to handle mandatory fields and input here
+        //Alert as well
+    }
+    
+    /*** End Navigation ***/
 
     
+    //Tests that Request ride view exists
     func testRequestRideView_IsShowing(){
-        //Tests that Request ride view exists
         XCTAssert(app.images["a2d2logo"].exists)
-        XCTAssert(app.buttons[requestRideBtn].exists)
-        XCTAssert(app.buttons[requestRideBtn].isEnabled)
+        XCTAssert(app.buttons["Request Ride"].exists)
+        XCTAssert(app.buttons["Request Ride"].isEnabled)
     }
 
     
-    func testRequestRideButton_DoesNavigate(){
-        //Tests that the Request ride button navigates away
-        app.buttons[requestRideBtn].tap()
-        sleep(1)
-        XCTAssert(!app.images["a2d2logo"].exists)
-        XCTAssert(!app.buttons[requestRideBtn].exists)
-    }
-    
-    
+    //Test that the Request ride button navigates to A2D2Rules
     func testA2D2RulesView_DoesShow(){
-        //Test that the Request ride button navigates to A2D2Rules
-        app.buttons[requestRideBtn].tap()
+        goToRulesPage()
         XCTAssert(app.navigationBars["A2D2 Rules"].exists)
     }
 
     
+    //Test that the Agree button exists
     func testAgreeButton_DoesShow(){
-        //Test that the Agree button exists
-        app.buttons[requestRideBtn].tap()
-        XCTAssert(app.buttons[rulesAgreeBtn].exists)
+        goToRulesPage()
+        XCTAssert(app.buttons["Agree"].exists)
     }
+
     
-    
-//    func testAllowButton_DoesNavigate(){
-//        //When Agree is selected user is navigated to the request ride page
-//        addUIInterruptionMonitor(withDescription: "Location Permissions") { (alert) ->Bool in
-//            let agreeButton = alert.buttons["Allow"]
-//            if agreeButton.exists{
-//                agreeButton.tap()
-//                return true
-//            }
-//            XCTFail("Unexpected Alert")
-//            return false
-//        }
-//
-//        app.buttons[requestRideBtn].tap()
-//        app.buttons[rulesAgreeBtn].tap()
-//        app.tap()
-//        sleep(1)
-//        let title = app.navigationBars["Pickup Request Options"].otherElements["Pickup Request Options"]
-//        XCTAssert(title.exists)
-//    }
-//
-//
-//    func testDenyButton_DoesAlert(){
-//        //When Deny is selected user is alerted to our disgust of them
-//        addUIInterruptionMonitor(withDescription: "Location Dialog") { (alert) ->Bool in
-//            print("BEARS!!!!")
-//            print(alert)
-//            print(alert.buttons.count)
-//            let denyButton = alert.buttons["Don't Allow"]
-//            if(denyButton.exists){
-//                denyButton.tap()
-//                return true
-//            }
-//            XCTFail("Unexpected Alert")
-//            return false
-//        }
-//
-//        app.buttons[requestRideBtn].tap()
-//        app.buttons[rulesAgreeBtn].tap()
-//        app.tap()
-//        sleep(1)
-//        XCTAssert(app.alerts["Location Not Enabled"].exists)
-//    }
-    
-//    func testAgreeAfterDenied_HasOK(){
-//        app.buttons[requestRideBtn].tap()
-//        app.buttons[rulesAgreeBtn].tap()
-//        XCTAssert(app.alerts["Location Not Enabled"].buttons["Okay"].exists)
-//    }
-    
+    //Test that Pickup Request Options Page shows after Location Permissions have been granted
     func testAgreeAfterAccepted_DoesNavigate() {
-        app.buttons[requestRideBtn].tap()
-        app.buttons[rulesAgreeBtn].tap()
+        goToPickupRequestOptionsPage()
         XCTAssert(app.navigationBars["Pickup Request Options"].exists)
     }
     
+    
+    //Group Size Picker appears on Pickup Request Options Page
     func testRequest_HasGroupSize(){
-        app.buttons[requestRideBtn].tap()
-        app.buttons[rulesAgreeBtn].tap()
+        goToPickupRequestOptionsPage()
         XCTAssert(app.staticTexts["Group Size"].exists)
     }
     
+    
+    //Name Field appears on Pickup Request Options Page
     func testRequest_HasName(){
-        app.buttons[requestRideBtn].tap()
-        app.buttons[rulesAgreeBtn].tap()
+        goToPickupRequestOptionsPage()
         XCTAssert(app.textFields["Name"].exists)
     }
     
+    
+    //Phone Number Field appears on Pickup Request Options Page
     func testRequest_HasPhoneNumber(){
-        app.buttons[requestRideBtn].tap()
-        app.buttons[rulesAgreeBtn].tap()
+        goToPickupRequestOptionsPage()
         XCTAssert(app.textFields["Phone Number"].exists)
     }
     
+    
+    //Gender Picker appears on Pickup Request Options Page
     func testRequest_HasGender(){
-        app.buttons[requestRideBtn].tap()
-        app.buttons[rulesAgreeBtn].tap()
+        goToPickupRequestOptionsPage()
         XCTAssert(app.staticTexts["Gender"].exists)
     }
     
+    
+    //Remarks Field appears on Pickup Request Options Page
     func testRequest_DoesRemarksExists(){
-        app.buttons[requestRideBtn].tap()
-        app.buttons[rulesAgreeBtn].tap()
+        goToPickupRequestOptionsPage()
         XCTAssert(app.textViews.count > 0)
     }
     
+    
+    //Remarks Field has placeholder text
     func testRequest_DoesPlaceHolderExist(){
-        app.buttons[requestRideBtn].tap()
-        app.buttons[rulesAgreeBtn].tap()
+        goToPickupRequestOptionsPage()
         XCTAssert(app.textViews["Comments (Optional)"].exists)
     }
+    
+    
+    //Tests that the Confirm Button navigates user to Ride Status Page
     func testConfirmPickup_DoesNavigate() {
-        app.buttons[requestRideBtn].tap()
-        app.buttons[rulesAgreeBtn].tap()
-        app.buttons[requestDriverBtn].tap()
+        goToRideStatusPage()
         app.alerts["Confirm Driver Request"].buttons["Confirm"].tap()
         XCTAssert(app.navigationBars["Ride Status"].exists)
     }
+    
+    
+    //Tests that the Cancel Option keeps user on Pickup Request Options Page
     func testCancelsPickup() {
-        app.buttons[requestRideBtn].tap()
-        app.buttons[rulesAgreeBtn].tap()
-        app.buttons[requestDriverBtn].tap()
+        goToRideStatusPage()
         sleep(1)
         app.alerts["Confirm Driver Request"].buttons["Cancel"].tap()
         sleep(1)
         XCTAssert(app.navigationBars["Pickup Request Options"].exists)
     }
-    func testRequestRideButton_DoesShow(){
-        //Test that the Agree button exists
-        app.buttons[requestRideBtn].tap()
-        XCTAssert(app.buttons[requestRideBtn].exists)
-    }
+
+    
+    /***** System Alert Handling / Permissions Test *****/
+    
+    //    func testAllowButton_DoesNavigate(){
+    //        //When Agree is selected user is navigated to the request ride page
+    //        addUIInterruptionMonitor(withDescription: "Location Permissions") { (alert) ->Bool in
+    //            let agreeButton = alert.buttons["Allow"]
+    //            if agreeButton.exists{
+    //                agreeButton.tap()
+    //                return true
+    //            }
+    //            XCTFail("Unexpected Alert")
+    //            return false
+    //        }
+    //
+    //        app.buttons[requestRideBtn].tap()
+    //        app.buttons[rulesAgreeBtn].tap()
+    //        app.tap()
+    //        sleep(1)
+    //        let title = app.navigationBars["Pickup Request Options"].otherElements["Pickup Request Options"]
+    //        XCTAssert(title.exists)
+    //    }
+    //
+    //
+    //    func testDenyButton_DoesAlert(){
+    //        //When Deny is selected user is alerted to our disgust of them
+    //        addUIInterruptionMonitor(withDescription: "Location Dialog") { (alert) ->Bool in
+    //            print("BEARS!!!!")
+    //            print(alert)
+    //            print(alert.buttons.count)
+    //            let denyButton = alert.buttons["Don't Allow"]
+    //            if(denyButton.exists){
+    //                denyButton.tap()
+    //                return true
+    //            }
+    //            XCTFail("Unexpected Alert")
+    //            return false
+    //        }
+    //
+    //        app.buttons[requestRideBtn].tap()
+    //        app.buttons[rulesAgreeBtn].tap()
+    //        app.tap()
+    //        sleep(1)
+    //        XCTAssert(app.alerts["Location Not Enabled"].exists)
+    //    }
+    
+    //    func testAgreeAfterDenied_HasOK(){
+    //        app.buttons[requestRideBtn].tap()
+    //        app.buttons[rulesAgreeBtn].tap()
+    //        XCTAssert(app.alerts["Location Not Enabled"].buttons["Okay"].exists)
+    //    }
 }
