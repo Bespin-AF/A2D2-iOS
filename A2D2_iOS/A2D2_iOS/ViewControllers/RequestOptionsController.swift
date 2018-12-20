@@ -89,13 +89,25 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
 
     
     @IBAction func button(){
-        let alert = UIAlertController(title: "Confirm Driver Request", message: "Are you sure you want to dispatch a driver to your current location?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler:{ action in
-            self.sendToFirebase(self.buildRequest())
-            self.performSegue(withIdentifier: "request_sent", sender: self)
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        self.present(alert, animated: true)
+        if nameField.text == "" {
+            let nilNameAlert = UIAlertController(title: "Name is a required field.", message: nil, preferredStyle: .alert)
+            nilNameAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(nilNameAlert, animated: true)
+        }
+        else if phoneNumberField.text == "" {
+            let nilPhoneAlert = UIAlertController(title: "Phone number is a required field.", message: nil, preferredStyle: .alert)
+            nilPhoneAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(nilPhoneAlert, animated: true)
+        }
+        else {
+            let alert = UIAlertController(title: "Confirm Driver Request", message: "Are you sure you want to dispatch a driver to your current location?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler:{ action in
+                self.sendToFirebase(self.buildRequest())
+                self.performSegue(withIdentifier: "request_sent", sender: self)
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
+        }
     }
     
     func buildRequest() -> [String : Any]{
