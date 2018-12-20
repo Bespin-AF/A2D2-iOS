@@ -41,6 +41,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         phoneNumberField.delegate = self
     }
     
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
         if  textView.textColor == UIColor.lightGray {
             textView.text = nil
@@ -49,6 +50,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         }
     }
     
+    
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = commentsPlaceholderText
@@ -56,9 +58,11 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         }
     }
     
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
+    
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if(pickerView == groupSizePicker){
@@ -68,6 +72,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         }
         return 0
     }
+    
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         var str = ""
@@ -89,26 +94,16 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
 
     
     @IBAction func button(){
-        if nameField.text == "" {
-            let nilNameAlert = UIAlertController(title: "Name is a required field.", message: nil, preferredStyle: .alert)
-            nilNameAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(nilNameAlert, animated: true)
-        }
-        else if phoneNumberField.text == "" {
-            let nilPhoneAlert = UIAlertController(title: "Phone number is a required field.", message: nil, preferredStyle: .alert)
-            nilPhoneAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(nilPhoneAlert, animated: true)
-        }
-        else {
-            let alert = UIAlertController(title: "Confirm Driver Request", message: "Are you sure you want to dispatch a driver to your current location?", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler:{ action in
-                self.sendToFirebase(self.buildRequest())
-                self.performSegue(withIdentifier: "request_sent", sender: self)
-            }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            self.present(alert, animated: true)
-        }
+        if(!validateInputs()){ return }//Validate Inputs
+        let alert = UIAlertController(title: "Confirm Driver Request", message: "Are you sure you want to dispatch a driver to your current location?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler:{ action in
+            self.sendToFirebase(self.buildRequest())
+            self.performSegue(withIdentifier: "request_sent", sender: self)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
     }
+    
     
     func buildRequest() -> [String : Any]{
         guard let location = locationManager.location else {
@@ -118,7 +113,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         //Avoid sending placeholder text
         let remarks = textView.textColor == UIColor.black ? textView.text : ""
    
-        let request = ["status" : "",
+        let request = ["status" : "", //Populate status once we have the standards
                        "gender" : selectedGender,
                        "groupSize" : selectedGroupSize,
                        "remarks" : remarks!,
@@ -139,5 +134,29 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         ref = Database.database().reference()
         let key = ref.child("requests").childByAutoId().key!
         ref.child("requests").child(key).setValue(request)
+    }
+    
+    
+    func validateInputs()-> Bool {
+        if nameField.text == "" {
+            notify("Name is a required field.")
+            return false
+        }
+        else if phoneNumberField.text == "" {
+            notify("Phone number is a required field.")
+            return false
+        }
+        else if(phoneNumberField.text!.count != 10){ // Phone number requirements
+//            notify("Invalid Phone Number.")
+//            return false
+        }
+        return true
+    }
+    
+    
+    func notify(_ message:String){
+        let nilNameAlert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+        nilNameAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(nilNameAlert, animated: true)
     }
 }
