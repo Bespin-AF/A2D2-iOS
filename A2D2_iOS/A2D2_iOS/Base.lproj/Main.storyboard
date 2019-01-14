@@ -17,56 +17,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jkj-OY-gna" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
-                                <rect key="frame" x="20" y="722" width="374" height="100"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="15y-am-awC"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="Ezc-68-VYf"/>
-                                    <constraint firstAttribute="height" priority="750" constant="100" id="lFW-u6-9HT"/>
-                                    <constraint firstAttribute="width" priority="750" constant="500" id="sbn-hc-vkf"/>
-                                </constraints>
-                                <state key="normal" title="Request Ride">
-                                    <color key="titleColor" red="0.086274509799999996" green="0.35686274509999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="2M8-3l-1ah" kind="show" id="dUK-aA-gqq"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a2d2logo" translatesAutoresizingMaskIntoConstraints="NO" id="U0r-Oc-gw1">
                                 <rect key="frame" x="50" y="108" width="314" height="215"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="U0r-Oc-gw1" secondAttribute="height" multiplier="317:217" id="42f-ci-rGj"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ui-1F-dR3">
-                                <rect key="frame" x="166" y="832" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Driver Login"/>
-                                <connections>
-                                    <segue destination="u3z-aj-8wd" kind="show" id="pGZ-72-Qn8"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Cwl-eG-nJA">
+                                <rect key="frame" x="20" y="607" width="374" height="215"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jkj-OY-gna" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="999" constant="100" id="P1l-4H-Tlc"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="e4J-H0-NEW"/>
+                                        </constraints>
+                                        <state key="normal" title="Request Ride">
+                                            <color key="titleColor" red="0.086274509799999996" green="0.35686274509999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="2M8-3l-1ah" kind="show" id="dUK-aA-gqq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ui-1F-dR3">
+                                        <rect key="frame" x="0.0" y="115" width="374" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="999" constant="100" id="2If-uk-n4y"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="9qK-78-GGW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="Driver Login"/>
+                                        <connections>
+                                            <segue destination="u3z-aj-8wd" kind="show" id="pGZ-72-Qn8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="999" constant="500" id="B4F-Nm-cL0"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="XA0-80-nyf"/>
+                                    <constraint firstItem="4Ui-1F-dR3" firstAttribute="height" secondItem="Jkj-OY-gna" secondAttribute="height" id="uFg-dk-Edx"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.086274509799999996" green="0.35686274509999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Cwl-eG-nJA" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2zI-rL-nVu"/>
                             <constraint firstItem="U0r-Oc-gw1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="3bI-aO-7zP"/>
-                            <constraint firstItem="Jkj-OY-gna" firstAttribute="top" relation="greaterThanOrEqual" secondItem="U0r-Oc-gw1" secondAttribute="bottom" constant="10" id="6HN-Jg-OTb"/>
-                            <constraint firstItem="Jkj-OY-gna" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9lm-Um-OlR"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Jkj-OY-gna" secondAttribute="bottom" priority="750" constant="40" id="BiP-ED-pVg"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Jkj-OY-gna" secondAttribute="trailing" constant="20" id="CYL-gf-F4w"/>
                             <constraint firstItem="U0r-Oc-gw1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Czh-7m-NNo"/>
-                            <constraint firstItem="Jkj-OY-gna" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="PwC-0y-NHQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Cwl-eG-nJA" secondAttribute="bottom" constant="40" id="TOY-Fg-sS5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="U0r-Oc-gw1" secondAttribute="trailing" constant="50" id="TYh-BQ-XAn"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Jkj-OY-gna" secondAttribute="bottom" constant="10" id="Xac-XS-fYU"/>
                             <constraint firstItem="U0r-Oc-gw1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dcf-jR-lCG"/>
+                            <constraint firstItem="Cwl-eG-nJA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="sMb-7T-06V"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Cwl-eG-nJA" secondAttribute="trailing" constant="20" id="uYw-lJ-dw9"/>
+                            <constraint firstItem="Cwl-eG-nJA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="U0r-Oc-gw1" secondAttribute="bottom" constant="40" id="ue9-55-N8n"/>
                             <constraint firstItem="U0r-Oc-gw1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="yeB-4H-Bml"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -104,6 +115,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="e1G-B9-GGt">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.20826181769999999" green="0.43334984780000002" blue="0.66277182099999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="fKt-w7-lyh" kind="relationship" relationship="rootViewController" id="sT5-tV-KyW"/>
@@ -120,7 +135,7 @@
                     <view key="view" contentMode="scaleToFill" id="FhX-2j-vTp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.20826181769999999" green="0.43334984780000002" blue="0.66277182099999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="9YD-XB-aUh"/>
                     </view>
                     <navigationItem key="navigationItem" title="Driver Login" id="Ct6-sq-Z1l"/>
