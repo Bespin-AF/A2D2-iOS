@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="ipad12_9rounded" orientation="portrait">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,11 +14,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeController" customModule="A2D2_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jkj-OY-gna" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
-                                <rect key="frame" x="262" y="1206" width="500" height="100"/>
+                                <rect key="frame" x="20" y="722" width="374" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="15y-am-awC"/>
@@ -41,11 +41,19 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a2d2logo" translatesAutoresizingMaskIntoConstraints="NO" id="U0r-Oc-gw1">
-                                <rect key="frame" x="50" y="88" width="924" height="632.5"/>
+                                <rect key="frame" x="50" y="108" width="314" height="215"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="U0r-Oc-gw1" secondAttribute="height" multiplier="317:217" id="42f-ci-rGj"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ui-1F-dR3">
+                                <rect key="frame" x="166" y="832" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Driver Login"/>
+                                <connections>
+                                    <segue destination="u3z-aj-8wd" kind="show" id="pGZ-72-Qn8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.086274509799999996" green="0.35686274509999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -67,14 +75,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="357" y="-612"/>
+            <point key="canvasLocation" x="1930" y="-1448"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sFf-nk-znI">
             <objects>
                 <navigationController id="2M8-3l-1ah" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Br5-i9-xdG">
-                        <rect key="frame" x="0.0" y="24" width="1024" height="50"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.086274509799999996" green="0.35686274509999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -89,16 +97,48 @@
             </objects>
             <point key="canvasLocation" x="1093" y="-612"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ogb-Lj-2rl">
+            <objects>
+                <navigationController id="u3z-aj-8wd" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="e1G-B9-GGt">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="fKt-w7-lyh" kind="relationship" relationship="rootViewController" id="sT5-tV-KyW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fJ7-z0-DGC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2822" y="-612"/>
+        </scene>
+        <!--Driver Login-->
+        <scene sceneID="zhw-pX-WCA">
+            <objects>
+                <viewController id="fKt-w7-lyh" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FhX-2j-vTp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="9YD-XB-aUh"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Driver Login" id="Ct6-sq-Z1l"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5my-DZ-U7v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2823" y="136"/>
+        </scene>
         <!--A2D2 Rules-->
         <scene sceneID="L4P-bT-MFL">
             <objects>
                 <viewController title="A2D2 Rules" id="aIU-SF-W91" customClass="RulesViewController" customModule="A2D2_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H1t-g5-0Kh">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="240" verticalCompressionResistancePriority="240" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fq4-Ko-c7d">
-                                <rect key="frame" x="262" y="260" width="500" height="500"/>
+                                <rect key="frame" x="12" y="98" width="390.33333333333331" height="500"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="dr1-av-lHz"/>
                                     <constraint firstAttribute="height" priority="999" constant="500" id="zl1-67-nW8"/>
@@ -111,7 +151,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
-                                <mutableString key="userLabel">1. A2D2 is a volunteer organization of airmen dedicated to reducing the number of DUIs in the Air Force. Use of this program should be your last resort, not your Plan A.  2. If you find yourself with no safe alternative, simply press the “Request Driver” button. The app will use your current GPS location and you will receive a notification when a driver is dispatched.  3. A2D2 drivers will only transport you to your home address. If you are making a request on behalf of a group, the driver is only required to take the group to a single address. If members of the group need to go to multiple homes, those individuals will need to make separate pickup requests.</mutableString>
+                                <string key="userLabel">1. A2D2 is a volunteer organization of airmen dedicated to reducing the number of DUIs in the Air Force. Use of this program should be your last resort, not your Plan A.  2. If you find yourself with no safe alternative, simply press the “Request Driver” button. The app will use your current GPS location and you will receive a notification when a driver is dispatched.  3. A2D2 drivers will only transport you to your home address. If you are making a request on behalf of a group, the driver is only required to take the group to a single address. If members of the group need to go to multiple homes, those individuals will need to make separate pickup requests.</string>
                                 <variation key="heightClass=compact-widthClass=compact">
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 </variation>
@@ -120,7 +160,7 @@
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="240" verticalHuggingPriority="240" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" restorationIdentifier="Agree to Rules" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qc-zU-U2r" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
-                                <rect key="frame" x="262" y="1206" width="500" height="100"/>
+                                <rect key="frame" x="20" y="722" width="374" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" priority="999" constant="500" id="Jwt-Ap-zCK"/>
@@ -168,53 +208,53 @@
             <objects>
                 <viewController title="Pickup Request Options" id="pkP-yb-wPx" customClass="RequestOptionsController" customModule="A2D2_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AQS-3g-yaY">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="255" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="PzP-lk-ovY">
-                                <rect key="frame" x="212" y="210" width="600" height="600"/>
+                                <rect key="frame" x="20" y="98" width="374" height="600"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="260" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GY7-EV-5BF">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="no" returnKeyType="done" textContentType="name"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="260" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DVd-k1-o1V">
-                                        <rect key="frame" x="0.0" y="70" width="600" height="30"/>
+                                        <rect key="frame" x="0.0" y="70" width="374" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="done" textContentType="tel"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="sWe-zz-Ha8">
-                                        <rect key="frame" x="0.0" y="140" width="600" height="100"/>
+                                        <rect key="frame" x="0.0" y="140" width="374" height="100"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="249" verticalCompressionResistancePriority="249" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pMu-UC-eEr">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="187" height="100"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Group Size" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OpZ-A4-5Ve">
-                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="29"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="187" height="28.666666666666668"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="249" verticalCompressionResistancePriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="o1f-TN-bho">
-                                                        <rect key="frame" x="0.0" y="29" width="300" height="71"/>
+                                                        <rect key="frame" x="0.0" y="28.666666666666679" width="187" height="71.333333333333314"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </pickerView>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bNC-cy-wx4">
-                                                <rect key="frame" x="300" y="0.0" width="300" height="100"/>
+                                                <rect key="frame" x="187" y="0.0" width="187" height="100"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Gender" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYN-mQ-Oik">
-                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="29"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="187" height="28.666666666666668"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="249" verticalCompressionResistancePriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="CMp-g0-f8I">
-                                                        <rect key="frame" x="0.0" y="29" width="300" height="71"/>
+                                                        <rect key="frame" x="0.0" y="28.666666666666679" width="187" height="71.333333333333314"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </pickerView>
                                                 </subviews>
@@ -228,7 +268,7 @@
                                         </constraints>
                                     </stackView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="248" horizontalCompressionResistancePriority="200" verticalCompressionResistancePriority="200" keyboardDismissMode="interactive" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fCl-Qf-K6t">
-                                        <rect key="frame" x="0.0" y="280" width="600" height="320"/>
+                                        <rect key="frame" x="0.0" y="280" width="374" height="320"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -246,7 +286,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="220" verticalCompressionResistancePriority="220" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cJ-gz-nSJ" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
-                                <rect key="frame" x="262" y="1216" width="500" height="100"/>
+                                <rect key="frame" x="20" y="732" width="374" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" priority="999" constant="500" id="139-lk-0Fx"/>
@@ -306,11 +346,11 @@
             <objects>
                 <viewController title="Ride Status" id="bfc-Lc-yho" customClass="RideStatusViewController" customModule="A2D2_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rqy-Dy-uLo">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="KbE-Ee-8vF">
-                                <rect key="frame" x="416" y="475" width="192" height="70.5"/>
+                                <rect key="frame" x="111" y="240.00000000000003" width="192" height="70.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request Sent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fg3-4I-XIT">
                                         <rect key="frame" x="0.0" y="0.0" width="192" height="30"/>
@@ -319,7 +359,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your driver is on the way!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G50-bG-4AM">
-                                        <rect key="frame" x="0.0" y="50" width="192" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="50" width="192" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -327,10 +367,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pOm-X2-Ikh">
-                                <rect key="frame" x="262" y="1216" width="500" height="100"/>
+                                <rect key="frame" x="20" y="732" width="374" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CfF-a5-IOh" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="500" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="tnf-Vn-awe"/>
