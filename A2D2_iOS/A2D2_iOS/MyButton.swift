@@ -13,6 +13,7 @@ import UIKit
     override func layoutSubviews() {
         super.layoutSubviews()
         updateCornerRadius()
+        updateButtonColors()
     }
     
     @IBInspectable var rounded: Bool = true {
@@ -22,6 +23,11 @@ import UIKit
     }
     
     func updateCornerRadius() {
-        layer.cornerRadius = rounded ? 5: 0
+        layer.cornerRadius = rounded ? 20 : 0
+    }
+    
+    func updateButtonColors() {
+        layer.borderColor = UIColor.white.cgColor
+        layer.borderWidth = 2
     }
 }

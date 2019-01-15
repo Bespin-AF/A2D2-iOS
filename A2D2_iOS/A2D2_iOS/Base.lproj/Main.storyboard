@@ -20,21 +20,21 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a2d2logo" translatesAutoresizingMaskIntoConstraints="NO" id="U0r-Oc-gw1">
                                 <rect key="frame" x="50" y="108" width="314" height="215"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="2bt-Ft-BMc"/>
                                     <constraint firstAttribute="width" secondItem="U0r-Oc-gw1" secondAttribute="height" multiplier="317:217" id="42f-ci-rGj"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Cwl-eG-nJA">
-                                <rect key="frame" x="20" y="607" width="374" height="215"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Cwl-eG-nJA">
+                                <rect key="frame" x="20" y="707" width="374" height="115"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jkj-OY-gna" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jkj-OY-gna" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" priority="999" constant="100" id="P1l-4H-Tlc"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="e4J-H0-NEW"/>
+                                            <constraint firstAttribute="height" priority="750" constant="50" id="P1l-4H-Tlc"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="e4J-H0-NEW"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="Request Ride">
-                                            <color key="titleColor" red="0.086274509799999996" green="0.35686274509999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -47,13 +47,13 @@
                                             <segue destination="2M8-3l-1ah" kind="show" id="dUK-aA-gqq"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ui-1F-dR3">
-                                        <rect key="frame" x="0.0" y="115" width="374" height="100"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ui-1F-dR3">
+                                        <rect key="frame" x="0.0" y="65" width="374" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" priority="999" constant="100" id="2If-uk-n4y"/>
+                                            <constraint firstAttribute="height" priority="999" constant="50" id="2If-uk-n4y"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="9qK-78-GGW"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="Driver Login"/>
                                         <connections>
                                             <segue destination="u3z-aj-8wd" kind="show" id="pGZ-72-Qn8"/>
@@ -73,12 +73,12 @@
                             <constraint firstItem="U0r-Oc-gw1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="3bI-aO-7zP"/>
                             <constraint firstItem="U0r-Oc-gw1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Czh-7m-NNo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Cwl-eG-nJA" secondAttribute="bottom" constant="40" id="TOY-Fg-sS5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="U0r-Oc-gw1" secondAttribute="trailing" constant="50" id="TYh-BQ-XAn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="U0r-Oc-gw1" secondAttribute="trailing" constant="50" id="TYh-BQ-XAn"/>
                             <constraint firstItem="U0r-Oc-gw1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dcf-jR-lCG"/>
                             <constraint firstItem="Cwl-eG-nJA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="sMb-7T-06V"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Cwl-eG-nJA" secondAttribute="trailing" constant="20" id="uYw-lJ-dw9"/>
                             <constraint firstItem="Cwl-eG-nJA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="U0r-Oc-gw1" secondAttribute="bottom" constant="40" id="ue9-55-N8n"/>
-                            <constraint firstItem="U0r-Oc-gw1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="yeB-4H-Bml"/>
+                            <constraint firstItem="U0r-Oc-gw1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="yeB-4H-Bml"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -86,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1930" y="-1448"/>
+            <point key="canvasLocation" x="1946" y="-1361"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sFf-nk-znI">
@@ -135,6 +135,22 @@
                     <view key="view" contentMode="scaleToFill" id="FhX-2j-vTp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TVq-F6-ob9">
+                                <rect key="frame" x="145" y="129" width="134" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please enter your username and password below." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZK-2x-Xjo">
+                                <rect key="frame" x="53" y="158" width="319" height="77"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="0.20826181769999999" green="0.43334984780000002" blue="0.66277182099999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="9YD-XB-aUh"/>
                     </view>
@@ -142,7 +158,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5my-DZ-U7v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2823" y="136"/>
+            <point key="canvasLocation" x="2821.739130434783" y="135.9375"/>
         </scene>
         <!--A2D2 Rules-->
         <scene sceneID="L4P-bT-MFL">
@@ -175,18 +191,15 @@
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="240" verticalHuggingPriority="240" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" restorationIdentifier="Agree to Rules" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qc-zU-U2r" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
-                                <rect key="frame" x="20" y="722" width="374" height="100"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="20" y="772" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" priority="999" constant="500" id="Jwt-Ap-zCK"/>
-                                    <constraint firstAttribute="height" priority="999" constant="100" id="NCz-Ld-cR0"/>
+                                    <constraint firstAttribute="height" priority="999" constant="50" id="NCz-Ld-cR0"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="WNj-Eb-KAq"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="fm0-WT-Rfj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Agree">
-                                    <color key="titleColor" red="0.086274509799999996" green="0.35686274509999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
+                                <state key="normal" title="Agree"/>
                                 <connections>
                                     <action selector="agreeButtonTapped" destination="aIU-SF-W91" eventType="touchUpInside" id="fNz-eK-JDi"/>
                                 </connections>
@@ -301,17 +314,14 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="220" verticalCompressionResistancePriority="220" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cJ-gz-nSJ" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
-                                <rect key="frame" x="20" y="732" width="374" height="100"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="20" y="772" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" priority="999" constant="500" id="139-lk-0Fx"/>
-                                    <constraint firstAttribute="height" priority="750" constant="100" id="4y6-Bw-lTN"/>
+                                    <constraint firstAttribute="height" priority="750" constant="50" id="4y6-Bw-lTN"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="UG7-m9-234"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Request Driver">
-                                    <color key="titleColor" red="0.20826181769999999" green="0.43334984780000002" blue="0.66277182099999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
+                                <state key="normal" title="Request Driver"/>
                                 <connections>
                                     <action selector="button" destination="pkP-yb-wPx" eventType="touchUpInside" id="Z5Y-OD-8Bu"/>
                                 </connections>
@@ -322,7 +332,7 @@
                         <constraints>
                             <constraint firstItem="PzP-lk-ovY" firstAttribute="centerX" secondItem="wu9-Qc-Xoy" secondAttribute="centerX" id="1Uy-1A-c6L"/>
                             <constraint firstItem="7cJ-gz-nSJ" firstAttribute="centerX" secondItem="wu9-Qc-Xoy" secondAttribute="centerX" id="5SA-jJ-l7K"/>
-                            <constraint firstItem="wu9-Qc-Xoy" firstAttribute="bottom" secondItem="7cJ-gz-nSJ" secondAttribute="bottom" priority="750" constant="30" id="7vc-en-otj"/>
+                            <constraint firstItem="wu9-Qc-Xoy" firstAttribute="bottom" secondItem="7cJ-gz-nSJ" secondAttribute="bottom" priority="750" constant="40" id="7vc-en-otj"/>
                             <constraint firstItem="wu9-Qc-Xoy" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="7cJ-gz-nSJ" secondAttribute="bottom" constant="10" id="Mkc-N4-hNn"/>
                             <constraint firstItem="PzP-lk-ovY" firstAttribute="centerY" secondItem="wu9-Qc-Xoy" secondAttribute="centerY" priority="749" constant="-200" id="R5d-CU-l0C"/>
                             <constraint firstItem="PzP-lk-ovY" firstAttribute="top" relation="greaterThanOrEqual" secondItem="wu9-Qc-Xoy" secondAttribute="top" constant="10" id="RUa-TD-bXx"/>
@@ -382,17 +392,15 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pOm-X2-Ikh">
-                                <rect key="frame" x="20" y="732" width="374" height="100"/>
+                                <rect key="frame" x="20" y="772" width="374" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CfF-a5-IOh" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="tnf-Vn-awe"/>
                                         </constraints>
-                                        <state key="normal" title="Call A2D2">
-                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="Call A2D2"/>
                                         <connections>
                                             <action selector="callA2D2" destination="bfc-Lc-yho" eventType="touchUpInside" id="gDM-ng-rp2"/>
                                         </connections>
@@ -402,7 +410,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="75t-4u-9Tj"/>
                                     <constraint firstAttribute="width" priority="750" constant="500" id="KKk-j5-zoS"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="fpd-Pr-yPg"/>
-                                    <constraint firstAttribute="height" priority="750" constant="100" id="uHh-sZ-43u"/>
+                                    <constraint firstAttribute="height" priority="750" constant="50" id="uHh-sZ-43u"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -415,7 +423,7 @@
                             <constraint firstItem="pOm-X2-Ikh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kMJ-kx-Jum" secondAttribute="leading" constant="20" id="YGl-Ca-WoG"/>
                             <constraint firstItem="KbE-Ee-8vF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="kMJ-kx-Jum" secondAttribute="top" constant="20" id="gJi-O8-k31"/>
                             <constraint firstItem="KbE-Ee-8vF" firstAttribute="centerY" secondItem="kMJ-kx-Jum" secondAttribute="centerY" constant="-200" id="ptI-rI-HME"/>
-                            <constraint firstItem="kMJ-kx-Jum" firstAttribute="bottom" secondItem="pOm-X2-Ikh" secondAttribute="bottom" priority="750" constant="30" id="uxS-N5-O2t"/>
+                            <constraint firstItem="kMJ-kx-Jum" firstAttribute="bottom" secondItem="pOm-X2-Ikh" secondAttribute="bottom" priority="750" constant="40" id="uxS-N5-O2t"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kMJ-kx-Jum"/>
                     </view>
