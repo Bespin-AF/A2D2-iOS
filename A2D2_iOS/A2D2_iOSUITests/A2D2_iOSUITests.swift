@@ -52,6 +52,11 @@ class A2D2_iOSUITests: XCTestCase {
         //Alert as well
     }
     
+    
+    func goToDriverLoginPage(){
+        app.buttons["Driver Login"].tap()
+    }
+    
     /*** End Navigation ***/
 
     
@@ -144,6 +149,14 @@ class A2D2_iOSUITests: XCTestCase {
     }
     
     
+    //Tests that the Cancel Option keeps user on Pickup Request Options Page
+    func testRequiresName() {
+        goToRideStatusPage()
+        sleep(1)
+        XCTAssert(app.alerts["Name is a required field."].exists)
+    }
+    
+    
     //Tests that driver login button exists
     func testHome_DriverLoginButtonExists() {
         XCTAssert(app.buttons["Driver Login"].exists)
@@ -152,8 +165,39 @@ class A2D2_iOSUITests: XCTestCase {
     
     //Tests that Driver Login button takes you to Driver Login page
     func testHome_DriverLoginDoesNavigate() {
-        app.buttons["Driver Login"].tap()
+        goToDriverLoginPage()
         XCTAssert(app.navigationBars["Driver Login"].exists)
+    }
+    
+    
+    //Tests that login page has all required fields
+    func testDriverLoginFields() {
+        goToDriverLoginPage()
+        XCTAssert(app.textFields["Email"].exists)
+        XCTAssert(app.textFields["Password"].exists)
+        XCTAssert(app.buttons["Login"].exists)
+    }
+    
+    
+    //Tests that invalid login keeps user at login page
+    func testDriverLogin_LoginDoesNotNavigate(){
+        goToDriverLoginPage()
+        app.buttons["Login"].tap()
+        XCTAssert(!app.navigationBars["Ride Requests"].exists)
+    }
+    
+    
+    //Tests that having username and password progresses user to next screen
+    func testDriverLogin_ValidLoginDoesNavigate(){
+        goToDriverLoginPage()
+        app.textFields["Email"].tap()
+        app.textFields["Email"].typeText("Marco")
+        app.textFields["Password"].tap()
+        app.textFields["Password"].typeText("Bigbootcrutch16")
+        app.accessibilityActivate()
+        app.staticTexts["Welcome!"].tap()//Slightly Hacky -- Find better way to tap off
+        app.buttons["Login"].tap()
+        XCTAssert(app.navigationBars["Ride Requests"].exists)
     }
 
     
