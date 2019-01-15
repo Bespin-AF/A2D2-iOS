@@ -142,6 +142,19 @@ class A2D2_iOSUITests: XCTestCase {
         sleep(1)
         XCTAssert(app.navigationBars["Pickup Request Options"].exists)
     }
+    
+    
+    //Tests that driver login button exists
+    func testHome_DriverLoginButtonExists() {
+        XCTAssert(app.buttons["Driver Login"].exists)
+    }
+    
+    
+    //Tests that Driver Login button takes you to Driver Login page
+    func testHome_DriverLoginDoesNavigate() {
+        app.buttons["Driver Login"].tap()
+        XCTAssert(app.navigationBars["Driver Login"].exists)
+    }
 
     
     /***** System Alert Handling / Permissions Test *****/
