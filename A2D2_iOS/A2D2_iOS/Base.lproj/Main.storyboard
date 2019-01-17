@@ -53,7 +53,7 @@
                                             <constraint firstAttribute="height" priority="999" constant="50" id="2If-uk-n4y"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="9qK-78-GGW"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="22"/>
                                         <state key="normal" title="Driver Login"/>
                                         <connections>
                                             <segue destination="u3z-aj-8wd" kind="show" id="pGZ-72-Qn8"/>
@@ -224,7 +224,7 @@
                         <outlet property="DismissKeyboardTap" destination="Haw-kL-iCL" id="5xe-6e-zpX"/>
                         <outlet property="EmailTextField" destination="jon-er-YRi" id="XOg-Cc-3XQ"/>
                         <outlet property="PasswordTextField" destination="bGP-Xi-6nA" id="KBb-Qy-cuM"/>
-                        <segue destination="j2S-th-8ju" kind="show" identifier="ride_requests" id="TLv-EN-nV6"/>
+                        <segue destination="gYR-4J-eMZ" kind="show" identifier="ride_requests" id="6TQ-MS-Xm0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5my-DZ-U7v" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -236,20 +236,77 @@
             </objects>
             <point key="canvasLocation" x="2803" y="136"/>
         </scene>
-        <!--Ride Requests-->
-        <scene sceneID="uvW-tY-lUv">
+        <!--Ride Request Details-->
+        <scene sceneID="v4C-2C-M6H">
             <objects>
-                <viewController title="Ride Requests" id="j2S-th-8ju" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="HSr-oq-NND">
+                <viewController title="Ride Request Details" id="Nat-e7-fLP" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JE5-zX-rS0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.086274509799999996" green="0.35686274509999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
-                        <viewLayoutGuide key="safeArea" id="LCS-tV-3nz"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="P3s-lQ-jm1"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="d9C-nM-jAj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5FO-iU-rvl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3594" y="135"/>
+            <point key="canvasLocation" x="4365" y="136"/>
+        </scene>
+        <!--Ride Requests-->
+        <scene sceneID="ftJ-PC-1Rd">
+            <objects>
+                <tableViewController title="Ride Requests" id="gYR-4J-eMZ" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="uIi-oa-5Sx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" alpha="0.69999999999999996" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="ItemCell" id="t7S-pw-hak" customClass="RequestStatusCell" customModule="A2D2_iOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t7S-pw-hak" id="rTc-d4-ZV9">
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQm-DF-67L">
+                                            <rect key="frame" x="20" y="0.0" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="72T-G7-jpm">
+                                            <rect key="frame" x="20" y="25" width="31" height="15"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Omh-Dh-Mi3">
+                                            <rect key="frame" x="292" y="9" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="tintColor" red="0.086274509799999996" green="0.35686274509999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="detailLabel" destination="72T-G7-jpm" id="jVg-8q-vU3"/>
+                                    <outlet property="statusLabel" destination="gQm-DF-67L" id="BgR-eK-Iq1"/>
+                                    <outlet property="timeLabel" destination="Omh-Dh-Mi3" id="1cE-J5-uzO"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="gYR-4J-eMZ" id="MIA-sK-fV9"/>
+                            <outlet property="delegate" destination="gYR-4J-eMZ" id="1JA-EZ-QDG"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HhM-ma-A3p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3587" y="135"/>
         </scene>
         <!--A2D2 Rules-->
         <scene sceneID="L4P-bT-MFL">
