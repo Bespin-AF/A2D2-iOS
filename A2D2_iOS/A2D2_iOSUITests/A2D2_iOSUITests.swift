@@ -57,6 +57,18 @@ class A2D2_iOSUITests: XCTestCase {
         app.buttons["Driver Login"].tap()
     }
     
+    
+    func goToRideRequestsPage(){
+        goToDriverLoginPage()
+        app.textFields["Email"].tap()
+        app.textFields["Email"].typeText("Marco")
+        app.secureTextFields["Password"].tap()
+        app.secureTextFields["Password"].typeText("Bigbootcrutch16")
+        app.accessibilityActivate()
+        app.staticTexts["Welcome!"].tap()//Slightly Hacky -- Find better way to tap off
+        app.buttons["Login"].tap()
+    }
+    
     /*** End Navigation ***/
 
     
@@ -174,7 +186,7 @@ class A2D2_iOSUITests: XCTestCase {
     func testDriverLoginFields() {
         goToDriverLoginPage()
         XCTAssert(app.textFields["Email"].exists)
-        XCTAssert(app.textFields["Password"].exists)
+        XCTAssert(app.secureTextFields["Password"].exists)
         XCTAssert(app.buttons["Login"].exists)
     }
     
@@ -189,16 +201,10 @@ class A2D2_iOSUITests: XCTestCase {
     
     //Tests that having username and password progresses user to next screen
     func testDriverLogin_ValidLoginDoesNavigate(){
-        goToDriverLoginPage()
-        app.textFields["Email"].tap()
-        app.textFields["Email"].typeText("Marco")
-        app.textFields["Password"].tap()
-        app.textFields["Password"].typeText("Bigbootcrutch16")
-        app.accessibilityActivate()
-        app.staticTexts["Welcome!"].tap()//Slightly Hacky -- Find better way to tap off
-        app.buttons["Login"].tap()
+        goToRideRequestsPage()
         XCTAssert(app.navigationBars["Ride Requests"].exists)
     }
+    
 
     
     /***** System Alert Handling / Permissions Test *****/

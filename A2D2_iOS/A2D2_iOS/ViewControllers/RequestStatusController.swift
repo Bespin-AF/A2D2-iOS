@@ -17,21 +17,25 @@ class RequestStatusController: UITableViewController {
         super.viewDidLoad()
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 65
+        addItem()
     }
     
     
     func addItem() {
-        requestList[0] = ["Status" : "Available",
-        ]
+        requestList[0] = ["status" : "Available",
+                          "groupSize" : 1,
+                          "gender" : "male",
+                          "timestamp" : Date().description]
         let indexPath = IndexPath(row: 0, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! RequestStatusCell
-        cell.statusLabel.text = "Available"
-        cell.detailLabel.text = "Group Size: 1, Gender: Meh"
-        cell.timeLabel.text = "2800"
+        let rideRequest = requestList[indexPath.row]
+        cell.statusLabel.text = getDetailDescription(rideRequest, "status")
+        cell.detailLabel.text = getDetailDescription(rideRequest, "gender")
+        cell.timeLabel.text = getDetailDescription(rideRequest, "timestamp")
         return cell
     }
     
@@ -42,5 +46,9 @@ class RequestStatusController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+    }
+    
+    private func getDetailDescription(_ rideRequest : [String : Any],_ detail : String ) -> String{
+        return "\(rideRequest[detail] ?? "[N/A]")"
     }
 }

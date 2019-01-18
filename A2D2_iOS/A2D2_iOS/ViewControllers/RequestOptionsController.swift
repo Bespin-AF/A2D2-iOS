@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreLocation
-import Firebase
 
 class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate, UITextFieldDelegate, CLLocationManagerDelegate {
     @IBOutlet var dismissKeyboardTap: UITapGestureRecognizer!
@@ -21,7 +20,6 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     let requesterGender = ["Male", "Female"]
     let commentsPlaceholderText = "Comments (Optional)"
     let locationManager = CLLocationManager()
-    var ref : DatabaseReference!
     var selectedGroupSize: Int = 0
     var selectedGender: String = ""
     
@@ -97,7 +95,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         if(!validateInputs()){ return }//Validate Inputs
         let alert = UIAlertController(title: "Confirm Driver Request", message: "Are you sure you want to dispatch a driver to your current location?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler:{ action in
-            self.sendToFirebase(self.buildRequest())
+            DataSourceUtils.sendData(data: self.buildRequest())
             self.performSegue(withIdentifier: "request_sent", sender: self)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -129,13 +127,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBAction func dismissKeyboard(_ sender: Any) {
         view.endEditing(true)
     }
-    
-    func sendToFirebase(_ request: [String : Any]){
-        ref = Database.database().reference()
-        let key = ref.child("requests").childByAutoId().key!
-        ref.child("requests").child(key).setValue(request)
-    }
-    
+
     
     func validateInputs()-> Bool {
         if nameField.text == "" {

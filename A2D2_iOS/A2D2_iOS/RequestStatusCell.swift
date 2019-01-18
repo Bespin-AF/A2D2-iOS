@@ -8,7 +8,6 @@
 
 import UIKit
 class RequestStatusCell: UITableViewCell {
-    
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
