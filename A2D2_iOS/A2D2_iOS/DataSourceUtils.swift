@@ -27,6 +27,19 @@ class DataSourceUtils{
     }
     
     
+    public static func getCurrentRequestsWhere(column key:String, equals value:String) -> [[String : Any]] {
+        var results : [[String:Any]] = []
+        
+        for request in requests {
+            if(request[key] as! String == value) {
+                results.append(request)
+            }
+        }
+        
+        return results
+    }
+    
+    
     public static func startRequestSync() {
         let resultsRef = ref.child("requests")
         
