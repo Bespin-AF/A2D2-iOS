@@ -32,8 +32,4 @@ class A2D2_iOSTests: XCTestCase {
     }
     
     
-    func testFirebaseQuery(){
-        
-    }
-
 }

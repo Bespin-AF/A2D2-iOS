@@ -56,7 +56,7 @@
                                         <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="22"/>
                                         <state key="normal" title="Driver Login"/>
                                         <connections>
-                                            <segue destination="u3z-aj-8wd" kind="show" id="pGZ-72-Qn8"/>
+                                            <segue destination="fKt-w7-lyh" kind="show" id="acR-r4-q1a"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -108,7 +108,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ej2-fl-9Pj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1093" y="-612"/>
+            <point key="canvasLocation" x="-401" y="135"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ogb-Lj-2rl">
@@ -123,12 +123,12 @@
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="fKt-w7-lyh" kind="relationship" relationship="rootViewController" id="sT5-tV-KyW"/>
+                        <segue destination="gYR-4J-eMZ" kind="relationship" relationship="rootViewController" id="ckE-e9-sOc"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fJ7-z0-DGC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2822" y="-612"/>
+            <point key="canvasLocation" x="2851" y="136"/>
         </scene>
         <!--Driver Login-->
         <scene sceneID="zhw-pX-WCA">
@@ -139,7 +139,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gCF-iN-k66">
-                                <rect key="frame" x="20" y="128" width="374" height="107"/>
+                                <rect key="frame" x="20" y="84" width="374" height="107"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TVq-F6-ob9">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="37"/>
@@ -160,7 +160,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="rBz-9w-Xbi">
-                                <rect key="frame" x="20" y="335" width="374" height="120"/>
+                                <rect key="frame" x="20" y="291" width="374" height="120"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jon-er-YRi">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
@@ -224,7 +224,7 @@
                         <outlet property="DismissKeyboardTap" destination="Haw-kL-iCL" id="5xe-6e-zpX"/>
                         <outlet property="EmailTextField" destination="jon-er-YRi" id="XOg-Cc-3XQ"/>
                         <outlet property="PasswordTextField" destination="bGP-Xi-6nA" id="KBb-Qy-cuM"/>
-                        <segue destination="gYR-4J-eMZ" kind="show" identifier="ride_requests" id="6TQ-MS-Xm0"/>
+                        <segue destination="u3z-aj-8wd" kind="show" identifier="ride_requests" id="Moc-HI-vMf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5my-DZ-U7v" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -234,7 +234,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2803" y="136"/>
+            <point key="canvasLocation" x="2852" y="-612"/>
         </scene>
         <!--Ride Request Details-->
         <scene sceneID="v4C-2C-M6H">
@@ -254,7 +254,7 @@
         <!--Ride Requests-->
         <scene sceneID="ftJ-PC-1Rd">
             <objects>
-                <tableViewController title="Ride Requests" id="gYR-4J-eMZ" customClass="RequestStatusController" customModule="A2D2_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="gYR-4J-eMZ" customClass="RequestStatusController" customModule="A2D2_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="uIi-oa-5Sx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -304,10 +304,11 @@
                             <outlet property="delegate" destination="gYR-4J-eMZ" id="1JA-EZ-QDG"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Ride Requests" id="gu9-X1-Nwp"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HhM-ma-A3p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3586.9565217391305" y="134.59821428571428"/>
+            <point key="canvasLocation" x="3617" y="135"/>
         </scene>
         <!--A2D2 Rules-->
         <scene sceneID="L4P-bT-MFL">

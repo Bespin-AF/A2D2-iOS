@@ -11,23 +11,13 @@ import UIKit
 
 class RequestStatusController: UITableViewController {
 
-    var requestList : [[String : Any]] = [[:]]
+    var requestList : [[String : Any]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 65
-        addItem()
-    }
-    
-    
-    func addItem() {
-        requestList[0] = ["status" : "Available",
-                          "groupSize" : 1,
-                          "gender" : "male",
-                          "timestamp" : Date().description]
-        let indexPath = IndexPath(row: 0, section: 0)
-        tableView.insertRows(at: [indexPath], with: .automatic)
+        requestList = DataSourceUtils.getCurrentRequests()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,7 +30,7 @@ class RequestStatusController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return requestList.count
     }
     
     override func viewWillAppear(_ animated: Bool) {
