@@ -22,6 +22,7 @@ class A2D2_iOSTests: XCTestCase {
     }
 
 
+    //Keep this as a reference please
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
@@ -29,5 +30,6 @@ class A2D2_iOSTests: XCTestCase {
         }
     
     }
-
+    
+    
 }
