@@ -111,7 +111,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         //Avoid sending placeholder text
         let remarks = textView.textColor == UIColor.black ? textView.text : ""
    
-        let request = ["status" : "", //Populate status once we have the standards
+        let request = ["status" : "Available",
                        "gender" : selectedGender,
                        "groupSize" : selectedGroupSize,
                        "remarks" : remarks!,
@@ -130,11 +130,11 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
 
     
     func validateInputs()-> Bool {
-        if nameField.text == "" {
+        if nameField.text == "" { // Name not empty
             notify("Name is a required field.")
             return false
         }
-        else if phoneNumberField.text == "" {
+        else if phoneNumberField.text == "" { //Phone Number not emptey
             notify("Phone number is a required field.")
             return false
         }

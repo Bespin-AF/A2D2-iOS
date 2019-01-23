@@ -11,6 +11,7 @@
 		1DAE0F1F21C8027700769DB5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DAE0F1E21C8027700769DB5 /* GoogleService-Info.plist */; };
 		1DAE0F2021C8027700769DB5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DAE0F1E21C8027700769DB5 /* GoogleService-Info.plist */; };
 		1DAE0F2121C8027700769DB5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DAE0F1E21C8027700769DB5 /* GoogleService-Info.plist */; };
+		5D01C03221F8C07D0067948F /* RideStatusController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D01C03121F8C07D0067948F /* RideStatusController.swift */; };
 		5D0F6EB821EE795100F8CD54 /* DriverLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0F6EB721EE795100F8CD54 /* DriverLoginController.swift */; };
 		5D47466F219F1C9300131FE2 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D47466E219F1C9300131FE2 /* MyButton.swift */; };
 		5DA0070E21EFAE6900C31F42 /* RequestStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA0070D21EFAE6900C31F42 /* RequestStatusCell.swift */; };
@@ -50,6 +51,7 @@
 		1D2E769721B1998E00F9EF84 /* RequestOptionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestOptionsController.swift; sourceTree = "<group>"; };
 		1DAE0F1E21C8027700769DB5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		522CF3E5065F30B164360F90 /* Pods-A2D2_iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A2D2_iOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A2D2_iOSUITests/Pods-A2D2_iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5D01C03121F8C07D0067948F /* RideStatusController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideStatusController.swift; sourceTree = "<group>"; };
 		5D0F6EB721EE795100F8CD54 /* DriverLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverLoginController.swift; sourceTree = "<group>"; };
 		5D47466E219F1C9300131FE2 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 		5DA0070D21EFAE6900C31F42 /* RequestStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestStatusCell.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				7C193E3521A45C660095728D /* RulesViewController.swift */,
 				5D0F6EB721EE795100F8CD54 /* DriverLoginController.swift */,
 				5DA0070F21EFB4D800C31F42 /* RequestStatusController.swift */,
+				5D01C03121F8C07D0067948F /* RideStatusController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				1D2E769821B1998E00F9EF84 /* RequestOptionsController.swift in Sources */,
 				5DA0070E21EFAE6900C31F42 /* RequestStatusCell.swift in Sources */,
 				7C94E7C4219B4E0900A623D9 /* AppDelegate.swift in Sources */,
+				5D01C03221F8C07D0067948F /* RideStatusController.swift in Sources */,
 				7C193E3621A45C660095728D /* RulesViewController.swift in Sources */,
 				5DB5EA3F21F260A20030D304 /* DataSourceUtils.swift in Sources */,
 				5D0F6EB821EE795100F8CD54 /* DriverLoginController.swift in Sources */,
@@ -515,7 +519,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -570,7 +574,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
