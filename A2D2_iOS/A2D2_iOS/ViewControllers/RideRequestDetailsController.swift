@@ -12,12 +12,9 @@ import UIKit
 class RideRequestDetailsController: UIViewController {
     
     @IBAction func textRider(_ sender: Any) {
-        //[[UIApplication textRider ] openURL:@sms:"555555555"]
         let number = "123456789"
-        let text = "test message for rider"
-        let url = URL(string: "sms://\(number);body=\(number)")!
+        let text = "test%20message%20for%20rider"//Manually encoded as URI
+        let url = URL(string: "sms://+\(number)/&body=\(text)")!
         UIApplication.shared.open(url)
     }
 }
-
-
