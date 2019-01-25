@@ -16,6 +16,10 @@ class DataSourceUtils{
     static var ref = Database.database().reference()
     static var requests : [[String : Any]] = [[:]]
     
+    public static func initFirebase(){
+        FirebaseApp.configure()
+    }
+    
     public static func sendData(data : [String : Any]){
         let key = ref.child("requests").childByAutoId().key!
         ref.child("requests").child(key).setValue(data)
