@@ -16,6 +16,4 @@ class RideStatusViewController: UIViewController {
         let url = URL(string: "tel://\(number)")!
         UIApplication.shared.open(url)
     }
-    
-    
 }

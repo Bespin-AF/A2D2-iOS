@@ -10,7 +10,6 @@
 
 import UIKit
 
-
 class RequestStatusController: UITableViewController {
 
     override func viewDidLoad() {
@@ -26,10 +25,10 @@ class RequestStatusController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! RequestStatusCell
-        var status = getSectionFromInt(indexPath.section)
+        var status = getStatusFromSectionIndex(indexPath.section)
         if(status == "N/A") {status = ""}
-        let section = DataSourceUtils.getCurrentRequestsWhere(column: "status", equals: status)
-        let rideRequest = section[indexPath.row]
+        let sectionData = DataSourceUtils.getCurrentRequestsWhere(column: "status", equals: status)
+        let rideRequest = sectionData[indexPath.row]
         cell.statusLabel.text = getDetailDescription(rideRequest, "status")
         cell.detailLabel.text = getDetailDescription(rideRequest, "gender")
         cell.timeLabel.text = getDetailDescription(rideRequest, "timestamp")
@@ -43,12 +42,12 @@ class RequestStatusController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.getSectionFromInt(section)
+        return self.getStatusFromSectionIndex(section)
     }
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var status = getSectionFromInt(section)
+        var status = getStatusFromSectionIndex(section)
         if(status == "N/A") {status = ""}
         
         return DataSourceUtils.getCurrentRequestsWhere(column: "status", equals: status).count
@@ -59,6 +58,17 @@ class RequestStatusController: UITableViewController {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let section = tableView.indexPathForSelectedRow!.section
+        let row = tableView.indexPathForSelectedRow!.row
+        let status = getStatusFromSectionIndex(section)
+        let sectionData = DataSourceUtils.getCurrentRequestsWhere(column: "status", equals: status )
+        let requestData = sectionData[row]
+        let detailView = segue.destination as! RideRequestDetailsController
+        detailView.requestData = requestData
+    }
 
     
     private func getDetailDescription(_ rideRequest : [String : Any],_ detail : String ) -> String{
@@ -66,7 +76,7 @@ class RequestStatusController: UITableViewController {
     }
     
     
-    private func getSectionFromInt(_ section : Int) -> String {
+    private func getStatusFromSectionIndex(_ section : Int) -> String {
         switch section {
         case 0:
             return "Available"
@@ -85,4 +95,5 @@ class RequestStatusController: UITableViewController {
             self.refreshControl!.endRefreshing()
         }
     }
+    
 }
