@@ -23,29 +23,47 @@ class RequestStatusController: UITableViewController {
     }
     
     
+    // Gives TableView populated cells
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! RequestStatusCell
-        var status = getStatusFromSectionIndex(indexPath.section)
-        if(status == "N/A") {status = ""}
-        let sectionData = DataSourceUtils.getCurrentRequestsWhere(column: "status", equals: status)
-        let rideRequest = sectionData[indexPath.row]
-        cell.statusLabel.text = getDetailDescription(rideRequest, "status")
-        cell.detailLabel.text = getDetailDescription(rideRequest, "gender")
-        cell.timeLabel.text = getDetailDescription(rideRequest, "timestamp")
+        var cell = tableView.dequeueReusableCell(withIdentifier: "requestCell", for: indexPath) as! RequestStatusCell
+        let rideRequest = getRequestData(atIndex: indexPath)
+        fillCellWithRequestData(cell: &cell, request: rideRequest)
         return cell
     }
     
     
+    // Returns request data for a given IndexPath
+    private func getRequestData(atIndex index: IndexPath) -> [String : Any] {
+        // Resolve status based on section
+        var status = getStatusFromSectionIndex(index.section)
+        if(status == "N/A") {status = ""}
+        // Query data for all requests within the section (with a matching status)
+        let sectionData = DataSourceUtils.getCurrentRequestsWhere(column: "status", equals: status)
+        return sectionData[index.row]
+    }
+    
+    
+    // Fills a RequestStatusCell with data from a given request
+    private func fillCellWithRequestData ( cell :  inout RequestStatusCell, request : [String : Any]){
+        cell.statusLabel.text = getDetailDescription(request, "status")
+        cell.detailLabel.text = getDetailDescription(request, "gender")
+        cell.timeLabel.text = getDetailDescription(request, "timestamp")
+    }
+    
+    
+    // Gives TableView the number of sections it has
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 4
     }
     
     
+    // Gives TableView titles for each section
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.getStatusFromSectionIndex(section)
     }
     
     
+    // Gives TableView the number of rows in a given section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var status = getStatusFromSectionIndex(section)
         if(status == "N/A") {status = ""}
@@ -60,17 +78,14 @@ class RequestStatusController: UITableViewController {
     }
     
     
+    // NOTE: Assumes only segue is to the detail page
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let section = tableView.indexPathForSelectedRow!.section
-        let row = tableView.indexPathForSelectedRow!.row
-        let status = getStatusFromSectionIndex(section)
-        let sectionData = DataSourceUtils.getCurrentRequestsWhere(column: "status", equals: status )
-        let requestData = sectionData[row]
         let detailView = segue.destination as! RideRequestDetailsController
-        detailView.requestData = requestData
+        detailView.requestData = getRequestData(atIndex: tableView.indexPathForSelectedRow!)
     }
 
     
+    // Returns a human-readable description for a given detail of a ride request
     private func getDetailDescription(_ rideRequest : [String : Any],_ detail : String ) -> String{
         return "\(rideRequest[detail] ?? "[N/A]")"
     }
@@ -89,11 +104,11 @@ class RequestStatusController: UITableViewController {
         }
     }
     
+    
     @objc private func refresh(_ sender : Any){
         DispatchQueue.main.async {
             self.tableView.reloadData()
             self.refreshControl!.endRefreshing()
         }
     }
-    
 }

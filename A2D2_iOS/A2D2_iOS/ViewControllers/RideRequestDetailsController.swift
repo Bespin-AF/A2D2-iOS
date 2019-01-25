@@ -18,6 +18,7 @@ class RideRequestDetailsController: UIViewController {
     
     var requestData : [String : Any]!
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         statusLabel.text = "\(requestData["status"] ?? "N/A")"
@@ -26,6 +27,7 @@ class RideRequestDetailsController: UIViewController {
         phoneNumberLabel.text = "\(requestData["phone"] ?? "N/A")"
         commentsLabel.text = "\(requestData["remarks"] ?? "N/A")"
     }
+    
     
     @IBAction func textRider(_ sender: Any) {
         let number = "123456789"
