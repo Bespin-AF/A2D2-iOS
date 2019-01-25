@@ -1,0 +1,22 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "5.16.0",
+  "iOS" : [
+    {
+      "name" : "leveldb-library",
+      "hash" : "8a041c3e3aca9a95d3d35ca73fa3cb9880288d7dd9224bb70daeb847f7ab3de6"
+    },
+    {
+      "name" : "FirebaseDatabase",
+      "hash" : "8e0e44eb0c87ebf0b19938ae6e886d96195319ab23b708cf0c36d1dfbc96d234"
+    }
+  ]
+}
