@@ -27,6 +27,7 @@ class RulesViewController: UIViewController, CLLocationManagerDelegate {
         didTapButton = true
     }
     
+    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if(didTapButton){
             checkLocation()

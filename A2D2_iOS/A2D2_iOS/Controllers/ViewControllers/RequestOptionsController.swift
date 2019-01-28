@@ -16,6 +16,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet var textView: UITextView!
     @IBOutlet var nameField: UITextField!
     @IBOutlet var phoneNumberField: UITextField!
+    
     let groupSizeData = [1,2,3,4]
     let requesterGender = ["Male", "Female"]
     let commentsPlaceholderText = "Comments (Optional)"
@@ -123,6 +124,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
                         //Format for timestamp is subject to change
         return request
     }
+    
     
     @IBAction func dismissKeyboard(_ sender: Any) {
         view.endEditing(true)
