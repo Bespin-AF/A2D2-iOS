@@ -36,4 +36,21 @@ class RideRequestDetailsController: UIViewController {
         let url = URL(string: "sms://+\(number)/&body=\(text)")!
         UIApplication.shared.open(url)
     }
+    
+    
+    @IBAction func takeJob(_ sender: Any) {
+        let alert = UIAlertController(title: "Confirm Pickup", message: "Are you sure you want to pick up this rider.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: {action in self.openMaps()}))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
+    
+    func openMaps() {
+        let lat = requestData["lat"]!
+        let lon = requestData["lon"]!
+        
+        let url = URL(string: "http://maps.apple.com/?sll=\(lat),\(lon)&t=s")!
+        UIApplication.shared.open(url)
+    }
 }
