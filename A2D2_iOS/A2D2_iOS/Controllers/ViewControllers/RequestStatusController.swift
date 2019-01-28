@@ -51,7 +51,7 @@ class RequestStatusController: UITableViewController {
         var status = getSectionFromInt(section)
         if(status == "N/A") {status = ""}
         
-        return DataSourceUtils.getCurrentRequestsWhere(column: "status", equals: status).count
+        return  DataSourceUtils.getCurrentRequestsWhere(column: "status", equals: status).count
     }
     
     

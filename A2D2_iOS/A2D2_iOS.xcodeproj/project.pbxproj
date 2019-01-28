@@ -170,6 +170,36 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5D82743721FF424400D89A9D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5DA0070D21EFAE6900C31F42 /* RequestStatusCell.swift */,
+				5D47466E219F1C9300131FE2 /* MyButton.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5D82743821FF429800D89A9D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7C94E7CC219B4E0A00A623D9 /* LaunchScreen.storyboard */,
+				7C94E7C7219B4E0900A623D9 /* Main.storyboard */,
+				5D82743321FF3D9D00D89A9D /* Driver.storyboard */,
+				5D82743521FF3DB000D89A9D /* Rider.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5D82743D21FF45BD00D89A9D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5D3206A5219F1867008C1F78 /* ViewControllers */,
+				7C94E7C3219B4E0900A623D9 /* AppDelegate.swift */,
+				5DB5EA3E21F260A20030D304 /* DataSourceUtils.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		7C94E7B7219B4E0900A623D9 = {
 			isa = PBXGroup;
 			children = (
@@ -194,18 +224,12 @@
 		7C94E7C2219B4E0900A623D9 /* A2D2_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				5D3206A5219F1867008C1F78 /* ViewControllers */,
-				7C94E7C3219B4E0900A623D9 /* AppDelegate.swift */,
-				5D47466E219F1C9300131FE2 /* MyButton.swift */,
 				7C94E7CA219B4E0A00A623D9 /* Assets.xcassets */,
 				7C94E7CF219B4E0A00A623D9 /* Info.plist */,
 				1DAE0F1E21C8027700769DB5 /* GoogleService-Info.plist */,
-				5DA0070D21EFAE6900C31F42 /* RequestStatusCell.swift */,
-				5DB5EA3E21F260A20030D304 /* DataSourceUtils.swift */,
-				7C94E7CC219B4E0A00A623D9 /* LaunchScreen.storyboard */,
-				7C94E7C7219B4E0900A623D9 /* Main.storyboard */,
-				5D82743321FF3D9D00D89A9D /* Driver.storyboard */,
-				5D82743521FF3DB000D89A9D /* Rider.storyboard */,
+				5D82743D21FF45BD00D89A9D /* Controllers */,
+				5D82743821FF429800D89A9D /* Views */,
+				5D82743721FF424400D89A9D /* Models */,
 			);
 			path = A2D2_iOS;
 			sourceTree = "<group>";
