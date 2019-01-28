@@ -24,6 +24,8 @@
 		5D3EA8F021FBAB2600249C27 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3EA8E521FBAB2500249C27 /* FirebaseCoreDiagnostics.framework */; };
 		5D3EA8F121FBAB2600249C27 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3EA8E621FBAB2500249C27 /* FirebaseInstanceID.framework */; };
 		5D47466F219F1C9300131FE2 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D47466E219F1C9300131FE2 /* MyButton.swift */; };
+		5D82743421FF3D9D00D89A9D /* Driver.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D82743321FF3D9D00D89A9D /* Driver.storyboard */; };
+		5D82743621FF3DB000D89A9D /* Rider.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D82743521FF3DB000D89A9D /* Rider.storyboard */; };
 		5DA0070E21EFAE6900C31F42 /* RequestStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA0070D21EFAE6900C31F42 /* RequestStatusCell.swift */; };
 		5DA0071021EFB4D800C31F42 /* RequestStatusController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA0070F21EFB4D800C31F42 /* RequestStatusController.swift */; };
 		5DB5EA3F21F260A20030D304 /* DataSourceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB5EA3E21F260A20030D304 /* DataSourceUtils.swift */; };
@@ -83,6 +85,8 @@
 		5D3EA8E621FBAB2500249C27 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Carthage/Build/iOS/FirebaseInstanceID.framework; sourceTree = "<group>"; };
 		5D3EA8E721FBAB2500249C27 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = Carthage/Build/iOS/Firebase.framework; sourceTree = "<group>"; };
 		5D47466E219F1C9300131FE2 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
+		5D82743321FF3D9D00D89A9D /* Driver.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Driver.storyboard; sourceTree = "<group>"; };
+		5D82743521FF3DB000D89A9D /* Rider.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Rider.storyboard; sourceTree = "<group>"; };
 		5DA0070D21EFAE6900C31F42 /* RequestStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestStatusCell.swift; sourceTree = "<group>"; };
 		5DA0070F21EFB4D800C31F42 /* RequestStatusController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestStatusController.swift; sourceTree = "<group>"; };
 		5DB5EA3E21F260A20030D304 /* DataSourceUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceUtils.swift; sourceTree = "<group>"; };
@@ -193,13 +197,15 @@
 				5D3206A5219F1867008C1F78 /* ViewControllers */,
 				7C94E7C3219B4E0900A623D9 /* AppDelegate.swift */,
 				5D47466E219F1C9300131FE2 /* MyButton.swift */,
-				7C94E7C7219B4E0900A623D9 /* Main.storyboard */,
 				7C94E7CA219B4E0A00A623D9 /* Assets.xcassets */,
-				7C94E7CC219B4E0A00A623D9 /* LaunchScreen.storyboard */,
 				7C94E7CF219B4E0A00A623D9 /* Info.plist */,
 				1DAE0F1E21C8027700769DB5 /* GoogleService-Info.plist */,
 				5DA0070D21EFAE6900C31F42 /* RequestStatusCell.swift */,
 				5DB5EA3E21F260A20030D304 /* DataSourceUtils.swift */,
+				7C94E7CC219B4E0A00A623D9 /* LaunchScreen.storyboard */,
+				7C94E7C7219B4E0900A623D9 /* Main.storyboard */,
+				5D82743321FF3D9D00D89A9D /* Driver.storyboard */,
+				5D82743521FF3DB000D89A9D /* Rider.storyboard */,
 			);
 			path = A2D2_iOS;
 			sourceTree = "<group>";
@@ -327,8 +333,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D82743421FF3D9D00D89A9D /* Driver.storyboard in Resources */,
 				7C94E7CE219B4E0A00A623D9 /* LaunchScreen.storyboard in Resources */,
 				1DAE0F1F21C8027700769DB5 /* GoogleService-Info.plist in Resources */,
+				5D82743621FF3DB000D89A9D /* Rider.storyboard in Resources */,
 				7C94E7CB219B4E0A00A623D9 /* Assets.xcassets in Resources */,
 				7C94E7C9219B4E0900A623D9 /* Main.storyboard in Resources */,
 			);
