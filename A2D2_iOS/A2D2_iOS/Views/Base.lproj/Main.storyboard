@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="Home" id="BYZ-38-t0r" customClass="HomeController" customModule="A2D2_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a2d2logo" translatesAutoresizingMaskIntoConstraints="NO" id="U0r-Oc-gw1">
+                                <rect key="frame" x="50" y="108" width="314" height="215"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="2bt-Ft-BMc"/>
+                                    <constraint firstAttribute="width" secondItem="U0r-Oc-gw1" secondAttribute="height" multiplier="317:217" id="42f-ci-rGj"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Cwl-eG-nJA">
+                                <rect key="frame" x="20" y="707" width="374" height="115"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jkj-OY-gna" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="750" constant="50" id="P1l-4H-Tlc"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="e4J-H0-NEW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="Request Ride">
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="UbX-3U-umQ" kind="show" id="SvV-A9-kxc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ui-1F-dR3">
+                                        <rect key="frame" x="0.0" y="65" width="374" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="999" constant="50" id="2If-uk-n4y"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="9qK-78-GGW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="22"/>
+                                        <state key="normal" title="Driver Login"/>
+                                        <connections>
+                                            <segue destination="BFd-Kf-gzy" kind="show" id="Y3L-ks-qxe"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="999" constant="500" id="B4F-Nm-cL0"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="XA0-80-nyf"/>
+                                    <constraint firstItem="4Ui-1F-dR3" firstAttribute="height" secondItem="Jkj-OY-gna" secondAttribute="height" id="uFg-dk-Edx"/>
+                                </constraints>
+                                <variation key="heightClass=compact" spacing="8"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.086274509799999996" green="0.35686274509999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Cwl-eG-nJA" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2zI-rL-nVu"/>
+                            <constraint firstItem="U0r-Oc-gw1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" priority="750" constant="64" id="3bI-aO-7zP"/>
+                            <constraint firstItem="U0r-Oc-gw1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Czh-7m-NNo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Cwl-eG-nJA" secondAttribute="bottom" constant="40" id="TOY-Fg-sS5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="U0r-Oc-gw1" secondAttribute="trailing" constant="50" id="TYh-BQ-XAn"/>
+                            <constraint firstItem="U0r-Oc-gw1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="alU-Am-PbD"/>
+                            <constraint firstItem="U0r-Oc-gw1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dcf-jR-lCG"/>
+                            <constraint firstItem="Cwl-eG-nJA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="sMb-7T-06V"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Cwl-eG-nJA" secondAttribute="trailing" constant="20" id="uYw-lJ-dw9"/>
+                            <constraint firstItem="Cwl-eG-nJA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="U0r-Oc-gw1" secondAttribute="bottom" constant="40" id="ue9-55-N8n"/>
+                            <constraint firstItem="U0r-Oc-gw1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="yeB-4H-Bml"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aVV-DR-hTz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2703" y="-680"/>
+        </scene>
+        <!--Rider-->
+        <scene sceneID="dEY-6e-auy">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Rider" referencedIdentifier="Rider" id="UbX-3U-umQ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1sN-LW-kZK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3383" y="-680"/>
+        </scene>
+        <!--Driver-->
+        <scene sceneID="5BI-4e-DHg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Driver" referencedIdentifier="Driver" id="BFd-Kf-gzy" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ECM-Nu-qDx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3386" y="-647"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="a2d2logo" width="2592" height="1944"/>
+    </resources>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+</document>
