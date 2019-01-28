@@ -1,5 +1,5 @@
-#Ignore these files
 .DS_Store
+*.DS_Store
 *.xcproject
 *.xcuserstate
 *.xcworkspace
