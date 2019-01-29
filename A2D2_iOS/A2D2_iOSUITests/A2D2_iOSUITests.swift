@@ -47,6 +47,10 @@ class A2D2_iOSUITests: XCTestCase {
     
     func goToRideStatusPage(){
         goToPickupRequestOptionsPage()
+        app.textFields["Name"].tap()
+        app.textFields["Name"].typeText("Test Name")
+        app.textFields["Phone Number"].tap()
+        app.textFields["Phone Number"].typeText("3345389408")
         app.buttons["Request Driver"].tap()
         //Will need to handle mandatory fields and input here
         //Alert as well
@@ -69,90 +73,79 @@ class A2D2_iOSUITests: XCTestCase {
         app.buttons["Login"].tap()
     }
     
-    /*** End Navigation ***/
-
     
-    //Tests that Request ride view exists
-    func testRequestRideView_IsShowing(){
+    func goToRideRequestsDetailPage(){
+        goToRideRequestsPage()
+        if(app.cells.count > 0){
+            app.cells.firstMatch.tap()
+        }
+    }
+    
+    /*** End Navigation ***/
+    
+
+    // Tests the home page for all UI Components
+    func testHome_HasAllComponents(){
         XCTAssert(app.images["a2d2logo"].exists)
         XCTAssert(app.buttons["Request Ride"].exists)
         XCTAssert(app.buttons["Request Ride"].isEnabled)
+        XCTAssert(app.buttons["Driver Login"].exists)
+        XCTAssert(app.buttons["Driver Login"].isEnabled)
     }
 
     
     //Test that the Request ride button navigates to A2D2Rules
-    func testA2D2RulesView_DoesShow(){
+    func testA2D2Rules_HasAllComponents(){
         goToRulesPage()
         XCTAssert(app.navigationBars["A2D2 Rules"].exists)
-    }
-
-    
-    //Test that the Agree button exists
-    func testAgreeButton_DoesShow(){
-        goToRulesPage()
         XCTAssert(app.buttons["Agree"].exists)
+        XCTAssert(app.buttons["Agree"].isEnabled)
     }
 
-    
+
     //Test that Pickup Request Options Page shows after Location Permissions have been granted
-    func testAgreeAfterAccepted_DoesNavigate() {
+    func testA2D2Rules_AgreeAfterPermissionGranted() {
         goToPickupRequestOptionsPage()
         XCTAssert(app.navigationBars["Pickup Request Options"].exists)
     }
     
     
     //Group Size Picker appears on Pickup Request Options Page
-    func testRequest_HasGroupSize(){
+    func testRequest_HasAllComponents(){
         goToPickupRequestOptionsPage()
         XCTAssert(app.staticTexts["Group Size"].exists)
-    }
-    
-    
-    //Name Field appears on Pickup Request Options Page
-    func testRequest_HasName(){
-        goToPickupRequestOptionsPage()
-        XCTAssert(app.textFields["Name"].exists)
-    }
-    
-    
-    //Phone Number Field appears on Pickup Request Options Page
-    func testRequest_HasPhoneNumber(){
-        goToPickupRequestOptionsPage()
-        XCTAssert(app.textFields["Phone Number"].exists)
-    }
-    
-    
-    //Gender Picker appears on Pickup Request Options Page
-    func testRequest_HasGender(){
-        goToPickupRequestOptionsPage()
+        XCTAssert(app.staticTexts["Group Size"].isEnabled)
         XCTAssert(app.staticTexts["Gender"].exists)
-    }
-    
-    
-    //Remarks Field appears on Pickup Request Options Page
-    func testRequest_DoesRemarksExists(){
-        goToPickupRequestOptionsPage()
-        XCTAssert(app.textViews.count > 0)
-    }
-    
-    
-    //Remarks Field has placeholder text
-    func testRequest_DoesPlaceHolderExist(){
-        goToPickupRequestOptionsPage()
+        XCTAssert(app.staticTexts["Gender"].isEnabled)
+        XCTAssert(app.textFields["Name"].exists)
+        XCTAssert(app.textFields["Name"].isEnabled)
+        XCTAssert(app.textFields["Phone Number"].exists)
+        XCTAssert(app.textFields["Phone Number"].isEnabled)
         XCTAssert(app.textViews["Comments (Optional)"].exists)
+        XCTAssert(app.textViews["Comments (Optional)"].isEnabled)
+    }
+    
+    
+    //Tests that the Cancel Option keeps user on Pickup Request Options Page
+    func testRequiresName() {
+        goToPickupRequestOptionsPage()
+        app.buttons["Request Driver"].tap()
+        sleep(1)
+        XCTAssert(app.alerts["Name is a required field."].exists)
     }
     
     
     //Tests that the Confirm Button navigates user to Ride Status Page
-    func testConfirmPickup_DoesNavigate() {
+    func testRequest_ConfirmPickup() {
         goToRideStatusPage()
         app.alerts["Confirm Driver Request"].buttons["Confirm"].tap()
+        sleep(1)
         XCTAssert(app.navigationBars["Ride Status"].exists)
     }
     
     
     //Tests that the Cancel Option keeps user on Pickup Request Options Page
-    func testCancelsPickup() {
+    func testRequest_CancelPickup() {
         goToRideStatusPage()
         sleep(1)
         app.alerts["Confirm Driver Request"].buttons["Cancel"].tap()
@@ -160,39 +153,21 @@ class A2D2_iOSUITests: XCTestCase {
         XCTAssert(app.navigationBars["Pickup Request Options"].exists)
     }
     
-    
-    //Tests that the Cancel Option keeps user on Pickup Request Options Page
-    func testRequiresName() {
-        goToRideStatusPage()
-        sleep(1)
-        XCTAssert(app.alerts["Name is a required field."].exists)
-    }
-    
-    
-    //Tests that driver login button exists
-    func testHome_DriverLoginButtonExists() {
-        XCTAssert(app.buttons["Driver Login"].exists)
-    }
-    
-    
-    //Tests that Driver Login button takes you to Driver Login page
-    func testHome_DriverLoginDoesNavigate() {
-        goToDriverLoginPage()
-        XCTAssert(app.navigationBars["Driver Login"].exists)
-    }
-    
-    
+
     //Tests that login page has all required fields
-    func testDriverLoginFields() {
+    func testDriverLogin_HasAllComponents() {
         goToDriverLoginPage()
         XCTAssert(app.textFields["Email"].exists)
+        XCTAssert(app.textFields["Email"].isEnabled)
         XCTAssert(app.secureTextFields["Password"].exists)
+        XCTAssert(app.secureTextFields["Password"].isEnabled)
         XCTAssert(app.buttons["Login"].exists)
+        XCTAssert(app.buttons["Login"].isEnabled)
     }
     
     
     //Tests that invalid login keeps user at login page
-    func testDriverLogin_LoginDoesNotNavigate(){
+    func testDriverLogin_LoginRequiresInput(){
         goToDriverLoginPage()
         app.buttons["Login"].tap()
         XCTAssert(!app.navigationBars["Ride Requests"].exists)
@@ -203,6 +178,31 @@ class A2D2_iOSUITests: XCTestCase {
     func testDriverLogin_ValidLoginDoesNavigate(){
         goToRideRequestsPage()
         XCTAssert(app.navigationBars["Ride Requests"].exists)
+    }
+    
+    
+    //Tests that the Driver Requests page has a table to contain the requests
+    func testDriverRequests_HasAllComponents(){
+        goToRideRequestsPage()
+        XCTAssert(app.tables.count == 1)
+    }
+    
+
+    //Tests that the Driver Request Details page has all required components
+    func testDriverRequestDetails_HasAllComponents(){
+        goToRideRequestsDetailPage()
+        if(app.cells.count > 0){
+            XCTAssert(app.navigationBars["Ride Request Details"].exists)
+            XCTAssert(app.staticTexts["Status:"].exists)
+            XCTAssert(app.staticTexts["Phone Number:"].exists)
+            XCTAssert(app.staticTexts["Group Size:"].exists)
+            XCTAssert(app.staticTexts["Name:"].exists)
+            XCTAssert(app.staticTexts["Rider Remarks"].exists)
+            XCTAssert(app.buttons["Text Rider"].exists)
+            XCTAssert(app.buttons["Text Rider"].isEnabled)
+            XCTAssert(app.buttons["Take Job"].exists)
+            XCTAssert(app.buttons["Take Job"].isEnabled)
+        }
     }
     
 

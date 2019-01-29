@@ -14,29 +14,35 @@ import Firebase
 
 class DataSourceUtils{
     static var ref = Database.database().reference()
-    static var requests : [[String : Any]] = [[:]]
+    static var requests : [String : Request] = [:]
     
     public static func initFirebase(){
         FirebaseApp.configure()
     }
     
-    public static func sendData(data : [String : Any]){
+    
+    public static func sendData(data : Request){
         let key = ref.child("requests").childByAutoId().key!
+        updateData(data: data, key: key)
+    }
+    
+    
+    public static func updateData(data : Request, key: String){
         ref.child("requests").child(key).setValue(data)
     }
     
     
-    public static func getCurrentRequests() -> [[String : Any]] {
+    public static func getCurrentRequests() -> [String : Request] {
         return requests
     }
     
     
-    public static func getCurrentRequestsWhere(column key:String, equals value:String) -> [[String : Any]] {
-        var results : [[String:Any]] = []
+    public static func getCurrentRequestsWhere(column key:String, equals value:String) -> [String : Request] {
+        var results : [String : Request] = [:]
         
         for request in requests {
-            if(request[key] as! String == value) {
-                results.append(request)
+            if(request.value.requestData[key] as! String == value) {
+                results[request.key] = request.value
             }
         }
         
@@ -53,13 +59,13 @@ class DataSourceUtils{
     }
     
     
-    //Creates an Array of Dictionaries from a DataSnapshot object
-    private static func getCollectionFromDataSnapshot(data snapshot:DataSnapshot) -> [[String : Any]]{
-        var results : [[String : Any]] = []
+    //Creates an Dictionary of Results from a DataSnapshot object
+    private static func getCollectionFromDataSnapshot(data snapshot:DataSnapshot) -> [String : Request]{
+        var results : [String : Request] = [:]
 
         //Add all results to collection
         for result in snapshot.children.allObjects as! [DataSnapshot] {
-            results.append(result.value as! [String : Any])
+            results[result.key] = (result.value as! [String : Any])
         }
         
         return results

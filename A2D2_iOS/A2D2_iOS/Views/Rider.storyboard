@@ -195,7 +195,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Request Driver"/>
                                 <connections>
-                                    <action selector="button" destination="OU6-00-1Cm" eventType="touchUpInside" id="11F-mS-Usu"/>
+                                    <action selector="requestDriver" destination="OU6-00-1Cm" eventType="touchUpInside" id="tEI-95-Pha"/>
                                 </connections>
                             </button>
                         </subviews>

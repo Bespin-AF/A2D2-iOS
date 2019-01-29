@@ -33,18 +33,43 @@ class RequestStatusController: UITableViewController {
     
     
     // Returns request data for a given IndexPath
-    private func getRequestData(atIndex index: IndexPath) -> [String : Any] {
-        // Resolve status based on section
-        var status = getStatusFromSectionIndex(index.section)
-        if(status == "N/A") {status = ""}
-        // Query data for all requests within the section (with a matching status)
-        let sectionData = DataSourceUtils.getCurrentRequestsWhere(column: "status", equals: status)
-        return sectionData[index.row]
+    private func getRequestData(atIndex index: IndexPath) -> Request {
+        let sectionData = getSectionData(forIndex: index)
+        return Array(sectionData.values)[index.row]
+    }
+    
+    
+    private func getRequestKey(atIndex index: IndexPath) -> String {
+        let sectionData = getSectionData(forIndex: index)
+        return Array(sectionData.keys)[index.row]
+    }
+    
+    
+    // Returns data for section containing the IndexPath
+    private func getSectionData(forIndex index: IndexPath) -> [String : Request] {
+        //Resolve section based on index
+        let status = getStatusFromSection(index.section)
+        let statusString = getStatusString(status)
+        return DataSourceUtils.getCurrentRequestsWhere(column: "status", equals: statusString)
+    }
+    
+    
+    private func getStatusFromSection(_ section : Int) ->  Status {
+        switch section {
+        case 0:
+            return Status.Available
+        case 1:
+            return Status.InProgress
+        case 2:
+            return Status.Completed
+        default:
+            return Status.Empty
+        }
     }
     
     
     // Fills a RequestStatusCell with data from a given request
-    private func fillCellWithRequestData ( cell :  inout RequestStatusCell, request : [String : Any]){
+    private func fillCellWithRequestData ( cell :  inout RequestStatusCell, request : Request){
         cell.statusLabel.text = getDetailDescription(request, "status")
         cell.detailLabel.text = getDetailDescription(request, "gender")
         cell.timeLabel.text = getDetailDescription(request, "timestamp")
@@ -53,22 +78,24 @@ class RequestStatusController: UITableViewController {
     
     // Gives TableView the number of sections it has
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return DataSourceUtils.getCurrentRequestsWhere(column: "status", equals: getStatusString(.Empty)).count > 0 ? 4 : 3
     }
     
     
     // Gives TableView titles for each section
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.getStatusFromSectionIndex(section)
+        let status = self.getStatusFromSection(section)
+        var statusString = getStatusString(status)
+        statusString = (statusString == "" ? "N/A" : statusString)
+        return statusString
     }
     
     
     // Gives TableView the number of rows in a given section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var status = getStatusFromSectionIndex(section)
-        if(status == "N/A") {status = ""}
-        
-        return  DataSourceUtils.getCurrentRequestsWhere(column: "status", equals: status).count
+        let status = getStatusFromSection(section)
+        let statusString = getStatusString(status)
+        return  DataSourceUtils.getCurrentRequestsWhere(column: "status", equals: statusString).count
     }
     
     
@@ -81,27 +108,15 @@ class RequestStatusController: UITableViewController {
     // NOTE: Assumes only segue is to the detail page
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailView = segue.destination as! RideRequestDetailsController
-        detailView.requestData = getRequestData(atIndex: tableView.indexPathForSelectedRow!)
+        let index = tableView.indexPathForSelectedRow!
+        detailView.requestData = getRequestData(atIndex: index)
+        detailView.requestKey = getRequestKey(atIndex: index)
     }
 
     
     // Returns a human-readable description for a given detail of a ride request
-    private func getDetailDescription(_ rideRequest : [String : Any],_ detail : String ) -> String{
-        return "\(rideRequest[detail] ?? "[N/A]")"
-    }
-    
-    
-    private func getStatusFromSectionIndex(_ section : Int) -> String {
-        switch section {
-        case 0:
-            return "Available"
-        case 1:
-            return "In Progress"
-        case 2:
-            return "Completed"
-        default:
-            return "N/A"
-        }
+    private func getDetailDescription(_ rideRequest : Request,_ detail : String ) -> String{
+        return "\(rideRequest)"
     }
     
     
