@@ -14,29 +14,39 @@ import Firebase
 
 class DataSourceUtils{
     static var ref = Database.database().reference()
-    static var requests : [[String : Any]] = [[:]]
+    static var requests : [String : Request] = [:]
     
+    // Initializes firebase functionality
     public static func initFirebase(){
         FirebaseApp.configure()
     }
     
-    public static func sendData(data : [String : Any]){
+    
+    // Sends new data to the data source
+    public static func sendData(data : Request){
         let key = ref.child("requests").childByAutoId().key!
-        ref.child("requests").child(key).setValue(data)
+        updateData(data: data, key: key)
     }
     
     
-    public static func getCurrentRequests() -> [[String : Any]] {
+    // Updates an existing entry in the data source
+    public static func updateData(data: Request, key: String){
+        ref.child("requests").child(key).setValue(data.requestData)
+    }
+    
+    
+    public static func getCurrentRequests() -> [String : Request] {
         return requests
     }
     
     
-    public static func getCurrentRequestsWhere(column key:String, equals value:String) -> [[String : Any]] {
-        var results : [[String:Any]] = []
+    // Returns a Dictonary of all requests where the specified column matches the the given value
+    public static func getCurrentRequestsWhere(column:String, equals value:String) -> [String : Request] {
+        var results : [String : Request] = [:]
         
         for request in requests {
-            if(request[key] as! String == value) {
-                results.append(request)
+            if(request.value.requestData[column] as! String == value) {
+                results[request.key] = request.value
             }
         }
         
@@ -44,6 +54,7 @@ class DataSourceUtils{
     }
     
     
+    // Begins observing the request s table and updates local collection with latest data
     public static func startRequestSync() {
         let resultsRef = ref.child("requests")
         
@@ -53,13 +64,15 @@ class DataSourceUtils{
     }
     
     
-    //Creates an Array of Dictionaries from a DataSnapshot object
-    private static func getCollectionFromDataSnapshot(data snapshot:DataSnapshot) -> [[String : Any]]{
-        var results : [[String : Any]] = []
+    // Creates and returns a Dictionary of Results from a given DataSnapshot object
+    private static func getCollectionFromDataSnapshot(data snapshot:DataSnapshot) -> [String : Request]{
+        var results : [String : Request] = [:]
 
         //Add all results to collection
         for result in snapshot.children.allObjects as! [DataSnapshot] {
-            results.append(result.value as! [String : Any])
+            let request = Request()
+            request.requestData = (result.value as! [String : Any])
+            results[result.key] = request
         }
         
         return results

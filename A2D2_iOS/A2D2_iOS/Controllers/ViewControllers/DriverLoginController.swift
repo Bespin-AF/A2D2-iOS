@@ -24,9 +24,15 @@ class DriverLoginController: UIViewController{
         self.performSegue(withIdentifier: "ride_requests", sender: self)
     }
     
-
+    
     @IBAction func dismissKeyboard(_ sender: Any) {
         view.endEditing(true)
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
     
     

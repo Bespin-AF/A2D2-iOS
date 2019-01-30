@@ -35,6 +35,7 @@ class RulesViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    
     func checkLocation(){
         locationManager.requestWhenInUseAuthorization()
         if(!CLLocationManager.locationServicesEnabled() || CLLocationManager.authorizationStatus() == .denied){

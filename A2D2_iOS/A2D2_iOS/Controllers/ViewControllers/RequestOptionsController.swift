@@ -92,7 +92,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     }
 
     
-    @IBAction func button(){
+    @IBAction func requestDriver(){
         if(!validateInputs()){ return }//Validate Inputs
         let alert = UIAlertController(title: "Confirm Driver Request", message: "Are you sure you want to dispatch a driver to your current location?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler:{ action in
@@ -104,30 +104,32 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     
-    func buildRequest() -> [String : Any]{
+    func buildRequest() -> Request{
+        let request = Request()
         guard let location = locationManager.location else {
             print("Can't get location.")
-            return [:]
+            return request
         }
         //Avoid sending placeholder text
         let remarks = textView.textColor == UIColor.black ? textView.text : ""
-   
-        let request = ["status" : "Available",
-                       "gender" : selectedGender,
-                       "groupSize" : selectedGroupSize,
-                       "remarks" : remarks!,
-                       "lat" : location.coordinate.latitude,
-                       "lon" : location.coordinate.longitude,
-                       "name" : nameField.text!,
-                       "phone" : phoneNumberField.text!,
-                       "timestamp" : Date().description] as [String : Any]
-                        //Format for timestamp is subject to change
+        
+        request.status = Status.Available
+        request.gender = selectedGender
+        request.groupSize = selectedGroupSize
+        request.remarks = remarks!
+        request.lat = location.coordinate.latitude
+        request.lon = location.coordinate.longitude
+        request.name = nameField.text!
+        request.phone = phoneNumberField.text!
+        request.timestamp = Date().description
+        
         return request
     }
     
     
     @IBAction func dismissKeyboard(_ sender: Any) {
         view.endEditing(true)
+        
     }
 
     
