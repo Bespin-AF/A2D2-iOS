@@ -53,7 +53,7 @@ class RideRequestDetailsController: UIViewController {
     }
     
     
-    func openMaps(_ lat: String,_ lon: String) {
+    func openMaps(_ lat: Double,_ lon: Double) {
         let url = URL(string: "http://maps.apple.com/?sll=\(lat),\(lon)&t=s")!
         UIApplication.shared.open(url)
     }
@@ -63,6 +63,4 @@ class RideRequestDetailsController: UIViewController {
         requestData.status = Status.InProgress
         DataSourceUtils.updateData(data: requestData, key: requestKey)
     }
-    
-    
 }

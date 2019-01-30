@@ -112,7 +112,6 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         }
         //Avoid sending placeholder text
         let remarks = textView.textColor == UIColor.black ? textView.text : ""
-   
         
         request.status = Status.Available
         request.gender = selectedGender

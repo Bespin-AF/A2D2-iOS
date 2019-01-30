@@ -151,11 +151,11 @@
 		5D3206A5219F1867008C1F78 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5DA0070F21EFB4D800C31F42 /* RequestStatusController.swift */,
 				5D15458021FF8B4800613E04 /* RideRequestDetailsController.swift */,
 				1D2E769721B1998E00F9EF84 /* RequestOptionsController.swift */,
 				7C193E3521A45C660095728D /* RulesViewController.swift */,
 				5D0F6EB721EE795100F8CD54 /* DriverLoginController.swift */,
-				5DA0070F21EFB4D800C31F42 /* RequestStatusController.swift */,
 				5D01C03121F8C07D0067948F /* RideStatusController.swift */,
 			);
 			path = ViewControllers;

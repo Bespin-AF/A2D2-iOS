@@ -25,3 +25,17 @@ public func getStatusString(_ status : Status) -> String {
         return ""
     }
 }
+
+
+public func resolveStatus(fromString string : String) -> Status {
+    switch string {
+    case "Available":
+        return .Available
+    case "In Progress":
+        return .InProgress
+    case "Completed":
+        return .Completed
+    default:
+        return .Empty
+    }
+}

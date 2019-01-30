@@ -26,19 +26,20 @@ class RequestStatusController: UITableViewController {
     // Gives TableView populated cells
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "requestCell", for: indexPath) as! RequestStatusCell
-        let rideRequest = getRequestData(atIndex: indexPath)
+        let rideRequest = getRequest(atIndex: indexPath)
         fillCellWithRequestData(cell: &cell, request: rideRequest)
         return cell
     }
     
     
     // Returns request data for a given IndexPath
-    private func getRequestData(atIndex index: IndexPath) -> Request {
+    private func getRequest(atIndex index: IndexPath) -> Request {
         let sectionData = getSectionData(forIndex: index)
         return Array(sectionData.values)[index.row]
     }
     
     
+    // Returns the unique key for the request
     private func getRequestKey(atIndex index: IndexPath) -> String {
         let sectionData = getSectionData(forIndex: index)
         return Array(sectionData.keys)[index.row]
@@ -109,14 +110,14 @@ class RequestStatusController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailView = segue.destination as! RideRequestDetailsController
         let index = tableView.indexPathForSelectedRow!
-        detailView.requestData = getRequestData(atIndex: index)
+        detailView.requestData = getRequest(atIndex: index)
         detailView.requestKey = getRequestKey(atIndex: index)
     }
 
     
     // Returns a human-readable description for a given detail of a ride request
     private func getDetailDescription(_ rideRequest : Request,_ detail : String ) -> String{
-        return "\(rideRequest)"
+        return "\(rideRequest.requestData[detail] ?? "N/A")"
     }
     
     
