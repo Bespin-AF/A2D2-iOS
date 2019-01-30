@@ -32,10 +32,8 @@ class RideRequestDetailsController: UIViewController {
     
     @IBAction func textRider(_ sender: Any) {
         let number = requestData.phone
-        //Percent encoding is required for use in the URL
-        let text = "Hey this is your A2D2 driver.".addingPercentEncoding(withAllowedCharacters:.alphanumerics)!
-        let url = URL(string: "sms://+\(number)/&body=\(text)")!
-        UIApplication.shared.open(url)
+        let message = "Hey this is your A2D2 driver."
+        SystemUtils.text(number: number, message: message)
     }
     
     
@@ -54,8 +52,7 @@ class RideRequestDetailsController: UIViewController {
     
     
     func openMaps(_ lat: Double,_ lon: Double) {
-        let url = URL(string: "http://maps.apple.com/?sll=\(lat),\(lon)&t=s")!
-        UIApplication.shared.open(url)
+        SystemUtils.map(lat: lat, lon: lon)
     }
     
     

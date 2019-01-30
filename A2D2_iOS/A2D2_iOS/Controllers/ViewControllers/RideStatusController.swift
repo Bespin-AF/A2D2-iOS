@@ -13,7 +13,6 @@ class RideStatusViewController: UIViewController {
     
     @IBAction func callA2D2() {
         let number = "3349533913"
-        let url = URL(string: "tel://\(number)")!
-        UIApplication.shared.open(url)
+        SystemUtils.call(number: number)
     }
 }

@@ -28,7 +28,6 @@ class A2D2_iOSTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
         }
-    
     }
     
     
