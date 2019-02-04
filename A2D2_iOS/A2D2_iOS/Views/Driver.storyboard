@@ -147,7 +147,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="uUj-XJ-DE7" userLabel="Detailed Info Stack">
-                                <rect key="frame" x="20" y="64" width="335" height="262"/>
+                                <rect key="frame" x="20" y="108" width="335" height="262"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TdX-pY-gD1" userLabel="First Row Stack">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="40.666666666666664"/>
@@ -162,7 +162,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ek7-GD-eXm">
-                                                        <rect key="frame" x="0.0" y="20.333333333333329" width="162.66666666666666" height="20.333333333333329"/>
+                                                        <rect key="frame" x="0.0" y="20.333333333333343" width="162.66666666666666" height="20.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -179,7 +179,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBa-bW-SOH">
-                                                        <rect key="frame" x="0.0" y="20.333333333333329" width="162.33333333333334" height="20.333333333333329"/>
+                                                        <rect key="frame" x="0.0" y="20.333333333333343" width="162.33333333333334" height="20.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -306,7 +306,6 @@
                         <outlet property="phoneNumberLabel" destination="vWj-EG-pLJ" id="RdR-8x-0KT"/>
                         <outlet property="statusLabel" destination="Ek7-GD-eXm" id="ZaG-aE-FYW"/>
                         <outlet property="textRiderButton" destination="35X-FU-cah" id="27e-sq-z5Y"/>
-                        <segue destination="5Nn-ur-44m" kind="show" identifier="job_completed_segue" id="3QR-a4-qvd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UpV-9T-NHm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -387,8 +386,5 @@
             <point key="canvasLocation" x="3290" y="106"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="3QR-a4-qvd"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

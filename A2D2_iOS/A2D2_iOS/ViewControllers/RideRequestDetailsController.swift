@@ -69,7 +69,7 @@ class RideRequestDetailsController: UIViewController {
     
     @IBAction func jobActionTapped(_ sender: Any) {
         if(requestData.status == .InProgress && requestData.driver == SystemUtils.currentUser){
-            completeJobActions()
+            confirmCompleteJob()
         } else {
             confirmTakeJob()
         }
@@ -90,6 +90,14 @@ class RideRequestDetailsController: UIViewController {
         let lon = requestData.lon
         updateStatus(.InProgress)
         openMaps(lat, lon)
+    }
+    
+    
+    func confirmCompleteJob() {
+        let alert = UIAlertController(title: "Confirm Dropoff", message: "This job has ben successfully completed.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: {action in self.completeJobActions()}))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
     }
     
     
