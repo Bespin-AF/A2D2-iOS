@@ -31,7 +31,7 @@ class RideRequestDetailsController: UIViewController {
     
     
     private func populateRequestInfo(){
-        statusLabel.text = "\(requestData.status)"
+        statusLabel.text = "\(getStatusString(requestData.status))"
         groupSizeLabel.text = "\(requestData.groupSize)"
         nameLabel.text = "\(requestData.name)"
         phoneNumberLabel.text = "\(requestData.phone)"
