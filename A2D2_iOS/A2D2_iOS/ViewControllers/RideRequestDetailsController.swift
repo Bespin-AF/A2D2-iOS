@@ -11,6 +11,7 @@ import UIKit
 
 class RideRequestDetailsController: UIViewController {
     @IBOutlet weak var jobActionButton: MyButton!
+    @IBOutlet weak var textRiderButton: MyButton!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var groupSizeLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -23,12 +24,18 @@ class RideRequestDetailsController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        populateRequestInfo()
+        updateActionButton()
+        updateEnabledButtons()
+    }
+    
+    
+    private func populateRequestInfo(){
         statusLabel.text = "\(requestData.status)"
         groupSizeLabel.text = "\(requestData.groupSize)"
         nameLabel.text = "\(requestData.name)"
         phoneNumberLabel.text = "\(requestData.phone)"
         commentsLabel.text = "\(requestData.remarks)"
-        updateActionButton()
     }
     
     
@@ -42,6 +49,17 @@ class RideRequestDetailsController: UIViewController {
     }
     
     
+    private func updateEnabledButtons(){
+        if(requestData.status == .Completed){
+            jobActionButton.isEnabled = false
+            textRiderButton.isEnabled = false
+        } else {
+            jobActionButton.isEnabled = true
+            textRiderButton.isEnabled = true
+        }
+    }
+    
+    
     @IBAction func textRider(_ sender: Any) {
         let number = requestData.phone
         let message = "Hey this is your A2D2 driver."
@@ -49,12 +67,17 @@ class RideRequestDetailsController: UIViewController {
     }
     
     
-    @IBAction func takeJob(_ sender: Any) {
-        var alertTitle = "Confirm Pickup"
-        
-        if(requestData.status == Status.InProgress){
-            alertTitle = "Job Previously Accepted"
+    @IBAction func jobActionTapped(_ sender: Any) {
+        if(requestData.status == .InProgress && requestData.driver == SystemUtils.currentUser){
+            completeJobActions()
+        } else {
+            confirmTakeJob()
         }
+    }
+    
+    
+    func confirmTakeJob() {
+        let alertTitle = requestData.status == Status.InProgress ? "Confirm Pickup" : "Job Previously Accepted"
         let alert = UIAlertController(title: alertTitle, message: "Are you sure you want to pick up this rider?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: {action in self.takeJobActions()}))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -65,8 +88,14 @@ class RideRequestDetailsController: UIViewController {
     func takeJobActions(){
         let lat = requestData.lat
         let lon = requestData.lon
-        updateStatus()
+        updateStatus(.InProgress)
         openMaps(lat, lon)
+    }
+    
+    
+    func completeJobActions(){
+        updateStatus(.Completed)
+        navigationController?.popViewController(animated: true)
     }
     
     
@@ -75,8 +104,8 @@ class RideRequestDetailsController: UIViewController {
     }
     
     
-    func updateStatus() {
-        requestData.status = Status.InProgress
+    func updateStatus(_ status : Status) {
+        requestData.status = status
         requestData.driver = SystemUtils.currentUser ?? "Default"
         DataSourceUtils.updateData(data: requestData, key: requestKey)
     }
