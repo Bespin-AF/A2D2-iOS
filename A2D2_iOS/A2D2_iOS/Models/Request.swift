@@ -56,8 +56,13 @@ class Request {
     }
     
     var timestamp : String {
-        get { return requestData["timestop"] as! String}
+        get { return requestData["timestamp"] as! String}
         set { requestData["timestamp"] = newValue}
+    }
+    
+    var driver : String? {
+        get { return requestData["driver"] as? String}
+        set { requestData["driver"] = newValue}
     }
 }
 

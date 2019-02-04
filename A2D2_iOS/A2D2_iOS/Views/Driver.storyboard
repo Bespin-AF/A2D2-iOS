@@ -301,6 +301,7 @@
                     <connections>
                         <outlet property="commentsLabel" destination="Ssc-XG-tAD" id="1cO-NB-Xbt"/>
                         <outlet property="groupSizeLabel" destination="HBa-bW-SOH" id="0Qy-KB-vrN"/>
+                        <outlet property="jobActionButton" destination="cCQ-8L-eV2" id="8el-Xh-O7y"/>
                         <outlet property="nameLabel" destination="m9o-gw-gPk" id="bP5-QS-jH3"/>
                         <outlet property="phoneNumberLabel" destination="vWj-EG-pLJ" id="RdR-8x-0KT"/>
                         <outlet property="statusLabel" destination="Ek7-GD-eXm" id="ZaG-aE-FYW"/>

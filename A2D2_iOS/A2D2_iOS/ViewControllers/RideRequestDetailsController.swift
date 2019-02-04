@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class RideRequestDetailsController: UIViewController {
+    @IBOutlet weak var jobActionButton: MyButton!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var groupSizeLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -27,6 +28,17 @@ class RideRequestDetailsController: UIViewController {
         nameLabel.text = "\(requestData.name)"
         phoneNumberLabel.text = "\(requestData.phone)"
         commentsLabel.text = "\(requestData.remarks)"
+        updateActionButton()
+    }
+    
+    
+    private func updateActionButton(){
+        if (requestData.status == .InProgress &&
+            requestData.driver == SystemUtils.currentUser ?? "Default") {
+            jobActionButton.setTitle("Complete Job", for: .normal)
+        } else {
+            jobActionButton.setTitle("Take Job", for: .normal)
+        }
     }
     
     
@@ -39,15 +51,22 @@ class RideRequestDetailsController: UIViewController {
     
     @IBAction func takeJob(_ sender: Any) {
         var alertTitle = "Confirm Pickup"
-        let lat = requestData.lat
-        let lon = requestData.lon
+        
         if(requestData.status == Status.InProgress){
             alertTitle = "Job Previously Accepted"
         }
         let alert = UIAlertController(title: alertTitle, message: "Are you sure you want to pick up this rider?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: {action in self.openMaps(lat, lon); self.updateStatus()}))
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: {action in self.takeJobActions()}))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alert, animated: true)
+    }
+    
+    
+    func takeJobActions(){
+        let lat = requestData.lat
+        let lon = requestData.lon
+        updateStatus()
+        openMaps(lat, lon)
     }
     
     
@@ -58,6 +77,7 @@ class RideRequestDetailsController: UIViewController {
     
     func updateStatus() {
         requestData.status = Status.InProgress
+        requestData.driver = SystemUtils.currentUser ?? "Default"
         DataSourceUtils.updateData(data: requestData, key: requestKey)
     }
 }
