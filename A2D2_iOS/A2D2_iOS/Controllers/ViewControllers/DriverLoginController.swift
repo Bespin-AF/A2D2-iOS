@@ -21,6 +21,7 @@ class DriverLoginController: UIViewController{
             notify("Username and Password are Required")
             return
         }
+        SystemUtils.currentUser = EmailTextField.text
         self.performSegue(withIdentifier: "ride_requests", sender: self)
     }
     

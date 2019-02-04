@@ -274,7 +274,7 @@
                                         <rect key="frame" x="172.66666666666663" y="0.0" width="162.33333333333337" height="50"/>
                                         <state key="normal" title="Take Job"/>
                                         <connections>
-                                            <action selector="takeJob:" destination="yJB-EN-C7Z" eventType="touchUpInside" id="itZ-Ts-gxm"/>
+                                            <action selector="jobActionTapped:" destination="yJB-EN-C7Z" eventType="touchUpInside" id="itZ-Ts-gxm"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -301,9 +301,11 @@
                     <connections>
                         <outlet property="commentsLabel" destination="Ssc-XG-tAD" id="1cO-NB-Xbt"/>
                         <outlet property="groupSizeLabel" destination="HBa-bW-SOH" id="0Qy-KB-vrN"/>
+                        <outlet property="jobActionButton" destination="cCQ-8L-eV2" id="8el-Xh-O7y"/>
                         <outlet property="nameLabel" destination="m9o-gw-gPk" id="bP5-QS-jH3"/>
                         <outlet property="phoneNumberLabel" destination="vWj-EG-pLJ" id="RdR-8x-0KT"/>
                         <outlet property="statusLabel" destination="Ek7-GD-eXm" id="ZaG-aE-FYW"/>
+                        <outlet property="textRiderButton" destination="35X-FU-cah" id="27e-sq-z5Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UpV-9T-NHm" userLabel="First Responder" sceneMemberID="firstResponder"/>

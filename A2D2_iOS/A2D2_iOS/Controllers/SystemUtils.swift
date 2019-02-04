@@ -11,6 +11,8 @@ import UIKit
 
 class SystemUtils {
     
+    public static var currentUser : String? 
+    
     public static func text(number : String, message : String = ""){
         //Percent encoding is required for use in the URL
         let text = message.addingPercentEncoding(withAllowedCharacters:.alphanumerics)!
