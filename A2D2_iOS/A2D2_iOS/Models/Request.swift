@@ -55,17 +55,19 @@ class Request {
         set { requestData["phone"] = newValue}
     }
     
-    var timestamp : String {
-        get { return requestData["timestamp"] as! String}
-        set { requestData["timestamp"] = newValue}
+    var timestamp : Date {
+        get {
+            let dateString = requestData["timestamp"] as! String
+            return DataSourceUtils.readInFormatter.date(from: dateString) ?? Date()}
+        set { requestData["timestamp"] = newValue.description}
     }
     
     var driver : String? {
         get { return requestData["driver"] as? String}
         set { requestData["driver"] = newValue}
     }
+    
+    var formattedTimestamp : String {
+        get { return DataSourceUtils.outputFormatter.string(from: self.timestamp) }
+    }
 }
-
-
-
-
