@@ -97,7 +97,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         
         if textField == nameField { // Real-time validation for name field
             //Prepare a RegEx filter for the name field
-            let Test = NSPredicate(format:"SELF MATCHES %@", "[A-z ]") // Matches any letter or space
+            let Test = NSPredicate(format:"SELF MATCHES %@", "[A-z .]") // Matches any letter or space
 
             if (Test.evaluate(with: string)) {
                 return true
