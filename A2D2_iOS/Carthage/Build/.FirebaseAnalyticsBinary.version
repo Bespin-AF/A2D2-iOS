@@ -15,12 +15,16 @@
       "hash" : "a8669248da9519e9955e00448e518e1ca6becb32689eedddde237e19ad1136ae"
     },
     {
+      "name" : "FirebaseAnalytics",
+      "hash" : "1e9f232401c6b54fbe5300e2c9e480b1cbb1fdfa5c3f61f86ffd8fca85f40983"
+    },
+    {
       "name" : "nanopb",
       "hash" : "68adc40df29a0bc673e8238496d000f0172889d21fbb826237e2d36113c5d9db"
     },
     {
-      "name" : "FirebaseAnalytics",
-      "hash" : "1e9f232401c6b54fbe5300e2c9e480b1cbb1fdfa5c3f61f86ffd8fca85f40983"
+      "name" : "FirebaseCore",
+      "hash" : "1efeea8db2ec2142238b9f0cc921de9b3c0db32f3ed20c5c396410f29d53eac2"
     },
     {
       "name" : "FIRAnalyticsConnector",
@@ -29,10 +33,6 @@
     {
       "name" : "GoogleUtilities",
       "hash" : "d535081aea3bd2031b3ae3d32eade5e9db0df8ab9f6ecae2c9d5dcc72bd65a93"
-    },
-    {
-      "name" : "FirebaseCore",
-      "hash" : "1efeea8db2ec2142238b9f0cc921de9b3c0db32f3ed20c5c396410f29d53eac2"
     },
     {
       "name" : "FirebaseCoreDiagnostics",

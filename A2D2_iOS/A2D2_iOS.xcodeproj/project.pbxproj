@@ -25,6 +25,8 @@
 		5D3EA8F021FBAB2600249C27 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3EA8E521FBAB2500249C27 /* FirebaseCoreDiagnostics.framework */; };
 		5D3EA8F121FBAB2600249C27 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3EA8E621FBAB2500249C27 /* FirebaseInstanceID.framework */; };
 		5D47466F219F1C9300131FE2 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D47466E219F1C9300131FE2 /* MyButton.swift */; };
+		5D749935220B74F500F8F99A /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D749933220B74F500F8F99A /* FirebaseAuth.framework */; };
+		5D749936220B74F500F8F99A /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D749934220B74F500F8F99A /* GTMSessionFetcher.framework */; };
 		5D82743421FF3D9D00D89A9D /* Driver.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D82743321FF3D9D00D89A9D /* Driver.storyboard */; };
 		5D82743621FF3DB000D89A9D /* Rider.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D82743521FF3DB000D89A9D /* Rider.storyboard */; };
 		5DA0070E21EFAE6900C31F42 /* RequestStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA0070D21EFAE6900C31F42 /* RequestStatusCell.swift */; };
@@ -90,6 +92,8 @@
 		5D3EA8E621FBAB2500249C27 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Carthage/Build/iOS/FirebaseInstanceID.framework; sourceTree = "<group>"; };
 		5D3EA8E721FBAB2500249C27 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = Carthage/Build/iOS/Firebase.framework; sourceTree = "<group>"; };
 		5D47466E219F1C9300131FE2 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
+		5D749933220B74F500F8F99A /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAuth.framework; path = Carthage/Build/iOS/FirebaseAuth.framework; sourceTree = "<group>"; };
+		5D749934220B74F500F8F99A /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GTMSessionFetcher.framework; path = Carthage/Build/iOS/GTMSessionFetcher.framework; sourceTree = "<group>"; };
 		5D82743321FF3D9D00D89A9D /* Driver.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Driver.storyboard; sourceTree = "<group>"; };
 		5D82743521FF3DB000D89A9D /* Rider.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Rider.storyboard; sourceTree = "<group>"; };
 		5DA0070D21EFAE6900C31F42 /* RequestStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestStatusCell.swift; sourceTree = "<group>"; };
@@ -118,6 +122,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D749935220B74F500F8F99A /* FirebaseAuth.framework in Frameworks */,
+				5D749936220B74F500F8F99A /* GTMSessionFetcher.framework in Frameworks */,
 				5D3EA8E821FBAB2500249C27 /* FIRAnalyticsConnector.framework in Frameworks */,
 				5D3EA8E921FBAB2600249C27 /* FirebaseCore.framework in Frameworks */,
 				5D3EA8EA21FBAB2600249C27 /* FirebaseAnalytics.framework in Frameworks */,
@@ -164,6 +170,8 @@
 		5D3EA8DA21FBAB1400249C27 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5D749933220B74F500F8F99A /* FirebaseAuth.framework */,
+				5D749934220B74F500F8F99A /* GTMSessionFetcher.framework */,
 				5D3EA8DD21FBAB2500249C27 /* FIRAnalyticsConnector.framework */,
 				5D3EA8E721FBAB2500249C27 /* Firebase.framework */,
 				5D3EA8DF21FBAB2500249C27 /* FirebaseAnalytics.framework */,
