@@ -9,7 +9,7 @@
 import Firebase
 
 class AuthenticationUtils {
-    public static var currentUser : User??
+    public static var currentUser : User?
     
     public static func login(email : String, password : String, completion : @escaping (Bool) -> ()){
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
