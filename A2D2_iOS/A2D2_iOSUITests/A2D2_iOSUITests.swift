@@ -51,6 +51,7 @@ class A2D2_iOSUITests: XCTestCase {
         app.textFields["Name"].typeText("Test Name")
         app.textFields["Phone Number"].tap()
         app.textFields["Phone Number"].typeText("3345389408")
+        app.staticTexts["Gender"].tap()
         app.buttons["Request Driver"].tap()
         //Will need to handle mandatory fields and input here
         //Alert as well
@@ -65,9 +66,9 @@ class A2D2_iOSUITests: XCTestCase {
     func goToRideRequestsPage(){
         goToDriverLoginPage()
         app.textFields["Email"].tap()
-        app.textFields["Email"].typeText("Marco")
+        app.textFields["Email"].typeText("sheldon@boot.com")
         app.secureTextFields["Password"].tap()
-        app.secureTextFields["Password"].typeText("Bigbootcrutch16")
+        app.secureTextFields["Password"].typeText("fruitloops")
         app.accessibilityActivate()
         app.staticTexts["Welcome!"].tap()//Slightly Hacky -- Find better way to tap off
         app.buttons["Login"].tap()
@@ -177,6 +178,7 @@ class A2D2_iOSUITests: XCTestCase {
     //Tests that having username and password progresses user to next screen
     func testDriverLogin_ValidLoginDoesNavigate(){
         goToRideRequestsPage()
+        sleep(1)
         XCTAssert(app.navigationBars["Ride Requests"].exists)
     }
     
@@ -184,6 +186,7 @@ class A2D2_iOSUITests: XCTestCase {
     //Tests that the Driver Requests page has a table to contain the requests
     func testDriverRequests_HasAllComponents(){
         goToRideRequestsPage()
+        sleep(1)
         XCTAssert(app.tables.count == 1)
     }
     

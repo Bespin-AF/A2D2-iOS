@@ -31,7 +31,7 @@ class DriverLoginController: UIViewController{
         if wasValid {
             self.performSegue(withIdentifier: "ride_requests", sender: self)
         } else {
-            notify("Invalid Login")
+            notify("The email or password you entered was incorrect. Please try again.")
         }
     }
     
