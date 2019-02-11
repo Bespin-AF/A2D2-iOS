@@ -102,7 +102,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         }
         return false
         }
-        else { return false}
+        else { return true }
     }
     
     func format(phoneNumber: String, shouldRemoveLastDigit: Bool = false) -> String {
