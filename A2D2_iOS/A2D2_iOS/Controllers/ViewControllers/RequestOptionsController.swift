@@ -156,6 +156,12 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         }
         //Avoid sending placeholder text
         let remarks = textView.textColor == UIColor.black ? textView.text : ""
+        var unformattedPhoneNumberField = phoneNumberField.text!
+        
+        unformattedPhoneNumberField = unformattedPhoneNumberField.replacingOccurrences(of: "(", with: "")
+        unformattedPhoneNumberField = unformattedPhoneNumberField.replacingOccurrences(of: ")", with: "")
+        unformattedPhoneNumberField = unformattedPhoneNumberField.replacingOccurrences(of: " ", with: "")
+        unformattedPhoneNumberField = unformattedPhoneNumberField.replacingOccurrences(of: "-", with: "")
         
         request.status = Status.Available
         request.gender = selectedGender
@@ -164,7 +170,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         request.lat = location.coordinate.latitude
         request.lon = location.coordinate.longitude
         request.name = nameField.text!
-        request.phone = phoneNumberField.text!
+        request.phone = unformattedPhoneNumberField
         request.timestamp = Date().description
         
         return request
