@@ -117,6 +117,9 @@ class RequestStatusController: UITableViewController {
     
     // Returns a human-readable description for a given detail of a ride request
     private func getDetailDescription(_ rideRequest : Request,_ detail : String ) -> String{
+        if(detail == "timestamp"){
+            return rideRequest.formattedTimestamp
+        }
         return "\(rideRequest.requestData[detail] ?? "N/A")"
     }
     
