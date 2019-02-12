@@ -194,6 +194,7 @@ class A2D2_iOSUITests: XCTestCase {
     //Tests that the Driver Request Details page has all required components
     func testDriverRequestDetails_HasAllComponents(){
         goToRideRequestsDetailPage()
+        sleep(1)
         if(app.cells.count > 0){
             XCTAssert(app.navigationBars["Ride Request Details"].exists)
             XCTAssert(app.staticTexts["Status:"].exists)
