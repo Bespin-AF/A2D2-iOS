@@ -48,11 +48,9 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             let textViewOriginY = textView.frame.origin.y
             if textView.frame.origin.y == textViewOriginY && textView.isFirstResponder {
-//                self.view.frame.origin.y -= keyboardSize.height
                 if textView.frame.origin.y >= keyboardSize.height {
                     self.view.frame.origin.y -= keyboardSize.height/2
                 }
-                else { print("Do nothing, Chief") }
             }
         }
     }
