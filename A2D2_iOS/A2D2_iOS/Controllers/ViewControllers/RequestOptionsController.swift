@@ -164,29 +164,6 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         
         return number
     }
-
-
-//    func  textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        if string == "" { return true }
-//
-//        if textField == nameField { // Real-time validation for name field
-//            //Prepare a RegEx filter for the name field
-//            let Test = NSPredicate(format:"SELF MATCHES %@", "[A-z .]") // Matches any letter or space
-//
-//            if (Test.evaluate(with: string)) {
-//                return true
-//            }
-//        }
-//        else if textField == phoneNumberField{ // Real-time validation for phone number field
-//            //Prepare a RegEx filter for the phone number field
-//            let Test = NSPredicate(format:"SELF MATCHES %@", "[0-9]") // Matches a number
-//
-//            if (Test.evaluate(with: string)) {
-//                return true
-//            }
-//        }
-//        return false
-//    }
     
     
     @IBAction func requestDriver(){
@@ -211,6 +188,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         let remarks = textView.textColor == UIColor.black ? textView.text : ""
         var unformattedPhoneNumberField = phoneNumberField.text!
         
+        //removing the special characters from the phone number field. There's probably a better way to do this ¯\_(ツ)_/¯
         unformattedPhoneNumberField = unformattedPhoneNumberField.replacingOccurrences(of: "(", with: "")
         unformattedPhoneNumberField = unformattedPhoneNumberField.replacingOccurrences(of: ")", with: "")
         unformattedPhoneNumberField = unformattedPhoneNumberField.replacingOccurrences(of: " ", with: "")
@@ -245,7 +223,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
             notify("Phone number is a required field.")
             return false
         }
-        else if(phoneNumberField.text!.count != 14){ // Phone number requirements
+        else if(phoneNumberField.text!.count != 14){ // Phone number requirements. Takes into account the special characters from formatting
             notify("Invalid Phone Number.")
             return false
         }
