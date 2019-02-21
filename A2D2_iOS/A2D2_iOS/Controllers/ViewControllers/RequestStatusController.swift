@@ -71,7 +71,7 @@ class RequestStatusController: UITableViewController {
     
     // Fills a RequestStatusCell with data from a given request
     private func fillCellWithRequestData ( cell :  inout RequestStatusCell, request : Request){
-        cell.statusLabel.text = getDetailDescription(request, "status")
+        cell.statusLabel.text = "Group Size: \(getDetailDescription(request, "groupSize"))"
         cell.detailLabel.text = getDetailDescription(request, "gender")
         cell.timeLabel.text = getDetailDescription(request, "timestamp")
     }

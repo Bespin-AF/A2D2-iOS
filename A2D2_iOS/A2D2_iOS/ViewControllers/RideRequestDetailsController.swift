@@ -41,7 +41,7 @@ class RideRequestDetailsController: UIViewController {
     
     private func updateActionButton(){
         if (requestData.status == .InProgress &&
-            requestData.driver == SystemUtils.currentUser ?? "Default") {
+            requestData.driver == AuthenticationUtils.currentUser?.uid ?? "Default") {
             jobActionButton.setTitle("Complete Job", for: .normal)
         } else {
             jobActionButton.setTitle("Take Job", for: .normal)
@@ -68,7 +68,7 @@ class RideRequestDetailsController: UIViewController {
     
     
     @IBAction func jobActionTapped(_ sender: Any) {
-        if(requestData.status == .InProgress && requestData.driver == SystemUtils.currentUser){
+        if(requestData.status == .InProgress && requestData.driver == AuthenticationUtils.currentUser?.uid){
             confirmCompleteJob()
         } else {
             confirmTakeJob()
@@ -114,7 +114,7 @@ class RideRequestDetailsController: UIViewController {
     
     func updateStatus(_ status : Status) {
         requestData.status = status
-        requestData.driver = SystemUtils.currentUser ?? "Default"
+        requestData.driver = AuthenticationUtils.currentUser?.uid ?? "Default"
         DataSourceUtils.updateData(data: requestData, key: requestKey)
     }
 }

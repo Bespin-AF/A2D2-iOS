@@ -345,7 +345,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCl-uZ-03M">
-                                            <rect key="frame" x="170" y="11.333333333333336" width="132" height="21"/>
+                                            <rect key="frame" x="170" y="11.666666666666666" width="132" height="20.333333333333336"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="ILN-84-Kaz"/>
                                             </constraints>

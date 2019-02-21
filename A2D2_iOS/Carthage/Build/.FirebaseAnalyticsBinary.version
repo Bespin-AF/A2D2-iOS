@@ -27,12 +27,12 @@
       "hash" : "e832569285e7f9ba9048c58430f764297f096a61dc96a6c8eeeb2498c170f524"
     },
     {
-      "name" : "GoogleUtilities",
-      "hash" : "d535081aea3bd2031b3ae3d32eade5e9db0df8ab9f6ecae2c9d5dcc72bd65a93"
-    },
-    {
       "name" : "FirebaseCore",
       "hash" : "1efeea8db2ec2142238b9f0cc921de9b3c0db32f3ed20c5c396410f29d53eac2"
+    },
+    {
+      "name" : "GoogleUtilities",
+      "hash" : "d535081aea3bd2031b3ae3d32eade5e9db0df8ab9f6ecae2c9d5dcc72bd65a93"
     },
     {
       "name" : "FirebaseCoreDiagnostics",

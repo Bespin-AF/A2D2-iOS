@@ -21,8 +21,18 @@ class DriverLoginController: UIViewController{
             notify("Username and Password are Required")
             return
         }
-        SystemUtils.currentUser = EmailTextField.text
-        self.performSegue(withIdentifier: "ride_requests", sender: self)
+        AuthenticationUtils.login(email: EmailTextField.text!, password: PasswordTextField.text!) { (validLogin) -> () in
+            self.notifyLoginAttempt(result: validLogin)
+        }
+    }
+    
+    
+    func notifyLoginAttempt(result wasValid: Bool){
+        if wasValid {
+            self.performSegue(withIdentifier: "ride_requests", sender: self)
+        } else {
+            notify("The email or password you entered was incorrect. Please try again.")
+        }
     }
     
     

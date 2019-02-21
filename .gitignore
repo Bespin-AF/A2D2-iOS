@@ -1,7 +1,4 @@
 .DS_Store
 *.DS_Store
-*.xcproject
 *.xcuserstate
-*.xcworkspace
-*.xcscheme
-*.xcconfig
+*.xcuserdatad
