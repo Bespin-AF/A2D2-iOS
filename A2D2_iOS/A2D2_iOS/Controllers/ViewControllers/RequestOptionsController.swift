@@ -56,7 +56,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
             textView.textColor = UIColor.lightGray
         }
     }
-    
+
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -135,6 +135,29 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         return number
     }
 
+
+    func  textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if string == "" { return true }
+        
+        if textField == nameField { // Real-time validation for name field
+            //Prepare a RegEx filter for the name field
+            let Test = NSPredicate(format:"SELF MATCHES %@", "[A-z .]") // Matches any letter or space
+
+            if (Test.evaluate(with: string)) {
+                return true
+            }
+        }
+        else if textField == phoneNumberField{ // Real-time validation for phone number field
+            //Prepare a RegEx filter for the phone number field
+            let Test = NSPredicate(format:"SELF MATCHES %@", "[0-9]") // Matches a number
+            
+            if (Test.evaluate(with: string)) {
+                return true
+            }
+        }
+        return false
+    }
+    
     
     @IBAction func requestDriver(){
         if(!validateInputs()){ return }//Validate Inputs
@@ -188,13 +211,13 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
             notify("Name is a required field.")
             return false
         }
-        else if phoneNumberField.text == "" { //Phone Number not emptey
+        else if phoneNumberField.text == "" { //Phone Number not empty
             notify("Phone number is a required field.")
             return false
         }
         else if(phoneNumberField.text!.count != 10){ // Phone number requirements
-//            notify("Invalid Phone Number.")
-//            return false
+            notify("Invalid Phone Number.")
+            return false
         }
         return true
     }

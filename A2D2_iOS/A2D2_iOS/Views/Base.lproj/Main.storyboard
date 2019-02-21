@@ -47,14 +47,22 @@
                                             <segue destination="UbX-3U-umQ" kind="show" id="SvV-A9-kxc"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ui-1F-dR3">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ui-1F-dR3">
                                         <rect key="frame" x="0.0" y="65" width="335" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="999" constant="50" id="2If-uk-n4y"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="9qK-78-GGW"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="22"/>
-                                        <state key="normal" title="Driver Login"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Driver Login">
+                                                    <attributes>
+                                                        <font key="NSFont" size="22" name=".SFNSDisplay"/>
+                                                        <integer key="NSUnderline" value="1"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
                                         <connections>
                                             <segue destination="BFd-Kf-gzy" kind="show" id="Y3L-ks-qxe"/>
                                         </connections>

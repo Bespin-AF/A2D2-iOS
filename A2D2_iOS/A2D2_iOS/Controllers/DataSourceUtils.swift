@@ -15,10 +15,18 @@ import Firebase
 class DataSourceUtils{
     static var ref = Database.database().reference()
     static var requests : [String : Request] = [:]
+    static var readInFormatter = DateFormatter()
+    static var outputFormatter = DateFormatter()
     
     // Initializes firebase functionality
     public static func initFirebase(){
         FirebaseApp.configure()
+    }
+    
+    
+    public static func initDateFormatters(){
+        readInFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+        outputFormatter.dateFormat = "MMM dd, HH:mm"
     }
     
     
