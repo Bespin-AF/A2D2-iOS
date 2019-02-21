@@ -114,6 +114,14 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == nameField { // Real-time validation for name field
+            //Prepare a RegEx filter for the name field
+            let Test = NSPredicate(format:"SELF MATCHES %@", "[A-z .]") // Matches any letter or space
+            
+            if (Test.evaluate(with: string)) {
+                return true
+            }
+        }
         if textField == phoneNumberField {
         var fullString = textField.text ?? ""
         fullString.append(string)
@@ -129,7 +137,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     
     func format(phoneNumber: String, shouldRemoveLastDigit: Bool = false) -> String {
         guard !phoneNumber.isEmpty else { return "" }
-        guard let regex = try? NSRegularExpression(pattern: "[\\s-\\(\\)]", options: .caseInsensitive) else { return "" }
+        guard let regex = try? NSRegularExpression(pattern: "[\\s-\\(\\)A-z.*#,/+=]", options: .caseInsensitive) else { return "" }
         let r = NSString(string: phoneNumber).range(of: phoneNumber)
         var number = regex.stringByReplacingMatches(in: phoneNumber, options: .init(rawValue: 0), range: r, withTemplate: "")
         
@@ -158,27 +166,27 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     }
 
 
-    func  textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if string == "" { return true }
-        
-        if textField == nameField { // Real-time validation for name field
-            //Prepare a RegEx filter for the name field
-            let Test = NSPredicate(format:"SELF MATCHES %@", "[A-z .]") // Matches any letter or space
-
-            if (Test.evaluate(with: string)) {
-                return true
-            }
-        }
-        else if textField == phoneNumberField{ // Real-time validation for phone number field
-            //Prepare a RegEx filter for the phone number field
-            let Test = NSPredicate(format:"SELF MATCHES %@", "[0-9]") // Matches a number
-            
-            if (Test.evaluate(with: string)) {
-                return true
-            }
-        }
-        return false
-    }
+//    func  textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        if string == "" { return true }
+//
+//        if textField == nameField { // Real-time validation for name field
+//            //Prepare a RegEx filter for the name field
+//            let Test = NSPredicate(format:"SELF MATCHES %@", "[A-z .]") // Matches any letter or space
+//
+//            if (Test.evaluate(with: string)) {
+//                return true
+//            }
+//        }
+//        else if textField == phoneNumberField{ // Real-time validation for phone number field
+//            //Prepare a RegEx filter for the phone number field
+//            let Test = NSPredicate(format:"SELF MATCHES %@", "[0-9]") // Matches a number
+//
+//            if (Test.evaluate(with: string)) {
+//                return true
+//            }
+//        }
+//        return false
+//    }
     
     
     @IBAction func requestDriver(){
@@ -216,7 +224,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         request.lon = location.coordinate.longitude
         request.name = nameField.text!
         request.phone = unformattedPhoneNumberField
-        request.timestamp = Date().description
+        request.timestamp = Date()
         
         return request
     }
@@ -237,7 +245,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
             notify("Phone number is a required field.")
             return false
         }
-        else if(phoneNumberField.text!.count != 10){ // Phone number requirements
+        else if(phoneNumberField.text!.count != 14){ // Phone number requirements
             notify("Invalid Phone Number.")
             return false
         }
