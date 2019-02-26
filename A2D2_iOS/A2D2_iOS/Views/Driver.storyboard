@@ -65,6 +65,7 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ykv-Ud-Zt6">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="txtFld_Email"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="7Kk-St-qSP"/>
                                             <constraint firstAttribute="height" priority="750" constant="50" id="eyV-tw-xXB"/>
@@ -75,6 +76,7 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4GQ-d0-v3f">
                                         <rect key="frame" x="0.0" y="70" width="335" height="50"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="txtFld_Password"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
@@ -88,6 +90,7 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZ8-i8-Bd5" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
                                 <rect key="frame" x="20" y="688" width="335" height="50"/>
+                                <accessibility key="accessibilityConfiguration" identifier="btn_Login"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="ehn-Mi-Cai"/>
                                     <constraint firstAttribute="width" priority="750" constant="500" id="hLS-2o-uha"/>
@@ -101,6 +104,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20826181769999999" green="0.43334984780000002" blue="0.66277182099999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <accessibility key="accessibilityConfiguration" identifier="vw_DriverLogin"/>
                         <constraints>
                             <constraint firstItem="BZ8-i8-Bd5" firstAttribute="centerX" secondItem="e1v-JJ-DJ8" secondAttribute="centerX" id="16C-kf-TQA"/>
                             <constraint firstItem="0gB-Cd-9r0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="e1v-JJ-DJ8" secondAttribute="leading" constant="20" id="EX8-Km-AVz"/>
@@ -157,6 +161,7 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LaA-JM-P9O">
                                                         <rect key="frame" x="0.0" y="0.0" width="162.66666666666666" height="20.333333333333332"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="lbl_Status"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -174,6 +179,7 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Size:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyA-kq-VBf">
                                                         <rect key="frame" x="0.0" y="0.0" width="162.33333333333334" height="20.333333333333332"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="lbl_GroupSize"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -199,6 +205,7 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTb-CW-QJK">
                                                         <rect key="frame" x="0.0" y="0.0" width="162.66666666666666" height="20.333333333333332"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="lbl_Name"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -216,6 +223,7 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgR-RK-WhP">
                                                         <rect key="frame" x="0.0" y="0.0" width="162.33333333333334" height="20.333333333333332"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="lbl_PhoneNumber"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -235,6 +243,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rider Remarks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Lo-vX-eIc">
                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="20.333333333333332"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="lbl_Remarks"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -260,6 +269,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35X-FU-cah" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="162.66666666666666" height="50"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="btn_TextRider"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="DCV-hY-xQB"/>
                                             <constraint firstAttribute="height" priority="750" constant="50" id="rXH-t9-1XZ"/>
@@ -272,6 +282,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCQ-8L-eV2" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
                                         <rect key="frame" x="172.66666666666663" y="0.0" width="162.33333333333337" height="50"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="btn_TakeJob"/>
                                         <state key="normal" title="Take Job"/>
                                         <connections>
                                             <action selector="jobActionTapped:" destination="yJB-EN-C7Z" eventType="touchUpInside" id="itZ-Ts-gxm"/>
@@ -286,6 +297,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.086274509799999996" green="0.35686274509999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                        <accessibility key="accessibilityConfiguration" identifier="vw_RequestDetails"/>
                         <constraints>
                             <constraint firstItem="uUj-XJ-DE7" firstAttribute="centerX" secondItem="EcQ-l7-2FO" secondAttribute="centerX" id="6Sm-f0-qCd"/>
                             <constraint firstItem="uUj-XJ-DE7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EcQ-l7-2FO" secondAttribute="leading" constant="20" id="8eW-uX-xPw"/>
@@ -366,6 +378,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="tintColor" red="0.086274509799999996" green="0.35686274509999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="cell_RequestStatus"/>
                                 <connections>
                                     <outlet property="detailLabel" destination="dih-ih-feA" id="fnb-OW-2oS"/>
                                     <outlet property="statusLabel" destination="AgK-fg-rzJ" id="EvR-Ki-g0M"/>

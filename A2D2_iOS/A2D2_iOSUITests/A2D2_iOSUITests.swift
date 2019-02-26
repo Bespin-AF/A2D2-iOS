@@ -33,59 +33,71 @@ class A2D2_iOSUITests: XCTestCase {
     
     /***** Navigation Functions *****/
     
-    func goToRulesPage(){
-        app.buttons["Request Ride"].tap()
-        sleep(1)
+    //this function will also give the view enough time to load
+    func doesViewExist(viewName: String) -> Bool {
+        let requestView = app.otherElements[viewName]
+        let viewExists = requestView.waitForExistence(timeout: 10)
+        if viewExists{
+            return true
+        }
+        else {return false}
     }
     
     
-    func goToPickupRequestOptionsPage() {
+    func goToRulesPage(){
+        app.buttons["btn_RequestRide"].tap()
+    }
+    
+    
+    func goToPickupRequestOptionsPage(){
         goToRulesPage()
-        app.buttons["Agree"].tap()
-        sleep(1)
+        app.buttons["btn_Agree"].tap()
+        addUIInterruptionMonitor(withDescription: "Location permission", handler: { alert in
+            alert.buttons["Allow"].tap()
+            return true
+        })
+        app.tap()
         //Will need to handle Navigations Permissions here
     }
     
     
     func goToRideStatusPage(){
         goToPickupRequestOptionsPage()
-        app.textFields["Name"].tap()
-        app.textFields["Name"].typeText("Test Name")
-        app.textFields["Phone Number"].tap()
-        app.textFields["Phone Number"].typeText("3345389408")
+        XCTAssert(doesViewExist(viewName: "vw_PickupRequestOptions"))
+        app.textFields["txtFld_Name"].tap()
+        app.textFields["txtFld_Name"].typeText("Test Name")
+        app.textFields["txtFld_PhoneNumber"].tap()
+        app.textFields["txtFld_PhoneNumber"].typeText("3345389408")
+//        app.staticTexts["Gender"].tap()
         app.staticTexts["Gender"].tap()
-        app.buttons["Request Driver"].tap()
-        sleep(1)
+        app.buttons["btn_RequestDriver"].tap()
         //Will need to handle mandatory fields and input here
         //Alert as well
     }
     
     
     func goToDriverLoginPage(){
-        app.buttons["Driver Login"].tap()
-        sleep(1)
+        app.buttons["btn_DriverLogin"].tap()
     }
     
     
     func goToRideRequestsPage(){
         goToDriverLoginPage()
-        app.textFields["Email"].tap()
-        app.textFields["Email"].typeText("sheldon@boot.com")
-        app.secureTextFields["Password"].tap()
-        app.secureTextFields["Password"].typeText("fruitloops")
+        app.textFields["txtFld_Email"].tap()
+        app.textFields["txtFld_Email"].typeText("sheldon@boot.com")
+        app.secureTextFields["txtFld_Password"].tap()
+        app.secureTextFields["txtFld_Password"].typeText("fruitloops")
         app.accessibilityActivate()
         app.staticTexts["Welcome!"].tap()//Slightly Hacky -- Find better way to tap off
-        app.buttons["Login"].tap()
-        sleep(1)
+        app.otherElements["vw_DriverLogin"].tap()
+        app.buttons["btn_Login"].tap()
     }
     
     
     func goToRideRequestsDetailPage(){
         goToRideRequestsPage()
-        if(app.cells.count > 0){
-            app.cells.firstMatch.tap()
-            sleep(1)
-        }
+        XCTAssert(app.cells["cell_RequestStatus"].waitForExistence(timeout: 10))
+        app.cells.element(boundBy: 0).tap()
     }
     
     /*** End Navigation ***/
@@ -93,52 +105,54 @@ class A2D2_iOSUITests: XCTestCase {
 
     // Tests the home page for all UI Components
     func testHome_HasAllComponents(){
-        XCTAssert(app.images["a2d2logo"].exists)
-        XCTAssert(app.buttons["Request Ride"].exists)
-        XCTAssert(app.buttons["Request Ride"].isEnabled)
-        XCTAssert(app.buttons["Driver Login"].exists)
-        XCTAssert(app.buttons["Driver Login"].isEnabled)
+        XCTAssert(app.images["img_A2D2Logo"].exists)
+        XCTAssert(app.buttons["btn_RequestRide"].exists)
+        XCTAssert(app.buttons["btn_RequestRide"].isEnabled)
+        XCTAssert(app.buttons["btn_DriverLogin"].exists)
+        XCTAssert(app.buttons["btn_DriverLogin"].isEnabled)
     }
 
     
     //Test that the Request ride button navigates to A2D2Rules
     func testA2D2Rules_HasAllComponents(){
         goToRulesPage()
-        XCTAssert(app.navigationBars["A2D2 Rules"].exists)
-        XCTAssert(app.buttons["Agree"].exists)
-        XCTAssert(app.buttons["Agree"].isEnabled)
+        XCTAssert(doesViewExist(viewName: "vw_A2D2Rules"))
+        XCTAssert(app.buttons["btn_Agree"].exists)
+        XCTAssert(app.buttons["btn_Agree"].isEnabled)
     }
 
 
     //Test that Pickup Request Options Page shows after Location Permissions have been granted
     func testA2D2Rules_AgreeAfterPermissionGranted() {
         goToPickupRequestOptionsPage()
-        XCTAssert(app.navigationBars["Pickup Request Options"].exists)
+        XCTAssert(doesViewExist(viewName: "vw_PickupRequestOptions"))
     }
     
     
     //Group Size Picker appears on Pickup Request Options Page
     func testRequest_HasAllComponents(){
         goToPickupRequestOptionsPage()
-        XCTAssert(app.staticTexts["Group Size"].exists)
-        XCTAssert(app.staticTexts["Group Size"].isEnabled)
-        XCTAssert(app.staticTexts["Gender"].exists)
-        XCTAssert(app.staticTexts["Gender"].isEnabled)
-        XCTAssert(app.textFields["Name"].exists)
-        XCTAssert(app.textFields["Name"].isEnabled)
-        XCTAssert(app.textFields["Phone Number"].exists)
-        XCTAssert(app.textFields["Phone Number"].isEnabled)
-        XCTAssert(app.textViews["Comments (Optional)"].exists)
-        XCTAssert(app.textViews["Comments (Optional)"].isEnabled)
+        XCTAssert(doesViewExist(viewName: "vw_PickupRequestOptions"))
+        XCTAssert(app.pickers["pkr_GroupSize"].exists)
+        XCTAssert(app.pickers["pkr_GroupSize"].isEnabled)
+        XCTAssert(app.pickers["pkr_Gender"].exists)
+        XCTAssert(app.pickers["pkr_Gender"].isEnabled)
+        XCTAssert(app.textFields["txtFld_Name"].exists)
+        XCTAssert(app.textFields["txtFld_Name"].isEnabled)
+        XCTAssert(app.textFields["txtFld_PhoneNumber"].exists)
+        XCTAssert(app.textFields["txtFld_PhoneNumber"].isEnabled)
+        XCTAssert(app.textViews["txtVw_Remarks"].exists)
+        XCTAssert(app.textViews["txtVw_Remarks"].isEnabled)
     }
     
     
     //Tests that the Cancel Option keeps user on Pickup Request Options Page
     func testRequiresName() {
         goToPickupRequestOptionsPage()
-        app.buttons["Request Driver"].tap()
-        sleep(1)
-        XCTAssert(app.alerts["Name is a required field."].exists)
+        XCTAssert(doesViewExist(viewName: "vw_PickupRequestOptions"))
+        app.staticTexts["Gender"].tap()
+        app.buttons["btn_RequestDriver"].tap()
+        XCTAssert(app.alerts["Name is a required field."].waitForExistence(timeout: 10))
     }
     
     
@@ -146,8 +160,7 @@ class A2D2_iOSUITests: XCTestCase {
     func testRequest_ConfirmPickup() {
         goToRideStatusPage()
         app.alerts["Confirm Driver Request"].buttons["Confirm"].tap()
-        sleep(1)
-        XCTAssert(app.navigationBars["Ride Status"].exists)
+        XCTAssert(app.navigationBars["Ride Status"].waitForExistence(timeout: 10))
     }
     
     
@@ -155,27 +168,28 @@ class A2D2_iOSUITests: XCTestCase {
     func testRequest_CancelPickup() {
         goToRideStatusPage()
         app.alerts["Confirm Driver Request"].buttons["Cancel"].tap()
-        sleep(1)
-        XCTAssert(app.navigationBars["Pickup Request Options"].exists)
+        XCTAssert(app.navigationBars["Pickup Request Options"].waitForExistence(timeout: 10))
     }
     
 
     //Tests that login page has all required fields
     func testDriverLogin_HasAllComponents() {
         goToDriverLoginPage()
-        XCTAssert(app.textFields["Email"].exists)
-        XCTAssert(app.textFields["Email"].isEnabled)
-        XCTAssert(app.secureTextFields["Password"].exists)
-        XCTAssert(app.secureTextFields["Password"].isEnabled)
-        XCTAssert(app.buttons["Login"].exists)
-        XCTAssert(app.buttons["Login"].isEnabled)
+        XCTAssert(doesViewExist(viewName: "vw_DriverLogin"))
+        XCTAssert(app.textFields["txtFld_Email"].exists)
+        XCTAssert(app.textFields["txtFld_Email"].isEnabled)
+        XCTAssert(app.secureTextFields["txtFld_Password"].exists)
+        XCTAssert(app.secureTextFields["txtFld_Password"].isEnabled)
+        XCTAssert(app.buttons["btn_Login"].exists)
+        XCTAssert(app.buttons["btn_Login"].isEnabled)
     }
     
     
     //Tests that invalid login keeps user at login page
     func testDriverLogin_LoginRequiresInput(){
         goToDriverLoginPage()
-        app.buttons["Login"].tap()
+        XCTAssert(doesViewExist(viewName: "vw_DriverLogin"))
+        app.buttons["btn_Login"].tap()
         XCTAssert(!app.navigationBars["Ride Requests"].exists)
     }
     
@@ -183,13 +197,15 @@ class A2D2_iOSUITests: XCTestCase {
     //Tests that having username and password progresses user to next screen
     func testDriverLogin_ValidLoginDoesNavigate(){
         goToRideRequestsPage()
-        XCTAssert(app.navigationBars["Ride Requests"].exists)
+        XCTAssert(app.navigationBars["Ride Requests"].waitForExistence(timeout: 10))
+        XCTAssert(app.cells["cell_RequestStatus"].waitForExistence(timeout: 10))
     }
     
     
     //Tests that the Driver Requests page has a table to contain the requests
     func testDriverRequests_HasAllComponents(){
         goToRideRequestsPage()
+        XCTAssert(app.navigationBars["Ride Requests"].waitForExistence(timeout: 10))
         XCTAssert(app.tables.count == 1)
     }
     
@@ -197,18 +213,16 @@ class A2D2_iOSUITests: XCTestCase {
     //Tests that the Driver Request Details page has all required components
     func testDriverRequestDetails_HasAllComponents(){
         goToRideRequestsDetailPage()
-        if(app.cells.count > 0){
-            XCTAssert(app.navigationBars["Ride Request Details"].exists)
-            XCTAssert(app.staticTexts["Status:"].exists)
-            XCTAssert(app.staticTexts["Phone Number:"].exists)
-            XCTAssert(app.staticTexts["Group Size:"].exists)
-            XCTAssert(app.staticTexts["Name:"].exists)
-            XCTAssert(app.staticTexts["Rider Remarks"].exists)
-            XCTAssert(app.buttons["Text Rider"].exists)
-            XCTAssert(app.buttons["Text Rider"].isEnabled)
-            XCTAssert(app.buttons["Take Job"].exists)
-            XCTAssert(app.buttons["Take Job"].isEnabled)
-        }
+        XCTAssert(doesViewExist(viewName: "vw_RequestDetails"))
+        XCTAssert(app.staticTexts["lbl_Status"].exists)
+        XCTAssert(app.staticTexts["lbl_PhoneNumber"].exists)
+        XCTAssert(app.staticTexts["lbl_GroupSize"].exists)
+        XCTAssert(app.staticTexts["lbl_Name"].exists)
+        XCTAssert(app.staticTexts["lbl_Remarks"].exists)
+        XCTAssert(app.buttons["btn_TextRider"].exists)
+        XCTAssert(app.buttons["btn_TextRider"].isEnabled)
+        XCTAssert(app.buttons["btn_TakeJob"].exists)
+        XCTAssert(app.buttons["btn_TakeJob"].isEnabled)
     }
     
 
