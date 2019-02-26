@@ -35,12 +35,14 @@ class A2D2_iOSUITests: XCTestCase {
     
     func goToRulesPage(){
         app.buttons["Request Ride"].tap()
+        sleep(1)
     }
     
     
     func goToPickupRequestOptionsPage() {
         goToRulesPage()
         app.buttons["Agree"].tap()
+        sleep(1)
         //Will need to handle Navigations Permissions here
     }
     
@@ -53,6 +55,7 @@ class A2D2_iOSUITests: XCTestCase {
         app.textFields["Phone Number"].typeText("3345389408")
         app.staticTexts["Gender"].tap()
         app.buttons["Request Driver"].tap()
+        sleep(1)
         //Will need to handle mandatory fields and input here
         //Alert as well
     }
@@ -60,6 +63,7 @@ class A2D2_iOSUITests: XCTestCase {
     
     func goToDriverLoginPage(){
         app.buttons["Driver Login"].tap()
+        sleep(1)
     }
     
     
@@ -72,6 +76,7 @@ class A2D2_iOSUITests: XCTestCase {
         app.accessibilityActivate()
         app.staticTexts["Welcome!"].tap()//Slightly Hacky -- Find better way to tap off
         app.buttons["Login"].tap()
+        sleep(1)
     }
     
     
@@ -79,6 +84,7 @@ class A2D2_iOSUITests: XCTestCase {
         goToRideRequestsPage()
         if(app.cells.count > 0){
             app.cells.firstMatch.tap()
+            sleep(1)
         }
     }
     
@@ -148,7 +154,6 @@ class A2D2_iOSUITests: XCTestCase {
     //Tests that the Cancel Option keeps user on Pickup Request Options Page
     func testRequest_CancelPickup() {
         goToRideStatusPage()
-        sleep(1)
         app.alerts["Confirm Driver Request"].buttons["Cancel"].tap()
         sleep(1)
         XCTAssert(app.navigationBars["Pickup Request Options"].exists)
@@ -178,7 +183,6 @@ class A2D2_iOSUITests: XCTestCase {
     //Tests that having username and password progresses user to next screen
     func testDriverLogin_ValidLoginDoesNavigate(){
         goToRideRequestsPage()
-        sleep(1)
         XCTAssert(app.navigationBars["Ride Requests"].exists)
     }
     
@@ -186,7 +190,6 @@ class A2D2_iOSUITests: XCTestCase {
     //Tests that the Driver Requests page has a table to contain the requests
     func testDriverRequests_HasAllComponents(){
         goToRideRequestsPage()
-        sleep(1)
         XCTAssert(app.tables.count == 1)
     }
     
@@ -194,7 +197,6 @@ class A2D2_iOSUITests: XCTestCase {
     //Tests that the Driver Request Details page has all required components
     func testDriverRequestDetails_HasAllComponents(){
         goToRideRequestsDetailPage()
-        sleep(1)
         if(app.cells.count > 0){
             XCTAssert(app.navigationBars["Ride Request Details"].exists)
             XCTAssert(app.staticTexts["Status:"].exists)
