@@ -20,6 +20,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a2d2logo" translatesAutoresizingMaskIntoConstraints="NO" id="U0r-Oc-gw1">
                                 <rect key="frame" x="50" y="108.00000000000001" width="275" height="188.33333333333337"/>
+                                <accessibility key="accessibilityConfiguration" identifier="img_A2D2Logo"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="2bt-Ft-BMc"/>
                                     <constraint firstAttribute="width" secondItem="U0r-Oc-gw1" secondAttribute="height" multiplier="317:217" id="42f-ci-rGj"/>
@@ -30,6 +31,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jkj-OY-gna" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="btn_RequestRide"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="750" constant="50" id="P1l-4H-Tlc"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="e4J-H0-NEW"/>
@@ -49,6 +51,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ui-1F-dR3">
                                         <rect key="frame" x="0.0" y="65" width="335" height="50"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="btn_DriverLogin"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="999" constant="50" id="2If-uk-n4y"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="9qK-78-GGW"/>
@@ -77,6 +80,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.086274509799999996" green="0.35686274509999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                        <accessibility key="accessibilityConfiguration" identifier="vw_Home"/>
                         <constraints>
                             <constraint firstItem="Cwl-eG-nJA" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2zI-rL-nVu"/>
                             <constraint firstItem="U0r-Oc-gw1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" priority="750" constant="64" id="3bI-aO-7zP"/>
