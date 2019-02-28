@@ -12,7 +12,7 @@ import UIKit
 class RideStatusViewController: UIViewController {
     
     @IBAction func callA2D2() {
-        let number = "3349533913"
+        let number = DataSourceUtils.getResource(key: "a2d2phonenumber")
         SystemUtils.call(number: number)
     }
 }

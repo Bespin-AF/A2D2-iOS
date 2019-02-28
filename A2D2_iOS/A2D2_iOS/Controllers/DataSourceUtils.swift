@@ -15,6 +15,7 @@ import Firebase
 class DataSourceUtils{
     static var ref = Database.database().reference()
     static var requests : [String : Request] = [:]
+    static var resources : [String : String] = [:]
     static var readInFormatter = DateFormatter()
     static var outputFormatter = DateFormatter()
     
@@ -29,6 +30,10 @@ class DataSourceUtils{
         outputFormatter.dateFormat = "MMM dd, HH:mm"
     }
     
+    public static func getResource(key: String) -> String {
+        let resource = resources[key]!
+        return resource
+    }
     
     // Sends new data to the data source
     public static func sendData(data : Request){
@@ -69,6 +74,23 @@ class DataSourceUtils{
         resultsRef.observe(DataEventType.value, with: { (snapshot) in
             requests = getCollectionFromDataSnapshot(data: snapshot)
         })
+    }
+    
+    public static func startResourceSync() {
+        let resultsRef = ref.child("Resources")
+        
+        resultsRef.observe(DataEventType.value, with: { (snapshot) in
+            resources = getResourceDataFromSnapshot(data: snapshot)
+        })
+    }
+    
+    private static func getResourceDataFromSnapshot(data snapshot:DataSnapshot) -> [String : String]{
+        var results : [String : String] = [:]
+        
+        for result in snapshot.children.allObjects as! [DataSnapshot] {
+            results[result.key] = (result.value as! String)
+        }
+        return results
     }
     
     
