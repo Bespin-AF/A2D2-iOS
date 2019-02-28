@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DataSourceUtils.initFirebase()
         DataSourceUtils.initDateFormatters()
         DataSourceUtils.startRequestSync()
+        DataSourceUtils.startResourceSync()
         return true
     }
 
