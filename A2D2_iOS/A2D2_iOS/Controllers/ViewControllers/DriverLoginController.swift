@@ -12,6 +12,7 @@ import UIKit
 class DriverLoginController: UIViewController{
     
     @IBOutlet var DismissKeyboardTap: UITapGestureRecognizer!
+    @IBOutlet var dismissKeyboardSwipe: UISwipeGestureRecognizer!
     @IBOutlet weak var EmailTextField: UITextField!
     @IBOutlet weak var PasswordTextField: UITextField!
     
@@ -36,8 +37,15 @@ class DriverLoginController: UIViewController{
     }
     
     
-    @IBAction func dismissKeyboard(_ sender: Any) {
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
+    }
+    
+    
+    @IBAction func swipeHandler (_ sender: UISwipeGestureRecognizer){
+        if sender.state == .ended {
+            view.endEditing(true)
+        }
     }
     
     

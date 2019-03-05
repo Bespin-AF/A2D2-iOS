@@ -105,6 +105,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.20826181769999999" green="0.43334984780000002" blue="0.66277182099999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <accessibility key="accessibilityConfiguration" identifier="vw_DriverLogin"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="BZ8-i8-Bd5" firstAttribute="centerX" secondItem="e1v-JJ-DJ8" secondAttribute="centerX" id="16C-kf-TQA"/>
                             <constraint firstItem="0gB-Cd-9r0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="e1v-JJ-DJ8" secondAttribute="leading" constant="20" id="EX8-Km-AVz"/>
@@ -123,6 +124,7 @@
                         <viewLayoutGuide key="safeArea" id="e1v-JJ-DJ8"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="I6B-ln-niJ" appends="YES" id="ehl-Hc-pcE"/>
+                            <outletCollection property="gestureRecognizers" destination="X42-9Z-rbd" appends="YES" id="AXu-Ed-Khx"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Driver Login" id="YFM-Ru-RX7"/>
@@ -130,6 +132,7 @@
                         <outlet property="DismissKeyboardTap" destination="I6B-ln-niJ" id="eNJ-Vo-Mwn"/>
                         <outlet property="EmailTextField" destination="Ykv-Ud-Zt6" id="CvX-ML-Xsh"/>
                         <outlet property="PasswordTextField" destination="4GQ-d0-v3f" id="cLr-XZ-71Z"/>
+                        <outlet property="dismissKeyboardSwipe" destination="X42-9Z-rbd" id="Epf-6g-Ob4"/>
                         <segue destination="kKn-mr-OHu" kind="show" identifier="ride_requests" id="Lc2-Iy-Ksk"/>
                     </connections>
                 </viewController>
@@ -139,6 +142,11 @@
                         <action selector="dismissKeyboard:" destination="BrQ-ep-bwc" id="ni5-st-Ywg"/>
                     </connections>
                 </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="X42-9Z-rbd">
+                    <connections>
+                        <action selector="swipeHandler:" destination="BrQ-ep-bwc" id="UMW-Tc-PIQ"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1730" y="106"/>
         </scene>
