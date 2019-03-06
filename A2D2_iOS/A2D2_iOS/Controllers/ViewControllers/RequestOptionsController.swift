@@ -16,6 +16,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet var textView: UITextView!
     @IBOutlet var nameField: UITextField!
     @IBOutlet var phoneNumberField: UITextField!
+    @IBOutlet var dismissKeyboardSwipe: UISwipeGestureRecognizer!
     
     let groupSizeData = [1,2,3,4]
     let requesterGender = ["Male", "Female"]
@@ -208,9 +209,15 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     
-    @IBAction func dismissKeyboard(_ sender: Any) {
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
-        
+    }
+    
+    
+    @IBAction func swipeHandler(_ sender : UISwipeGestureRecognizer) {
+        if sender.state == .ended {
+            view.endEditing(true)
+        }
     }
 
     

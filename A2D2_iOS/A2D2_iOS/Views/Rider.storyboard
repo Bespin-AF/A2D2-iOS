@@ -228,9 +228,11 @@
                         <viewLayoutGuide key="safeArea" id="se3-pI-8lO"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="PGA-Lz-8w9" appends="YES" id="OeD-B3-Muv"/>
+                            <outletCollection property="gestureRecognizers" destination="2CV-32-gvP" appends="YES" id="Sfn-wC-R5K"/>
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="dismissKeyboardSwipe" destination="2CV-32-gvP" id="Iyy-Nr-Mdx"/>
                         <outlet property="dismissKeyboardTap" destination="PGA-Lz-8w9" id="7v4-jz-eVv"/>
                         <outlet property="groupSizePicker" destination="gKW-uy-2tN" id="EPt-PV-2NK"/>
                         <outlet property="nameField" destination="KhN-BT-rEN" id="nS0-f2-3nY"/>
@@ -246,6 +248,11 @@
                         <action selector="dismissKeyboard:" destination="OU6-00-1Cm" id="qdx-7O-afK"/>
                     </connections>
                 </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="2CV-32-gvP">
+                    <connections>
+                        <action selector="swipeHandler:" destination="OU6-00-1Cm" id="Jie-7o-HqU"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1074" y="135"/>
         </scene>
