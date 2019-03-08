@@ -77,7 +77,7 @@ class RideRequestDetailsController: UIViewController {
     
     
     func confirmTakeJob() {
-        let alertTitle = requestData.status == Status.InProgress ? "Confirm Pickup" : "Job Previously Accepted"
+        let alertTitle = hasJobBeenPreviouslyAccepted() ? "Confirm Pickup" : "Job Previously Accepted"
         let alert = UIAlertController(title: alertTitle, message: "Are you sure you want to pick up this rider?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: {action in self.takeJobActions()}))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -116,5 +116,10 @@ class RideRequestDetailsController: UIViewController {
         requestData.status = status
         requestData.driver = AuthenticationUtils.currentUser?.uid ?? "Default"
         DataSourceUtils.updateData(data: requestData, key: requestKey)
+    }
+    
+    
+    func hasJobBeenPreviouslyAccepted() -> Bool {
+        return requestData.status == Status.Available
     }
 }
