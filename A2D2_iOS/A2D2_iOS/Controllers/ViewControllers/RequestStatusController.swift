@@ -35,7 +35,7 @@ class RequestStatusController: UITableViewController {
     // Returns request data for a given IndexPath
     private func getRequest(atIndex index: IndexPath) -> Request {
         let sectionData = getSectionData(forIndex: index)
-        return Array(sectionData.values)[index.row]
+        return Array(sectionData.values).sorted()[index.row]
     }
     
     
