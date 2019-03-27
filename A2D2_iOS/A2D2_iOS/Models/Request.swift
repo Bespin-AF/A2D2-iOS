@@ -8,7 +8,15 @@
 
 import Foundation
 
-class Request {
+class Request : Comparable{
+    
+    static func < (lhs: Request, rhs: Request) -> Bool {
+        return lhs.timestamp < rhs.timestamp
+    }
+    
+    static func == (lhs: Request, rhs: Request) -> Bool {
+        return lhs.lat == rhs.lat && lhs.lon == rhs.lon
+    }
     
     var requestData : [String: Any] = [:]
     
