@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "1010"
-   version = "1.3">
+   version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
@@ -60,11 +60,39 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5D3EA8B821FBAABC00249C27"
-               BuildableName = "FirebaseTests.xctest"
-               BlueprintName = "FirebaseTests"
+               BlueprintIdentifier = "7C94E7D3219B4E0A00A623D9"
+               BuildableName = "A2D2_iOSTests.xctest"
+               BlueprintName = "A2D2_iOSTests"
                ReferencedContainer = "container:A2D2_iOS.xcodeproj">
             </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7C94E7DE219B4E0A00A623D9"
+               BuildableName = "A2D2_iOSUITests.xctest"
+               BlueprintName = "A2D2_iOSUITests"
+               ReferencedContainer = "container:A2D2_iOS.xcodeproj">
+            </BuildableReference>
+            <LocationScenarioReference
+               identifier = "../../MaxwellAFB.gpx"
+               referenceType = "0">
+            </LocationScenarioReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5DE1A32E224BE6A7009F56CB"
+               BuildableName = "A2D2_iOSUITests_InvalidLocation.xctest"
+               BlueprintName = "A2D2_iOSUITests_InvalidLocation"
+               ReferencedContainer = "container:A2D2_iOS.xcodeproj">
+            </BuildableReference>
+            <LocationScenarioReference
+               identifier = "../../Cupertino.gpx"
+               referenceType = "0">
+            </LocationScenarioReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>

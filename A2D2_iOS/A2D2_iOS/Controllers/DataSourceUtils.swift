@@ -11,6 +11,7 @@
 //
 
 import Firebase
+import CoreLocation
 
 class DataSourceUtils{
     static var ref = Database.database().reference()
@@ -106,5 +107,22 @@ class DataSourceUtils{
         }
         
         return results
+    }
+    
+    
+    public static func convertToMeters(miles : Double) -> Double{
+        return miles * 1609.344 // Exact number of meters in a mile
+    }
+    
+    
+    public static func getLocationFromString(_ locationString : String) -> CLLocation{
+        guard locationString.contains(",") else {
+            return CLLocation(latitude: 0, longitude: 0)
+        }
+        
+        let latLon = locationString.split(separator: ",")
+        let lat = Double(latLon[0])
+        let lon = Double(latLon[1])
+        return CLLocation(latitude: lat!, longitude: lon!)
     }
 }
