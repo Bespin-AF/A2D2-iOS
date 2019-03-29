@@ -241,7 +241,7 @@
                         <outlet property="phoneNumberField" destination="9XE-kj-b6r" id="4i5-0b-O2I"/>
                         <outlet property="requesterGenderPicker" destination="VsV-nm-rRv" id="dwt-R6-oEJ"/>
                         <outlet property="textView" destination="ofE-mK-leo" id="WMs-JU-Kxb"/>
-                        <segue destination="lgy-n2-TBM" kind="show" identifier="request_sent" id="H6s-BP-MZn"/>
+                        <segue destination="lgy-n2-TBM" kind="showDetail" identifier="request_sent" id="H6s-BP-MZn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yIA-CQ-Ts2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -267,7 +267,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Gn5-73-Yyg">
-                                <rect key="frame" x="91.666666666666686" y="198" width="192" height="70.333333333333314"/>
+                                <rect key="frame" x="91.666666666666686" y="176" width="192" height="70.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request Sent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Siw-Uq-xJm">
                                         <rect key="frame" x="0.0" y="0.0" width="192" height="30"/>
