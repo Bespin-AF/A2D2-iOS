@@ -274,11 +274,11 @@
                                 </constraints>
                                 <variation key="heightClass=compact" spacing="20"/>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Wm1-hx-jzd">
-                                <rect key="frame" x="20" y="708" width="335" height="50"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Wm1-hx-jzd">
+                                <rect key="frame" x="20" y="648" width="335" height="110"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35X-FU-cah" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="162.66666666666666" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
                                         <accessibility key="accessibilityConfiguration" identifier="btn_TextRider"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="DCV-hY-xQB"/>
@@ -291,7 +291,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCQ-8L-eV2" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="172.66666666666663" y="0.0" width="162.33333333333337" height="50"/>
+                                        <rect key="frame" x="0.0" y="60" width="335" height="50"/>
                                         <accessibility key="accessibilityConfiguration" identifier="btn_TakeJob"/>
                                         <state key="normal" title="Take Job"/>
                                         <connections>
@@ -302,7 +302,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Baa-oA-L9b"/>
                                     <constraint firstAttribute="width" priority="750" constant="500" id="Cuc-1h-KSy"/>
-                                    <constraint firstItem="cCQ-8L-eV2" firstAttribute="width" secondItem="35X-FU-cah" secondAttribute="width" id="cGS-Sc-hqz"/>
+                                    <constraint firstItem="cCQ-8L-eV2" firstAttribute="height" secondItem="35X-FU-cah" secondAttribute="height" id="gWd-tw-J4Y"/>
                                 </constraints>
                             </stackView>
                         </subviews>

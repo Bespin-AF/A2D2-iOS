@@ -9,7 +9,7 @@
 import Foundation
 
 public enum Status {
-    case Available, InProgress, Completed, Empty
+    case Available, InProgress, Completed, Empty, Cancelled
 }
 
 
@@ -21,6 +21,8 @@ public func getStatusString(_ status : Status) -> String {
         return "In Progress"
     case .Completed:
         return "Completed"
+    case .Cancelled:
+        return "Cancelled"
     default:
         return ""
     }
@@ -35,6 +37,8 @@ public func resolveStatus(fromString string : String) -> Status {
         return .InProgress
     case "Completed":
         return .Completed
+    case "Cancelled":
+        return .Cancelled
     default:
         return .Empty
     }
