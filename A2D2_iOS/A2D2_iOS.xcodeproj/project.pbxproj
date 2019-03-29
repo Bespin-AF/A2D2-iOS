@@ -40,6 +40,12 @@
 		5DD42AB52200E24F0000AE86 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD42AB42200E24F0000AE86 /* Status.swift */; };
 		5DD42AB72200EB390000AE86 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD42AB62200EB390000AE86 /* Request.swift */; };
 		5DE1A332224BE6A7009F56CB /* A2D2_iOSUITests_InvalidLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A331224BE6A7009F56CB /* A2D2_iOSUITests_InvalidLocation.swift */; };
+		5DE1A33C224D33C0009F56CB /* Driver_Login_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A339224D322D009F56CB /* Driver_Login_Tests.swift */; };
+		5DE1A33F224D34AF009F56CB /* Driver_Requests_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A33E224D34AF009F56CB /* Driver_Requests_Tests.swift */; };
+		5DE1A341224D3523009F56CB /* Driver_Request_Details_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A340224D3523009F56CB /* Driver_Request_Details_Tests.swift */; };
+		5DE1A344224D3607009F56CB /* Rider_Rules_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A343224D3607009F56CB /* Rider_Rules_Tests.swift */; };
+		5DE1A346224D3680009F56CB /* Rider_Create_Request_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A345224D3680009F56CB /* Rider_Create_Request_Tests.swift */; };
+		5DE1A349224D379A009F56CB /* A2D2_Home_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A348224D379A009F56CB /* A2D2_Home_Tests.swift */; };
 		7C193E3621A45C660095728D /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C193E3521A45C660095728D /* RulesViewController.swift */; };
 		7C94E7C4219B4E0900A623D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C94E7C3219B4E0900A623D9 /* AppDelegate.swift */; };
 		7C94E7C9219B4E0900A623D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C94E7C7219B4E0900A623D9 /* Main.storyboard */; };
@@ -123,6 +129,12 @@
 		5DE1A32F224BE6A7009F56CB /* A2D2_iOSUITests_InvalidLocation.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = A2D2_iOSUITests_InvalidLocation.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE1A331224BE6A7009F56CB /* A2D2_iOSUITests_InvalidLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A2D2_iOSUITests_InvalidLocation.swift; sourceTree = "<group>"; };
 		5DE1A333224BE6A7009F56CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5DE1A339224D322D009F56CB /* Driver_Login_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver_Login_Tests.swift; sourceTree = "<group>"; };
+		5DE1A33E224D34AF009F56CB /* Driver_Requests_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver_Requests_Tests.swift; sourceTree = "<group>"; };
+		5DE1A340224D3523009F56CB /* Driver_Request_Details_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver_Request_Details_Tests.swift; sourceTree = "<group>"; };
+		5DE1A343224D3607009F56CB /* Rider_Rules_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rider_Rules_Tests.swift; sourceTree = "<group>"; };
+		5DE1A345224D3680009F56CB /* Rider_Create_Request_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rider_Create_Request_Tests.swift; sourceTree = "<group>"; };
+		5DE1A348224D379A009F56CB /* A2D2_Home_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A2D2_Home_Tests.swift; sourceTree = "<group>"; };
 		7C193E3521A45C660095728D /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		7C94E7C0219B4E0900A623D9 /* A2D2_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = A2D2_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C94E7C3219B4E0900A623D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -261,6 +273,33 @@
 			path = A2D2_iOSUITests_InvalidLocation;
 			sourceTree = "<group>";
 		};
+		5DE1A33D224D3471009F56CB /* Driver */ = {
+			isa = PBXGroup;
+			children = (
+				5DE1A339224D322D009F56CB /* Driver_Login_Tests.swift */,
+				5DE1A33E224D34AF009F56CB /* Driver_Requests_Tests.swift */,
+				5DE1A340224D3523009F56CB /* Driver_Request_Details_Tests.swift */,
+			);
+			name = Driver;
+			sourceTree = "<group>";
+		};
+		5DE1A342224D35AB009F56CB /* Rider */ = {
+			isa = PBXGroup;
+			children = (
+				5DE1A343224D3607009F56CB /* Rider_Rules_Tests.swift */,
+				5DE1A345224D3680009F56CB /* Rider_Create_Request_Tests.swift */,
+			);
+			name = Rider;
+			sourceTree = "<group>";
+		};
+		5DE1A347224D371B009F56CB /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				5DE1A348224D379A009F56CB /* A2D2_Home_Tests.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
 		7C94E7B7219B4E0900A623D9 = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +351,9 @@
 			isa = PBXGroup;
 			children = (
 				7C94E7E3219B4E0A00A623D9 /* A2D2_iOSUITests.swift */,
+				5DE1A347224D371B009F56CB /* Home */,
+				5DE1A33D224D3471009F56CB /* Driver */,
+				5DE1A342224D35AB009F56CB /* Rider */,
 				7C94E7E5219B4E0A00A623D9 /* Info.plist */,
 			);
 			path = A2D2_iOSUITests;
@@ -524,7 +566,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DE1A344224D3607009F56CB /* Rider_Rules_Tests.swift in Sources */,
+				5DE1A341224D3523009F56CB /* Driver_Request_Details_Tests.swift in Sources */,
+				5DE1A33F224D34AF009F56CB /* Driver_Requests_Tests.swift in Sources */,
 				7C94E7E4219B4E0A00A623D9 /* A2D2_iOSUITests.swift in Sources */,
+				5DE1A346224D3680009F56CB /* Rider_Create_Request_Tests.swift in Sources */,
+				5DE1A33C224D33C0009F56CB /* Driver_Login_Tests.swift in Sources */,
+				5DE1A349224D379A009F56CB /* A2D2_Home_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
