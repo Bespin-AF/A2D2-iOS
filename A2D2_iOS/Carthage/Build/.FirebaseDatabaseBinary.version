@@ -8,15 +8,15 @@
   "tvOS" : [
 
   ],
-  "commitish" : "5.16.0",
+  "commitish" : "5.19.0",
   "iOS" : [
     {
       "name" : "leveldb-library",
-      "hash" : "8a041c3e3aca9a95d3d35ca73fa3cb9880288d7dd9224bb70daeb847f7ab3de6"
+      "hash" : "1b53669ac95289d4ac865ebbcf3969e38d77be731a4f3d0bf8979ffe3a779bed"
     },
     {
       "name" : "FirebaseDatabase",
-      "hash" : "8e0e44eb0c87ebf0b19938ae6e886d96195319ab23b708cf0c36d1dfbc96d234"
+      "hash" : "b6e877f0aef6da658bd9f7ed1f88d45b23c717a7b27853b704fb499dce4f4058"
     }
   ]
 }
