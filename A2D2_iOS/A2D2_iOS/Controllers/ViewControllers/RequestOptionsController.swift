@@ -24,6 +24,8 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     let locationManager = CLLocationManager()
     var selectedGroupSize: Int = 0
     var selectedGender: String = ""
+    var requestKey: String!
+    var requestData: Request!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -171,7 +173,8 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         if(!validateInputs()){ return }//Validate Inputs
         let alert = UIAlertController(title: "Confirm Driver Request", message: "Are you sure you want to dispatch a driver to your current location?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler:{ action in
-            DataSourceUtils.sendData(data: self.buildRequest())
+            self.requestData = self.buildRequest()
+            self.requestKey = DataSourceUtils.sendData(data: self.requestData)
             self.performSegue(withIdentifier: "request_sent", sender: self)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -242,5 +245,13 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         let nilNameAlert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
         nilNameAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(nilNameAlert, animated: true)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "request_sent" else { return }
+        let statusView = segue.destination as! RideStatusViewController
+        statusView.requestKey = self.requestKey
+        statusView.requestData = self.requestData
     }
 }

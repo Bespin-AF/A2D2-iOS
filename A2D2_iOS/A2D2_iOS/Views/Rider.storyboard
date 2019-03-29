@@ -27,6 +27,7 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kDB-YD-Bov" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="jHW-jk-eMU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-401" y="135"/>
         </scene>
@@ -284,14 +285,16 @@
                                 </subviews>
                                 <variation key="heightClass=compact" spacing="5"/>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PBd-Ft-1sr">
-                                <rect key="frame" x="20" y="688" width="335" height="50"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PBd-Ft-1sr">
+                                <rect key="frame" x="20" y="628" width="335" height="110"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djr-KW-4jK" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
                                         <accessibility key="accessibilityConfiguration" identifier="btn_CallA2D2"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="1NG-7R-uUf"/>
+                                            <constraint firstAttribute="height" priority="750" constant="50" id="8tx-rO-A9W"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="Dh8-L7-8Hc"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="Call A2D2"/>
@@ -299,11 +302,18 @@
                                             <action selector="callA2D2" destination="lgy-n2-TBM" eventType="touchUpInside" id="2UI-db-mGn"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Pt-yc-1KB" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="60" width="335" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="Cancel Ride"/>
+                                        <connections>
+                                            <action selector="cancelRide" destination="lgy-n2-TBM" eventType="touchUpInside" id="kf9-b9-9dk"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" priority="750" constant="50" id="0XB-QD-dD4"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="JEy-ee-YlJ"/>
                                     <constraint firstAttribute="width" priority="750" constant="500" id="WBL-MN-7Nm"/>
+                                    <constraint firstItem="2Pt-yc-1KB" firstAttribute="height" secondItem="djr-KW-4jK" secondAttribute="height" id="Z6W-6m-gIG"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="kJm-N6-3ur"/>
                                 </constraints>
                             </stackView>
@@ -322,6 +332,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Qj-Vw-HAx"/>
                     </view>
+                    <connections>
+                        <segue destination="jHW-jk-eMU" kind="unwind" identifier="return_home_after_cancel" unwindAction="unwindToHomeWithSegue:" id="PMj-Te-HZt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvt-Bd-agg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
