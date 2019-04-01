@@ -272,25 +272,38 @@ DISCLAIMER: This is a private organization. It is not part of the Department of 
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Gn5-73-Yyg">
-                                <rect key="frame" x="91.666666666666686" y="176" width="192" height="70.333333333333314"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" image="a2d2logo" translatesAutoresizingMaskIntoConstraints="NO" id="CFd-k5-cnL">
+                                <rect key="frame" x="0.0" y="44" width="375" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="CFd-k5-cnL" secondAttribute="height" multiplier="1:1" id="Fhf-FZ-IMk"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="700" id="Igf-v8-Aav"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="248" horizontalCompressionResistancePriority="748" verticalCompressionResistancePriority="748" axis="vertical" distribution="fillEqually" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="l1r-rc-XOM">
+                                <rect key="frame" x="10" y="429" width="355" height="144.33333333333337"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request Sent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Siw-Uq-xJm">
-                                        <rect key="frame" x="0.0" y="0.0" width="192" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your request has been received by A2D2 dispatch." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXI-kv-EG6">
+                                        <rect key="frame" x="17.666666666666657" y="0.0" width="319.66666666666674" height="64.666666666666671"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=compact">
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your driver is on the way!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fb3-d0-mFC">
-                                        <rect key="frame" x="0.0" y="50" width="192" height="20.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="A driver will be dispatched and contact you shortly." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haq-UZ-fAW">
+                                        <rect key="frame" x="0.0" y="79.666666666666686" width="355" height="64.666666666666686"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=compact">
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        </variation>
                                     </label>
                                 </subviews>
                                 <variation key="heightClass=compact" spacing="5"/>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PBd-Ft-1sr">
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="260" horizontalCompressionResistancePriority="760" verticalCompressionResistancePriority="760" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PBd-Ft-1sr">
                                 <rect key="frame" x="20" y="628" width="335" height="110"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djr-KW-4jK" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
@@ -299,7 +312,7 @@ DISCLAIMER: This is a private organization. It is not part of the Department of 
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="1NG-7R-uUf"/>
                                             <constraint firstAttribute="height" priority="750" constant="50" id="8tx-rO-A9W"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="Dh8-L7-8Hc"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Dh8-L7-8Hc"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="Call A2D2"/>
@@ -326,14 +339,22 @@ DISCLAIMER: This is a private organization. It is not part of the Department of 
                         <color key="backgroundColor" red="0.20826181769999999" green="0.43334984780000002" blue="0.66277182099999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <accessibility key="accessibilityConfiguration" identifier="vw_RideStatus"/>
                         <constraints>
-                            <constraint firstItem="Gn5-73-Yyg" firstAttribute="centerY" secondItem="8Qj-Vw-HAx" secondAttribute="centerY" priority="750" constant="-200" id="Awq-YO-g1y"/>
-                            <constraint firstItem="Gn5-73-Yyg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8Qj-Vw-HAx" secondAttribute="top" constant="10" id="Gvb-Y9-TQU"/>
+                            <constraint firstItem="PBd-Ft-1sr" firstAttribute="top" secondItem="l1r-rc-XOM" secondAttribute="bottom" priority="250" constant="20" id="20d-dl-Kvj"/>
+                            <constraint firstItem="l1r-rc-XOM" firstAttribute="centerX" secondItem="8Qj-Vw-HAx" secondAttribute="centerX" id="46j-Ie-dzC"/>
+                            <constraint firstItem="l1r-rc-XOM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="CFd-k5-cnL" secondAttribute="bottom" constant="-100" id="5Im-No-JkQ"/>
                             <constraint firstItem="PBd-Ft-1sr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8Qj-Vw-HAx" secondAttribute="leading" constant="20" id="MCf-kw-6RA"/>
                             <constraint firstItem="8Qj-Vw-HAx" firstAttribute="bottom" secondItem="PBd-Ft-1sr" secondAttribute="bottom" priority="750" constant="40" id="T0h-n8-4ln"/>
+                            <constraint firstItem="l1r-rc-XOM" firstAttribute="top" secondItem="CFd-k5-cnL" secondAttribute="bottom" priority="750" constant="10" id="T5X-gO-hBf"/>
+                            <constraint firstItem="l1r-rc-XOM" firstAttribute="centerY" secondItem="8Qj-Vw-HAx" secondAttribute="centerY" priority="750" id="USV-RU-WQa"/>
+                            <constraint firstItem="PBd-Ft-1sr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="l1r-rc-XOM" secondAttribute="bottom" constant="10" id="Uqx-TY-ftO"/>
                             <constraint firstItem="PBd-Ft-1sr" firstAttribute="centerX" secondItem="8Qj-Vw-HAx" secondAttribute="centerX" id="V1H-oK-Xf0"/>
-                            <constraint firstItem="Gn5-73-Yyg" firstAttribute="centerX" secondItem="8Qj-Vw-HAx" secondAttribute="centerX" id="XJt-2s-mLg"/>
+                            <constraint firstItem="l1r-rc-XOM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8Qj-Vw-HAx" secondAttribute="leading" constant="10" id="aeM-bm-M7m"/>
+                            <constraint firstItem="CFd-k5-cnL" firstAttribute="leading" secondItem="8Qj-Vw-HAx" secondAttribute="leading" priority="750" id="gnH-Cx-wBq"/>
+                            <constraint firstItem="8Qj-Vw-HAx" firstAttribute="leading" relation="lessThanOrEqual" secondItem="CFd-k5-cnL" secondAttribute="leading" id="kOn-tO-eht"/>
                             <constraint firstItem="8Qj-Vw-HAx" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="PBd-Ft-1sr" secondAttribute="bottom" constant="10" id="swG-2j-bR5"/>
                             <constraint firstItem="8Qj-Vw-HAx" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PBd-Ft-1sr" secondAttribute="trailing" constant="20" id="t4N-yV-Dcu"/>
+                            <constraint firstItem="CFd-k5-cnL" firstAttribute="centerX" secondItem="8Qj-Vw-HAx" secondAttribute="centerX" id="wFn-A4-3Kf"/>
+                            <constraint firstItem="CFd-k5-cnL" firstAttribute="top" secondItem="8Qj-Vw-HAx" secondAttribute="top" id="yGo-5X-6Vm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Qj-Vw-HAx"/>
                     </view>
@@ -346,5 +367,8 @@ DISCLAIMER: This is a private organization. It is not part of the Department of 
             <point key="canvasLocation" x="1799" y="135"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="a2d2logo" width="1024" height="1024"/>
+    </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
