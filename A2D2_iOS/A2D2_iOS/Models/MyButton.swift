@@ -8,7 +8,8 @@
 
 import UIKit
 
-@IBDesignable class  MyButton : UIButton {
+@IBDesignable
+class  MyButton : UIButton {
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -23,11 +24,10 @@ import UIKit
     }
     
     func updateCornerRadius() {
-        layer.cornerRadius = rounded ? 20 : 0
+        layer.cornerRadius = rounded ? 25 : 0
     }
     
     func updateButtonColors() {
-        layer.borderColor = UIColor.white.cgColor
-        layer.borderWidth = 2
+        layer.backgroundColor = UIColor(red:0.45, green:0.51, blue:0.57, alpha:1.0).cgColor
     }
 }

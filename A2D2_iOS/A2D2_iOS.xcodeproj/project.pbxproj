@@ -14,6 +14,7 @@
 		5D01C03221F8C07D0067948F /* RideStatusController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D01C03121F8C07D0067948F /* RideStatusController.swift */; };
 		5D0F6EB821EE795100F8CD54 /* DriverLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0F6EB721EE795100F8CD54 /* DriverLoginController.swift */; };
 		5D15458121FF8B4800613E04 /* RideRequestDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D15458021FF8B4800613E04 /* RideRequestDetailsController.swift */; };
+		5D2A78F122526DBF00B2290A /* MyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A78F022526DBF00B2290A /* MyTextField.swift */; };
 		5D3EA8E821FBAB2500249C27 /* FIRAnalyticsConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3EA8DD21FBAB2500249C27 /* FIRAnalyticsConnector.framework */; };
 		5D3EA8E921FBAB2600249C27 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3EA8DE21FBAB2500249C27 /* FirebaseCore.framework */; };
 		5D3EA8EA21FBAB2600249C27 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3EA8DF21FBAB2500249C27 /* FirebaseAnalytics.framework */; };
@@ -34,6 +35,7 @@
 		5DA0071021EFB4D800C31F42 /* RequestStatusController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA0070F21EFB4D800C31F42 /* RequestStatusController.swift */; };
 		5DB5EA3F21F260A20030D304 /* DataSourceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB5EA3E21F260A20030D304 /* DataSourceUtils.swift */; };
 		5DC4F433224E84C0005F82B0 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC4F432224E84C0005F82B0 /* HomeController.swift */; };
+		5DC4F43622526576005F82B0 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC4F43522526576005F82B0 /* GradientView.swift */; };
 		5DD42AB32200E2080000AE86 /* SystemUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD42AB22200E2080000AE86 /* SystemUtils.swift */; };
 		5DD42AB52200E24F0000AE86 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD42AB42200E24F0000AE86 /* Status.swift */; };
 		5DD42AB72200EB390000AE86 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD42AB62200EB390000AE86 /* Request.swift */; };
@@ -90,6 +92,7 @@
 		5D01C03121F8C07D0067948F /* RideStatusController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideStatusController.swift; sourceTree = "<group>"; };
 		5D0F6EB721EE795100F8CD54 /* DriverLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverLoginController.swift; sourceTree = "<group>"; };
 		5D15458021FF8B4800613E04 /* RideRequestDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RideRequestDetailsController.swift; path = ../../ViewControllers/RideRequestDetailsController.swift; sourceTree = "<group>"; };
+		5D2A78F022526DBF00B2290A /* MyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextField.swift; sourceTree = "<group>"; };
 		5D3EA8DD21FBAB2500249C27 /* FIRAnalyticsConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FIRAnalyticsConnector.framework; path = Carthage/Build/iOS/FIRAnalyticsConnector.framework; sourceTree = "<group>"; };
 		5D3EA8DE21FBAB2500249C27 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Carthage/Build/iOS/FirebaseCore.framework; sourceTree = "<group>"; };
 		5D3EA8DF21FBAB2500249C27 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Carthage/Build/iOS/FirebaseAnalytics.framework; sourceTree = "<group>"; };
@@ -111,6 +114,7 @@
 		5DA0070F21EFB4D800C31F42 /* RequestStatusController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestStatusController.swift; sourceTree = "<group>"; };
 		5DB5EA3E21F260A20030D304 /* DataSourceUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceUtils.swift; sourceTree = "<group>"; };
 		5DC4F432224E84C0005F82B0 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		5DC4F43522526576005F82B0 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		5DD42AB22200E2080000AE86 /* SystemUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemUtils.swift; sourceTree = "<group>"; };
 		5DD42AB42200E24F0000AE86 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		5DD42AB62200EB390000AE86 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -217,8 +221,10 @@
 			children = (
 				5DA0070D21EFAE6900C31F42 /* RequestStatusCell.swift */,
 				5DD42AB62200EB390000AE86 /* Request.swift */,
-				5D47466E219F1C9300131FE2 /* MyButton.swift */,
 				5DD42AB42200E24F0000AE86 /* Status.swift */,
+				5DC4F43522526576005F82B0 /* GradientView.swift */,
+				5D47466E219F1C9300131FE2 /* MyButton.swift */,
+				5D2A78F022526DBF00B2290A /* MyTextField.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -492,7 +498,9 @@
 				7C94E7C4219B4E0900A623D9 /* AppDelegate.swift in Sources */,
 				5D01C03221F8C07D0067948F /* RideStatusController.swift in Sources */,
 				7C193E3621A45C660095728D /* RulesViewController.swift in Sources */,
+				5DC4F43622526576005F82B0 /* GradientView.swift in Sources */,
 				5DB5EA3F21F260A20030D304 /* DataSourceUtils.swift in Sources */,
+				5D2A78F122526DBF00B2290A /* MyTextField.swift in Sources */,
 				5DD42AB32200E2080000AE86 /* SystemUtils.swift in Sources */,
 				5D15458121FF8B4800613E04 /* RideRequestDetailsController.swift in Sources */,
 				5D0F6EB821EE795100F8CD54 /* DriverLoginController.swift in Sources */,
