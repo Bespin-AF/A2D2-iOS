@@ -278,8 +278,8 @@
                                 </constraints>
                                 <variation key="heightClass=compact" spacing="20"/>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Wm1-hx-jzd">
-                                <rect key="frame" x="20" y="560" width="335" height="110"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Wm1-hx-jzd">
+                                <rect key="frame" x="20" y="530" width="335" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35X-FU-cah" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
@@ -295,7 +295,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCQ-8L-eV2" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="60" width="335" height="50"/>
+                                        <rect key="frame" x="0.0" y="70" width="335" height="50"/>
                                         <accessibility key="accessibilityConfiguration" identifier="btn_TakeJob"/>
                                         <state key="normal" title="Take Job"/>
                                         <connections>
@@ -315,7 +315,7 @@
                             <constraint firstItem="uUj-XJ-DE7" firstAttribute="centerX" secondItem="EcQ-l7-2FO" secondAttribute="centerX" id="6Sm-f0-qCd"/>
                             <constraint firstItem="uUj-XJ-DE7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EcQ-l7-2FO" secondAttribute="leading" constant="20" id="8eW-uX-xPw"/>
                             <constraint firstItem="EcQ-l7-2FO" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Wm1-hx-jzd" secondAttribute="trailing" constant="20" id="8wn-zb-m0H"/>
-                            <constraint firstItem="EcQ-l7-2FO" firstAttribute="bottom" secondItem="Wm1-hx-jzd" secondAttribute="bottom" constant="20" id="9sV-cD-rd0"/>
+                            <constraint firstItem="EcQ-l7-2FO" firstAttribute="bottom" secondItem="Wm1-hx-jzd" secondAttribute="bottom" constant="40" id="9sV-cD-rd0"/>
                             <constraint firstItem="Wm1-hx-jzd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EcQ-l7-2FO" secondAttribute="leading" constant="20" id="Qx7-Pr-dRi"/>
                             <constraint firstItem="EcQ-l7-2FO" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uUj-XJ-DE7" secondAttribute="trailing" constant="20" id="S5A-gL-Qai"/>
                             <constraint firstItem="uUj-XJ-DE7" firstAttribute="top" secondItem="EcQ-l7-2FO" secondAttribute="top" constant="20" id="Tpe-6V-Qij"/>

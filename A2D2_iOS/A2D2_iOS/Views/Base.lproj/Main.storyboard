@@ -26,8 +26,8 @@
                                     <constraint firstAttribute="width" secondItem="U0r-Oc-gw1" secondAttribute="height" multiplier="1:1" id="42f-ci-rGj"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Cwl-eG-nJA">
-                                <rect key="frame" x="20" y="707" width="374" height="115"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Cwl-eG-nJA">
+                                <rect key="frame" x="20" y="702" width="374" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jkj-OY-gna" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
@@ -48,7 +48,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ui-1F-dR3" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="65" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="70" width="374" height="50"/>
                                         <accessibility key="accessibilityConfiguration" identifier="btn_DriverLogin"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="999" constant="50" id="2If-uk-n4y"/>
@@ -66,7 +66,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="XA0-80-nyf"/>
                                     <constraint firstItem="4Ui-1F-dR3" firstAttribute="height" secondItem="Jkj-OY-gna" secondAttribute="height" id="uFg-dk-Edx"/>
                                 </constraints>
-                                <variation key="heightClass=compact" spacing="8"/>
+                                <variation key="heightClass=compact" spacing="10"/>
                             </stackView>
                         </subviews>
                         <accessibility key="accessibilityConfiguration" identifier="vw_Home"/>
