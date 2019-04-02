@@ -224,6 +224,11 @@ DISCLAIMER: This is a private organization. It is not part of the Department of 
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <state key="normal" title="Request Driver"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="goodColor">
+                                                        <color key="value" red="0.2722553412" green="0.77987688779999997" blue="0.27300835330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="requestDriver" destination="OU6-00-1Cm" eventType="touchUpInside" id="tEI-95-Pha"/>
                                                 </connections>
@@ -274,6 +279,7 @@ DISCLAIMER: This is a private organization. It is not part of the Department of 
                         <outlet property="phoneNumberField" destination="9XE-kj-b6r" id="4i5-0b-O2I"/>
                         <outlet property="requesterGenderPicker" destination="VsV-nm-rRv" id="dwt-R6-oEJ"/>
                         <outlet property="scrollView" destination="ATy-7h-Xjo" id="4WY-B6-k5K"/>
+                        <outlet property="submitButton" destination="fCQ-nH-pS9" id="JGm-Wk-2uO"/>
                         <segue destination="lgy-n2-TBM" kind="showDetail" identifier="request_sent" id="H6s-BP-MZn"/>
                     </connections>
                 </viewController>
@@ -347,10 +353,21 @@ DISCLAIMER: This is a private organization. It is not part of the Department of 
                                             <action selector="callA2D2" destination="lgy-n2-TBM" eventType="touchUpInside" id="2UI-db-mGn"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Pt-yc-1KB" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
+                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Pt-yc-1KB" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="70" width="335" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="Cancel Ride"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                <color key="value" red="0.77987688779830933" green="0.28176906902952265" blue="0.26379716427202365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="badColor">
+                                                <color key="value" red="0.77987688779999997" green="0.28176906899999998" blue="0.2637971643" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="defaultColor">
+                                                <color key="value" red="0.77987688779999997" green="0.28176906899999998" blue="0.2637971643" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="cancelRide" destination="lgy-n2-TBM" eventType="touchUpInside" id="kf9-b9-9dk"/>
                                         </connections>

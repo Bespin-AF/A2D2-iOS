@@ -18,6 +18,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet var phoneNumberField: UITextField!
     @IBOutlet var dismissKeyboardSwipe: UISwipeGestureRecognizer!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var submitButton: MyButton!
     
     let groupSizeData = [1,2,3,4]
     let requesterGender = ["Male", "Female"]
@@ -28,7 +29,6 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     var requestKey: String!
     var requestData: Request!
     var keyboardHeight: CGFloat!
-    var top: CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -165,6 +165,15 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if hasValidInputs() {
+            submitButton.color = submitButton.goodColor
+        } else {
+            submitButton.color = submitButton.defaultColor
+        }
+    }
+    
+    
     @IBAction func requestDriver(){
         guard validateInputs() else { return }
         
@@ -231,6 +240,20 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         }
         else if(phoneNumberField.text!.count != 14){ // Phone number requirements. Takes into account the special characters from formatting
             notify("Invalid Phone Number.")
+            return false
+        }
+        return true
+    }
+    
+    
+    func hasValidInputs() -> Bool {
+        if nameField.text == "" { // Name not empty
+            return false
+        }
+        else if phoneNumberField.text == "" { //Phone Number not empty
+            return false
+        }
+        else if(phoneNumberField.text!.count != 14){ // Phone number requirements. Takes into account the special characters from formatting
             return false
         }
         return true
