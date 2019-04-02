@@ -14,10 +14,10 @@
         <scene sceneID="KPx-Es-5Oe">
             <objects>
                 <navigationController storyboardIdentifier="Rider" id="4IK-9y-ciY" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="e2A-tn-B3O">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="e2A-tn-B3O">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.086274509799999996" green="0.35686274509999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.26925596594810486" green="0.33530288934707642" blue="0.39382678270339966" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -35,25 +35,31 @@
         <scene sceneID="Din-HR-Fo4">
             <objects>
                 <viewController title="A2D2 Rules" id="HSI-p4-IT9" customClass="RulesViewController" customModule="A2D2_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="IYm-24-EIa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                    <view key="view" contentMode="scaleToFill" id="IYm-24-EIa" customClass="GradientView" customModule="A2D2_iOS" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="240" verticalCompressionResistancePriority="240" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAG-R9-qLt">
-                                <rect key="frame" x="10" y="98" width="355" height="500"/>
+                                <rect key="frame" x="10.333333333333343" y="10" width="354.33333333333326" height="500"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="LsW-yX-TTn"/>
                                     <constraint firstAttribute="height" priority="999" constant="500" id="kKs-I3-agF"/>
                                 </constraints>
-                                <string key="text">1. A2D2 is a volunteer organization of airmen dedicated to reducing the number of DUIs in the Air Force. Use of this program should be your last resort, not your Plan A.
+                                <mutableString key="text">1. You are required to show your driver your military ID to be picked up.
 
-2. If you find yourself with no safe alternative, simply press the “Request Driver” button. The app will use your current GPS location and you will receive a notification when a driver is dispatched.
+2. The driver will only take you to your home address.
 
-3. A2D2 drivers will only transport you to your home address. If you are making a request on behalf of a group, the driver is only required to take the group to a single address. If members of the group need to go to multiple homes, those individuals will need to make separate pickup requests.</string>
+3. Groups will only be taken to single address.
+
+4. Your pickup location must be within 25 miles of your duty station.
+
+
+PRIVACY: A2D2 is an anonymous program. None of your provided information will be stored or given to leadership at anytime.
+
+DISCLAIMER: This is a private organization. It is not part of the Department of Defense or any of its components and it has no governmental status.</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
-                                <string key="userLabel">1. A2D2 is a volunteer organization of airmen dedicated to reducing the number of DUIs in the Air Force. Use of this program should be your last resort, not your Plan A.  2. If you find yourself with no safe alternative, simply press the “Request Driver” button. The app will use your current GPS location and you will receive a notification when a driver is dispatched.  3. A2D2 drivers will only transport you to your home address. If you are making a request on behalf of a group, the driver is only required to take the group to a single address. If members of the group need to go to multiple homes, those individuals will need to make separate pickup requests.</string>
                                 <variation key="heightClass=compact-widthClass=compact">
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 </variation>
@@ -62,7 +68,7 @@
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="240" verticalHuggingPriority="240" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" restorationIdentifier="Agree to Rules" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Lj-fw-H74" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
-                                <rect key="frame" x="20" y="688" width="335" height="50"/>
+                                <rect key="frame" x="20" y="600" width="335" height="50"/>
                                 <accessibility key="accessibilityConfiguration" identifier="btn_Agree"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="Uo0-wd-EBr"/>
@@ -94,7 +100,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VRr-t6-WxR"/>
                     </view>
-                    <navigationItem key="navigationItem" title="A2D2 Rules" id="GCb-tc-ILI"/>
+                    <navigationItem key="navigationItem" title="A2D2 Program Rules" id="GCb-tc-ILI"/>
                     <connections>
                         <outlet property="agreeButton" destination="2Lj-fw-H74" id="Krf-rg-wm4"/>
                         <segue destination="OU6-00-1Cm" kind="show" identifier="seque_Request_Ride_Page" id="M3l-Kw-zcN"/>
@@ -108,12 +114,12 @@
         <scene sceneID="S5d-bj-6sG">
             <objects>
                 <viewController title="Pickup Request Options" id="OU6-00-1Cm" customClass="RequestOptionsController" customModule="A2D2_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tRA-IK-RTZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                    <view key="view" contentMode="scaleToFill" id="tRA-IK-RTZ" customClass="GradientView" customModule="A2D2_iOS" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="255" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="zOP-Wj-pfh">
-                                <rect key="frame" x="20" y="98" width="335" height="580"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="zOP-Wj-pfh">
+                                <rect key="frame" x="20" y="10" width="335" height="313"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="260" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KhN-BT-rEN">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
@@ -131,7 +137,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="done" textContentType="tel"/>
                                     </textField>
-                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="lU9-er-EaK">
+                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="lU9-er-EaK">
                                         <rect key="frame" x="0.0" y="140" width="335" height="100"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="249" verticalCompressionResistancePriority="249" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ggo-1Y-39D">
@@ -177,14 +183,15 @@
                                             <constraint firstAttribute="height" priority="750" constant="100" id="hdk-1i-hPo"/>
                                         </constraints>
                                     </stackView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="248" horizontalCompressionResistancePriority="200" verticalCompressionResistancePriority="200" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ofE-mK-leo">
-                                        <rect key="frame" x="0.0" y="280" width="335" height="300"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <textView multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="760" horizontalCompressionResistancePriority="200" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ofE-mK-leo">
+                                        <rect key="frame" x="0.0" y="280" width="335" height="33"/>
+                                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="txtVw_Remarks"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="txtVw_Remarks">
+                                            <accessibilityTraits key="traits" adjustable="YES"/>
+                                        </accessibility>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="tqr-8i-1Dr"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="250" constant="150" id="vvk-aB-ogh"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -192,13 +199,12 @@
                                 </subviews>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" priority="750" constant="600" id="IaQ-73-OOO"/>
                                     <constraint firstAttribute="width" priority="750" constant="600" id="XVp-a9-Ihi"/>
                                 </constraints>
                                 <variation key="heightClass=compact" spacing="5"/>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="220" verticalCompressionResistancePriority="220" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCQ-nH-pS9" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
-                                <rect key="frame" x="20" y="688" width="335" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="220" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCQ-nH-pS9" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
+                                <rect key="frame" x="20" y="600" width="335" height="50"/>
                                 <accessibility key="accessibilityConfiguration" identifier="btn_RequestDriver"/>
                                 <constraints>
                                     <constraint firstAttribute="width" priority="999" constant="500" id="YSm-St-HcP"/>
@@ -220,12 +226,11 @@
                             <constraint firstItem="se3-pI-8lO" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fCQ-nH-pS9" secondAttribute="trailing" constant="20" id="8Rr-DV-tE5"/>
                             <constraint firstItem="fCQ-nH-pS9" firstAttribute="centerX" secondItem="se3-pI-8lO" secondAttribute="centerX" id="9hN-z4-9TV"/>
                             <constraint firstItem="se3-pI-8lO" firstAttribute="bottom" secondItem="fCQ-nH-pS9" secondAttribute="bottom" priority="750" constant="40" id="Acb-C0-fPv"/>
-                            <constraint firstItem="fCQ-nH-pS9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="zOP-Wj-pfh" secondAttribute="bottom" constant="10" id="Acp-j9-NMM"/>
-                            <constraint firstItem="se3-pI-8lO" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zOP-Wj-pfh" secondAttribute="trailing" constant="20" id="DrP-Ko-5f8"/>
                             <constraint firstItem="fCQ-nH-pS9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="se3-pI-8lO" secondAttribute="leading" constant="20" id="HIM-zL-pY9"/>
+                            <constraint firstItem="fCQ-nH-pS9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ofE-mK-leo" secondAttribute="bottom" constant="10" id="S6g-49-9mT"/>
                             <constraint firstItem="zOP-Wj-pfh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="se3-pI-8lO" secondAttribute="leading" constant="20" id="SeD-Qu-1WM"/>
                             <constraint firstItem="zOP-Wj-pfh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="se3-pI-8lO" secondAttribute="top" constant="10" id="jV1-6Y-qDR"/>
-                            <constraint firstItem="zOP-Wj-pfh" firstAttribute="centerY" secondItem="se3-pI-8lO" secondAttribute="centerY" priority="749" constant="-200" id="wCP-w9-4fP"/>
+                            <constraint firstItem="zOP-Wj-pfh" firstAttribute="centerY" secondItem="se3-pI-8lO" secondAttribute="centerY" priority="750" constant="-200" id="wCP-w9-4fP"/>
                             <constraint firstItem="zOP-Wj-pfh" firstAttribute="centerX" secondItem="se3-pI-8lO" secondAttribute="centerX" id="yuq-9c-Oui"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="se3-pI-8lO"/>
@@ -263,29 +268,42 @@
         <scene sceneID="4L7-Zr-8bA">
             <objects>
                 <viewController title="Ride Status" id="lgy-n2-TBM" customClass="RideStatusViewController" customModule="A2D2_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="1PI-mT-xwE">
+                    <view key="view" contentMode="scaleToFill" id="1PI-mT-xwE" customClass="GradientView" customModule="A2D2_iOS" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Gn5-73-Yyg">
-                                <rect key="frame" x="91.666666666666686" y="176" width="192" height="70.333333333333314"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" image="a2d2logo" translatesAutoresizingMaskIntoConstraints="NO" id="CFd-k5-cnL">
+                                <rect key="frame" x="0.0" y="44" width="375" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="CFd-k5-cnL" secondAttribute="height" multiplier="1:1" id="Fhf-FZ-IMk"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="700" id="Igf-v8-Aav"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="248" horizontalCompressionResistancePriority="748" verticalCompressionResistancePriority="748" axis="vertical" distribution="fillEqually" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="l1r-rc-XOM">
+                                <rect key="frame" x="10" y="429" width="355" height="144.33333333333337"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request Sent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Siw-Uq-xJm">
-                                        <rect key="frame" x="0.0" y="0.0" width="192" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your request has been received by A2D2 dispatch." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXI-kv-EG6">
+                                        <rect key="frame" x="17.666666666666657" y="0.0" width="319.66666666666674" height="64.666666666666671"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=compact">
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your driver is on the way!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fb3-d0-mFC">
-                                        <rect key="frame" x="0.0" y="50" width="192" height="20.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="A driver will be dispatched and contact you shortly." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haq-UZ-fAW">
+                                        <rect key="frame" x="0.0" y="79.666666666666686" width="355" height="64.666666666666686"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=compact">
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        </variation>
                                     </label>
                                 </subviews>
                                 <variation key="heightClass=compact" spacing="5"/>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PBd-Ft-1sr">
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="260" horizontalCompressionResistancePriority="760" verticalCompressionResistancePriority="760" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PBd-Ft-1sr">
                                 <rect key="frame" x="20" y="628" width="335" height="110"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djr-KW-4jK" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
@@ -294,7 +312,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="1NG-7R-uUf"/>
                                             <constraint firstAttribute="height" priority="750" constant="50" id="8tx-rO-A9W"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="Dh8-L7-8Hc"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Dh8-L7-8Hc"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="Call A2D2"/>
@@ -321,14 +339,22 @@
                         <color key="backgroundColor" red="0.20826181769999999" green="0.43334984780000002" blue="0.66277182099999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <accessibility key="accessibilityConfiguration" identifier="vw_RideStatus"/>
                         <constraints>
-                            <constraint firstItem="Gn5-73-Yyg" firstAttribute="centerY" secondItem="8Qj-Vw-HAx" secondAttribute="centerY" priority="750" constant="-200" id="Awq-YO-g1y"/>
-                            <constraint firstItem="Gn5-73-Yyg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8Qj-Vw-HAx" secondAttribute="top" constant="10" id="Gvb-Y9-TQU"/>
+                            <constraint firstItem="PBd-Ft-1sr" firstAttribute="top" secondItem="l1r-rc-XOM" secondAttribute="bottom" priority="250" constant="20" id="20d-dl-Kvj"/>
+                            <constraint firstItem="l1r-rc-XOM" firstAttribute="centerX" secondItem="8Qj-Vw-HAx" secondAttribute="centerX" id="46j-Ie-dzC"/>
+                            <constraint firstItem="l1r-rc-XOM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="CFd-k5-cnL" secondAttribute="bottom" constant="-100" id="5Im-No-JkQ"/>
                             <constraint firstItem="PBd-Ft-1sr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8Qj-Vw-HAx" secondAttribute="leading" constant="20" id="MCf-kw-6RA"/>
                             <constraint firstItem="8Qj-Vw-HAx" firstAttribute="bottom" secondItem="PBd-Ft-1sr" secondAttribute="bottom" priority="750" constant="40" id="T0h-n8-4ln"/>
+                            <constraint firstItem="l1r-rc-XOM" firstAttribute="top" secondItem="CFd-k5-cnL" secondAttribute="bottom" priority="750" constant="10" id="T5X-gO-hBf"/>
+                            <constraint firstItem="l1r-rc-XOM" firstAttribute="centerY" secondItem="8Qj-Vw-HAx" secondAttribute="centerY" priority="750" id="USV-RU-WQa"/>
+                            <constraint firstItem="PBd-Ft-1sr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="l1r-rc-XOM" secondAttribute="bottom" constant="10" id="Uqx-TY-ftO"/>
                             <constraint firstItem="PBd-Ft-1sr" firstAttribute="centerX" secondItem="8Qj-Vw-HAx" secondAttribute="centerX" id="V1H-oK-Xf0"/>
-                            <constraint firstItem="Gn5-73-Yyg" firstAttribute="centerX" secondItem="8Qj-Vw-HAx" secondAttribute="centerX" id="XJt-2s-mLg"/>
+                            <constraint firstItem="l1r-rc-XOM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8Qj-Vw-HAx" secondAttribute="leading" constant="10" id="aeM-bm-M7m"/>
+                            <constraint firstItem="CFd-k5-cnL" firstAttribute="leading" secondItem="8Qj-Vw-HAx" secondAttribute="leading" priority="750" id="gnH-Cx-wBq"/>
+                            <constraint firstItem="8Qj-Vw-HAx" firstAttribute="leading" relation="lessThanOrEqual" secondItem="CFd-k5-cnL" secondAttribute="leading" id="kOn-tO-eht"/>
                             <constraint firstItem="8Qj-Vw-HAx" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="PBd-Ft-1sr" secondAttribute="bottom" constant="10" id="swG-2j-bR5"/>
                             <constraint firstItem="8Qj-Vw-HAx" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PBd-Ft-1sr" secondAttribute="trailing" constant="20" id="t4N-yV-Dcu"/>
+                            <constraint firstItem="CFd-k5-cnL" firstAttribute="centerX" secondItem="8Qj-Vw-HAx" secondAttribute="centerX" id="wFn-A4-3Kf"/>
+                            <constraint firstItem="CFd-k5-cnL" firstAttribute="top" secondItem="8Qj-Vw-HAx" secondAttribute="top" id="yGo-5X-6Vm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Qj-Vw-HAx"/>
                     </view>
@@ -341,5 +367,8 @@
             <point key="canvasLocation" x="1799" y="135"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="a2d2logo" width="1024" height="1024"/>
+    </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

@@ -15,6 +15,7 @@ class RideRequestDetailsController: UIViewController {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var groupSizeLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var commentsLabel: UILabel!
     
@@ -34,6 +35,7 @@ class RideRequestDetailsController: UIViewController {
         statusLabel.text = "\(getStatusString(requestData.status))"
         groupSizeLabel.text = "\(requestData.groupSize)"
         nameLabel.text = "\(requestData.name)"
+        genderLabel.text = "\(requestData.gender)"
         phoneNumberLabel.text = "\(requestData.phone)"
         commentsLabel.text = "\(requestData.remarks)"
     }
