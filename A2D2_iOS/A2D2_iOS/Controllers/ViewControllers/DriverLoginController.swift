@@ -9,20 +9,28 @@
 import UIKit
 
 
-class DriverLoginController: UIViewController{
+class DriverLoginController: UIViewController, UITextFieldDelegate{
     
-    @IBOutlet var DismissKeyboardTap: UITapGestureRecognizer!
+    @IBOutlet var dismissKeyboardTap: UITapGestureRecognizer!
     @IBOutlet var dismissKeyboardSwipe: UISwipeGestureRecognizer!
-    @IBOutlet weak var EmailTextField: UITextField!
-    @IBOutlet weak var PasswordTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginButton: MyButton!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+    }
     
     
     @IBAction func LoginButtonTapped(_ sender: Any) {
-        if (EmailTextField.text == "" || PasswordTextField.text == "") {
+        if (emailTextField.text == "" || passwordTextField.text == "") {
             notify("Username and Password are Required")
             return
         }
-        AuthenticationUtils.login(email: EmailTextField.text!, password: PasswordTextField.text!) { (validLogin) -> () in
+        AuthenticationUtils.login(email: emailTextField.text!, password: passwordTextField.text!) { (validLogin) -> () in
             self.notifyLoginAttempt(result: validLogin)
         }
     }
@@ -50,8 +58,12 @@ class DriverLoginController: UIViewController{
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return true
+        if textField == emailTextField {
+            passwordTextField.becomeFirstResponder()
+        } else if textField == passwordTextField {
+            loginButton.sendActions(for: .touchUpInside)
+        }
+        return false
     }
     
     

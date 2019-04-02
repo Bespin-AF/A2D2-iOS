@@ -130,10 +130,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Driver Login" id="YFM-Ru-RX7"/>
                     <connections>
-                        <outlet property="DismissKeyboardTap" destination="I6B-ln-niJ" id="eNJ-Vo-Mwn"/>
-                        <outlet property="EmailTextField" destination="Ykv-Ud-Zt6" id="CvX-ML-Xsh"/>
-                        <outlet property="PasswordTextField" destination="4GQ-d0-v3f" id="cLr-XZ-71Z"/>
                         <outlet property="dismissKeyboardSwipe" destination="X42-9Z-rbd" id="Epf-6g-Ob4"/>
+                        <outlet property="dismissKeyboardTap" destination="I6B-ln-niJ" id="eNJ-Vo-Mwn"/>
+                        <outlet property="emailTextField" destination="Ykv-Ud-Zt6" id="CvX-ML-Xsh"/>
+                        <outlet property="loginButton" destination="BZ8-i8-Bd5" id="L4A-yB-tT3"/>
+                        <outlet property="passwordTextField" destination="4GQ-d0-v3f" id="cLr-XZ-71Z"/>
                         <segue destination="kKn-mr-OHu" kind="show" identifier="ride_requests" id="Lc2-Iy-Ksk"/>
                     </connections>
                 </viewController>
