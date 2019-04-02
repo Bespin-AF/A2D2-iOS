@@ -13,10 +13,11 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet var dismissKeyboardTap: UITapGestureRecognizer!
     @IBOutlet weak var groupSizePicker: UIPickerView!
     @IBOutlet weak var requesterGenderPicker: UIPickerView!
-    @IBOutlet var textView: UITextView!
+    @IBOutlet var commentsTextView: UITextView!
     @IBOutlet var nameField: UITextField!
     @IBOutlet var phoneNumberField: UITextField!
     @IBOutlet var dismissKeyboardSwipe: UISwipeGestureRecognizer!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     let groupSizeData = [1,2,3,4]
     let requesterGender = ["Male", "Female"]
@@ -26,6 +27,8 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     var selectedGender: String = ""
     var requestKey: String!
     var requestData: Request!
+    var keyboardHeight: CGFloat!
+    var top: CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +38,9 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         requesterGenderPicker.delegate = self
         requesterGenderPicker.dataSource = self
         requesterGenderPicker.setValue(UIColor.white, forKeyPath: "textColor")
-        textView.delegate = self
-        textView.text = commentsPlaceholderText
-        textView.textColor = UIColor.lightGray
+        commentsTextView.delegate = self
+        commentsTextView.text = commentsPlaceholderText
+        commentsTextView.textColor = UIColor.lightGray
         locationManager.delegate = self
         nameField.delegate = self
         phoneNumberField.delegate = self
@@ -48,24 +51,16 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            let textViewOriginY = textView.frame.origin.y
-            if textView.frame.origin.y == textViewOriginY && textView.isFirstResponder {
-                if textView.frame.origin.y >= keyboardSize.height {
-                    self.view.frame.origin.y -= keyboardSize.height/2
-                }
-            }
-        }
+        scrollView.contentInset.bottom = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)!.cgRectValue.height
     }
     
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
-        }
+        scrollView.contentInset.bottom = 0
     }
     
     
+    //Handles Placeholder Text for comments field
     func textViewDidBeginEditing(_ textView: UITextView) {
         if  textView.textColor == UIColor.lightGray {
             textView.text = nil
@@ -75,11 +70,21 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     
+    //Handles Placeholder Text for comments field
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = commentsPlaceholderText
             textView.textColor = UIColor.lightGray
         }
+    }
+    
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            commentsTextView.resignFirstResponder()
+            return false
+        }
+        return true
     }
 
     
@@ -112,9 +117,14 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if(textField == nameField){
+            phoneNumberField.becomeFirstResponder()
+            return false
+        }
         self.view.endEditing(true)
-        return true
+        return false
     }
+    
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == nameField { // Real-time validation for name field
@@ -137,6 +147,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         }
         else { return true }
     }
+    
     
     func format(phoneNumber: String, shouldRemoveLastDigit: Bool = false) -> String {
         guard !phoneNumber.isEmpty else { return "" }
@@ -189,7 +200,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
             return request
         }
         //Avoid sending placeholder text
-        let remarks = textView.textColor == UIColor.black ? textView.text : ""
+        let remarks = commentsTextView.textColor == UIColor.black ? commentsTextView.text : ""
         var unformattedPhoneNumberField = phoneNumberField.text!
         
         //removing the special characters from the phone number field. There's probably a better way to do this ¯\_(ツ)_/¯
