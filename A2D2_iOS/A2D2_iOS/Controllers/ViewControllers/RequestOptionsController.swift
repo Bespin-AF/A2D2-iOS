@@ -45,8 +45,6 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         nameField.delegate = self
         phoneNumberField.delegate = self
         
-        top = self.view.frame.origin.y
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -62,6 +60,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     
+    //Handles Placeholder Text for comments field
     func textViewDidBeginEditing(_ textView: UITextView) {
         if  textView.textColor == UIColor.lightGray {
             textView.text = nil
@@ -71,11 +70,21 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     
+    //Handles Placeholder Text for comments field
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = commentsPlaceholderText
             textView.textColor = UIColor.lightGray
         }
+    }
+    
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            commentsTextView.resignFirstResponder()
+            return false
+        }
+        return true
     }
 
     
@@ -108,9 +117,14 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if(textField == nameField){
+            phoneNumberField.becomeFirstResponder()
+            return false
+        }
         self.view.endEditing(true)
-        return true
+        return false
     }
+    
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == nameField { // Real-time validation for name field
@@ -133,6 +147,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         }
         else { return true }
     }
+    
     
     func format(phoneNumber: String, shouldRemoveLastDigit: Bool = false) -> String {
         guard !phoneNumber.isEmpty else { return "" }
