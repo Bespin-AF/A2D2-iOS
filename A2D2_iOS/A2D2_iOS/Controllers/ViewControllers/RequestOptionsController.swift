@@ -166,7 +166,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     
     
     @IBAction func requestDriver(){
-        guard !validateInputs() else { return }
+        guard validateInputs() else { return }
         
         let alert = UIAlertController(title: "Confirm Driver Request", message: "Are you sure you want to dispatch a driver to your current location?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -192,6 +192,8 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
             return request
         }
         
+        var phoneNumber = phoneNumberField.text!
+        SystemUtils.removeNonNumbers(&phoneNumber)
         request.status = Status.Available
         request.gender = selectedGender
         request.groupSize = selectedGroupSize
@@ -199,23 +201,10 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         request.lat = location.coordinate.latitude
         request.lon = location.coordinate.longitude
         request.name = nameField.text!
-        request.phone = getUnformattedPhoneNumber()
+        request.phone = phoneNumber
         request.timestamp = Date()
         
         return request
-    }
-    
-    
-    private func getUnformattedPhoneNumber() -> String {
-        var unformattedPhoneNumberField = phoneNumberField.text!
-        
-        //removing the special characters from the phone number field. There's probably a better way to do this ¯\_(ツ)_/¯
-        unformattedPhoneNumberField = unformattedPhoneNumberField.replacingOccurrences(of: "(", with: "")
-        unformattedPhoneNumberField = unformattedPhoneNumberField.replacingOccurrences(of: ")", with: "")
-        unformattedPhoneNumberField = unformattedPhoneNumberField.replacingOccurrences(of: " ", with: "")
-        unformattedPhoneNumberField = unformattedPhoneNumberField.replacingOccurrences(of: "-", with: "")
-        
-        return unformattedPhoneNumberField
     }
     
     

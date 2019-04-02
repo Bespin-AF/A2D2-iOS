@@ -58,7 +58,7 @@ class SystemUtils {
         return number
     }
     
-    private static func removeNonNumbers(_ number: inout String){
+    public static func removeNonNumbers(_ number: inout String){
         guard let regex = try? NSRegularExpression(pattern: "[\\s-\\(\\)A-z.*#,/+=]", options: .caseInsensitive) else { return }
         let range = NSString(string: number).range(of: number)
         number = regex.stringByReplacingMatches(in: number, options: .init(rawValue: 0), range: range, withTemplate: "")
