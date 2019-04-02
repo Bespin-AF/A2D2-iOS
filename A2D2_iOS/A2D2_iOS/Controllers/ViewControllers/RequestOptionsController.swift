@@ -144,14 +144,9 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     
     
     private func isValidNameInput(_ string: String) -> Bool{
-        guard !(string == "") else { return true}
+        guard !(string == "") else { return true }
         let Test = NSPredicate(format:"SELF MATCHES %@", "[A-z .]") // Matches any letter or space
-        
-        if (Test.evaluate(with: string)) {
-            return true
-        } else {
-            return false
-        }
+        return Test.evaluate(with: string)
     }
     
     
@@ -164,14 +159,9 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     
     
     private func isValidPhoneNumberInput(_ string: String) -> Bool{
-        guard !(string == "") else { return true}
+        guard !(string == "") else { return true }
         let Test = NSPredicate(format:"SELF MATCHES %@", "\\d") // Matches any digit
-        
-        if (Test.evaluate(with: string)) {
-            return true
-        } else {
-            return false
-        }
+        return Test.evaluate(with: string)
     }
     
     
