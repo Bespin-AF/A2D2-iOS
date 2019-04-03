@@ -13,7 +13,7 @@ class RideStatusViewController: UIViewController {
     var requestData : Request!
     
     @IBAction func callA2D2() {
-        let number = DataSourceUtils.getResource(key: "a2d2phonenumber")
+        let number = DataSourceUtils.getResource(key: "a2d2phonenumber")!//TODO Handle this better
         SystemUtils.call(number: number)
     }
     
