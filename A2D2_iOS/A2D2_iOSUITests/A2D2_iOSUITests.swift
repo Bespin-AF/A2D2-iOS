@@ -43,6 +43,7 @@ class A2D2_iOSUITests: XCTestCase {
     
     func goToPickupRequestOptionsPage(){
         goToRulesPage()
+        sleep(2)//TODO Avoiding race condition for resources loading
         app.buttons["btn_Agree"].tap()
         addUIInterruptionMonitor(withDescription: "Location permission", handler: { alert in
             alert.buttons["Allow"].tap()

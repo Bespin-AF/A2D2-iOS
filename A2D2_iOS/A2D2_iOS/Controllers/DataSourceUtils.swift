@@ -31,8 +31,8 @@ class DataSourceUtils{
         outputFormatter.dateFormat = "MMM dd, HH:mm"
     }
     
-    public static func getResource(key: String) -> String {
-        let resource = resources[key]!
+    public static func getResource(key: String) -> String? {
+        let resource = resources[key]
         return resource
     }
     
