@@ -22,8 +22,8 @@ class Rider_Create_Request_Tests: A2D2_iOSUITests {
         XCTAssert(app.textFields["txtFld_Name"].isEnabled)
         XCTAssert(app.textFields["txtFld_PhoneNumber"].exists)
         XCTAssert(app.textFields["txtFld_PhoneNumber"].isEnabled)
-        XCTAssert(app.textViews["txtVw_Remarks"].exists)
-        XCTAssert(app.textViews["txtVw_Remarks"].isEnabled)
+        XCTAssert(app.otherElements["txtVw_Remarks"].exists)
+        XCTAssert(app.otherElements["txtVw_Remarks"].isEnabled)
     }
     
     //Tests that the Cancel Option keeps user on Pickup Request Options Page
@@ -40,7 +40,7 @@ class Rider_Create_Request_Tests: A2D2_iOSUITests {
     func testRequest_ConfirmPickup() {
         goToRideStatusPage()
         app.alerts["Confirm Driver Request"].buttons["Confirm"].tap()
-        XCTAssert(app.navigationBars["Ride Status"].waitForExistence(timeout: 10))
+        XCTAssert(app.images["a2d2logo"].waitForExistence(timeout: 10))
     }
     
     
