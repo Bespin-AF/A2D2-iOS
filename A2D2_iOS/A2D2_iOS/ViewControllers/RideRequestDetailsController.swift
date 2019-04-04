@@ -19,8 +19,7 @@ class RideRequestDetailsController: UIViewController {
     @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var commentsLabel: UILabel!
     
-    var requestData : Request!
-    var requestKey : String!
+    var request : Request!
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,18 +31,18 @@ class RideRequestDetailsController: UIViewController {
     
     
     private func populateRequestInfo(){
-        statusLabel.text = "\(getStatusString(requestData.status))"
-        groupSizeLabel.text = "\(requestData.groupSize)"
-        nameLabel.text = "\(requestData.name)"
-        genderLabel.text = "\(requestData.gender)"
-        phoneNumberLabel.text = "\(requestData.phone)"
-        commentsLabel.text = "\(requestData.remarks)"
+        statusLabel.text = "\(getStatusString(request.status))"
+        groupSizeLabel.text = "\(request.groupSize)"
+        nameLabel.text = "\(request.name)"
+        genderLabel.text = "\(request.gender)"
+        phoneNumberLabel.text = "\(request.phone)"
+        commentsLabel.text = "\(request.remarks)"
     }
     
     
     private func updateActionButton(){
-        if (requestData.status == .InProgress &&
-            requestData.driver == AuthenticationUtils.currentUser?.uid ?? "Default") {
+        if (request.status == .InProgress &&
+            request.driver == AuthenticationUtils.currentUser?.uid ?? "Default") {
             jobActionButton.setTitle("Complete Job", for: .normal)
         } else {
             jobActionButton.setTitle("Take Job", for: .normal)
@@ -52,7 +51,7 @@ class RideRequestDetailsController: UIViewController {
     
     
     private func updateEnabledButtons(){
-        if(requestData.status == .Completed){
+        if(request.status == .Completed){
             jobActionButton.isEnabled = false
             textRiderButton.isEnabled = false
         } else {
@@ -63,14 +62,14 @@ class RideRequestDetailsController: UIViewController {
     
     
     @IBAction func textRider(_ sender: Any) {
-        let number = requestData.phone
+        let number = request.phone
         let message = "Hey this is your A2D2 driver."
         SystemUtils.text(number: number, message: message)
     }
     
     
     @IBAction func jobActionTapped(_ sender: Any) {
-        if(requestData.status == .InProgress && requestData.driver == AuthenticationUtils.currentUser?.uid){
+        if(request.status == .InProgress && request.driver == AuthenticationUtils.currentUser?.uid){
             confirmCompleteJob()
         } else {
             confirmTakeJob()
@@ -88,8 +87,8 @@ class RideRequestDetailsController: UIViewController {
     
     
     func takeJobActions(){
-        let lat = requestData.lat
-        let lon = requestData.lon
+        let lat = request.lat
+        let lon = request.lon
         updateStatus(.InProgress)
         openMaps(lat, lon)
     }
@@ -115,13 +114,13 @@ class RideRequestDetailsController: UIViewController {
     
     
     func updateStatus(_ status : Status) {
-        requestData.status = status
-        requestData.driver = AuthenticationUtils.currentUser?.uid ?? "Default"
-        DataSourceUtils.updateData(data: requestData, key: requestKey)
+        request.status = status
+        request.driver = AuthenticationUtils.currentUser?.uid ?? "Default"
+        DataSourceUtils.updateData(data: request, key: request.key!)
     }
     
     
     func hasJobBeenPreviouslyAccepted() -> Bool {
-        return requestData.status == Status.Available
+        return request.status == Status.Available
     }
 }

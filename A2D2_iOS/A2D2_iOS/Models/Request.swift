@@ -19,6 +19,7 @@ class Request : Comparable{
     }
     
     var requestData : [String: Any] = [:]
+    var key : String?
     
     var status : Status {
         get {
