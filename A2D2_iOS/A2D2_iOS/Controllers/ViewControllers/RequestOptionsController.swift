@@ -79,6 +79,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     
+    //Dismiss keyboard for comments field when enter is pressed
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             commentsTextView.resignFirstResponder()
@@ -116,6 +117,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     
+    //Return button function for text fields
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if(textField == nameField){
             phoneNumberField.becomeFirstResponder()
@@ -126,70 +128,60 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     
+    //Live validation for text field edits
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField == nameField { // Real-time validation for name field
-            //Prepare a RegEx filter for the name field
-            let Test = NSPredicate(format:"SELF MATCHES %@", "[A-z .]") // Matches any letter or space
-            
-            if (Test.evaluate(with: string)) {
-                return true
-            }
+        if textField == nameField {
+            return isValidNameInput(string)
         }
-        if textField == phoneNumberField {
-        var fullString = textField.text ?? ""
-        fullString.append(string)
-        if range.length == 1 {
-            textField.text = format(phoneNumber: fullString, shouldRemoveLastDigit: true)
-        } else {
-            textField.text = format(phoneNumber: fullString)
+        
+        if textField == phoneNumberField && isValidPhoneNumberInput(string){
+            replaceTextFieldRange(textField: textField, range: range, replacementString: string)
+            phoneNumberField.text = SystemUtils.format(phoneNumber: phoneNumberField.text!)
+            return false
         }
-        return false
-        }
-        else { return true }
+        return true
     }
     
     
-    func format(phoneNumber: String, shouldRemoveLastDigit: Bool = false) -> String {
-        guard !phoneNumber.isEmpty else { return "" }
-        guard let regex = try? NSRegularExpression(pattern: "[\\s-\\(\\)A-z.*#,/+=]", options: .caseInsensitive) else { return "" }
-        let r = NSString(string: phoneNumber).range(of: phoneNumber)
-        var number = regex.stringByReplacingMatches(in: phoneNumber, options: .init(rawValue: 0), range: r, withTemplate: "")
-        
-        if number.count > 10 {
-            let tenthDigitIndex = number.index(number.startIndex, offsetBy: 10)
-            number = String(number[number.startIndex..<tenthDigitIndex])
-        }
-        
-        if shouldRemoveLastDigit {
-            let end = number.index(number.startIndex, offsetBy: number.count-1)
-            number = String(number[number.startIndex..<end])
-        }
-        
-        if number.count < 7 {
-            let end = number.index(number.startIndex, offsetBy: number.count)
-            let range = number.startIndex..<end
-            number = number.replacingOccurrences(of: "(\\d{3})(\\d+)", with: "($1) $2", options: .regularExpression, range: range)
-            
-        } else {
-            let end = number.index(number.startIndex, offsetBy: number.count)
-            let range = number.startIndex..<end
-            number = number.replacingOccurrences(of: "(\\d{3})(\\d{3})(\\d+)", with: "($1) $2-$3", options: .regularExpression, range: range)
-        }
-        
-        return number
+    private func isValidNameInput(_ string: String) -> Bool{
+        guard !(string == "") else { return true }
+        let Test = NSPredicate(format:"SELF MATCHES %@", "[A-z .]") // Matches any letter or space
+        return Test.evaluate(with: string)
+    }
+    
+    
+    private func replaceTextFieldRange(textField: UITextField, range: NSRange, replacementString string: String){
+        let rangeStart = textField.position(from: textField.beginningOfDocument, offset: range.location)!
+        let rangeEnd = textField.position(from: rangeStart, offset: range.length)!
+        let textRange = textField.textRange(from: rangeStart, to: rangeEnd)!
+        textField.replace(textRange, withText: string)
+    }
+    
+    
+    private func isValidPhoneNumberInput(_ string: String) -> Bool{
+        guard !(string == "") else { return true }
+        let Test = NSPredicate(format:"SELF MATCHES %@", "\\d") // Matches any digit
+        return Test.evaluate(with: string)
     }
     
     
     @IBAction func requestDriver(){
-        if(!validateInputs()){ return }//Validate Inputs
+        guard validateInputs() else { return }
+        
         let alert = UIAlertController(title: "Confirm Driver Request", message: "Are you sure you want to dispatch a driver to your current location?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler:{ action in
-            self.requestData = self.buildRequest()
-            self.requestKey = DataSourceUtils.sendData(data: self.requestData)
-            self.performSegue(withIdentifier: "request_sent", sender: self)
-        }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler:{ action in
+            self.submitDriverRequest()
+        }))
+        
         self.present(alert, animated: true)
+    }
+    
+    
+    private func submitDriverRequest() {
+        self.requestData = self.buildRequest()
+        self.requestKey = DataSourceUtils.sendData(data: self.requestData)
+        self.performSegue(withIdentifier: "request_sent", sender: self)
     }
     
     
@@ -199,24 +191,17 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
             print("Can't get location.")
             return request
         }
-        //Avoid sending placeholder text
-        let remarks = commentsTextView.textColor == UIColor.black ? commentsTextView.text : ""
-        var unformattedPhoneNumberField = phoneNumberField.text!
         
-        //removing the special characters from the phone number field. There's probably a better way to do this ¯\_(ツ)_/¯
-        unformattedPhoneNumberField = unformattedPhoneNumberField.replacingOccurrences(of: "(", with: "")
-        unformattedPhoneNumberField = unformattedPhoneNumberField.replacingOccurrences(of: ")", with: "")
-        unformattedPhoneNumberField = unformattedPhoneNumberField.replacingOccurrences(of: " ", with: "")
-        unformattedPhoneNumberField = unformattedPhoneNumberField.replacingOccurrences(of: "-", with: "")
-        
+        var phoneNumber = phoneNumberField.text!
+        SystemUtils.removeNonNumbers(&phoneNumber)
         request.status = Status.Available
         request.gender = selectedGender
         request.groupSize = selectedGroupSize
-        request.remarks = remarks!
+        request.remarks = commentsTextView.textColor == UIColor.black ? commentsTextView.text : ""
         request.lat = location.coordinate.latitude
         request.lon = location.coordinate.longitude
         request.name = nameField.text!
-        request.phone = unformattedPhoneNumberField
+        request.phone = phoneNumber
         request.timestamp = Date()
         
         return request
