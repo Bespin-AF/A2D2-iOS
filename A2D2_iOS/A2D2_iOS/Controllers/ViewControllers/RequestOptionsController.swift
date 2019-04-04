@@ -26,7 +26,6 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     let locationManager = CLLocationManager()
     var selectedGroupSize: Int = 0
     var selectedGender: String = ""
-    var requestKey: String!
     var requestData: Request!
     var keyboardHeight: CGFloat!
     
@@ -189,7 +188,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     
     private func submitDriverRequest() {
         self.requestData = self.buildRequest()
-        self.requestKey = DataSourceUtils.sendData(data: self.requestData)
+        DataSourceUtils.sendData(data: self.requestData)
         self.performSegue(withIdentifier: "request_sent", sender: self)
     }
     
@@ -270,7 +269,6 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "request_sent" else { return }
         let statusView = segue.destination as! RideStatusViewController
-        statusView.requestKey = self.requestKey
         statusView.requestData = self.requestData
     }
 }

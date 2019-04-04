@@ -10,7 +10,6 @@ import UIKit
 
 class RideStatusViewController: UIViewController {
     
-    var requestKey : String!
     var requestData : Request!
     
     @IBAction func callA2D2() {
@@ -29,7 +28,7 @@ class RideStatusViewController: UIViewController {
     
     func cancelActions(){
         self.requestData.status = .Cancelled
-        DataSourceUtils.updateData(data: self.requestData, key: self.requestKey)
+        DataSourceUtils.updateData(data: self.requestData)
         let alert = UIAlertController(title: "Cancelled", message: "Your request was cancelled successfully", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: {action in
             self.performSegue(withIdentifier: "return_home_after_cancel", sender: self)

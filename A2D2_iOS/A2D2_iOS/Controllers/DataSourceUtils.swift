@@ -37,16 +37,19 @@ class DataSourceUtils{
     }
     
     // Sends new data to the data source
-    public static func sendData(data : Request) -> String{
-        let key = ref.child("requests").childByAutoId().key!
-        updateData(data: data, key: key)
-        return key
+    public static func sendData(data : Request){
+        data.key = ref.child("requests").childByAutoId().key!
+        updateData(data: data)
     }
     
     
     // Updates an existing entry in the data source
-    public static func updateData(data: Request, key: String){
-        ref.child("requests").child(key).setValue(data.requestData)
+    public static func updateData(data: Request){
+        guard data.key != nil else {
+            sendData(data: data)
+            return
+        }
+        ref.child("requests").child(data.key!).setValue(data.requestData)
     }
     
     

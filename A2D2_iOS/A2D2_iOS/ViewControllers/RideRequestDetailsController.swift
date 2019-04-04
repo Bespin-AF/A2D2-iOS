@@ -116,7 +116,7 @@ class RideRequestDetailsController: UIViewController {
     func updateStatus(_ status : Status) {
         request.status = status
         request.driver = AuthenticationUtils.currentUser?.uid ?? "Default"
-        DataSourceUtils.updateData(data: request, key: request.key!)
+        DataSourceUtils.updateData(data: request)
     }
     
     
