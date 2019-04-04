@@ -14,7 +14,7 @@ class SystemUtils {
     public static func text(number : String, message : String = ""){
         //Percent encoding is required for use in the URL
         let text = message.addingPercentEncoding(withAllowedCharacters:.alphanumerics)!
-        let url = URL(string: "sms://+\(number)/&body=\(text)")!
+        let url = URL(string: "sms://\(number)/&body=\(text)")!
         UIApplication.shared.open(url)
     }
     
