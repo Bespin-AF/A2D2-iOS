@@ -63,9 +63,9 @@ class RulesViewController: UIViewController, CLLocationManagerDelegate {
     
     func isWithinRange() -> Bool {
         let currentLocation = locationManager.location ?? CLLocation(latitude: 0, longitude: 0)
-        let baseLocationString = DataSourceUtils.getResource(key: "maxwell_afb_location")!//TODO fix optional
+        let baseLocationString = DataSourceUtils.getResource(key: "south_court_street")!//TODO fix optional
         let baseLocation = DataSourceUtils.getLocationFromString(baseLocationString)
         
-        return currentLocation.distance(from: baseLocation) <= DataSourceUtils.convertToMeters(miles: 25)
+        return currentLocation.distance(from: baseLocation) <= DataSourceUtils.convertToMeters(miles: 0.1)
     }
 }
