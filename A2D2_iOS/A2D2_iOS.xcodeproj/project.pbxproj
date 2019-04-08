@@ -450,13 +450,16 @@
 					};
 					7C94E7BF219B4E0900A623D9 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 					};
 					7C94E7D3219B4E0A00A623D9 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 						TestTargetID = 7C94E7BF219B4E0900A623D9;
 					};
 					7C94E7DE219B4E0A00A623D9 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 						TestTargetID = 7C94E7BF219B4E0900A623D9;
 					};
 				};
@@ -796,7 +799,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bespin.A2D2-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -819,7 +822,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bespin.A2D2-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -838,7 +841,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bespin.A2D2-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/A2D2_iOS.app/A2D2_iOS";
 			};
@@ -858,7 +861,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bespin.A2D2-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/A2D2_iOS.app/A2D2_iOS";
 			};
@@ -877,7 +880,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bespin.A2D2-iOSUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = A2D2_iOS;
 			};
@@ -896,7 +899,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bespin.A2D2-iOSUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = A2D2_iOS;
 			};
