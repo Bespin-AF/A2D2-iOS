@@ -36,7 +36,6 @@ class SystemUtils {
         
         var number = phoneNumber
         removeNonNumbers(&number)
-        
         //Number over 10 digits
         if number.count > 10 {
             let tenthDigitIndex = number.index(number.startIndex, offsetBy: 10)
@@ -59,8 +58,8 @@ class SystemUtils {
     }
     
     public static func removeNonNumbers(_ number: inout String){
-        guard let regex = try? NSRegularExpression(pattern: "[\\s-\\(\\)A-z.*#,/+=]", options: .caseInsensitive) else { return }
-        let range = NSString(string: number).range(of: number)
-        number = regex.stringByReplacingMatches(in: number, options: .init(rawValue: 0), range: range, withTemplate: "")
+        let regex = try! NSRegularExpression(pattern: "[\\D]")
+        let range = NSRange(location: 0, length: number.count)
+        number = regex.stringByReplacingMatches(in: number, range: range, withTemplate: "")
     }
 }
