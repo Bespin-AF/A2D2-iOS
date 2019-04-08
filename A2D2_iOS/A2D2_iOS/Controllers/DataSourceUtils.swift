@@ -15,7 +15,7 @@ import CoreLocation
 
 class DataSourceUtils{
     static var ref = Database.database().reference()
-    static var requests : [String : Request] = [:]
+    static var requests : [Request] = []
     static var resources : [String : String] = [:]
     static var readInFormatter = DateFormatter()
     static var outputFormatter = DateFormatter()
@@ -37,16 +37,19 @@ class DataSourceUtils{
     }
     
     // Sends new data to the data source
-    public static func sendData(data : Request) -> String{
-        let key = ref.child("requests").childByAutoId().key!
-        updateData(data: data, key: key)
-        return key
+    public static func sendData(data : Request){
+        data.key = ref.child("requests").childByAutoId().key!
+        updateData(data: data)
     }
     
     
     // Updates an existing entry in the data source
-    public static func updateData(data: Request, key: String){
-        ref.child("requests").child(key).setValue(data.requestData)
+    public static func updateData(data: Request){
+        guard data.key != nil else {
+            sendData(data: data)
+            return
+        }
+        ref.child("requests").child(data.key!).setValue(data.requestData)
     }
     
     
@@ -55,18 +58,18 @@ class DataSourceUtils{
     }
     
     
-    public static func getCurrentRequests() -> [String : Request] {
+    public static func getCurrentRequests() -> [Request] {
         return requests
     }
     
     
     // Returns a Dictonary of all requests where the specified column matches the the given value
-    public static func getCurrentRequestsWhere(column:String, equals value:String) -> [String : Request] {
-        var results : [String : Request] = [:]
+    public static func getCurrentRequestsWhere(column:String, equals value:String) -> [Request] {
+        var results : [Request] = []
         
         for request in requests {
-            if(request.value.requestData[column] as! String == value) {
-                results[request.key] = request.value
+            if(request.requestData[column] as! String == value) {
+                results.append(request)
             }
         }
         
@@ -102,14 +105,15 @@ class DataSourceUtils{
     
     
     // Creates and returns a Dictionary of Results from a given DataSnapshot object
-    private static func getCollectionFromDataSnapshot(data snapshot:DataSnapshot) -> [String : Request]{
-        var results : [String : Request] = [:]
+    private static func getCollectionFromDataSnapshot(data snapshot:DataSnapshot) -> [Request]{
+        var results : [Request] = []
 
         //Add all results to collection
         for result in snapshot.children.allObjects as! [DataSnapshot] {
             let request = Request()
             request.requestData = (result.value as! [String : Any])
-            results[result.key] = request
+            request.key = result.key
+            results.append(request)
         }
         
         return results

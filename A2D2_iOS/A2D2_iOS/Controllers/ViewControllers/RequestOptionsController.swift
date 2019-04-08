@@ -18,6 +18,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet var phoneNumberField: UITextField!
     @IBOutlet var dismissKeyboardSwipe: UISwipeGestureRecognizer!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var submitButton: MyButton!
     
     let groupSizeData = [1,2,3,4]
     let requesterGender = ["Male", "Female"]
@@ -25,10 +26,8 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     let locationManager = CLLocationManager()
     var selectedGroupSize: Int = 0
     var selectedGender: String = ""
-    var requestKey: String!
     var requestData: Request!
     var keyboardHeight: CGFloat!
-    var top: CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -139,14 +138,14 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
             phoneNumberField.text = SystemUtils.format(phoneNumber: phoneNumberField.text!)
             return false
         }
-        return true
+        return false
     }
     
     
     private func isValidNameInput(_ string: String) -> Bool{
         guard !(string == "") else { return true }
-        let Test = NSPredicate(format:"SELF MATCHES %@", "[A-z .]") // Matches any letter or space
-        return Test.evaluate(with: string)
+        let test = NSPredicate(format:"SELF MATCHES %@", "[A-z .]") // Matches any letter or space
+        return test.evaluate(with: string)
     }
     
     
@@ -160,8 +159,18 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     
     private func isValidPhoneNumberInput(_ string: String) -> Bool{
         guard !(string == "") else { return true }
-        let Test = NSPredicate(format:"SELF MATCHES %@", "\\d") // Matches any digit
-        return Test.evaluate(with: string)
+        let test = try! NSRegularExpression(pattern: "\\D")
+        let matches = test.matches(in: string, range: NSRange(location: 0,length: string.count))
+        return matches.count == 0
+    }
+    
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if hasValidInputs() {
+            submitButton.color = submitButton.goodColor
+        } else {
+            submitButton.color = submitButton.defaultColor
+        }
     }
     
     
@@ -180,7 +189,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     
     private func submitDriverRequest() {
         self.requestData = self.buildRequest()
-        self.requestKey = DataSourceUtils.sendData(data: self.requestData)
+        DataSourceUtils.sendData(data: self.requestData)
         self.performSegue(withIdentifier: "request_sent", sender: self)
     }
     
@@ -207,19 +216,6 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
         return request
     }
     
-    
-    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
-    }
-    
-    
-    @IBAction func swipeHandler(_ sender : UISwipeGestureRecognizer) {
-        if sender.state == .ended {
-            view.endEditing(true)
-        }
-    }
-
-    
     func validateInputs()-> Bool {
         if nameField.text == "" { // Name not empty
             notify("Name is a required field.")
@@ -229,8 +225,24 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
             notify("Phone number is a required field.")
             return false
         }
-        else if(phoneNumberField.text!.count != 14){ // Phone number requirements. Takes into account the special characters from formatting
+        else if(!hasValidPhoneNumber()){ // Phone number requirements. Takes into account the special characters from formatting
             notify("Invalid Phone Number.")
+            return false
+        }
+        return true
+    }
+    
+    
+    func hasValidInputs() -> Bool {
+        return nameField.text! != "" && hasValidPhoneNumber()
+    }
+    
+    
+    func hasValidPhoneNumber() -> Bool{
+        var phoneNumber = phoneNumberField.text!
+        SystemUtils.removeNonNumbers(&phoneNumber)
+        
+        if(phoneNumber.count != 10){
             return false
         }
         return true
@@ -247,7 +259,18 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "request_sent" else { return }
         let statusView = segue.destination as! RideStatusViewController
-        statusView.requestKey = self.requestKey
         statusView.requestData = self.requestData
+    }
+    
+    
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    
+    @IBAction func swipeHandler(_ sender : UISwipeGestureRecognizer) {
+        if sender.state == .ended {
+            view.endEditing(true)
+        }
     }
 }

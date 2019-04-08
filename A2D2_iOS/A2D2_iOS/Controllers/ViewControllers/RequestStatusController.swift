@@ -28,26 +28,24 @@ class RequestStatusController: UITableViewController {
         var cell = tableView.dequeueReusableCell(withIdentifier: "requestCell", for: indexPath) as! RequestStatusCell
         let rideRequest = getRequest(atIndex: indexPath)
         fillCellWithRequestData(cell: &cell, request: rideRequest)
+        if rideRequest.driver == AuthenticationUtils.currentUser!.uid{
+            specialFormatCell(cell: &cell, request: rideRequest)
+        }  else {
+            cell.backgroundColor = UIColor.clear
+        }
         return cell
     }
     
     
     // Returns request data for a given IndexPath
     private func getRequest(atIndex index: IndexPath) -> Request {
-        let sectionData = getSectionData(forIndex: index)
-        return Array(sectionData.values).sorted()[index.row]
+        return getSectionData(forIndex: index).sorted()[index.row]
     }
+
     
-    
-    // Returns the unique key for the request
-    private func getRequestKey(atIndex index: IndexPath) -> String {
-        let sectionData = getSectionData(forIndex: index)
-        return Array(sectionData.keys)[index.row]
-    }
-    
-    
+    //NOTE There is likely a better way to manage keys and requests that will make sorting easier.
     // Returns data for section containing the IndexPath
-    private func getSectionData(forIndex index: IndexPath) -> [String : Request] {
+    private func getSectionData(forIndex index: IndexPath) -> [Request] {
         //Resolve section based on index
         let status = getStatusFromSection(index.section)
         let statusString = getStatusString(status)
@@ -74,6 +72,16 @@ class RequestStatusController: UITableViewController {
         cell.statusLabel.text = "Group Size: \(getDetailDescription(request, "groupSize"))"
         cell.detailLabel.text = getDetailDescription(request, "gender")
         cell.timeLabel.text = getDetailDescription(request, "timestamp")
+    }
+    
+    
+    // Applies special formatting to cells
+    private func specialFormatCell( cell : inout RequestStatusCell, request : Request){
+        if request.status == Status.InProgress{
+            cell.backgroundColor = cell.takenRequestColor
+        } else if request.status == Status.Completed {
+            cell.backgroundColor = cell.completedRequestColor
+        }
     }
     
     
@@ -110,8 +118,7 @@ class RequestStatusController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailView = segue.destination as! RideRequestDetailsController
         let index = tableView.indexPathForSelectedRow!
-        detailView.requestData = getRequest(atIndex: index)
-        detailView.requestKey = getRequestKey(atIndex: index)
+        detailView.request = getRequest(atIndex: index)
     }
 
     
