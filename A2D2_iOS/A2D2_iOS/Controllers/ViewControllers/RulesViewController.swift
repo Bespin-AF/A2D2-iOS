@@ -56,6 +56,9 @@ class RulesViewController: UIViewController, CLLocationManagerDelegate {
         } else {
             let alert = UIAlertController(title: "Location out of range!", message: "You are outside of the 25 mile range defined by the A2D2 program rules. If you still require a ride, please call A2D2 Dispatch at 334-953-3913", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Call", style: .default, handler:{ action in
+                self.callA2D2()
+                }))
             self.present(alert, animated: true)
         }
     }
@@ -67,5 +70,10 @@ class RulesViewController: UIViewController, CLLocationManagerDelegate {
         let baseLocation = DataSourceUtils.getLocationFromString(baseLocationString)
         
         return currentLocation.distance(from: baseLocation) <= DataSourceUtils.convertToMeters(miles: 25)
+    }
+    
+    func callA2D2() {
+        let number = DataSourceUtils.getResource(key: "a2d2phonenumber")!//TODO Handle this better
+        SystemUtils.call(number: number)
     }
 }
