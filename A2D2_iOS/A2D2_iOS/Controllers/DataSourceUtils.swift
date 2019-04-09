@@ -19,6 +19,7 @@ class DataSourceUtils{
     static var resources : [String : String] = [:]
     static var readInFormatter = DateFormatter()
     static var outputFormatter = DateFormatter()
+    static private let requestTable = "test_requests" // Firebase Table
     
     // Initializes firebase functionality
     public static func initFirebase(){
@@ -38,7 +39,7 @@ class DataSourceUtils{
     
     // Sends new data to the data source
     public static func sendData(data : Request){
-        data.key = ref.child("requests").childByAutoId().key!
+        data.key = ref.child(requestTable).childByAutoId().key!
         updateData(data: data)
     }
     
@@ -49,12 +50,12 @@ class DataSourceUtils{
             sendData(data: data)
             return
         }
-        ref.child("requests").child(data.key!).setValue(data.requestData)
+        ref.child(requestTable).child(data.key!).setValue(data.requestData)
     }
     
     
     public static func removeData(key: String){
-        ref.child("requests").child(key).removeValue()
+        ref.child(requestTable).child(key).removeValue()
     }
     
     
@@ -79,7 +80,7 @@ class DataSourceUtils{
     
     // Begins observing the request s table and updates local collection with latest data
     public static func startRequestSync() {
-        let resultsRef = ref.child("requests")
+        let resultsRef = ref.child(requestTable)
         
         resultsRef.observe(DataEventType.value, with: { (snapshot) in
             requests = getCollectionFromDataSnapshot(data: snapshot)
