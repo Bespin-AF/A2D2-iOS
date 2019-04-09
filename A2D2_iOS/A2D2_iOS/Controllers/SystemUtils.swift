@@ -62,4 +62,11 @@ class SystemUtils {
         let range = NSRange(location: 0, length: number.count)
         number = regex.stringByReplacingMatches(in: number, range: range, withTemplate: "")
     }
+    
+    public static func version() -> String {
+        let dictionary = Bundle.main.infoDictionary!
+        let version = dictionary["CFBundleShortVersionString"] as! String
+        let build = dictionary["CFBundleVersion"] as! String
+        return "\(version) (\(build))"
+    }
 }

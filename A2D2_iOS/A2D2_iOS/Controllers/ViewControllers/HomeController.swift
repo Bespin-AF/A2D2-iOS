@@ -9,6 +9,11 @@
 import UIKit
 
 class HomeController : UIViewController {
+    @IBOutlet weak var versionLabel: UILabel!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        versionLabel.text = SystemUtils.version()
+    }
     
     @IBAction func unwindToHome(segue: UIStoryboardSegue){
     }

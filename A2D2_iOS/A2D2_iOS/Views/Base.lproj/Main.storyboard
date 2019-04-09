@@ -18,6 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4d-jy-YQj">
+                                <rect key="frame" x="5" y="49" width="31" height="14.333333333333336"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="0.089897260273972601" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a2d2logo" translatesAutoresizingMaskIntoConstraints="NO" id="U0r-Oc-gw1">
                                 <rect key="frame" x="0.0" y="108" width="414" height="414"/>
                                 <accessibility key="accessibilityConfiguration" identifier="img_A2D2Logo"/>
@@ -73,6 +79,9 @@
                         <constraints>
                             <constraint firstItem="Cwl-eG-nJA" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2zI-rL-nVu"/>
                             <constraint firstItem="U0r-Oc-gw1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" priority="750" constant="64" id="3bI-aO-7zP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="L4d-jy-YQj" secondAttribute="trailing" constant="5" id="6lK-HZ-una"/>
+                            <constraint firstItem="L4d-jy-YQj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="93O-23-Rzi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="L4d-jy-YQj" secondAttribute="bottom" constant="5" id="AYZ-Gj-yzd"/>
                             <constraint firstItem="U0r-Oc-gw1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Czh-7m-NNo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Cwl-eG-nJA" secondAttribute="bottom" constant="40" id="TOY-Fg-sS5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="U0r-Oc-gw1" secondAttribute="trailing" id="TYh-BQ-XAn"/>
@@ -82,6 +91,7 @@
                             <constraint firstItem="Cwl-eG-nJA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="sMb-7T-06V"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Cwl-eG-nJA" secondAttribute="trailing" constant="20" id="uYw-lJ-dw9"/>
                             <constraint firstItem="Cwl-eG-nJA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="U0r-Oc-gw1" secondAttribute="bottom" constant="40" id="ue9-55-N8n"/>
+                            <constraint firstItem="L4d-jy-YQj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="vpw-Nk-PRe"/>
                             <constraint firstItem="U0r-Oc-gw1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yeB-4H-Bml"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -89,6 +99,9 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="isHorizontal" value="NO"/>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <connections>
+                        <outlet property="versionLabel" destination="L4d-jy-YQj" id="t7P-Vp-OfJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
