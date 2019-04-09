@@ -1,5 +1,5 @@
 //
-//  RequestOptionsController.swift
+//  Rider_CreateRequestController.swift
 //  A2D2_iOS
 //
 //  Created by Daniel Crean on 11/29/18.
@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate, UITextFieldDelegate, CLLocationManagerDelegate {
+class Rider_CreateRequestController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate, UITextFieldDelegate, CLLocationManagerDelegate {
     @IBOutlet var dismissKeyboardTap: UITapGestureRecognizer!
     @IBOutlet weak var groupSizePicker: UIPickerView!
     @IBOutlet weak var requesterGenderPicker: UIPickerView!
@@ -258,7 +258,7 @@ class RequestOptionsController: UIViewController, UIPickerViewDelegate, UIPicker
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "request_sent" else { return }
-        let statusView = segue.destination as! RideStatusViewController
+        let statusView = segue.destination as! Rider_RequestStatusController
         statusView.requestData = self.requestData
     }
     

@@ -1,5 +1,5 @@
 //
-//  RulesViewcontroller.swift
+//  Rider_RulesController.swift
 //  A2D2_iOS
 //
 //  Created by Justin Godsey on 11/20/18.
@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import Foundation
 
-class RulesViewController: UIViewController, CLLocationManagerDelegate {
+class Rider_RulesController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet var agreeButton: MyButton!
     var locationManager = CLLocationManager()
@@ -55,10 +55,10 @@ class RulesViewController: UIViewController, CLLocationManagerDelegate {
             performSegue(withIdentifier: "seque_Request_Ride_Page", sender: self)
         } else {
             let alert = UIAlertController(title: "Location out of range!", message: "You are outside of the 25 mile range defined by the A2D2 program rules. If you still require a ride, please call A2D2 Dispatch at 334-953-3913", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
             alert.addAction(UIAlertAction(title: "Call", style: .default, handler:{ action in
                 self.callA2D2()
                 }))
+            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
             self.present(alert, animated: true)
         }
     }

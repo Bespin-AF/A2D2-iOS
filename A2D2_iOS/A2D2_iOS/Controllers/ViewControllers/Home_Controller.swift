@@ -1,5 +1,5 @@
 //
-//  HomeController.swift
+//  Home_Controller.swift
 //  A2D2_iOS
 //
 //  Created by Daniel Crean on 3/29/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeController : UIViewController {
+class Home_Controller : UIViewController {
     @IBOutlet weak var versionLabel: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {

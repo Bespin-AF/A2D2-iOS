@@ -1,5 +1,5 @@
 //
-//  DriverLoginController.swift
+//  Driver_LoginController.swift
 //  A2D2_iOS
 //
 //  Created by Daniel Crean on 1/15/19.
@@ -9,7 +9,7 @@
 import UIKit
 
 
-class DriverLoginController: UIViewController, UITextFieldDelegate{
+class Driver_LoginController: UIViewController, UITextFieldDelegate{
     
     @IBOutlet var dismissKeyboardTap: UITapGestureRecognizer!
     @IBOutlet var dismissKeyboardSwipe: UISwipeGestureRecognizer!

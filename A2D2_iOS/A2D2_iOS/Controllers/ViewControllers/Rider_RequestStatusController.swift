@@ -1,5 +1,5 @@
 //
-//  RideStatusController.swift
+//  Rider_RequestStatusController.swift
 //  A2D2_iOS
 //
 //  Created by Daniel Crean on 1/23/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RideStatusViewController: UIViewController {
+class Rider_RequestStatusController: UIViewController {
     
     var requestData : Request!
     

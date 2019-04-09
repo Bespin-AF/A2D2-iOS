@@ -1,5 +1,5 @@
 //
-//  RequestStatusController.swift
+//  Driver_RequestListController.swift
 //  A2D2_iOS
 //
 //  Created by Daniel Crean on 1/16/19.
@@ -10,7 +10,7 @@
 
 import UIKit
 
-class RequestStatusController: UITableViewController {
+class Driver_RequestListController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,7 +116,7 @@ class RequestStatusController: UITableViewController {
     
     // NOTE: Assumes only segue is to the detail page
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let detailView = segue.destination as! RideRequestDetailsController
+        let detailView = segue.destination as! Driver_RequestDetailsController
         let index = tableView.indexPathForSelectedRow!
         detailView.request = getRequest(atIndex: index)
     }

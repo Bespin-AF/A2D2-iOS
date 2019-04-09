@@ -1,5 +1,5 @@
 //
-//  RideRequestDetailsController.swift
+//  Driver_RequestDetailsController.swift
 //  A2D2_iOS
 //
 //  Created by Daniel Crean on 1/23/19.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class RideRequestDetailsController: UIViewController {
+class Driver_RequestDetailsController: UIViewController {
     @IBOutlet weak var jobActionButton: MyButton!
     @IBOutlet weak var textRiderButton: MyButton!
     @IBOutlet weak var statusLabel: UILabel!
