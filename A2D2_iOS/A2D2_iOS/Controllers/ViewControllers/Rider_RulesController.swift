@@ -15,6 +15,7 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet var agreeButton: MyButton!
     var locationManager = CLLocationManager()
     var didAgreeToRules : Bool!
+    var baseLocation : String? // TODO Remove when DataSourceDelagate is ready
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +29,22 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate {
     
     
     @IBAction func agreeButtonTapped() {
+        guard bandAid() else { // TODO Remove when DataSourceDelagate is ready
+            return
+        }
         didAgreeToRules = true
         checkLocationPermissions()
+    }
+    
+    
+    func bandAid() -> Bool { // TODO Remove when DataSourceDelagate is ready
+        baseLocation = DataSourceUtils.getResource(key: "maxwell_afb_location")
+        
+        if baseLocation == nil {
+            return false
+        } else {
+            return true
+        }
     }
     
     
