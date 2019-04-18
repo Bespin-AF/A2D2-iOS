@@ -47,7 +47,7 @@
 		5DE1A346224D3680009F56CB /* Rider_Create_Request_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A345224D3680009F56CB /* Rider_Create_Request_Tests.swift */; };
 		5DE1A349224D379A009F56CB /* A2D2_Home_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A348224D379A009F56CB /* A2D2_Home_Tests.swift */; };
 		5DF33BFC225FCFB0004647CE /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF33BFB225FCFB0004647CE /* DataSource.swift */; };
-		5DF33BFE225FD040004647CE /* DataSourceDelagate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF33BFD225FD040004647CE /* DataSourceDelagate.swift */; };
+		5DF33BFE225FD040004647CE /* DataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF33BFD225FD040004647CE /* DataSourceDelegate.swift */; };
 		7C193E3621A45C660095728D /* Rider_RulesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C193E3521A45C660095728D /* Rider_RulesController.swift */; };
 		7C94E7C4219B4E0900A623D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C94E7C3219B4E0900A623D9 /* AppDelegate.swift */; };
 		7C94E7C9219B4E0900A623D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C94E7C7219B4E0900A623D9 /* Main.storyboard */; };
@@ -138,7 +138,7 @@
 		5DE1A345224D3680009F56CB /* Rider_Create_Request_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rider_Create_Request_Tests.swift; sourceTree = "<group>"; };
 		5DE1A348224D379A009F56CB /* A2D2_Home_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A2D2_Home_Tests.swift; sourceTree = "<group>"; };
 		5DF33BFB225FCFB0004647CE /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
-		5DF33BFD225FD040004647CE /* DataSourceDelagate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceDelagate.swift; sourceTree = "<group>"; };
+		5DF33BFD225FD040004647CE /* DataSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceDelegate.swift; sourceTree = "<group>"; };
 		7C193E3521A45C660095728D /* Rider_RulesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rider_RulesController.swift; sourceTree = "<group>"; };
 		7C94E7C0219B4E0900A623D9 /* A2D2_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = A2D2_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C94E7C3219B4E0900A623D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -242,7 +242,7 @@
 				5D47466E219F1C9300131FE2 /* MyButton.swift */,
 				5D2A78F022526DBF00B2290A /* MyTextField.swift */,
 				5DF33BFB225FCFB0004647CE /* DataSource.swift */,
-				5DF33BFD225FD040004647CE /* DataSourceDelagate.swift */,
+				5DF33BFD225FD040004647CE /* DataSourceDelegate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -546,7 +546,7 @@
 				1D2E769821B1998E00F9EF84 /* Rider_CreateRequestController.swift in Sources */,
 				5DD42AB72200EB390000AE86 /* Request.swift in Sources */,
 				5DA0070E21EFAE6900C31F42 /* RequestStatusCell.swift in Sources */,
-				5DF33BFE225FD040004647CE /* DataSourceDelagate.swift in Sources */,
+				5DF33BFE225FD040004647CE /* DataSourceDelegate.swift in Sources */,
 				7C94E7C4219B4E0900A623D9 /* AppDelegate.swift in Sources */,
 				5D01C03221F8C07D0067948F /* Rider_RequestStatusController.swift in Sources */,
 				7C193E3621A45C660095728D /* Rider_RulesController.swift in Sources */,

@@ -27,7 +27,7 @@ func getDataSourceTypeString(dataTable type:DataSourceType) -> String {
 
 class DataSource {
     private var ref = Database.database().reference()
-    var delagate : DataSourceDelagate?{
+    var delagate : DataSourceDelegate?{
         didSet{
             startSync()
         }

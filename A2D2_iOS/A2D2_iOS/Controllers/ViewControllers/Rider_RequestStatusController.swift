@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Rider_RequestStatusController: UIViewController, DataSourceDelagate {
+class Rider_RequestStatusController: UIViewController, DataSourceDelegate {
    
     @IBOutlet weak var callButton: MyButton!
     var request : Request!

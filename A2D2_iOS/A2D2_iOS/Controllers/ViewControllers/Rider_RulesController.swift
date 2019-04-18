@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import Foundation
 
-class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSourceDelagate{
+class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSourceDelegate{
 
     @IBOutlet var agreeButton: MyButton!
     var locationManager = CLLocationManager()

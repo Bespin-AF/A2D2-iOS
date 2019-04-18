@@ -6,7 +6,7 @@
 //  Copyright © 2019 Bespin. All rights reserved.
 //
 
-protocol DataSourceDelagate {
+protocol DataSourceDelegate {
     func dataSource(_ dataSource : DataSource, didDataChange : [String:Any])
     func dataSource(_ dataSource : DataSource, didAddData : [String:Any])
     func dataSource(_ dataSource : DataSource, didRemoveData : [String:Any])
@@ -14,7 +14,7 @@ protocol DataSourceDelagate {
 }
 
 
-extension DataSourceDelagate {
+extension DataSourceDelegate {
     func dataSource(_ dataSource : DataSource, didDataChange : [String:Any]){}
     func dataSource(_ dataSource : DataSource, didAddData : [String:Any]){}
     func dataSource(_ dataSource : DataSource, didRemoveData : [String:Any]){}

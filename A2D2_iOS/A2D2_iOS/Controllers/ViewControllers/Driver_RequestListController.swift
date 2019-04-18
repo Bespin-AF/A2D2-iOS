@@ -10,7 +10,7 @@
 
 import UIKit
 
-class Driver_RequestListController: UITableViewController, DataSourceDelagate {
+class Driver_RequestListController: UITableViewController, DataSourceDelegate {
     let requestSource = DataSource(.TestRequests)
     var requests : [Request]?
 
