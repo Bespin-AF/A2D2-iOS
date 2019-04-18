@@ -10,16 +10,28 @@ import UIKit
 import CoreLocation
 import Foundation
 
-class Rider_RulesController: UIViewController, CLLocationManagerDelegate {
-    
+class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSourceDelagate{
+
     @IBOutlet var agreeButton: MyButton!
     var locationManager = CLLocationManager()
+    var resources = DataSource(.Resources)
     var didAgreeToRules : Bool!
-    var baseLocation : String? // TODO Remove when DataSourceDelagate is ready
+    var baseLocationString : String!
+    var a2d2Number : String!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
+        agreeButton.isEnabled = false
+        resources.delagate = self
+    }
+    
+    
+    func dataValue(_ dataSource: DataSource, data: [String : Any]) {
+        baseLocationString = (data["maxwell_afb_location"] as! String)
+        a2d2Number = (data["a2d2phonenumber"] as! String)
+        agreeButton.isEnabled = true
     }
     
     
@@ -29,24 +41,10 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate {
     
     
     @IBAction func agreeButtonTapped() {
-        guard bandAid() else { // TODO Remove when DataSourceDelagate is ready
-            return
-        }
         didAgreeToRules = true
         checkLocationPermissions()
     }
-    
-    
-    func bandAid() -> Bool { // TODO Remove when DataSourceDelagate is ready
-        baseLocation = DataSourceUtils.getResource(key: "maxwell_afb_location")
-        
-        if baseLocation == nil {
-            return false
-        } else {
-            return true
-        }
-    }
-    
+
     
     func checkLocationPermissions() {
         if(CLLocationManager.authorizationStatus() == .notDetermined ) {
@@ -99,7 +97,6 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate {
     
     
     func isWithinRange(location: CLLocation) -> Bool {
-        let baseLocationString = DataSourceUtils.getResource(key: "maxwell_afb_location")!//TODO fix optional
         let baseLocation = DataSourceUtils.getLocationFromString(baseLocationString)
         let distance = location.distance(from: baseLocation)
         let allowedRange = DataSourceUtils.convertToMeters(miles: 25)
@@ -130,7 +127,6 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate {
     
     
     func callA2D2() {
-        let number = DataSourceUtils.getResource(key: "a2d2phonenumber")!//TODO Handle this better
-        SystemUtils.call(number: number)
+        SystemUtils.call(number: a2d2Number)
     }
 }

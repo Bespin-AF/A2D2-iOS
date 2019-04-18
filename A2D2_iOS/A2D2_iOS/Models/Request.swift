@@ -21,6 +21,11 @@ class Request : Comparable{
     var requestData : [String: Any] = [:]
     var key : String?
     
+    init() {}
+    init(_ data : Dictionary<String, Any>) {
+        self.requestData = data
+    }
+    
     var status : Status {
         get {
             let statusString = requestData["status"] as! String? ?? ""

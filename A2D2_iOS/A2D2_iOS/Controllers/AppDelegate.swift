@@ -18,8 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         DataSourceUtils.initFirebase()
         DataSourceUtils.initDateFormatters()
-        DataSourceUtils.startRequestSync()
-        DataSourceUtils.startResourceSync()
         return true
     }
 

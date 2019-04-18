@@ -8,13 +8,26 @@
 
 import UIKit
 
-class Rider_RequestStatusController: UIViewController {
-    
+class Rider_RequestStatusController: UIViewController, DataSourceDelagate {
+   
+    @IBOutlet weak var callButton: MyButton!
     var requestData : Request!
+    var a2d2Number : String!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        callButton.isEnabled = false
+    }
+    
+    
+    func dataValue(_ dataSource: DataSource, data: [String : Any]) {
+        a2d2Number = data["a2d2phonenumber"] as? String
+    }
+    
     
     @IBAction func callA2D2() {
-        let number = DataSourceUtils.getResource(key: "a2d2phonenumber")!//TODO Handle this better
-        SystemUtils.call(number: number)
+        SystemUtils.call(number: a2d2Number)
     }
     
     @IBAction func cancelRide() {
