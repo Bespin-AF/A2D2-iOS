@@ -26,13 +26,21 @@ class Driver_RequestListController: UITableViewController, DataSourceDelagate {
     }
     
     
-    func dataValue(_ dataSource: DataSource, data: [String : Any]) {
+    func dataSource(_ dataSource: DataSource, dataValues: [String : Any]) {
+        updateRequestsFromDataSource(data: dataValues)
+    }
+    
+    
+    func updateRequestsFromDataSource(data: [String : Any]){
         var updatedRequests = [Request]()
-        for value : Any in data.values{
-            let row = value as! NSDictionary
-            let request = Request(row as! Dictionary<String, Any>)
+        for row in data {
+            let requestData = row.value as! NSDictionary
+            let requestKey = row.key
+            let request = Request(requestData as! Dictionary<String, Any>)
+            request.key = requestKey
             updatedRequests.append(request)
         }
+    
         requests = updatedRequests
         self.refresh(self)
     }

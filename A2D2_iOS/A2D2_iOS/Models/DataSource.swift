@@ -27,17 +27,42 @@ func getDataSourceTypeString(dataTable type:DataSourceType) -> String {
 
 class DataSource {
     private var ref = Database.database().reference()
-    weak var delagate : DataSourceDelagate?
+    var delagate : DataSourceDelagate?{
+        didSet{
+            startSync()
+        }
+    }
     
     init(_ type : DataSourceType) {
         let table = getDataSourceTypeString(dataTable: type)
         ref = Database.database().reference().child(table)
-        startSync()
     }
     
     
     deinit {
         ref.removeAllObservers()
+    }
+    
+    
+    public func sendData(data : Any) -> String{
+        let key = ref.childByAutoId().key!
+        set(key: key, value: data)
+        return key
+    }
+    
+    
+    public func update(key:String, data: Any){
+        set(key: key, value: data)
+    }
+    
+    
+    public func remove(key: String){
+        ref.child(key).removeValue()
+    }
+    
+    
+    private func set(key : String, value : Any){
+        ref.child(key).setValue(value)
     }
     
     
@@ -60,7 +85,7 @@ class DataSource {
     private func didDataChange(_ snapshot : DataSnapshot) {
         if let delagate = self.delagate {
             let data = convertSnapshotToDictionary(snapshot)
-            delagate.dataChanged(self, data: data)
+            delagate.dataSource(self, didDataChange: data)
         }
     }
     
@@ -68,7 +93,7 @@ class DataSource {
     private func didAddData(_ snapshot : DataSnapshot) {
         if let delagate = self.delagate {
             let data = convertSnapshotToDictionary(snapshot)
-            delagate.dataAdded(self, data: data)
+            delagate.dataSource(self, didAddData: data)
         }
     }
     
@@ -76,7 +101,7 @@ class DataSource {
     private func didRemoveData(_ snapshot : DataSnapshot) {
         if let delagate = self.delagate {
             let data = convertSnapshotToDictionary(snapshot)
-            delagate.dataRemoved(self, data: data)
+            delagate.dataSource(self, didRemoveData: data)
         }
     }
     
@@ -84,7 +109,7 @@ class DataSource {
     private func dataValues(_ snapshot : DataSnapshot) {
         if let delagate = self.delagate {
             let data = convertSnapshotToDictionary(snapshot)
-            delagate.dataValue(self, data: data)
+            delagate.dataSource(self, dataValues: data)
         }
     }
     

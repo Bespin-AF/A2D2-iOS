@@ -6,18 +6,17 @@
 //  Copyright © 2019 Bespin. All rights reserved.
 //
 
-protocol DataSourceDelagate : AnyObject {
-    
-    func dataChanged(_ dataSource : DataSource, data : [String:Any])
-    func dataAdded(_ dataSource : DataSource, data : [String:Any])
-    func dataRemoved(_ dataSource : DataSource, data : [String:Any])
-    func dataValue(_ dataSource : DataSource, data : [String:Any])
+protocol DataSourceDelagate {
+    func dataSource(_ dataSource : DataSource, didDataChange : [String:Any])
+    func dataSource(_ dataSource : DataSource, didAddData : [String:Any])
+    func dataSource(_ dataSource : DataSource, didRemoveData : [String:Any])
+    func dataSource(_ dataSource : DataSource, dataValues : [String:Any])
 }
 
 
 extension DataSourceDelagate {
-    func dataChanged(_ dataSource : DataSource, data : [String:Any]){}
-    func dataAdded(_ dataSource : DataSource, data : [String:Any]){}
-    func dataRemoved(_ dataSource : DataSource, data : [String:Any]){}
-    func dataValue(_ dataSource : DataSource, data : [String:Any]){}
+    func dataSource(_ dataSource : DataSource, didDataChange : [String:Any]){}
+    func dataSource(_ dataSource : DataSource, didAddData : [String:Any]){}
+    func dataSource(_ dataSource : DataSource, didRemoveData : [String:Any]){}
+    func dataSource(_ dataSource : DataSource, dataValues : [String:Any]){}
 }

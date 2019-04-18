@@ -14,12 +14,8 @@ import Firebase
 import CoreLocation
 
 class DataSourceUtils{
-    static var ref = Database.database().reference()
-    static var requests : [Request] = []
-    static var resources : [String : String] = [:]
     static var readInFormatter = DateFormatter()
     static var outputFormatter = DateFormatter()
-    static private let requestTable = "test_requests" // Firebase Table
     
     // Initializes firebase functionality
     public static func initFirebase(){
@@ -32,28 +28,6 @@ class DataSourceUtils{
         outputFormatter.dateFormat = "MMM dd, HH:mm"
     }
 
-    
-    // Sends new data to the data source
-    public static func sendData(data : Request){
-        data.key = ref.child(requestTable).childByAutoId().key!
-        updateData(data: data)
-    }
-    
-    
-    // Updates an existing entry in the data source
-    public static func updateData(data: Request){
-        guard data.key != nil else {
-            sendData(data: data)
-            return
-        }
-        ref.child(requestTable).child(data.key!).setValue(data.requestData)
-    }
-    
-    
-    public static func removeData(key: String){
-        ref.child(requestTable).child(key).removeValue()
-    }
- 
     
     public static func convertToMeters(miles : Double) -> Double{
         return miles * 1609.344 // Exact number of meters in a mile

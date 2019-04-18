@@ -11,18 +11,22 @@ import UIKit
 class Rider_RequestStatusController: UIViewController, DataSourceDelagate {
    
     @IBOutlet weak var callButton: MyButton!
-    var requestData : Request!
+    var request : Request!
     var a2d2Number : String!
+    let requestDataSource = DataSource(.Requests)
+    let resourceDataSource = DataSource(.Resources)
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         callButton.isEnabled = false
+        resourceDataSource.delagate = self
     }
     
     
-    func dataValue(_ dataSource: DataSource, data: [String : Any]) {
-        a2d2Number = data["a2d2phonenumber"] as? String
+    func dataSource(_ dataSource: DataSource, dataValues: [String : Any]) {
+        a2d2Number = dataValues["a2d2phonenumber"] as? String
+        callButton.isEnabled = true
     }
     
     
@@ -40,8 +44,8 @@ class Rider_RequestStatusController: UIViewController, DataSourceDelagate {
     }
     
     func cancelActions(){
-        self.requestData.status = .Cancelled
-        DataSourceUtils.updateData(data: self.requestData)
+        self.request.status = .Cancelled
+        requestDataSource.update(key: request.key! ,data: request.requestData)
         let alert = UIAlertController(title: "Cancelled", message: "Your request was cancelled successfully", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: {action in
             self.performSegue(withIdentifier: "return_home_after_cancel", sender: self)
