@@ -27,7 +27,7 @@ func getDataSourceTypeString(dataTable type:DataSourceType) -> String {
 
 class DataSource {
     private var ref = Database.database().reference()
-    var delagate : DataSourceDelegate?{
+    var delegate : DataSourceDelegate?{
         didSet{
             startSync()
         }
@@ -83,33 +83,33 @@ class DataSource {
     
     
     private func didDataChange(_ snapshot : DataSnapshot) {
-        if let delagate = self.delagate {
+        if let delegate = self.delegate {
             let data = convertSnapshotToDictionary(snapshot)
-            delagate.dataSource(self, didDataChange: data)
+            delegate.dataSource(self, didDataChange: data)
         }
     }
     
     
     private func didAddData(_ snapshot : DataSnapshot) {
-        if let delagate = self.delagate {
+        if let delegate = self.delegate {
             let data = convertSnapshotToDictionary(snapshot)
-            delagate.dataSource(self, didAddData: data)
+            delegate.dataSource(self, didAddData: data)
         }
     }
     
     
     private func didRemoveData(_ snapshot : DataSnapshot) {
-        if let delagate = self.delagate {
+        if let delegate = self.delegate {
             let data = convertSnapshotToDictionary(snapshot)
-            delagate.dataSource(self, didRemoveData: data)
+            delegate.dataSource(self, didRemoveData: data)
         }
     }
     
     
     private func dataValues(_ snapshot : DataSnapshot) {
-        if let delagate = self.delagate {
+        if let delegate = self.delegate {
             let data = convertSnapshotToDictionary(snapshot)
-            delagate.dataSource(self, dataValues: data)
+            delegate.dataSource(self, dataValues: data)
         }
     }
     

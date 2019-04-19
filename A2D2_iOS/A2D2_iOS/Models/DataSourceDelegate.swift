@@ -1,5 +1,5 @@
 //
-//  DataSourceDelagate.swift
+//  DataSourceDelegate.swift
 //  A2D2_iOS
 //
 //  Created by Daniel Crean on 4/11/19.

@@ -24,7 +24,7 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
         super.viewDidLoad()
         locationManager.delegate = self
         agreeButton.isEnabled = false
-        resources.delagate = self
+        resources.delegate = self
     }
     
     

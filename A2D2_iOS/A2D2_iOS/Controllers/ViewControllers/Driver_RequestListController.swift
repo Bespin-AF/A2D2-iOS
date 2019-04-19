@@ -22,7 +22,7 @@ class Driver_RequestListController: UITableViewController, DataSourceDelegate {
         tableView.estimatedSectionHeaderHeight = 20
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
-        requestSource.delagate = self
+        requestSource.delegate = self
     }
     
     
@@ -32,17 +32,8 @@ class Driver_RequestListController: UITableViewController, DataSourceDelegate {
     
     
     func updateRequestsFromDataSource(data: [String : Any]){
-        var updatedRequests = [Request]()
-        for row in data {
-            let requestData = row.value as! NSDictionary
-            let requestKey = row.key
-            let request = Request(requestData as! Dictionary<String, Any>)
-            request.key = requestKey
-            updatedRequests.append(request)
-        }
-    
-        requests = updatedRequests
-        self.refresh(self)
+        requests = DataSourceUtils.requestsFromData(data)
+        refresh(self)
     }
     
     

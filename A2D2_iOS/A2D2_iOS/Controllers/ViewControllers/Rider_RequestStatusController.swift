@@ -20,7 +20,7 @@ class Rider_RequestStatusController: UIViewController, DataSourceDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         callButton.isEnabled = false
-        resourceDataSource.delagate = self
+        resourceDataSource.delegate = self
     }
     
     

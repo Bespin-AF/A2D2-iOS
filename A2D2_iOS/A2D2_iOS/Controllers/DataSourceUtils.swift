@@ -44,4 +44,17 @@ class DataSourceUtils{
         let lon = Double(latLon[1])
         return CLLocation(latitude: lat!, longitude: lon!)
     }
+    
+    
+    public static func requestsFromData(_ data : [String:Any]) -> [Request]{
+        var requests = [Request]()
+        for row in data {
+            let requestData = row.value as! NSDictionary
+            let requestKey = row.key
+            let request = Request(requestData as! Dictionary<String, Any>)
+            request.key = requestKey
+            requests.append(request)
+        }
+        return requests
+    }
 }
