@@ -31,6 +31,7 @@
 		5D749938220B781500F8F99A /* AuthenticationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D749937220B781500F8F99A /* AuthenticationUtils.swift */; };
 		5D82743421FF3D9D00D89A9D /* Driver.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D82743321FF3D9D00D89A9D /* Driver.storyboard */; };
 		5D82743621FF3DB000D89A9D /* Rider.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D82743521FF3DB000D89A9D /* Rider.storyboard */; };
+		5D868BD7226A295100FBF80C /* Rider_Request_Status_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D868BD6226A295100FBF80C /* Rider_Request_Status_Tests.swift */; };
 		5DA0070E21EFAE6900C31F42 /* RequestStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA0070D21EFAE6900C31F42 /* RequestStatusCell.swift */; };
 		5DA0071021EFB4D800C31F42 /* Driver_RequestListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA0070F21EFB4D800C31F42 /* Driver_RequestListController.swift */; };
 		5DB5EA3F21F260A20030D304 /* DataSourceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB5EA3E21F260A20030D304 /* DataSourceUtils.swift */; };
@@ -118,6 +119,7 @@
 		5D749937220B781500F8F99A /* AuthenticationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationUtils.swift; sourceTree = "<group>"; };
 		5D82743321FF3D9D00D89A9D /* Driver.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Driver.storyboard; sourceTree = "<group>"; };
 		5D82743521FF3DB000D89A9D /* Rider.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Rider.storyboard; sourceTree = "<group>"; };
+		5D868BD6226A295100FBF80C /* Rider_Request_Status_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rider_Request_Status_Tests.swift; sourceTree = "<group>"; };
 		5DA0070D21EFAE6900C31F42 /* RequestStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestStatusCell.swift; sourceTree = "<group>"; };
 		5DA0070F21EFB4D800C31F42 /* Driver_RequestListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver_RequestListController.swift; sourceTree = "<group>"; };
 		5DB5EA3E21F260A20030D304 /* DataSourceUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceUtils.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 			children = (
 				5DE1A343224D3607009F56CB /* Rider_Rules_Tests.swift */,
 				5DE1A345224D3680009F56CB /* Rider_Create_Request_Tests.swift */,
+				5D868BD6226A295100FBF80C /* Rider_Request_Status_Tests.swift */,
 			);
 			name = Rider;
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 				5DE1A341224D3523009F56CB /* Driver_Request_Details_Tests.swift in Sources */,
 				5DE1A33F224D34AF009F56CB /* Driver_Requests_Tests.swift in Sources */,
 				7C94E7E4219B4E0A00A623D9 /* A2D2_iOSUITests.swift in Sources */,
+				5D868BD7226A295100FBF80C /* Rider_Request_Status_Tests.swift in Sources */,
 				5DE1A346224D3680009F56CB /* Rider_Create_Request_Tests.swift in Sources */,
 				5DE1A33C224D33C0009F56CB /* Driver_Login_Tests.swift in Sources */,
 				5DE1A349224D379A009F56CB /* A2D2_Home_Tests.swift in Sources */,

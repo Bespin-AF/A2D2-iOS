@@ -43,6 +43,7 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
     @IBAction func agreeButtonTapped() {
         didAgreeToRules = true
         checkLocationPermissions()
+        print("HEY")
     }
 
     

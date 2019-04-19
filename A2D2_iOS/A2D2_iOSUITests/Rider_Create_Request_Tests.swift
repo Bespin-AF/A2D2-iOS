@@ -39,14 +39,19 @@ class Rider_Create_Request_Tests: A2D2_iOSUITests {
     //Tests that the Confirm Button navigates user to Ride Status Page
     func testRequest_ConfirmPickup() {
         goToRideStatusPage()
-        app.alerts["Confirm Driver Request"].buttons["Confirm"].tap()
         XCTAssert(app.images["a2d2logo"].waitForExistence(timeout: 10))
     }
     
     
     //Tests that the Cancel Option keeps user on Pickup Request Options Page
     func testRequest_CancelPickup() {
-        goToRideStatusPage()
+        goToPickupRequestOptionsPage()
+        app.textFields["txtFld_Name"].tap()
+        app.textFields["txtFld_Name"].typeText("Automated Test Name")
+        app.textFields["txtFld_PhoneNumber"].tap()
+        app.textFields["txtFld_PhoneNumber"].typeText("0000000000")
+        app.staticTexts["Gender"].tap()
+        app.buttons["btn_RequestDriver"].tap()
         app.alerts["Confirm Driver Request"].buttons["Cancel"].tap()
         XCTAssert(app.navigationBars["Pickup Request Options"].waitForExistence(timeout: 10))
     }

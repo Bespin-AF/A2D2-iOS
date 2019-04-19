@@ -43,28 +43,26 @@ class A2D2_iOSUITests: XCTestCase {
     
     func goToPickupRequestOptionsPage(){
         goToRulesPage()
-        sleep(2)//TODO Avoiding race condition for resources loading
-        app.buttons["btn_Agree"].tap()
         addUIInterruptionMonitor(withDescription: "Location permission", handler: { alert in
             alert.buttons["Allow"].tap()
             return true
         })
+        sleep(2)//Give time for loading
+        app.buttons["btn_Agree"].tap()
         app.tap()
-        //Will need to handle Navigations Permissions here
+        XCTAssert(app.navigationBars["Pickup Request Options"].waitForExistence(timeout: 10))
     }
     
     
     func goToRideStatusPage(){
         goToPickupRequestOptionsPage()
-        XCTAssert(doesViewExist(viewName: "vw_PickupRequestOptions"))
         app.textFields["txtFld_Name"].tap()
-        app.textFields["txtFld_Name"].typeText("Test Name")
+        app.textFields["txtFld_Name"].typeText("Automated Test Name")
         app.textFields["txtFld_PhoneNumber"].tap()
-        app.textFields["txtFld_PhoneNumber"].typeText("3345389408")
+        app.textFields["txtFld_PhoneNumber"].typeText("0000000000")
         app.staticTexts["Gender"].tap()
         app.buttons["btn_RequestDriver"].tap()
-        //Will need to handle mandatory fields and input here
-        //Alert as well
+        app.alerts["Confirm Driver Request"].buttons["Confirm"].tap()
     }
     
     
