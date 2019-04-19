@@ -49,7 +49,8 @@ class DataSourceUtils{
     public static func requestsFromData(_ data : [String:Any]) -> [Request]{
         var requests = [Request]()
         for row in data {
-            let requestData = row.value as! NSDictionary
+            let requestData = row.value as? NSDictionary
+            if requestData == nil { continue }
             let requestKey = row.key
             let request = Request(requestData as! Dictionary<String, Any>)
             request.key = requestKey

@@ -11,7 +11,7 @@
 import UIKit
 
 class Driver_RequestListController: UITableViewController, DataSourceDelegate {
-    let requestSource = DataSource(.TestRequests)
+    let requestSource = DataSource(.Requests)
     var requests : [Request]?
 
     override func viewDidLoad() {
