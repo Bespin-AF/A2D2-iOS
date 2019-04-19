@@ -10,7 +10,9 @@
 
 import UIKit
 
-class Driver_RequestListController: UITableViewController {
+class Driver_RequestListController: UITableViewController, DataSourceDelegate {
+    let requestSource = DataSource(.TestRequests)
+    var requests : [Request]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +22,18 @@ class Driver_RequestListController: UITableViewController {
         tableView.estimatedSectionHeaderHeight = 20
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        requestSource.delegate = self
+    }
+    
+    
+    func dataSource(_ dataSource: DataSource, dataValues: [String : Any]) {
+        updateRequestsFromDataSource(data: dataValues)
+    }
+    
+    
+    func updateRequestsFromDataSource(data: [String : Any]){
+        requests = DataSourceUtils.requestsFromData(data)
+        refresh(self)
     }
     
     
@@ -43,13 +57,12 @@ class Driver_RequestListController: UITableViewController {
     }
 
     
-    //NOTE There is likely a better way to manage keys and requests that will make sorting easier.
     // Returns data for section containing the IndexPath
     private func getSectionData(forIndex index: IndexPath) -> [Request] {
         //Resolve section based on index
         let status = getStatusFromSection(index.section)
         let statusString = getStatusString(status)
-        return DataSourceUtils.getCurrentRequestsWhere(column: "status", equals: statusString)
+        return getRequestsWhere(column: "status", equals: statusString)
     }
     
     
@@ -87,7 +100,7 @@ class Driver_RequestListController: UITableViewController {
     
     // Gives TableView the number of sections it has
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return DataSourceUtils.getCurrentRequestsWhere(column: "status", equals: getStatusString(.Empty)).count > 0 ? 4 : 3
+        return getRequestsWhere(column: "status", equals: getStatusString(.Empty)).count > 0 ? 4 : 3
     }
     
     
@@ -104,7 +117,7 @@ class Driver_RequestListController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let status = getStatusFromSection(section)
         let statusString = getStatusString(status)
-        return  DataSourceUtils.getCurrentRequestsWhere(column: "status", equals: statusString).count
+        return  getRequestsWhere(column: "status", equals: statusString).count
     }
     
     
@@ -128,6 +141,21 @@ class Driver_RequestListController: UITableViewController {
             return rideRequest.formattedTimestamp
         }
         return "\(rideRequest.requestData[detail] ?? "N/A")"
+    }
+    
+    
+    private func getRequestsWhere(column: String,equals value: String) -> [Request]{
+        var results = [Request]()
+        
+        if requests == nil {return results}
+        
+        for  request : Request in self.requests! {
+            if request.requestData[column] as! String == value {
+                results.append(request)
+            }
+        }
+        
+        return results
     }
     
     

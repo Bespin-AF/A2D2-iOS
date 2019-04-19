@@ -24,9 +24,10 @@ class Rider_CreateRequestController: UIViewController, UIPickerViewDelegate, UIP
     let requesterGender = ["Male", "Female"]
     let commentsPlaceholderText = "Comments (Optional)"
     let locationManager = CLLocationManager()
+    let dataSource = DataSource(.Requests)
     var selectedGroupSize: Int = 0
     var selectedGender: String = ""
-    var requestData: Request!
+    var request: Request!
     var keyboardHeight: CGFloat!
     
     override func viewDidLoad() {
@@ -188,8 +189,8 @@ class Rider_CreateRequestController: UIViewController, UIPickerViewDelegate, UIP
     
     
     private func submitDriverRequest() {
-        self.requestData = self.buildRequest()
-        DataSourceUtils.sendData(data: self.requestData)
+        self.request = self.buildRequest()
+        request.key = dataSource.sendData(data: request.requestData)
         self.performSegue(withIdentifier: "request_sent", sender: self)
     }
     
@@ -259,7 +260,7 @@ class Rider_CreateRequestController: UIViewController, UIPickerViewDelegate, UIP
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "request_sent" else { return }
         let statusView = segue.destination as! Rider_RequestStatusController
-        statusView.requestData = self.requestData
+        statusView.request = self.request
     }
     
     

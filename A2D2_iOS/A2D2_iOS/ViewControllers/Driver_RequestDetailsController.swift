@@ -19,6 +19,7 @@ class Driver_RequestDetailsController: UIViewController {
     @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var commentsLabel: UILabel!
     
+    let dataSource = DataSource(.Requests)
     var request : Request!
     
     
@@ -116,7 +117,7 @@ class Driver_RequestDetailsController: UIViewController {
     func updateStatus(_ status : Status) {
         request.status = status
         request.driver = AuthenticationUtils.currentUser?.uid ?? "Default"
-        DataSourceUtils.updateData(data: request)
+        dataSource.update(key: request.key!, data: request.requestData)
     }
     
     
