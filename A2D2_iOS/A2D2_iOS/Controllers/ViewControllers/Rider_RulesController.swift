@@ -15,7 +15,7 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
     @IBOutlet var agreeButton: MyButton!
     var locationManager = CLLocationManager()
     var resources = DataSource(.Resources)
-    var didAgreeToRules : Bool!
+    var didAgreeToRules = false
     var baseLocationString : String!
     var a2d2Number : String!
 
@@ -35,7 +35,7 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
     }
     
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         didAgreeToRules = false
     }
     
@@ -43,7 +43,6 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
     @IBAction func agreeButtonTapped() {
         didAgreeToRules = true
         checkLocationPermissions()
-        print("HEY")
     }
 
     
@@ -67,8 +66,10 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
     
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let mostCurrentLocation = locations.last!
-        checkLocation(location: mostCurrentLocation)
+        if didAgreeToRules {
+            let mostCurrentLocation = locations.last!
+            checkLocation(location: mostCurrentLocation)
+        }
     }
     
     
