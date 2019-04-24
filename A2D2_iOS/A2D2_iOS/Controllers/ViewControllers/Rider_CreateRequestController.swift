@@ -24,7 +24,6 @@ class Rider_CreateRequestController: UIViewController, UIPickerViewDelegate, UIP
     let requesterGender = ["Male", "Female"]
     let commentsPlaceholderText = "Comments (Optional)"
     let locationManager = CLLocationManager()
-    let dataSource = DataSource(.Requests)
     var request: Request!
     var keyboardHeight: CGFloat!
     
@@ -186,7 +185,7 @@ class Rider_CreateRequestController: UIViewController, UIPickerViewDelegate, UIP
     
     private func submitDriverRequest() {
         self.request = self.buildRequest()
-        request.key = dataSource.sendData(data: request.requestData)
+        request.key = DataSourceUtils.requests.sendData(data: request.requestData)
         self.performSegue(withIdentifier: "request_sent", sender: self)
     }
     

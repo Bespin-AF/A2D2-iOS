@@ -11,7 +11,6 @@
 import UIKit
 
 class Driver_RequestListController: UITableViewController, DataSourceDelegate {
-    let requestSource = DataSource(.Requests)
     var requests : [Request]?
 
     override func viewDidLoad() {
@@ -22,7 +21,14 @@ class Driver_RequestListController: UITableViewController, DataSourceDelegate {
         tableView.estimatedSectionHeaderHeight = 20
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
-        requestSource.delegate = self
+    }
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        DataSourceUtils.requests.delegate = self
+        tableView.reloadData()
     }
     
     
@@ -118,12 +124,6 @@ class Driver_RequestListController: UITableViewController, DataSourceDelegate {
         let status = getStatusFromSection(section)
         let statusString = getStatusString(status)
         return  getRequestsWhere(column: "status", equals: statusString).count
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableView.reloadData()
     }
     
     

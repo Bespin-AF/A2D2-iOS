@@ -16,6 +16,8 @@ import CoreLocation
 class DataSourceUtils{
     static var readInFormatter = DateFormatter()
     static var outputFormatter = DateFormatter()
+    static let resources = DataSource(.Resources)
+    static let requests = DataSource(.Requests)
     
     // Initializes firebase functionality
     public static func initFirebase(){

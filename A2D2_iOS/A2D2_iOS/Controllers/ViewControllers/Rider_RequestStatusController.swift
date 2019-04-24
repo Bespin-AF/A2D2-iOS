@@ -13,14 +13,17 @@ class Rider_RequestStatusController: UIViewController, DataSourceDelegate {
     @IBOutlet weak var callButton: MyButton!
     var request : Request!
     var a2d2Number : String!
-    let requestDataSource = DataSource(.Requests)
-    let resourceDataSource = DataSource(.Resources)
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         callButton.isEnabled = false
-        resourceDataSource.delegate = self
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        DataSourceUtils.resources.delegate = self
     }
     
     
@@ -45,7 +48,7 @@ class Rider_RequestStatusController: UIViewController, DataSourceDelegate {
     
     func cancelActions(){
         self.request.status = .Cancelled
-        requestDataSource.update(key: request.key! ,data: request.requestData)
+        DataSourceUtils.requests.update(key: request.key! ,data: request.requestData)
         let alert = UIAlertController(title: "Cancelled", message: "Your request was cancelled successfully", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: {action in
             self.performSegue(withIdentifier: "return_home_after_cancel", sender: self)

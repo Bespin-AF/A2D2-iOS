@@ -14,7 +14,6 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
 
     @IBOutlet var agreeButton: MyButton!
     var locationManager = CLLocationManager()
-    var resources = DataSource(.Resources)
     var didAgreeToRules = false
     var baseLocationString : String!
     var a2d2Number : String!
@@ -24,7 +23,12 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
         super.viewDidLoad()
         locationManager.delegate = self
         agreeButton.isEnabled = false
-        resources.delegate = self
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        DataSourceUtils.resources.delegate = self
     }
     
     
