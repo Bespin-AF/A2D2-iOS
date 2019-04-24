@@ -25,8 +25,6 @@ class Rider_CreateRequestController: UIViewController, UIPickerViewDelegate, UIP
     let commentsPlaceholderText = "Comments (Optional)"
     let locationManager = CLLocationManager()
     let dataSource = DataSource(.Requests)
-    var selectedGroupSize: Int = 0
-    var selectedGender: String = ""
     var request: Request!
     var keyboardHeight: CGFloat!
     
@@ -108,10 +106,8 @@ class Rider_CreateRequestController: UIViewController, UIPickerViewDelegate, UIP
         var str = ""
         if(pickerView == groupSizePicker){
             str = "\(groupSizeData[row])"
-            selectedGroupSize = groupSizeData[row]
         } else if (pickerView == requesterGenderPicker) {
             str = "\(requesterGender[row])"
-            selectedGender = requesterGender[row]
         }
         return NSAttributedString(string: str, attributes: [NSAttributedString.Key.foregroundColor:UIColor.white])
     }
@@ -205,8 +201,8 @@ class Rider_CreateRequestController: UIViewController, UIPickerViewDelegate, UIP
         var phoneNumber = phoneNumberField.text!
         SystemUtils.removeNonNumbers(&phoneNumber)
         request.status = Status.Available
-        request.gender = selectedGender
-        request.groupSize = selectedGroupSize
+        request.gender = requesterGender[requesterGenderPicker.selectedRow(inComponent: 0)]
+        request.groupSize = groupSizeData[groupSizePicker.selectedRow(inComponent: 0)]
         request.remarks = commentsTextView.textColor == UIColor.black ? commentsTextView.text : ""
         request.lat = location.coordinate.latitude
         request.lon = location.coordinate.longitude
