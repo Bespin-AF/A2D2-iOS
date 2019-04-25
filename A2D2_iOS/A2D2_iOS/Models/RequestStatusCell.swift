@@ -11,7 +11,6 @@ class RequestStatusCell: UITableViewCell {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    
     @IBInspectable var takenRequestColor: UIColor!
     @IBInspectable var completedRequestColor: UIColor!
 }
