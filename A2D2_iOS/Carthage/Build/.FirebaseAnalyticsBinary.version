@@ -8,7 +8,7 @@
   "tvOS" : [
 
   ],
-  "commitish" : "5.16.0",
+  "commitish" : "5.19.0",
   "iOS" : [
     {
       "name" : "Firebase",
@@ -16,35 +16,35 @@
     },
     {
       "name" : "nanopb",
-      "hash" : "68adc40df29a0bc673e8238496d000f0172889d21fbb826237e2d36113c5d9db"
+      "hash" : "92cafd16bf77b741e9d8206f7c7d47946122c9643a5d2e11ccf5dc940b303c6e"
     },
     {
       "name" : "FirebaseAnalytics",
-      "hash" : "1e9f232401c6b54fbe5300e2c9e480b1cbb1fdfa5c3f61f86ffd8fca85f40983"
-    },
-    {
-      "name" : "FIRAnalyticsConnector",
-      "hash" : "e832569285e7f9ba9048c58430f764297f096a61dc96a6c8eeeb2498c170f524"
+      "hash" : "2e51baad6774f91dc9cbd8546267b4b3c214a856bc38148bc9ed9c9266c601b5"
     },
     {
       "name" : "FirebaseCore",
-      "hash" : "1efeea8db2ec2142238b9f0cc921de9b3c0db32f3ed20c5c396410f29d53eac2"
+      "hash" : "f75ade0298e54273b39c90bd5b08d14974429947289643f23c85359e17f94cb2"
+    },
+    {
+      "name" : "FIRAnalyticsConnector",
+      "hash" : "d917f31b4a5d4c6124fe67dd01fb57bdc65d24e1dcabe0cfeec1b231f75591ce"
     },
     {
       "name" : "GoogleUtilities",
-      "hash" : "d535081aea3bd2031b3ae3d32eade5e9db0df8ab9f6ecae2c9d5dcc72bd65a93"
+      "hash" : "613b028db6897663979837d898d49999789dda9c6db3e982e61324ffc174026f"
     },
     {
       "name" : "FirebaseCoreDiagnostics",
-      "hash" : "a65e08dc3850246bfa77e11ccd08e826d235094d12f1fe5abf1891d10c6f4f97"
+      "hash" : "2f56ebbdf1fc7517fb2234e4f30f20f4426aa0c2bb7061dc8f3097d747647b8d"
     },
     {
       "name" : "FirebaseInstanceID",
-      "hash" : "bab890849f1144e782cc3eb420df06ea95347fc8a54990d46f13c2c9c82d8448"
+      "hash" : "7f7e583d1324fde81ace4a2fec951bb3965d0dce478512eed5b7f10fd2b764b3"
     },
     {
       "name" : "GoogleAppMeasurement",
-      "hash" : "66a6360d85c6d9e245d3f235c9e0c4cb59235f5d19fa61b7fb9a614dc8baeb49"
+      "hash" : "1c3fe4f45c9da6c360022a45d6ce35037699cf3e19d97a7c6d6f733ee7fb7dc2"
     }
   ]
 }

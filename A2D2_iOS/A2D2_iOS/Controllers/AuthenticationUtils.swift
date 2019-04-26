@@ -22,7 +22,7 @@ class AuthenticationUtils {
     }
     
     
-    // TO-DO
+    //TODO
     private static func handleLoginError(_ error : Error) {
         
     }
