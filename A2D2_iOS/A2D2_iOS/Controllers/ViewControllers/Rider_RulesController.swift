@@ -33,8 +33,8 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
     
     
     func dataSource(_ dataSource: DataSource, dataValues: [String : Any]) {
-        baseLocationString = (dataValues["maxwell_afb_location"] as! String)
-        a2d2Number = (dataValues["a2d2phonenumber"] as! String)
+        baseLocationString = (dataValues["base_location"] as! String)
+        a2d2Number = (dataValues["phone_number"] as! String)
         agreeButton.isEnabled = true
     }
     
