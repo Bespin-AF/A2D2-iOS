@@ -18,6 +18,7 @@ class DataSourceUtils{
     static var outputFormatter = DateFormatter()
     static let resources = DataSource(.Resources)
     static let requests = DataSource(.Requests)
+    static let a2d2Base = "maxwell_afb"
     
     // Initializes firebase functionality
     public static func initFirebase(){

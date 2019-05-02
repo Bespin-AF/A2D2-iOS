@@ -6,6 +6,7 @@
 //  Copyright © 2019 Bespin. All rights reserved.
 //
 
+import SystemConfiguration
 import Foundation
 import UIKit
 
@@ -68,5 +69,34 @@ class SystemUtils {
         let version = dictionary["CFBundleShortVersionString"] as! String
         let build = dictionary["CFBundleVersion"] as! String
         return "\(version) (\(build))"
+    }
+    
+   
+    // Copied from https://mobikul.com/check-internet-availability-swift/
+    static func isConnectedToNetwork() -> Bool {
+        var zeroAddress = sockaddr_in()
+        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        
+        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
+                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
+            }
+        }
+        
+        var flags = SCNetworkReachabilityFlags()
+        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+            return false
+        }
+        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
+        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
+        return (isReachable && !needsConnection)
+        
+    }
+    
+    static func alertNoConnection(_ view : UIViewController) {
+        let alert = UIAlertController(title: "No Connection!", message: "Can't connect to the internet", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        view.present(alert, animated: true)
     }
 }

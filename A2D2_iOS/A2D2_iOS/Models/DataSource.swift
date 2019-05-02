@@ -13,14 +13,14 @@ public enum DataSourceType {
 }
 
 
-func getDataSourceTypeString(dataTable type:DataSourceType) -> String {
+func getDataSourceTypeRef(_ ref: DatabaseReference, dataTable type:DataSourceType) -> DatabaseReference {
     switch type {
     case .Requests:
-        return "requests"
+        return ref.child("requests")
     case .Resources:
-        return "Resources"
+        return ref.child("base_info").child(DataSourceUtils.a2d2Base)
     case .TestRequests:
-        return "test_requests"
+        return ref.child("test_requests")
     }
 }
 
@@ -34,8 +34,7 @@ class DataSource {
     }
     
     init(_ type : DataSourceType) {
-        let table = getDataSourceTypeString(dataTable: type)
-        ref = Database.database().reference().child(table)
+        ref = getDataSourceTypeRef(ref, dataTable: type)
     }
     
     

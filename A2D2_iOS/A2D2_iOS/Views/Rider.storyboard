@@ -45,18 +45,18 @@
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="LsW-yX-TTn"/>
                                     <constraint firstAttribute="height" priority="999" constant="500" id="kKs-I3-agF"/>
                                 </constraints>
-                                <string key="text">1. You are required to show your driver your military ID to be picked up.
+                                <mutableString key="text">1. You are required to show your driver your military ID to be picked up.
 
 2. The driver will only take you to your home address.
 
-3. Groups will only be taken to single address.
+3. Groups will only be taken to a single address.
 
 4. Your pickup location must be within 25 miles of your duty station.
 
 
 PRIVACY: A2D2 is an anonymous program. None of your provided information will be stored or given to leadership at anytime.
 
-DISCLAIMER: This is a private organization. It is not part of the Department of Defense or any of its components and it has no governmental status.</string>
+DISCLAIMER: This is a private organization. It is not part of the Department of Defense or any of its components and it has no governmental status.</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>

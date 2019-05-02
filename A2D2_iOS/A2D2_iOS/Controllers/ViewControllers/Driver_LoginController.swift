@@ -39,6 +39,8 @@ class Driver_LoginController: UIViewController, UITextFieldDelegate{
     func notifyLoginAttempt(result wasValid: Bool){
         if wasValid {
             self.performSegue(withIdentifier: "ride_requests", sender: self)
+        } else if !SystemUtils.isConnectedToNetwork(){
+            SystemUtils.alertNoConnection(self)
         } else {
             notify("The email or password you entered was incorrect. Please try again.")
         }

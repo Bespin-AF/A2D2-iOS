@@ -7,17 +7,22 @@
 //
 
 import UIKit
+import Foundation
+import SystemConfiguration
 
 class Loading_Controller : UIViewController, DataSourceDelegate {
     
+    @IBOutlet weak var spinnyBoi: UIActivityIndicatorView!
     var didGetResources = false
     var didGetRequests = false
     
     override func viewDidLoad() {
         DataSourceUtils.resources.delegate = self
         DataSourceUtils.requests.delegate = self
+        
+        spinnyBoi.startAnimating()
     }
-
+    
     
     func dataSource(_ dataSource: DataSource, dataValues: [String : Any]) {
         if dataSource === DataSourceUtils.resources {

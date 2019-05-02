@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TOa-FY-BqF">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,22 +15,33 @@
             <objects>
                 <viewController storyboardIdentifier="Loading" id="TOa-FY-BqF" customClass="Loading_Controller" customModule="A2D2_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ufP-m7-T1W" customClass="GradientView" customModule="A2D2_iOS" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a2d2logo" translatesAutoresizingMaskIntoConstraints="NO" id="hMv-z0-rVG">
-                                <rect key="frame" x="0.0" y="-59" width="414" height="1024"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="700" id="4sR-Ru-mcj"/>
+                                    <constraint firstAttribute="width" secondItem="hMv-z0-rVG" secondAttribute="height" multiplier="1:1" id="z1A-8q-Q2F"/>
+                                </constraints>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="AQN-DL-DfQ">
+                                <rect key="frame" x="169" y="403" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.23137254901960785" green="0.27058823529411763" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="aOi-Xr-ACO" firstAttribute="leading" secondItem="hMv-z0-rVG" secondAttribute="leading" id="L4F-gc-4vM"/>
-                            <constraint firstItem="hMv-z0-rVG" firstAttribute="centerY" secondItem="aOi-Xr-ACO" secondAttribute="centerY" id="Oap-rB-3pf"/>
+                            <constraint firstItem="AQN-DL-DfQ" firstAttribute="centerX" secondItem="aOi-Xr-ACO" secondAttribute="centerX" id="CGs-nv-ynm"/>
+                            <constraint firstItem="aOi-Xr-ACO" firstAttribute="leading" relation="lessThanOrEqual" secondItem="hMv-z0-rVG" secondAttribute="leading" id="L4F-gc-4vM"/>
                             <constraint firstItem="hMv-z0-rVG" firstAttribute="centerX" secondItem="aOi-Xr-ACO" secondAttribute="centerX" id="TAN-tO-KbM"/>
+                            <constraint firstItem="hMv-z0-rVG" firstAttribute="top" secondItem="aOi-Xr-ACO" secondAttribute="top" priority="750" constant="64" id="fqf-fI-Cq4"/>
+                            <constraint firstItem="hMv-z0-rVG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="aOi-Xr-ACO" secondAttribute="top" constant="20" id="pfb-Lr-8hV"/>
+                            <constraint firstItem="AQN-DL-DfQ" firstAttribute="top" secondItem="hMv-z0-rVG" secondAttribute="bottom" constant="-80" id="pgc-dq-8KG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aOi-Xr-ACO"/>
                     </view>
                     <connections>
+                        <outlet property="spinnyBoi" destination="AQN-DL-DfQ" id="h7w-1o-6dE"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="segue_show_home" modalTransitionStyle="crossDissolve" id="3Iq-jY-Pkg"/>
                     </connections>
                 </viewController>
@@ -43,17 +54,17 @@
             <objects>
                 <viewController storyboardIdentifier="Home" id="BYZ-38-t0r" customClass="Home_Controller" customModule="A2D2_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="GradientView" customModule="A2D2_iOS" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4d-jy-YQj">
-                                <rect key="frame" x="5" y="49" width="31" height="14.5"/>
+                                <rect key="frame" x="5" y="49" width="31" height="14.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="0.089897260273972601" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a2d2logo" translatesAutoresizingMaskIntoConstraints="NO" id="U0r-Oc-gw1">
-                                <rect key="frame" x="0.0" y="108" width="414" height="414"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="375"/>
                                 <accessibility key="accessibilityConfiguration" identifier="img_A2D2Logo"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="700" id="05n-2o-4ba"/>
@@ -61,10 +72,10 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Cwl-eG-nJA">
-                                <rect key="frame" x="20" y="702" width="374" height="120"/>
+                                <rect key="frame" x="20" y="618" width="335" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jkj-OY-gna" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
                                         <accessibility key="accessibilityConfiguration" identifier="btn_RequestRide"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="750" constant="50" id="P1l-4H-Tlc"/>
@@ -82,7 +93,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ui-1F-dR3" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="70" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="70" width="335" height="50"/>
                                         <accessibility key="accessibilityConfiguration" identifier="btn_DriverLogin"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="999" constant="50" id="2If-uk-n4y"/>
@@ -110,7 +121,6 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="L4d-jy-YQj" secondAttribute="trailing" constant="5" id="6lK-HZ-una"/>
                             <constraint firstItem="L4d-jy-YQj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="93O-23-Rzi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="L4d-jy-YQj" secondAttribute="bottom" constant="5" id="AYZ-Gj-yzd"/>
-                            <constraint firstItem="U0r-Oc-gw1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Czh-7m-NNo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Cwl-eG-nJA" secondAttribute="bottom" constant="40" id="TOY-Fg-sS5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="U0r-Oc-gw1" secondAttribute="trailing" id="TYh-BQ-XAn"/>
                             <constraint firstItem="U0r-Oc-gw1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="alU-Am-PbD"/>

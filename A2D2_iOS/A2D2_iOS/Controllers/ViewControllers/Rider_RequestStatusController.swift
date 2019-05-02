@@ -28,7 +28,7 @@ class Rider_RequestStatusController: UIViewController, DataSourceDelegate {
     
     
     func dataSource(_ dataSource: DataSource, dataValues: [String : Any]) {
-        a2d2Number = dataValues["a2d2phonenumber"] as? String
+        a2d2Number = dataValues["phone_number"] as? String
         callButton.isEnabled = true
     }
     
