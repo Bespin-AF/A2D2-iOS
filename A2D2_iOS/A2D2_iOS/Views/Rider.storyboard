@@ -82,12 +82,31 @@ DISCLAIMER: This is a private organization. It is not part of the Department of 
                                     <action selector="agreeButtonTapped" destination="HSI-p4-IT9" eventType="touchUpInside" id="u2i-LE-f5n"/>
                                 </connections>
                             </button>
+                            <visualEffectView opaque="NO" alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0BW-NF-0WR">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="98X-yP-hCb">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="unl-tA-avr">
+                                            <rect key="frame" x="188.5" y="368.5" width="37" height="37"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="unl-tA-avr" firstAttribute="centerX" secondItem="98X-yP-hCb" secondAttribute="centerX" id="bM7-71-dPf"/>
+                                        <constraint firstItem="unl-tA-avr" firstAttribute="centerY" secondItem="98X-yP-hCb" secondAttribute="centerY" id="xd5-mS-o06"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" red="0.20826181769999999" green="0.43334984780000002" blue="0.66277182099999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <accessibility key="accessibilityConfiguration" identifier="vw_A2D2Rules"/>
                         <constraints>
                             <constraint firstItem="bAG-R9-qLt" firstAttribute="centerY" secondItem="VRr-t6-WxR" secondAttribute="centerY" priority="750" constant="-200" id="3Zl-Gl-JYE"/>
                             <constraint firstItem="2Lj-fw-H74" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VRr-t6-WxR" secondAttribute="leading" constant="20" id="3oR-z0-byb"/>
+                            <constraint firstItem="0BW-NF-0WR" firstAttribute="trailing" secondItem="VRr-t6-WxR" secondAttribute="trailing" id="6kl-rg-bn8"/>
+                            <constraint firstItem="0BW-NF-0WR" firstAttribute="leading" secondItem="VRr-t6-WxR" secondAttribute="leading" id="BGa-7d-fmo"/>
                             <constraint firstItem="VRr-t6-WxR" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2Lj-fw-H74" secondAttribute="trailing" constant="20" id="Dhk-PW-e9k"/>
                             <constraint firstItem="bAG-R9-qLt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VRr-t6-WxR" secondAttribute="leading" constant="10" id="FxJ-nK-SIJ"/>
                             <constraint firstItem="2Lj-fw-H74" firstAttribute="centerX" secondItem="VRr-t6-WxR" secondAttribute="centerX" id="M0U-bD-RzX"/>
@@ -95,20 +114,23 @@ DISCLAIMER: This is a private organization. It is not part of the Department of 
                             <constraint firstItem="2Lj-fw-H74" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bAG-R9-qLt" secondAttribute="bottom" constant="10" id="ROe-du-SHF"/>
                             <constraint firstItem="bAG-R9-qLt" firstAttribute="top" relation="greaterThanOrEqual" secondItem="VRr-t6-WxR" secondAttribute="top" constant="10" id="Xdn-iK-49d"/>
                             <constraint firstItem="VRr-t6-WxR" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2Lj-fw-H74" secondAttribute="bottom" constant="10" id="YPV-NV-ZYG"/>
+                            <constraint firstItem="VRr-t6-WxR" firstAttribute="bottom" secondItem="0BW-NF-0WR" secondAttribute="bottom" id="Yrf-MY-LIq"/>
                             <constraint firstItem="bAG-R9-qLt" firstAttribute="centerX" secondItem="VRr-t6-WxR" secondAttribute="centerX" id="bcC-8B-pZW"/>
                             <constraint firstItem="VRr-t6-WxR" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bAG-R9-qLt" secondAttribute="trailing" constant="10" id="q5T-43-A9h"/>
+                            <constraint firstItem="0BW-NF-0WR" firstAttribute="top" secondItem="VRr-t6-WxR" secondAttribute="top" id="xUS-l5-upg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VRr-t6-WxR"/>
                     </view>
                     <navigationItem key="navigationItem" title="A2D2 Program Rules" id="GCb-tc-ILI"/>
                     <connections>
                         <outlet property="agreeButton" destination="2Lj-fw-H74" id="Krf-rg-wm4"/>
+                        <outlet property="loadingEffect" destination="0BW-NF-0WR" id="T4M-k4-ZnU"/>
                         <segue destination="OU6-00-1Cm" kind="show" identifier="seque_Request_Ride_Page" id="M3l-Kw-zcN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h0C-iU-5i3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="357.60000000000002" y="135.38230884557723"/>
+            <point key="canvasLocation" x="356.52173913043481" y="135.26785714285714"/>
         </scene>
         <!--Pickup Request Options-->
         <scene sceneID="S5d-bj-6sG">

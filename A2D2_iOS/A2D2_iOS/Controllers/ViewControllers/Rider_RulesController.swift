@@ -13,6 +13,7 @@ import Foundation
 class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSourceDelegate{
 
     @IBOutlet var agreeButton: MyButton!
+    @IBOutlet weak var loadingEffect: UIVisualEffectView!
     var locationManager = CLLocationManager()
     var didAgreeToRules = false
     var baseLocationString : String!
@@ -29,6 +30,7 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         DataSourceUtils.resources.delegate = self
+        loadingEffect.isHidden = true
     }
     
     
@@ -56,8 +58,8 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
         } else if didDenyLocationPermission() {
             alertNoLocationPermissions()
         } else if hasLocationPermissions() {
-            locationManager.requestLocation() // TODO: Add Spinny Boi Here
-            //Location range check is done in the delegate function 'didUpdatelocations'
+            locationManager.requestLocation()
+            loadingEffect.isHidden = false
         }
     }
     
@@ -65,11 +67,13 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if hasLocationPermissions() && didAgreeToRules {
             locationManager.requestLocation()
+            loadingEffect.isHidden = false
         }
     }
     
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        loadingEffect.isHidden = true
         if didAgreeToRules {
             let mostCurrentLocation = locations.last!
             checkLocation(location: mostCurrentLocation)
