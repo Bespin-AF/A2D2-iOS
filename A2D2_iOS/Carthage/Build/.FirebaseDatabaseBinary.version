@@ -8,7 +8,7 @@
   "tvOS" : [
 
   ],
-  "commitish" : "5.19.0",
+  "commitish" : "5.20.0",
   "iOS" : [
     {
       "name" : "leveldb-library",

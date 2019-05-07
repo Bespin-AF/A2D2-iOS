@@ -8,7 +8,7 @@
   "tvOS" : [
 
   ],
-  "commitish" : "5.19.0",
+  "commitish" : "5.20.0",
   "iOS" : [
     {
       "name" : "GTMSessionFetcher",
@@ -16,7 +16,7 @@
     },
     {
       "name" : "FirebaseAuth",
-      "hash" : "6819d6efe6d87e4fb6b4f7ec696002a02804d24ccf050ce89d273657068caa9e"
+      "hash" : "644e0c844aa3d4a05c3e5466aa6f96647cf342b9479081a13640af586c7010ce"
     }
   ]
 }
