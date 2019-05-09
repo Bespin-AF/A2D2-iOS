@@ -9,7 +9,7 @@
 import Firebase
 
 public enum DataSourceType {
-    case Requests, Resources, TestRequests
+    case Requests, Resources, TestRequests, Locations
 }
 
 
@@ -18,15 +18,17 @@ func getDataSourceTypeRef(_ ref: DatabaseReference, dataTable type:DataSourceTyp
     case .Requests:
         return ref.child("requests")
     case .Resources:
-        return ref.child("base_info").child(DataSourceUtils.a2d2Base)
+        return ref.child("base_info")
     case .TestRequests:
         return ref.child("test_requests")
+    case .Locations:
+        return Database.database().reference().child("locations")
     }
 }
 
 
 class DataSource {
-    private var ref = Database.database().reference()
+    private var ref = Database.database().reference().child("bases").child(DataSourceUtils.a2d2Base)
     var delegate : DataSourceDelegate?{
         didSet{
             startSync()
