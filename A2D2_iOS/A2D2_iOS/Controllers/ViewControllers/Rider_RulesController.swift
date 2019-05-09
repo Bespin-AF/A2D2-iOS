@@ -16,8 +16,8 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
     @IBOutlet weak var loadingEffect: UIVisualEffectView!
     var locationManager = CLLocationManager()
     var didAgreeToRules = false
-    var baseLocationString : String!
-    var a2d2Number : String!
+    var baseLocationString : String?
+    var a2d2Number : String?
 
 
     override func viewDidLoad() {
@@ -30,14 +30,21 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         DataSourceUtils.resources.delegate = self
+        DataSourceUtils.locations.delegate = self
         loadingEffect.isHidden = true
     }
     
     
     func dataSource(_ dataSource: DataSource, dataValues: [String : Any]) {
-        baseLocationString = (dataValues["base_location"] as! String)
-        a2d2Number = (dataValues["phone_number"] as! String)
-        agreeButton.isEnabled = true
+        if(dataSource === DataSourceUtils.locations) {
+            baseLocationString = (dataValues[DataSourceUtils.a2d2Base] as! String)
+        } else {
+            a2d2Number = (dataValues["phone_number"] as! String)
+        }
+        
+        if(baseLocationString != nil && a2d2Number != nil){
+            agreeButton.isEnabled = true
+        }
     }
     
     
@@ -107,7 +114,7 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
     
     
     func isWithinRange(location: CLLocation) -> Bool {
-        let baseLocation = DataSourceUtils.getLocationFromString(baseLocationString)
+        let baseLocation = DataSourceUtils.getLocationFromString(baseLocationString!)
         let distance = location.distance(from: baseLocation)
         let allowedRange = DataSourceUtils.convertToMeters(miles: 25)
         return distance <= allowedRange
@@ -137,6 +144,6 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
     
     
     func callA2D2() {
-        SystemUtils.call(number: a2d2Number)
+        SystemUtils.call(number: a2d2Number!)
     }
 }
