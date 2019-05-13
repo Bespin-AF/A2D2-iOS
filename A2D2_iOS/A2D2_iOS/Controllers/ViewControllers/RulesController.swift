@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class RulesController : UIViewController {
+class RulesController: UIViewController {
     let locationManager = CLLocationManager()
     @IBOutlet var acknowledgeRulesButton: MyButton!
     

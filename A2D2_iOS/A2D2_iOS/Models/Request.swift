@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Request : Comparable {
+class Request: Comparable {
     
     static func < (lhs: Request, rhs: Request) -> Bool {
         return lhs.timestamp < rhs.timestamp
@@ -18,16 +18,16 @@ class Request : Comparable {
         return lhs.lat == rhs.lat && lhs.lon == rhs.lon
     }
     
-    var requestData : [String: Any] = [:]
-    var key : String?
+    var requestData: [String: Any] = [:]
+    var key: String?
     
     init() {}
     // swiftlint:disable syntactic_sugar
-    init(_ data : Dictionary<String, Any>) {
+    init(_ data: Dictionary<String, Any>) {
         self.requestData = data
     }
     // swiftlint:disable force_cast
-    var status : Status {
+    var status: Status {
         get {
             let statusString = requestData["status"] as! String? ?? ""
             return  resolveStatus(fromString: statusString)
@@ -35,52 +35,52 @@ class Request : Comparable {
         set { requestData["status"] = getStatusString(newValue)}
     }
     
-    var gender : String {
+    var gender: String {
         get { return requestData["gender"] as! String? ?? ""}
         set { requestData["gender"] = newValue}
     }
     
-    var groupSize : Int {
+    var groupSize: Int {
         get { return requestData["groupSize"] as! Int? ?? 0}
         set { requestData["groupSize"] = newValue}
     }
     
-    var remarks : String {
+    var remarks: String {
         get { return requestData["remarks"] as! String? ?? ""}
         set { requestData["remarks"] = newValue}
     }
     
-    var lat : Double {
+    var lat: Double {
         get { return requestData["lat"] as! Double? ?? 0}
         set { requestData["lat"] = newValue}
     }
     
-    var lon : Double {
+    var lon: Double {
         get { return requestData["lon"] as! Double? ?? 0}
         set { requestData["lon"] = newValue}
     }
     
-    var name : String {
+    var name: String {
         get { return requestData["name"] as! String? ?? ""}
         set { requestData["name"] = newValue}
     }
     
-    var phone : String {
+    var phone: String {
         get { return requestData["phone"] as! String? ?? ""}
         set { requestData["phone"] = newValue}
     }
     
-    var timestamp : Date {
+    var timestamp: Date {
         get {
             let dateString = requestData["timestamp"] as! String
             return DataSourceUtils.readInFormatter.date(from: dateString) ?? Date()}
         set { requestData["timestamp"] = newValue.description}
     }
     
-    var driver : String? {
+    var driver: String? {
         get { return requestData["driver"] as? String}
         set { requestData["driver"] = newValue}
     }
     
-    var formattedTimestamp : String { return DataSourceUtils.outputFormatter.string(from: self.timestamp) }
+    var formattedTimestamp: String { return DataSourceUtils.outputFormatter.string(from: self.timestamp) }
 }

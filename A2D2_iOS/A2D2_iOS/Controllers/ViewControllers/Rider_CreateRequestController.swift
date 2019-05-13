@@ -113,7 +113,7 @@ class Rider_CreateRequestController: UIViewController, UIPickerViewDelegate, UIP
             str = "\(requesterGender[row])"
             selectedGender = requesterGender[row]
         }
-        return NSAttributedString(string: str, attributes: [NSAttributedString.Key.foregroundColor:UIColor.white])
+        return NSAttributedString(string: str, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
     
     
@@ -145,7 +145,7 @@ class Rider_CreateRequestController: UIViewController, UIPickerViewDelegate, UIP
     
     private func isValidNameInput(_ string: String) -> Bool {
         guard !(string == "") else { return true }
-        let test = NSPredicate(format:"SELF MATCHES %@", "[A-z .]") // Matches any letter or space
+        let test = NSPredicate(format: "SELF MATCHES %@", "[A-z .]") // Matches any letter or space
         return test.evaluate(with: string)
     }
     
@@ -250,7 +250,7 @@ class Rider_CreateRequestController: UIViewController, UIPickerViewDelegate, UIP
     }
     
     
-    func notify(_ message:String) {
+    func notify(_ message: String) {
         let nilNameAlert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
         nilNameAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(nilNameAlert, animated: true)
@@ -269,7 +269,7 @@ class Rider_CreateRequestController: UIViewController, UIPickerViewDelegate, UIP
     }
     
     
-    @IBAction func swipeHandler(_ sender : UISwipeGestureRecognizer) {
+    @IBAction func swipeHandler(_ sender: UISwipeGestureRecognizer) {
         if sender.state == .ended {
             view.endEditing(true)
         }

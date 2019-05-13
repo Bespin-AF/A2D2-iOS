@@ -16,7 +16,7 @@ class RideRequestDetailsController: UIViewController {
     @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var commentsLabel: UILabel!
     
-    var requestData : [String : Any]!
+    var requestData: [String: Any]!
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,7 +32,7 @@ class RideRequestDetailsController: UIViewController {
     @IBAction func textRider(_ sender: Any) {
         let number = "123456789"
         //Percent encoding is required for use in the URL
-        let text = "Hey this is your A2D2 rider".addingPercentEncoding(withAllowedCharacters:.alphanumerics)!
+        let text = "Hey this is your A2D2 rider".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!
         let url = URL(string: "sms://+\(number)/&body=\(text)")!
         UIApplication.shared.open(url)
     }

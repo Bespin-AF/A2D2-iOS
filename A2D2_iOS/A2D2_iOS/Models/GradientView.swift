@@ -12,7 +12,7 @@ import UIKit
 class GradientView: UIView {
     
     @IBInspectable
-    var firstColor: UIColor = UIColor(red:0.28, green:0.33, blue:0.39, alpha:1.0) {
+    var firstColor: UIColor = UIColor(red: 0.28, green: 0.33, blue: 0.39, alpha: 1.0) {
         didSet {
             updateView()
         }
@@ -20,7 +20,7 @@ class GradientView: UIView {
 
 
     @IBInspectable
-    var secondColor: UIColor = UIColor(red:0.16, green:0.20, blue:0.24, alpha:1.0) {
+    var secondColor: UIColor = UIColor(red: 0.16, green: 0.20, blue: 0.24, alpha: 1.0) {
         didSet {
             updateView()
         }

@@ -67,7 +67,7 @@ class Driver_LoginController: UIViewController, UITextFieldDelegate {
     }
     
     
-    func notify(_ message:String) {
+    func notify(_ message: String) {
         let nilNameAlert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
         nilNameAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(nilNameAlert, animated: true)

@@ -13,7 +13,7 @@ public enum Status {
 }
 
 
-public func getStatusString(_ status : Status) -> String {
+public func getStatusString(_ status: Status) -> String {
     switch status {
     case .available:
         return "Available"
@@ -29,7 +29,7 @@ public func getStatusString(_ status : Status) -> String {
 }
 
 
-public func resolveStatus(fromString string : String) -> Status {
+public func resolveStatus(fromString string: String) -> Status {
     switch string {
     case "Available":
         return .available

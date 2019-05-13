@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Home_Controller : UIViewController {
+class Home_Controller: UIViewController {
     @IBOutlet weak var versionLabel: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {

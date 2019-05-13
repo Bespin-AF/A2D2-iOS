@@ -15,9 +15,9 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
     @IBOutlet var agreeButton: MyButton!
     var locationManager = CLLocationManager()
     var resources = DataSource(.resources)
-    var didAgreeToRules : Bool!
-    var baseLocationString : String!
-    var a2d2Number : String!
+    var didAgreeToRules: Bool!
+    var baseLocationString: String!
+    var a2d2Number: String!
 
 
     override func viewDidLoad() {
@@ -28,7 +28,7 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
     }
     
     // swiftlint:disable force_cast
-    func dataSource(_ dataSource: DataSource, dataValues: [String : Any]) {
+    func dataSource(_ dataSource: DataSource, dataValues: [String: Any]) {
         baseLocationString = (dataValues["maxwell_afb_location"] as! String)
         a2d2Number = (dataValues["a2d2phonenumber"] as! String)
         agreeButton.isEnabled = true
@@ -88,7 +88,7 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
     }
     
     
-    func checkLocation(location : CLLocation) {
+    func checkLocation(location: CLLocation) {
         if isWithinRange(location: location) {
             proceedToRequestPage()
         } else {

@@ -13,7 +13,7 @@ public enum DataSourceType {
 }
 
 
-func getDataSourceTypeString(dataTable type:DataSourceType) -> String {
+func getDataSourceTypeString(dataTable type: DataSourceType) -> String {
     switch type {
     case .requests:
         return "requests"
@@ -27,13 +27,13 @@ func getDataSourceTypeString(dataTable type:DataSourceType) -> String {
 
 class DataSource {
     private var ref = Database.database().reference()
-    var delegate : DataSourceDelegate? {
+    var delegate: DataSourceDelegate? {
         didSet {
             startSync()
         }
     }
     
-    init(_ type : DataSourceType) {
+    init(_ type: DataSourceType) {
         let table = getDataSourceTypeString(dataTable: type)
         ref = Database.database().reference().child(table)
     }
@@ -44,14 +44,14 @@ class DataSource {
     }
     
     
-    public func sendData(data : Any) -> String {
+    public func sendData(data: Any) -> String {
         let key = ref.childByAutoId().key!
         set(key: key, value: data)
         return key
     }
     
     
-    public func update(key:String, data: Any) {
+    public func update(key: String, data: Any) {
         set(key: key, value: data)
     }
     
@@ -61,7 +61,7 @@ class DataSource {
     }
     
     
-    private func set(key : String, value : Any) {
+    private func set(key: String, value: Any) {
         ref.child(key).setValue(value)
     }
     
@@ -82,7 +82,7 @@ class DataSource {
     }
     
     
-    private func didDataChange(_ snapshot : DataSnapshot) {
+    private func didDataChange(_ snapshot: DataSnapshot) {
         if let delegate = self.delegate {
             let data = convertSnapshotToDictionary(snapshot)
             delegate.dataSource(self, didDataChange: data)
@@ -90,7 +90,7 @@ class DataSource {
     }
     
     
-    private func didAddData(_ snapshot : DataSnapshot) {
+    private func didAddData(_ snapshot: DataSnapshot) {
         if let delegate = self.delegate {
             let data = convertSnapshotToDictionary(snapshot)
             delegate.dataSource(self, didAddData: data)
@@ -98,7 +98,7 @@ class DataSource {
     }
     
     
-    private func didRemoveData(_ snapshot : DataSnapshot) {
+    private func didRemoveData(_ snapshot: DataSnapshot) {
         if let delegate = self.delegate {
             let data = convertSnapshotToDictionary(snapshot)
             delegate.dataSource(self, didRemoveData: data)
@@ -106,7 +106,7 @@ class DataSource {
     }
     
     
-    private func dataValues(_ snapshot : DataSnapshot) {
+    private func dataValues(_ snapshot: DataSnapshot) {
         if let delegate = self.delegate {
             let data = convertSnapshotToDictionary(snapshot)
             delegate.dataSource(self, dataValues: data)
@@ -114,8 +114,8 @@ class DataSource {
     }
     
     
-    private func convertSnapshotToDictionary(_ snapshot : DataSnapshot) -> [String:Any] {
-        var results : [String : Any] = [:]
+    private func convertSnapshotToDictionary(_ snapshot: DataSnapshot) -> [String: Any] {
+        var results: [String: Any] = [:]
         // swiftlint:disable force_cast
         for result in snapshot.children.allObjects as! [DataSnapshot] {
             // swiftlint:disable todo

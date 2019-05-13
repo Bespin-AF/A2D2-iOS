@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class MyTextView : UITextView {
+class MyTextView: UITextView {
     
     override func layoutSubviews() {
         super.layoutSubviews()

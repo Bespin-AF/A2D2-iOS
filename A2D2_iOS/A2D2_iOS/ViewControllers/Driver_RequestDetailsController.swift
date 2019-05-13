@@ -20,7 +20,7 @@ class Driver_RequestDetailsController: UIViewController {
     @IBOutlet weak var commentsLabel: UILabel!
     
     let dataSource = DataSource(.requests)
-    var request : Request!
+    var request: Request!
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -114,7 +114,7 @@ class Driver_RequestDetailsController: UIViewController {
     }
     
     
-    func updateStatus(_ status : Status) {
+    func updateStatus(_ status: Status) {
         request.status = status
         request.driver = AuthenticationUtils.currentUser?.uid ?? "Default"
         dataSource.update(key: request.key!, data: request.requestData)

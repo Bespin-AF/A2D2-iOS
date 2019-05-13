@@ -29,12 +29,12 @@ class DataSourceUtils {
     }
 
     
-    public static func convertToMeters(miles : Double) -> Double {
+    public static func convertToMeters(miles: Double) -> Double {
         return miles * 1609.344 // Exact number of meters in a mile
     }
     
     
-    public static func getLocationFromString(_ locationString : String) -> CLLocation {
+    public static func getLocationFromString(_ locationString: String) -> CLLocation {
         guard locationString.contains(",") else {
             return CLLocation(latitude: 0, longitude: 0)
         }
@@ -46,7 +46,7 @@ class DataSourceUtils {
     }
     
     
-    public static func requestsFromData(_ data : [String:Any]) -> [Request] {
+    public static func requestsFromData(_ data: [String: Any]) -> [Request] {
         var requests = [Request]()
         for row in data {
             let requestData = row.value as? NSDictionary

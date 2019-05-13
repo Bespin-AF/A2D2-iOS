@@ -12,7 +12,7 @@ import UIKit
 
 class Driver_RequestListController: UITableViewController, DataSourceDelegate {
     let requestSource = DataSource(.requests)
-    var requests : [Request]?
+    var requests: [Request]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +26,12 @@ class Driver_RequestListController: UITableViewController, DataSourceDelegate {
     }
     
     
-    func dataSource(_ dataSource: DataSource, dataValues: [String : Any]) {
+    func dataSource(_ dataSource: DataSource, dataValues: [String: Any]) {
         updateRequestsFromDataSource(data: dataValues)
     }
     
     
-    func updateRequestsFromDataSource(data: [String : Any]) {
+    func updateRequestsFromDataSource(data: [String: Any]) {
         requests = DataSourceUtils.requestsFromData(data)
         refresh(self)
     }
@@ -66,7 +66,7 @@ class Driver_RequestListController: UITableViewController, DataSourceDelegate {
     }
     
     
-    private func getStatusFromSection(_ section : Int) -> Status {
+    private func getStatusFromSection(_ section: Int) -> Status {
         switch section {
         case 0:
             return Status.available
@@ -81,7 +81,7 @@ class Driver_RequestListController: UITableViewController, DataSourceDelegate {
     
     
     // Fills a RequestStatusCell with data from a given request
-    private func fillCellWithRequestData ( cell :  inout RequestStatusCell, request : Request) {
+    private func fillCellWithRequestData ( cell :  inout RequestStatusCell, request: Request) {
         cell.statusLabel.text = "Group Size: \(getDetailDescription(request, "groupSize"))"
         cell.detailLabel.text = getDetailDescription(request, "gender")
         cell.timeLabel.text = getDetailDescription(request, "timestamp")
@@ -89,7 +89,7 @@ class Driver_RequestListController: UITableViewController, DataSourceDelegate {
     
     
     // Applies special formatting to cells
-    private func specialFormatCell( cell : inout RequestStatusCell, request : Request) {
+    private func specialFormatCell( cell: inout RequestStatusCell, request: Request) {
         if request.status == Status.inProgress {
             cell.backgroundColor = cell.takenRequestColor
         } else if request.status == Status.completed {
@@ -136,7 +136,7 @@ class Driver_RequestListController: UITableViewController, DataSourceDelegate {
 
     
     // Returns a human-readable description for a given detail of a ride request
-    private func getDetailDescription(_ rideRequest : Request, _ detail : String ) -> String {
+    private func getDetailDescription(_ rideRequest: Request, _ detail: String ) -> String {
         if detail == "timestamp" {
             return rideRequest.formattedTimestamp
         }
@@ -149,7 +149,7 @@ class Driver_RequestListController: UITableViewController, DataSourceDelegate {
         
         if requests == nil {return results}
         
-        for  request : Request in self.requests! where request.requestData[column] as! String == value {
+        for  request: Request in self.requests! where request.requestData[column] as! String == value {
                 results.append(request)
         }
         
@@ -157,7 +157,7 @@ class Driver_RequestListController: UITableViewController, DataSourceDelegate {
     }
     
     
-    @objc private func refresh(_ sender : Any) {
+    @objc private func refresh(_ sender: Any) {
         DispatchQueue.main.async {
             self.tableView.reloadData()
             self.refreshControl!.endRefreshing()
