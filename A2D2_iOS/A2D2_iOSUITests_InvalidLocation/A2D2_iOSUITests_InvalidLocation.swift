@@ -34,19 +34,19 @@ class A2D2_iOSUITests_InvalidLocation: XCTestCase {
     func doesViewExist(viewName: String) -> Bool {
         let requestView = app.otherElements[viewName]
         let viewExists = requestView.waitForExistence(timeout: 10)
-        if viewExists{
+        if viewExists {
             return true
-        }
-        else {return false}
+        } else {return false}
+        
     }
     
     
-    func goToRulesPage(){
+    func goToRulesPage() {
         app.buttons["btn_RequestRide"].tap()
     }
     
     
-    func goToPickupRequestOptionsPage(){
+    func goToPickupRequestOptionsPage() {
         goToRulesPage()
         app.buttons["btn_Agree"].tap()
         addUIInterruptionMonitor(withDescription: "Location permission", handler: { alert in
@@ -58,7 +58,7 @@ class A2D2_iOSUITests_InvalidLocation: XCTestCase {
     }
     
     
-    func goToRideStatusPage(){
+    func goToRideStatusPage() {
         goToPickupRequestOptionsPage()
         XCTAssert(doesViewExist(viewName: "vw_PickupRequestOptions"))
         app.textFields["txtFld_Name"].tap()
@@ -73,12 +73,12 @@ class A2D2_iOSUITests_InvalidLocation: XCTestCase {
     }
     
     
-    func goToDriverLoginPage(){
+    func goToDriverLoginPage() {
         app.buttons["btn_DriverLogin"].tap()
     }
     
     
-    func goToRideRequestsPage(){
+    func goToRideRequestsPage() {
         goToDriverLoginPage()
         app.textFields["txtFld_Email"].tap()
         app.textFields["txtFld_Email"].typeText("sheldon@boot.com")
@@ -91,7 +91,7 @@ class A2D2_iOSUITests_InvalidLocation: XCTestCase {
     }
     
     
-    func goToRideRequestsDetailPage(){
+    func goToRideRequestsDetailPage() {
         goToRideRequestsPage()
         XCTAssert(app.cells["cell_RequestStatus"].waitForExistence(timeout: 10))
         app.cells.element(boundBy: 0).tap()

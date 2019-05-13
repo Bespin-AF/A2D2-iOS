@@ -24,7 +24,7 @@ class Driver_Login_Tests: A2D2_iOSUITests {
     
     
     //Tests that invalid login keeps user at login page
-    func testDriverLogin_LoginRequiresInput(){
+    func testDriverLogin_LoginRequiresInput() {
         goToDriverLoginPage()
         XCTAssert(doesViewExist(viewName: "vw_DriverLogin"))
         app.buttons["btn_Login"].tap()
@@ -33,7 +33,7 @@ class Driver_Login_Tests: A2D2_iOSUITests {
     
     
     //Tests that having username and password progresses user to next screen
-    func testDriverLogin_ValidLoginDoesNavigate(){
+    func testDriverLogin_ValidLoginDoesNavigate() {
         goToRideRequestsPage()
         XCTAssert(app.navigationBars["Ride Requests"].waitForExistence(timeout: 10))
         XCTAssert(app.cells["cell_RequestStatus"].waitForExistence(timeout: 10))

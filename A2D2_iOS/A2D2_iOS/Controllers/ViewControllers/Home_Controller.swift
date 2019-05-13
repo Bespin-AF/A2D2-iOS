@@ -15,6 +15,6 @@ class Home_Controller : UIViewController {
         versionLabel.text = SystemUtils.version()
     }
     
-    @IBAction func unwindToHome(segue: UIStoryboardSegue){
+    @IBAction func unwindToHome(segue: UIStoryboardSegue) {
     }
 }

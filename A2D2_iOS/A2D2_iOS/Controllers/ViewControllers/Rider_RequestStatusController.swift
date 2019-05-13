@@ -13,8 +13,8 @@ class Rider_RequestStatusController: UIViewController, DataSourceDelegate {
     @IBOutlet weak var callButton: MyButton!
     var request : Request!
     var a2d2Number : String!
-    let requestDataSource = DataSource(.Requests)
-    let resourceDataSource = DataSource(.Resources)
+    let requestDataSource = DataSource(.requests)
+    let resourceDataSource = DataSource(.resources)
     
     
     override func viewDidLoad() {
@@ -36,18 +36,18 @@ class Rider_RequestStatusController: UIViewController, DataSourceDelegate {
     
     @IBAction func cancelRide() {
         let alert = UIAlertController(title: "Confirm Cancellation", message: "Are you sure you want to cancel your ride request?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler:{action in
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: {_ in
             self.cancelActions()
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alert, animated: true)
     }
     
-    func cancelActions(){
-        self.request.status = .Cancelled
-        requestDataSource.update(key: request.key! ,data: request.requestData)
+    func cancelActions() {
+        self.request.status = .cancelled
+        requestDataSource.update(key: request.key!, data: request.requestData)
         let alert = UIAlertController(title: "Cancelled", message: "Your request was cancelled successfully", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: {action in
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in
             self.performSegue(withIdentifier: "return_home_after_cancel", sender: self)
         }))
         self.present(alert, animated: true)

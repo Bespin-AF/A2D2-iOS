@@ -11,7 +11,7 @@ import XCTest
 class Driver_Requests_Tests: A2D2_iOSUITests {
 
     //Tests that the Driver Requests page has a table to contain the requests
-    func testDriverRequests_HasAllComponents(){
+    func testDriverRequests_HasAllComponents() {
         goToRideRequestsPage()
         XCTAssert(app.navigationBars["Ride Requests"].waitForExistence(timeout: 10))
         XCTAssert(app.tables.count == 1)

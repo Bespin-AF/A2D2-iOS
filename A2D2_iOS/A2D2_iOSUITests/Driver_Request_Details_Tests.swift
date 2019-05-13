@@ -11,7 +11,7 @@ import XCTest
 class Driver_Request_Details_Tests: A2D2_iOSUITests {
 
     //Tests that the Driver Request Details page has all required components
-    func testDriverRequestDetails_HasAllComponents(){
+    func testDriverRequestDetails_HasAllComponents() {
         goToRideRequestsDetailPage()
         XCTAssert(doesViewExist(viewName: "vw_RequestDetails"))
         XCTAssert(app.staticTexts["lbl_Status"].exists)

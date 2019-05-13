@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Request : Comparable{
+class Request : Comparable {
     
     static func < (lhs: Request, rhs: Request) -> Bool {
         return lhs.timestamp < rhs.timestamp
@@ -22,10 +22,11 @@ class Request : Comparable{
     var key : String?
     
     init() {}
+    // swiftlint:disable syntactic_sugar
     init(_ data : Dictionary<String, Any>) {
         self.requestData = data
     }
-    
+    // swiftlint:disable force_cast
     var status : Status {
         get {
             let statusString = requestData["status"] as! String? ?? ""
@@ -81,7 +82,5 @@ class Request : Comparable{
         set { requestData["driver"] = newValue}
     }
     
-    var formattedTimestamp : String {
-        get { return DataSourceUtils.outputFormatter.string(from: self.timestamp) }
-    }
+    var formattedTimestamp : String { return DataSourceUtils.outputFormatter.string(from: self.timestamp) }
 }

@@ -9,19 +9,19 @@
 import Foundation
 
 public enum Status {
-    case Available, InProgress, Completed, Empty, Cancelled
+    case available, inProgress, completed, empty, cancelled
 }
 
 
 public func getStatusString(_ status : Status) -> String {
     switch status {
-    case .Available:
+    case .available:
         return "Available"
-    case .InProgress:
+    case .inProgress:
         return "In Progress"
-    case .Completed:
+    case .completed:
         return "Completed"
-    case .Cancelled:
+    case .cancelled:
         return "Cancelled"
     default:
         return ""
@@ -32,14 +32,14 @@ public func getStatusString(_ status : Status) -> String {
 public func resolveStatus(fromString string : String) -> Status {
     switch string {
     case "Available":
-        return .Available
+        return .available
     case "In Progress":
-        return .InProgress
+        return .inProgress
     case "Completed":
-        return .Completed
+        return .completed
     case "Cancelled":
-        return .Cancelled
+        return .cancelled
     default:
-        return .Empty
+        return .empty
     }
 }

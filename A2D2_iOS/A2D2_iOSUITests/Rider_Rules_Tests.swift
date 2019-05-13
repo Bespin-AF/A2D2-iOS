@@ -11,7 +11,7 @@ import XCTest
 class Rider_Rules_Tests: A2D2_iOSUITests {
     
     //Test that the Request ride button navigates to A2D2Rules
-    func testA2D2Rules_HasAllComponents(){
+    func testA2D2Rules_HasAllComponents() {
         goToRulesPage()
         XCTAssert(doesViewExist(viewName: "vw_A2D2Rules"))
         XCTAssert(app.buttons["btn_Agree"].exists)

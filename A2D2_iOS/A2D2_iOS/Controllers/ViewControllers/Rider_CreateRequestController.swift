@@ -20,11 +20,11 @@ class Rider_CreateRequestController: UIViewController, UIPickerViewDelegate, UIP
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var submitButton: MyButton!
     
-    let groupSizeData = [1,2,3,4]
+    let groupSizeData = [1, 2, 3, 4]
     let requesterGender = ["Male", "Female"]
     let commentsPlaceholderText = "Comments (Optional)"
     let locationManager = CLLocationManager()
-    let dataSource = DataSource(.Requests)
+    let dataSource = DataSource(.requests)
     var selectedGroupSize: Int = 0
     var selectedGender: String = ""
     var request: Request!
@@ -95,9 +95,9 @@ class Rider_CreateRequestController: UIViewController, UIPickerViewDelegate, UIP
     
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if(pickerView == groupSizePicker){
+        if pickerView == groupSizePicker {
             return groupSizeData.count
-        } else if (pickerView == requesterGenderPicker) {
+        } else if pickerView == requesterGenderPicker {
             return requesterGender.count
         }
         return 0
@@ -106,10 +106,10 @@ class Rider_CreateRequestController: UIViewController, UIPickerViewDelegate, UIP
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         var str = ""
-        if(pickerView == groupSizePicker){
+        if pickerView == groupSizePicker {
             str = "\(groupSizeData[row])"
             selectedGroupSize = groupSizeData[row]
-        } else if (pickerView == requesterGenderPicker) {
+        } else if pickerView == requesterGenderPicker {
             str = "\(requesterGender[row])"
             selectedGender = requesterGender[row]
         }
@@ -119,7 +119,7 @@ class Rider_CreateRequestController: UIViewController, UIPickerViewDelegate, UIP
     
     //Return button function for text fields
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if(textField == nameField){
+        if textField == nameField {
             phoneNumberField.becomeFirstResponder()
             return false
         }
@@ -134,7 +134,7 @@ class Rider_CreateRequestController: UIViewController, UIPickerViewDelegate, UIP
             return isValidNameInput(string)
         }
         
-        if textField == phoneNumberField && isValidPhoneNumberInput(string){
+        if textField == phoneNumberField && isValidPhoneNumberInput(string) {
             replaceTextFieldRange(textField: textField, range: range, replacementString: string)
             phoneNumberField.text = SystemUtils.format(phoneNumber: phoneNumberField.text!)
             return false
@@ -143,14 +143,14 @@ class Rider_CreateRequestController: UIViewController, UIPickerViewDelegate, UIP
     }
     
     
-    private func isValidNameInput(_ string: String) -> Bool{
+    private func isValidNameInput(_ string: String) -> Bool {
         guard !(string == "") else { return true }
         let test = NSPredicate(format:"SELF MATCHES %@", "[A-z .]") // Matches any letter or space
         return test.evaluate(with: string)
     }
     
     
-    private func replaceTextFieldRange(textField: UITextField, range: NSRange, replacementString string: String){
+    private func replaceTextFieldRange(textField: UITextField, range: NSRange, replacementString string: String) {
         let rangeStart = textField.position(from: textField.beginningOfDocument, offset: range.location)!
         let rangeEnd = textField.position(from: rangeStart, offset: range.length)!
         let textRange = textField.textRange(from: rangeStart, to: rangeEnd)!
@@ -177,12 +177,12 @@ class Rider_CreateRequestController: UIViewController, UIPickerViewDelegate, UIP
     }
     
     
-    @IBAction func requestDriver(){
+    @IBAction func requestDriver() {
         guard validateInputs() else { return }
         
         let alert = UIAlertController(title: "Confirm Driver Request", message: "Are you sure you want to dispatch a driver to your current location?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler:{ action in
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { _ in
             self.submitDriverRequest()
         }))
         
@@ -197,7 +197,7 @@ class Rider_CreateRequestController: UIViewController, UIPickerViewDelegate, UIP
     }
     
     
-    func buildRequest() -> Request{
+    func buildRequest() -> Request {
         let request = Request()
         guard let location = locationManager.location else {
             print("Can't get location.")
@@ -206,7 +206,7 @@ class Rider_CreateRequestController: UIViewController, UIPickerViewDelegate, UIP
         
         var phoneNumber = phoneNumberField.text!
         SystemUtils.removeNonNumbers(&phoneNumber)
-        request.status = Status.Available
+        request.status = Status.available
         request.gender = selectedGender
         request.groupSize = selectedGroupSize
         request.remarks = commentsTextView.textColor == UIColor.black ? commentsTextView.text : ""
@@ -219,16 +219,14 @@ class Rider_CreateRequestController: UIViewController, UIPickerViewDelegate, UIP
         return request
     }
     
-    func validateInputs()-> Bool {
+    func validateInputs() -> Bool {
         if nameField.text == "" { // Name not empty
             notify("Name is a required field.")
             return false
-        }
-        else if phoneNumberField.text == "" { //Phone Number not empty
+        } else if phoneNumberField.text == "" { //Phone Number not empty
             notify("Phone number is a required field.")
             return false
-        }
-        else if(!hasValidPhoneNumber()){ // Phone number requirements. Takes into account the special characters from formatting
+        } else if !hasValidPhoneNumber() { // Phone number requirements. Takes into account the special characters from formatting
             notify("Invalid Phone Number.")
             return false
         }
@@ -241,24 +239,24 @@ class Rider_CreateRequestController: UIViewController, UIPickerViewDelegate, UIP
     }
     
     
-    func hasValidPhoneNumber() -> Bool{
+    func hasValidPhoneNumber() -> Bool {
         var phoneNumber = phoneNumberField.text!
         SystemUtils.removeNonNumbers(&phoneNumber)
         
-        if(phoneNumber.count != 10){
+        if phoneNumber.count != 10 {
             return false
         }
         return true
     }
     
     
-    func notify(_ message:String){
+    func notify(_ message:String) {
         let nilNameAlert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
         nilNameAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(nilNameAlert, animated: true)
     }
     
-    
+    // swiftlint:disable force_cast
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "request_sent" else { return }
         let statusView = segue.destination as! Rider_RequestStatusController

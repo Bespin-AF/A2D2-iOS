@@ -13,28 +13,28 @@
 import Firebase
 import CoreLocation
 
-class DataSourceUtils{
+class DataSourceUtils {
     static var readInFormatter = DateFormatter()
     static var outputFormatter = DateFormatter()
     
     // Initializes firebase functionality
-    public static func initFirebase(){
+    public static func initFirebase() {
         FirebaseApp.configure()
     }
     
     
-    public static func initDateFormatters(){
+    public static func initDateFormatters() {
         readInFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
         outputFormatter.dateFormat = "MMM dd, HH:mm"
     }
 
     
-    public static func convertToMeters(miles : Double) -> Double{
+    public static func convertToMeters(miles : Double) -> Double {
         return miles * 1609.344 // Exact number of meters in a mile
     }
     
     
-    public static func getLocationFromString(_ locationString : String) -> CLLocation{
+    public static func getLocationFromString(_ locationString : String) -> CLLocation {
         guard locationString.contains(",") else {
             return CLLocation(latitude: 0, longitude: 0)
         }
@@ -46,12 +46,14 @@ class DataSourceUtils{
     }
     
     
-    public static func requestsFromData(_ data : [String:Any]) -> [Request]{
+    public static func requestsFromData(_ data : [String:Any]) -> [Request] {
         var requests = [Request]()
         for row in data {
             let requestData = row.value as? NSDictionary
             if requestData == nil { continue }
             let requestKey = row.key
+            // swiftlint:disable force_cast
+            // swiftlint:disable syntactic_sugar
             let request = Request(requestData as! Dictionary<String, Any>)
             request.key = requestKey
             requests.append(request)

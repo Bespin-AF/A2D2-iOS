@@ -9,13 +9,13 @@
 import XCTest
 
 class Rider_Request_Status_Tests: A2D2_iOSUITests {
-    func testStatus_HasAllComponents(){
+    func testStatus_HasAllComponents() {
         goToRideStatusPage()
         XCTAssert(app.images["a2d2logo"].exists)
     }
     
     
-    func testStatus_CancelRequestButton(){
+    func testStatus_CancelRequestButton() {
         goToRideStatusPage()
         app.buttons["Cancel Ride"].tap()
         app.alerts["Confirm Cancellation"].buttons["Confirm"].tap()

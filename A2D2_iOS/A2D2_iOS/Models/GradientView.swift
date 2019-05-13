@@ -36,9 +36,7 @@ class GradientView: UIView {
     
     
     override class var layerClass: AnyClass {
-        get {
             return CAGradientLayer.self
-        }
     }
     
     override func layoutSubviews() {
@@ -47,9 +45,10 @@ class GradientView: UIView {
 
 
     func updateView() {
+        // swiftlint:disable force_cast
         let layer = self.layer as! CAGradientLayer
-        layer.colors = [firstColor, secondColor].map{$0.cgColor}
-        if (self.isHorizontal) {
+        layer.colors = [firstColor, secondColor].map {$0.cgColor}
+        if self.isHorizontal {
             layer.startPoint = CGPoint(x: 0, y: 0.5)
             layer.endPoint = CGPoint (x: 1, y: 0.5)
         } else {

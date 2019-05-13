@@ -10,11 +10,11 @@ import UIKit
 import CoreLocation
 import Foundation
 
-class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSourceDelegate{
+class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSourceDelegate {
 
     @IBOutlet var agreeButton: MyButton!
     var locationManager = CLLocationManager()
-    var resources = DataSource(.Resources)
+    var resources = DataSource(.resources)
     var didAgreeToRules : Bool!
     var baseLocationString : String!
     var a2d2Number : String!
@@ -27,7 +27,7 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
         resources.delegate = self
     }
     
-    
+    // swiftlint:disable force_cast
     func dataSource(_ dataSource: DataSource, dataValues: [String : Any]) {
         baseLocationString = (dataValues["maxwell_afb_location"] as! String)
         a2d2Number = (dataValues["a2d2phonenumber"] as! String)
@@ -46,9 +46,9 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
         print("HEY")
     }
 
-    
+    // swiftlint:disable todo
     func checkLocationPermissions() {
-        if(CLLocationManager.authorizationStatus() == .notDetermined ) {
+        if CLLocationManager.authorizationStatus() == .notDetermined {
             locationManager.requestWhenInUseAuthorization()
         } else if didDenyLocationPermission() {
             alertNoLocationPermissions()
@@ -119,7 +119,7 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
     
     func alertOutOfRange() {
         let alert = UIAlertController(title: "Location out of range!", message: "You are outside of the 25 mile range defined by the A2D2 program rules. If you still require a ride, please call A2D2 Dispatch at 334-953-3913", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Call", style: .default, handler:{ action in
+        alert.addAction(UIAlertAction(title: "Call", style: .default, handler: { _ in
             self.callA2D2()
         }))
         alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))

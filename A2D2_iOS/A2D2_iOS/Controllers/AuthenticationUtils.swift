@@ -11,7 +11,7 @@ import Firebase
 class AuthenticationUtils {
     public static var currentUser : User?
     
-    public static func login(email : String, password : String, completion : @escaping (Bool) -> ()){
+    public static func login(email : String, password : String, completion : @escaping (Bool) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if let error = error {
                 handleLoginError(error)
@@ -21,14 +21,14 @@ class AuthenticationUtils {
         }
     }
     
-    
+    // swiftlint:disable todo
     //TODO
     private static func handleLoginError(_ error : Error) {
         
     }
     
     
-    private static func updateCurrentUser(authResult : AuthDataResult?) -> Bool{
+    private static func updateCurrentUser(authResult : AuthDataResult?) -> Bool {
         if let newUser = authResult?.user {
             currentUser = newUser
             return true

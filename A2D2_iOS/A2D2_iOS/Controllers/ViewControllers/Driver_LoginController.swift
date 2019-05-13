@@ -9,7 +9,7 @@
 import UIKit
 
 
-class Driver_LoginController: UIViewController, UITextFieldDelegate{
+class Driver_LoginController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var dismissKeyboardTap: UITapGestureRecognizer!
     @IBOutlet var dismissKeyboardSwipe: UISwipeGestureRecognizer!
@@ -25,18 +25,18 @@ class Driver_LoginController: UIViewController, UITextFieldDelegate{
     }
     
     
-    @IBAction func LoginButtonTapped(_ sender: Any) {
-        if (emailTextField.text == "" || passwordTextField.text == "") {
+    @IBAction func loginButtonTapped(_ sender: Any) {
+        if emailTextField.text == "" || passwordTextField.text == "" {
             notify("Username and Password are Required")
             return
         }
-        AuthenticationUtils.login(email: emailTextField.text!, password: passwordTextField.text!) { (validLogin) -> () in
+        AuthenticationUtils.login(email: emailTextField.text!, password: passwordTextField.text!) { (validLogin) -> Void in
             self.notifyLoginAttempt(result: validLogin)
         }
     }
     
     
-    func notifyLoginAttempt(result wasValid: Bool){
+    func notifyLoginAttempt(result wasValid: Bool) {
         if wasValid {
             self.performSegue(withIdentifier: "ride_requests", sender: self)
         } else {
@@ -50,7 +50,7 @@ class Driver_LoginController: UIViewController, UITextFieldDelegate{
     }
     
     
-    @IBAction func swipeHandler (_ sender: UISwipeGestureRecognizer){
+    @IBAction func swipeHandler (_ sender: UISwipeGestureRecognizer) {
         if sender.state == .ended {
             view.endEditing(true)
         }
@@ -67,7 +67,7 @@ class Driver_LoginController: UIViewController, UITextFieldDelegate{
     }
     
     
-    func notify(_ message:String){
+    func notify(_ message:String) {
         let nilNameAlert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
         nilNameAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(nilNameAlert, animated: true)

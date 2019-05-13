@@ -101,7 +101,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <action selector="LoginButtonTapped:" destination="BrQ-ep-bwc" eventType="touchUpInside" id="cWz-gB-4g7"/>
+                                    <action selector="loginButtonTapped:" destination="BrQ-ep-bwc" eventType="touchUpInside" id="cWz-gB-4g7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -370,7 +370,7 @@
             <objects>
                 <tableViewController id="5Nn-ur-44m" customClass="Driver_RequestListController" customModule="A2D2_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="19A-AK-4j0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="530"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>

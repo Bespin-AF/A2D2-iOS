@@ -11,7 +11,7 @@ import XCTest
 class Rider_Create_Request_Tests: A2D2_iOSUITests {
 
     //Group Size Picker appears on Pickup Request Options Page
-    func testRequest_HasAllComponents(){
+    func testRequest_HasAllComponents() {
         goToPickupRequestOptionsPage()
         XCTAssert(doesViewExist(viewName: "vw_PickupRequestOptions"))
         XCTAssert(app.pickers["pkr_GroupSize"].exists)

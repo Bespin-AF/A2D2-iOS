@@ -29,19 +29,18 @@ class A2D2_iOSUITests: XCTestCase {
     func doesViewExist(viewName: String) -> Bool {
         let requestView = app.otherElements[viewName]
         let viewExists = requestView.waitForExistence(timeout: 10)
-        if viewExists{
+        if viewExists {
             return true
-        }
-        else {return false}
+        } else {return false}
     }
     
     
-    func goToRulesPage(){
+    func goToRulesPage() {
         app.buttons["btn_RequestRide"].tap()
     }
     
     
-    func goToPickupRequestOptionsPage(){
+    func goToPickupRequestOptionsPage() {
         goToRulesPage()
         addUIInterruptionMonitor(withDescription: "Location permission", handler: { alert in
             alert.buttons["Allow"].tap()
@@ -54,7 +53,7 @@ class A2D2_iOSUITests: XCTestCase {
     }
     
     
-    func goToRideStatusPage(){
+    func goToRideStatusPage() {
         goToPickupRequestOptionsPage()
         app.textFields["txtFld_Name"].tap()
         app.textFields["txtFld_Name"].typeText("Automated Test Name")
@@ -66,12 +65,12 @@ class A2D2_iOSUITests: XCTestCase {
     }
     
     
-    func goToDriverLoginPage(){
+    func goToDriverLoginPage() {
         app.buttons["btn_DriverLogin"].tap()
     }
     
     
-    func goToRideRequestsPage(){
+    func goToRideRequestsPage() {
         goToDriverLoginPage()
         app.textFields["txtFld_Email"].tap()
         app.textFields["txtFld_Email"].typeText("sheldon@boot.com")
@@ -84,7 +83,7 @@ class A2D2_iOSUITests: XCTestCase {
     }
     
     
-    func goToRideRequestsDetailPage(){
+    func goToRideRequestsDetailPage() {
         goToRideRequestsPage()
         XCTAssert(app.cells["cell_RequestStatus"].waitForExistence(timeout: 10))
         app.cells.element(boundBy: 0).tap()

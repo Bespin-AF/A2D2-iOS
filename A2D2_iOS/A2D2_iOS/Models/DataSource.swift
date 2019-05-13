@@ -9,17 +9,17 @@
 import Firebase
 
 public enum DataSourceType {
-    case Requests, Resources, TestRequests
+    case requests, resources, testRequests
 }
 
 
 func getDataSourceTypeString(dataTable type:DataSourceType) -> String {
     switch type {
-    case .Requests:
+    case .requests:
         return "requests"
-    case .Resources:
+    case .resources:
         return "Resources"
-    case .TestRequests:
+    case .testRequests:
         return "test_requests"
     }
 }
@@ -27,8 +27,8 @@ func getDataSourceTypeString(dataTable type:DataSourceType) -> String {
 
 class DataSource {
     private var ref = Database.database().reference()
-    var delegate : DataSourceDelegate?{
-        didSet{
+    var delegate : DataSourceDelegate? {
+        didSet {
             startSync()
         }
     }
@@ -44,24 +44,24 @@ class DataSource {
     }
     
     
-    public func sendData(data : Any) -> String{
+    public func sendData(data : Any) -> String {
         let key = ref.childByAutoId().key!
         set(key: key, value: data)
         return key
     }
     
     
-    public func update(key:String, data: Any){
+    public func update(key:String, data: Any) {
         set(key: key, value: data)
     }
     
     
-    public func remove(key: String){
+    public func remove(key: String) {
         ref.child(key).removeValue()
     }
     
     
-    private func set(key : String, value : Any){
+    private func set(key : String, value : Any) {
         ref.child(key).setValue(value)
     }
     
@@ -116,8 +116,9 @@ class DataSource {
     
     private func convertSnapshotToDictionary(_ snapshot : DataSnapshot) -> [String:Any] {
         var results : [String : Any] = [:]
-        
+        // swiftlint:disable force_cast
         for result in snapshot.children.allObjects as! [DataSnapshot] {
+            // swiftlint:disable todo
             results[result.key] = result.value // TODO Establish data standards
         }
         

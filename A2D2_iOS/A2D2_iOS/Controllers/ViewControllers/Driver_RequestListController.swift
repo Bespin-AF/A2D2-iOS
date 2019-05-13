@@ -11,7 +11,7 @@
 import UIKit
 
 class Driver_RequestListController: UITableViewController, DataSourceDelegate {
-    let requestSource = DataSource(.Requests)
+    let requestSource = DataSource(.requests)
     var requests : [Request]?
 
     override func viewDidLoad() {
@@ -31,20 +31,20 @@ class Driver_RequestListController: UITableViewController, DataSourceDelegate {
     }
     
     
-    func updateRequestsFromDataSource(data: [String : Any]){
+    func updateRequestsFromDataSource(data: [String : Any]) {
         requests = DataSourceUtils.requestsFromData(data)
         refresh(self)
     }
     
-    
+    // swiftlint:disable force_cast
     // Gives TableView populated cells
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "requestCell", for: indexPath) as! RequestStatusCell
         let rideRequest = getRequest(atIndex: indexPath)
         fillCellWithRequestData(cell: &cell, request: rideRequest)
-        if rideRequest.driver == AuthenticationUtils.currentUser!.uid{
+        if rideRequest.driver == AuthenticationUtils.currentUser!.uid {
             specialFormatCell(cell: &cell, request: rideRequest)
-        }  else {
+        } else {
             cell.backgroundColor = UIColor.clear
         }
         return cell
@@ -66,22 +66,22 @@ class Driver_RequestListController: UITableViewController, DataSourceDelegate {
     }
     
     
-    private func getStatusFromSection(_ section : Int) ->  Status {
+    private func getStatusFromSection(_ section : Int) -> Status {
         switch section {
         case 0:
-            return Status.Available
+            return Status.available
         case 1:
-            return Status.InProgress
+            return Status.inProgress
         case 2:
-            return Status.Completed
+            return Status.completed
         default:
-            return Status.Empty
+            return Status.empty
         }
     }
     
     
     // Fills a RequestStatusCell with data from a given request
-    private func fillCellWithRequestData ( cell :  inout RequestStatusCell, request : Request){
+    private func fillCellWithRequestData ( cell :  inout RequestStatusCell, request : Request) {
         cell.statusLabel.text = "Group Size: \(getDetailDescription(request, "groupSize"))"
         cell.detailLabel.text = getDetailDescription(request, "gender")
         cell.timeLabel.text = getDetailDescription(request, "timestamp")
@@ -89,10 +89,10 @@ class Driver_RequestListController: UITableViewController, DataSourceDelegate {
     
     
     // Applies special formatting to cells
-    private func specialFormatCell( cell : inout RequestStatusCell, request : Request){
-        if request.status == Status.InProgress{
+    private func specialFormatCell( cell : inout RequestStatusCell, request : Request) {
+        if request.status == Status.inProgress {
             cell.backgroundColor = cell.takenRequestColor
-        } else if request.status == Status.Completed {
+        } else if request.status == Status.completed {
             cell.backgroundColor = cell.completedRequestColor
         }
     }
@@ -100,7 +100,7 @@ class Driver_RequestListController: UITableViewController, DataSourceDelegate {
     
     // Gives TableView the number of sections it has
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return getRequestsWhere(column: "status", equals: getStatusString(.Empty)).count > 0 ? 4 : 3
+        return getRequestsWhere(column: "status", equals: getStatusString(.empty)).count > 0 ? 4 : 3
     }
     
     
@@ -126,7 +126,7 @@ class Driver_RequestListController: UITableViewController, DataSourceDelegate {
         tableView.reloadData()
     }
     
-    
+    // swiftlint:disable force_cast
     // NOTE: Assumes only segue is to the detail page
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailView = segue.destination as! Driver_RequestDetailsController
@@ -136,30 +136,28 @@ class Driver_RequestListController: UITableViewController, DataSourceDelegate {
 
     
     // Returns a human-readable description for a given detail of a ride request
-    private func getDetailDescription(_ rideRequest : Request,_ detail : String ) -> String{
-        if(detail == "timestamp"){
+    private func getDetailDescription(_ rideRequest : Request, _ detail : String ) -> String {
+        if detail == "timestamp" {
             return rideRequest.formattedTimestamp
         }
         return "\(rideRequest.requestData[detail] ?? "N/A")"
     }
     
     
-    private func getRequestsWhere(column: String,equals value: String) -> [Request]{
+    private func getRequestsWhere(column: String, equals value: String) -> [Request] {
         var results = [Request]()
         
         if requests == nil {return results}
         
-        for  request : Request in self.requests! {
-            if request.requestData[column] as! String == value {
+        for  request : Request in self.requests! where request.requestData[column] as! String == value {
                 results.append(request)
-            }
         }
         
         return results
     }
     
     
-    @objc private func refresh(_ sender : Any){
+    @objc private func refresh(_ sender : Any) {
         DispatchQueue.main.async {
             self.tableView.reloadData()
             self.refreshControl!.endRefreshing()

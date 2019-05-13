@@ -19,7 +19,7 @@ class Driver_RequestDetailsController: UIViewController {
     @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var commentsLabel: UILabel!
     
-    let dataSource = DataSource(.Requests)
+    let dataSource = DataSource(.requests)
     var request : Request!
     
     
@@ -31,7 +31,7 @@ class Driver_RequestDetailsController: UIViewController {
     }
     
     
-    private func populateRequestInfo(){
+    private func populateRequestInfo() {
         statusLabel.text = "\(getStatusString(request.status))"
         groupSizeLabel.text = "\(request.groupSize)"
         nameLabel.text = "\(request.name)"
@@ -41,9 +41,9 @@ class Driver_RequestDetailsController: UIViewController {
     }
     
     
-    private func updateActionButton(){
-        if (request.status == .InProgress &&
-            request.driver == AuthenticationUtils.currentUser?.uid ?? "Default") {
+    private func updateActionButton() {
+        if request.status == .inProgress &&
+            request.driver == AuthenticationUtils.currentUser?.uid ?? "Default" {
             jobActionButton.setTitle("Complete Job", for: .normal)
         } else {
             jobActionButton.setTitle("Take Job", for: .normal)
@@ -51,8 +51,8 @@ class Driver_RequestDetailsController: UIViewController {
     }
     
     
-    private func updateEnabledButtons(){
-        if(request.status == .Completed){
+    private func updateEnabledButtons() {
+        if request.status == .completed {
             jobActionButton.isEnabled = false
             textRiderButton.isEnabled = false
         } else {
@@ -70,7 +70,7 @@ class Driver_RequestDetailsController: UIViewController {
     
     
     @IBAction func jobActionTapped(_ sender: Any) {
-        if(request.status == .InProgress && request.driver == AuthenticationUtils.currentUser?.uid){
+        if request.status == .inProgress && request.driver == AuthenticationUtils.currentUser?.uid {
             confirmCompleteJob()
         } else {
             confirmTakeJob()
@@ -81,35 +81,35 @@ class Driver_RequestDetailsController: UIViewController {
     func confirmTakeJob() {
         let alertTitle = hasJobBeenPreviouslyAccepted() ? "Confirm Pickup" : "Job Previously Accepted"
         let alert = UIAlertController(title: alertTitle, message: "Are you sure you want to pick up this rider?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: {action in self.takeJobActions()}))
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: {_ in self.takeJobActions()}))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alert, animated: true)
     }
     
     
-    func takeJobActions(){
+    func takeJobActions() {
         let lat = request.lat
         let lon = request.lon
-        updateStatus(.InProgress)
+        updateStatus(.inProgress)
         openMaps(lat, lon)
     }
     
     
     func confirmCompleteJob() {
         let alert = UIAlertController(title: "Confirm Dropoff", message: "This job has ben successfully completed.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: {action in self.completeJobActions()}))
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: {_ in self.completeJobActions()}))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alert, animated: true)
     }
     
     
-    func completeJobActions(){
-        updateStatus(.Completed)
+    func completeJobActions() {
+        updateStatus(.completed)
         navigationController?.popViewController(animated: true)
     }
     
     
-    func openMaps(_ lat: Double,_ lon: Double) {
+    func openMaps(_ lat: Double, _ lon: Double) {
         SystemUtils.map(lat: lat, lon: lon)
     }
     
@@ -122,6 +122,6 @@ class Driver_RequestDetailsController: UIViewController {
     
     
     func hasJobBeenPreviouslyAccepted() -> Bool {
-        return request.status == Status.Available
+        return request.status == Status.available
     }
 }

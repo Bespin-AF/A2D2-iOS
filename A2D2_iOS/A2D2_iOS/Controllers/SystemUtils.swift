@@ -11,7 +11,7 @@ import UIKit
 
 class SystemUtils {
     
-    public static func text(number : String, message : String = ""){
+    public static func text(number : String, message : String = "") {
         //Percent encoding is required for use in the URL
         let text = message.addingPercentEncoding(withAllowedCharacters:.alphanumerics)!
         let url = URL(string: "sms://\(number)/&body=\(text)")!
@@ -19,13 +19,13 @@ class SystemUtils {
     }
     
     
-    public static func call(number : String){
+    public static func call(number : String) {
         let url = URL(string: "tel://\(number)")!
         UIApplication.shared.open(url)
     }
     
     
-    public static func map(lat : Double, lon : Double){
+    public static func map(lat : Double, lon : Double) {
         let url = URL(string: "http://maps.apple.com/?sll=\(lat),\(lon)&t=s")!
         UIApplication.shared.open(url)
     }
@@ -56,13 +56,13 @@ class SystemUtils {
         
         return number
     }
-    
-    public static func removeNonNumbers(_ number: inout String){
+    // swiftlint:disable force_try
+    public static func removeNonNumbers(_ number: inout String) {
         let regex = try! NSRegularExpression(pattern: "[\\D]")
         let range = NSRange(location: 0, length: number.count)
         number = regex.stringByReplacingMatches(in: number, range: range, withTemplate: "")
     }
-    
+    // swiftlint:disable force_cast
     public static func version() -> String {
         let dictionary = Bundle.main.infoDictionary!
         let version = dictionary["CFBundleShortVersionString"] as! String
