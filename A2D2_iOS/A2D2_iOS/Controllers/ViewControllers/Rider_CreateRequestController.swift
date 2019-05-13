@@ -158,11 +158,13 @@ class Rider_CreateRequestController: UIViewController, UIPickerViewDelegate, UIP
     }
     
     
-    private func isValidPhoneNumberInput(_ string: String) -> Bool{
+    private func isValidPhoneNumberInput(_ string: String) -> Bool {
         guard !(string == "") else { return true }
-        let test = try! NSRegularExpression(pattern: "\\D")
-        let matches = test.matches(in: string, range: NSRange(location: 0,length: string.count))
-        return matches.count == 0
+        let test = try? NSRegularExpression(pattern: "\\D")
+        if let matches = test?.matches(in: string, range: NSRange(location: 0, length: string.count)) {
+            return matches.count == 0
+        } else { return false }
+        
     }
     
     
