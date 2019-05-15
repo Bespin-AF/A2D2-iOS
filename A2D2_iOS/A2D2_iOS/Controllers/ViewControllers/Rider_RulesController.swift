@@ -15,6 +15,7 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
     @IBOutlet var agreeButton: MyButton!
     @IBOutlet weak var loadingEffect: UIVisualEffectView!
     var locationManager = CLLocationManager()
+    var mostCurrentLocation : CLLocation?
     var didAgreeToRules = false
     var baseLocationString : String?
     var a2d2Number : String?
@@ -23,27 +24,21 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
-        agreeButton.isEnabled = false
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        DataSourceUtils.resources.delegate = self
-        DataSourceUtils.locations.delegate = self
         loadingEffect.isHidden = true
     }
     
     
     func dataSource(_ dataSource: DataSource, dataValues: [String : Any]) {
         if(dataSource === DataSourceUtils.locations) {
-            baseLocationString = (dataValues[DataSourceUtils.a2d2Base] as! String)
+            baseLocationString = (dataValues[DataSourceUtils.a2d2Base!] as! String)
+            checkLocation(location: mostCurrentLocation!)
         } else {
             a2d2Number = (dataValues["phone_number"] as! String)
-        }
-        
-        if(baseLocationString != nil && a2d2Number != nil){
-            agreeButton.isEnabled = true
         }
     }
     
@@ -54,6 +49,7 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
     
     
     @IBAction func agreeButtonTapped() {
+        loadingEffect.isHidden = false
         didAgreeToRules = true
         checkLocationPermissions()
     }
@@ -66,7 +62,6 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
             alertNoLocationPermissions()
         } else if hasLocationPermissions() {
             locationManager.requestLocation()
-            loadingEffect.isHidden = false
         }
     }
     
@@ -74,19 +69,22 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if hasLocationPermissions() && didAgreeToRules {
             locationManager.requestLocation()
-            loadingEffect.isHidden = false
         }
     }
     
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        loadingEffect.isHidden = true
         if didAgreeToRules {
-            let mostCurrentLocation = locations.last!
-            checkLocation(location: mostCurrentLocation)
+            mostCurrentLocation = locations.last!
+            DataSourceUtils.resolveA2D2Base(location: mostCurrentLocation!, confirmBaseLocation)
         }
     }
     
+    func confirmBaseLocation (didResolve: Bool) {
+        guard mostCurrentLocation != nil else {return}
+        DataSourceUtils.resources.delegate = self
+        DataSourceUtils.locations.delegate = self
+    }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error updating location: \(error)")
@@ -110,6 +108,7 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
         } else {
             alertOutOfRange()
         }
+        loadingEffect.isHidden = true
     }
     
     
