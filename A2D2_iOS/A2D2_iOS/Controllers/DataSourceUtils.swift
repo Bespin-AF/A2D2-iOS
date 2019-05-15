@@ -12,15 +12,17 @@
 
 import Firebase
 import CoreLocation
+import FirebaseFunctions
 
 class DataSourceUtils{
     static var readInFormatter = DateFormatter()
     static var outputFormatter = DateFormatter()
-    static let resources = DataSource(.Resources)
+    static var a2d2Base : String?
+    static let resources = DataSource(.BaseInfo)
     static let requests = DataSource(.Requests)
-    static let locations = DataSource(.Locations)
-    static let a2d2Base = "maxwell_afb"
+    static let locations = DataSource(.BaseLocation)
     
+
     // Initializes firebase functionality
     public static func initFirebase(){
         FirebaseApp.configure()
@@ -33,8 +35,23 @@ class DataSourceUtils{
     }
 
     
+    public static func resolveA2D2Base(location : CLLocation, _ completion : ((_ : Bool)->())? = nil) {
+        let locationString = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
+        Functions.functions().httpsCallable("closest").call(locationString, completion: { (response, error) in
+            var didResolve = false
+            a2d2Base = response?.data as? String
+            if (a2d2Base != nil) {
+                didResolve = true
+            }
+            if(completion != nil){
+                completion!(didResolve)
+            }
+        })
+    }
+
+    
     public static func convertToMeters(miles : Double) -> Double{
-        return miles * 1609.344 // Exact number of meters in a mile
+        return miles * 1609.344 // Meters in a mile
     }
     
     

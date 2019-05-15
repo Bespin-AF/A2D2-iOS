@@ -9,26 +9,26 @@
 import Firebase
 
 public enum DataSourceType {
-    case Requests, Resources, TestRequests, Locations
+    case Requests, BaseInfo, BaseLocation, TestRequests
 }
 
 
-func getDataSourceTypeRef(_ ref: DatabaseReference, dataTable type:DataSourceType) -> DatabaseReference {
+func getDataSourceTypeRef(_ ref: DatabaseReference, baseKey: String, dataTable type:DataSourceType) -> DatabaseReference {
     switch type {
     case .Requests:
         return ref.child("requests")
-    case .Resources:
+    case .BaseInfo:
         return ref.child("base_info")
+    case .BaseLocation:
+        return Database.database().reference().child("locations")
     case .TestRequests:
         return ref.child("test_requests")
-    case .Locations:
-        return Database.database().reference().child("locations")
     }
 }
 
 
 class DataSource {
-    private var ref = Database.database().reference().child("bases").child(DataSourceUtils.a2d2Base)
+    private var ref : DatabaseReference!
     var delegate : DataSourceDelegate?{
         didSet{
             startSync()
@@ -36,7 +36,13 @@ class DataSource {
     }
     
     init(_ type : DataSourceType) {
-        ref = getDataSourceTypeRef(ref, dataTable: type)
+        guard DataSourceUtils.a2d2Base != nil else {
+            print("Error: Base has not been resolved!")
+            return
+        }
+        let baseKey = DataSourceUtils.a2d2Base!
+        ref = Database.database().reference().child("bases").child(baseKey)
+        ref = getDataSourceTypeRef(ref, baseKey: baseKey, dataTable: type)
     }
     
     
