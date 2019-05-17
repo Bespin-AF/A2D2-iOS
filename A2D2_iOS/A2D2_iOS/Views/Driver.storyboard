@@ -104,7 +104,7 @@
                                     <action selector="LoginButtonTapped:" destination="BrQ-ep-bwc" eventType="touchUpInside" id="cWz-gB-4g7"/>
                                 </connections>
                             </button>
-                            <visualEffectView opaque="NO" alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gm7-Rr-ekG">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gm7-Rr-ekG">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YnT-8e-5JH">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>

@@ -45,7 +45,7 @@
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="LsW-yX-TTn"/>
                                     <constraint firstAttribute="height" priority="999" constant="500" id="kKs-I3-agF"/>
                                 </constraints>
-                                <mutableString key="text">1. You are required to show your driver your military ID to be picked up.
+                                <string key="text">1. You are required to show your driver your military ID to be picked up.
 
 2. The driver will only take you to your home address.
 
@@ -56,7 +56,7 @@
 
 PRIVACY: A2D2 is an anonymous program. None of your provided information will be stored or given to leadership at anytime.
 
-DISCLAIMER: This is a private organization. It is not part of the Department of Defense or any of its components and it has no governmental status.</mutableString>
+DISCLAIMER: This is a private organization. It is not part of the Department of Defense or any of its components and it has no governmental status.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -82,7 +82,7 @@ DISCLAIMER: This is a private organization. It is not part of the Department of 
                                     <action selector="agreeButtonTapped" destination="HSI-p4-IT9" eventType="touchUpInside" id="u2i-LE-f5n"/>
                                 </connections>
                             </button>
-                            <visualEffectView opaque="NO" alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0BW-NF-0WR">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0BW-NF-0WR">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="98X-yP-hCb">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
