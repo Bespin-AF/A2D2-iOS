@@ -13,7 +13,8 @@ public enum DataSourceType {
 }
 
 
-func getDataSourceTypeRef(_ ref: DatabaseReference, baseKey: String, dataTable type:DataSourceType) -> DatabaseReference {
+func getDataSourceTypeRef(baseKey: String, dataTable type:DataSourceType) -> DatabaseReference {
+    let ref = Database.database().reference().child("bases").child(baseKey)
     switch type {
     case .Requests:
         return ref.child("requests")
@@ -29,25 +30,32 @@ func getDataSourceTypeRef(_ ref: DatabaseReference, baseKey: String, dataTable t
 
 class DataSource {
     private var ref : DatabaseReference!
+    private var type : DataSourceType!
     var delegate : DataSourceDelegate?{
         didSet{
-            startSync()
+            initDataSourceConnection()
         }
     }
     
     init(_ type : DataSourceType) {
-        guard DataSourceUtils.a2d2Base != nil else {
-            print("Error: Base has not been resolved!")
-            return
-        }
-        let baseKey = DataSourceUtils.a2d2Base!
-        ref = Database.database().reference().child("bases").child(baseKey)
-        ref = getDataSourceTypeRef(ref, baseKey: baseKey, dataTable: type)
+        self.type = type
+        ref = Database.database().reference()
+        initDataSourceConnection()
     }
     
     
     deinit {
         ref.removeAllObservers()
+    }
+    
+    
+    public func initDataSourceConnection() {
+        guard DataSourceUtils.a2d2Base != nil else { return }
+        let baseKey = DataSourceUtils.a2d2Base!
+        ref = getDataSourceTypeRef(baseKey: baseKey, dataTable: type)
+        if( delegate != nil) {
+            startSync()
+        }
     }
     
     

@@ -17,7 +17,13 @@ import FirebaseFunctions
 class DataSourceUtils{
     static var readInFormatter = DateFormatter()
     static var outputFormatter = DateFormatter()
-    static var a2d2Base : String?
+    static var a2d2Base : String? {
+        didSet {
+            resources.initDataSourceConnection()
+            requests.initDataSourceConnection()
+            locations.initDataSourceConnection()
+        }
+    }
     static let resources = DataSource(.BaseInfo)
     static let requests = DataSource(.Requests)
     static let locations = DataSource(.BaseLocation)
