@@ -104,14 +104,33 @@
                                     <action selector="LoginButtonTapped:" destination="BrQ-ep-bwc" eventType="touchUpInside" id="cWz-gB-4g7"/>
                                 </connections>
                             </button>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gm7-Rr-ekG">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YnT-8e-5JH">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="h8W-sZ-MXI">
+                                            <rect key="frame" x="188.5" y="390.5" width="37" height="37"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="h8W-sZ-MXI" firstAttribute="centerX" secondItem="YnT-8e-5JH" secondAttribute="centerX" id="EnS-Je-iOK"/>
+                                        <constraint firstItem="h8W-sZ-MXI" firstAttribute="centerY" secondItem="YnT-8e-5JH" secondAttribute="centerY" id="gUB-X0-rUt"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                         </subviews>
                         <accessibility key="accessibilityConfiguration" identifier="vw_DriverLogin"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="BZ8-i8-Bd5" firstAttribute="centerX" secondItem="e1v-JJ-DJ8" secondAttribute="centerX" id="16C-kf-TQA"/>
                             <constraint firstItem="0gB-Cd-9r0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="e1v-JJ-DJ8" secondAttribute="leading" constant="20" id="EX8-Km-AVz"/>
+                            <constraint firstItem="e1v-JJ-DJ8" firstAttribute="trailing" secondItem="Gm7-Rr-ekG" secondAttribute="trailing" id="Ey2-fK-HaK"/>
                             <constraint firstItem="qW0-2T-Wdm" firstAttribute="top" secondItem="0gB-Cd-9r0" secondAttribute="bottom" priority="750" constant="75" id="Kfw-Yv-Vfk"/>
                             <constraint firstItem="qW0-2T-Wdm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0gB-Cd-9r0" secondAttribute="bottom" constant="10" id="LfV-dH-73e"/>
+                            <constraint firstItem="Gm7-Rr-ekG" firstAttribute="top" secondItem="e1v-JJ-DJ8" secondAttribute="top" id="PKv-ky-b5S"/>
                             <constraint firstItem="BZ8-i8-Bd5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="e1v-JJ-DJ8" secondAttribute="leading" constant="20" id="R7T-Ul-b7d"/>
                             <constraint firstItem="0gB-Cd-9r0" firstAttribute="top" secondItem="e1v-JJ-DJ8" secondAttribute="top" priority="250" constant="40" id="aIm-Wz-Myd"/>
                             <constraint firstItem="qW0-2T-Wdm" firstAttribute="centerX" secondItem="e1v-JJ-DJ8" secondAttribute="centerX" id="f4D-i9-ocG"/>
@@ -120,7 +139,9 @@
                             <constraint firstItem="0gB-Cd-9r0" firstAttribute="centerX" secondItem="e1v-JJ-DJ8" secondAttribute="centerX" id="qam-UW-1jP"/>
                             <constraint firstItem="qW0-2T-Wdm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="e1v-JJ-DJ8" secondAttribute="leading" constant="20" id="tat-2n-7sg"/>
                             <constraint firstItem="e1v-JJ-DJ8" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="BZ8-i8-Bd5" secondAttribute="bottom" constant="10" id="wfO-t8-ceX"/>
+                            <constraint firstItem="e1v-JJ-DJ8" firstAttribute="bottom" secondItem="Gm7-Rr-ekG" secondAttribute="bottom" id="xCP-yh-pUT"/>
                             <constraint firstItem="BZ8-i8-Bd5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qW0-2T-Wdm" secondAttribute="bottom" constant="10" id="xKH-7o-hlG"/>
+                            <constraint firstItem="Gm7-Rr-ekG" firstAttribute="leading" secondItem="e1v-JJ-DJ8" secondAttribute="leading" id="zjm-AV-mnK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="e1v-JJ-DJ8"/>
                         <connections>
@@ -133,6 +154,7 @@
                         <outlet property="dismissKeyboardSwipe" destination="X42-9Z-rbd" id="Epf-6g-Ob4"/>
                         <outlet property="dismissKeyboardTap" destination="I6B-ln-niJ" id="eNJ-Vo-Mwn"/>
                         <outlet property="emailTextField" destination="Ykv-Ud-Zt6" id="CvX-ML-Xsh"/>
+                        <outlet property="loadingEffect" destination="Gm7-Rr-ekG" id="a4L-AX-Nfk"/>
                         <outlet property="loginButton" destination="BZ8-i8-Bd5" id="L4A-yB-tT3"/>
                         <outlet property="passwordTextField" destination="4GQ-d0-v3f" id="cLr-XZ-71Z"/>
                         <segue destination="kKn-mr-OHu" kind="show" identifier="ride_requests" id="Lc2-Iy-Ksk"/>

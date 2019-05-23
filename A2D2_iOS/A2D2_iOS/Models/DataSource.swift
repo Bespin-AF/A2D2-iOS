@@ -9,39 +9,53 @@
 import Firebase
 
 public enum DataSourceType {
-    case Requests, Resources, TestRequests, Locations
+    case Requests, BaseInfo, BaseLocation, TestRequests
 }
 
 
-func getDataSourceTypeRef(_ ref: DatabaseReference, dataTable type:DataSourceType) -> DatabaseReference {
+func getDataSourceTypeRef(baseKey: String, dataTable type:DataSourceType) -> DatabaseReference {
+    let ref = Database.database().reference().child("bases").child(baseKey)
     switch type {
     case .Requests:
         return ref.child("requests")
-    case .Resources:
+    case .BaseInfo:
         return ref.child("base_info")
+    case .BaseLocation:
+        return Database.database().reference().child("locations")
     case .TestRequests:
         return ref.child("test_requests")
-    case .Locations:
-        return Database.database().reference().child("locations")
     }
 }
 
 
 class DataSource {
-    private var ref = Database.database().reference().child("bases").child(DataSourceUtils.a2d2Base)
+    private var ref : DatabaseReference!
+    private var type : DataSourceType!
     var delegate : DataSourceDelegate?{
         didSet{
-            startSync()
+            initDataSourceConnection()
         }
     }
     
     init(_ type : DataSourceType) {
-        ref = getDataSourceTypeRef(ref, dataTable: type)
+        self.type = type
+        ref = Database.database().reference()
+        initDataSourceConnection()
     }
     
     
     deinit {
         ref.removeAllObservers()
+    }
+    
+    
+    public func initDataSourceConnection() {
+        guard DataSourceUtils.a2d2Base != nil else { return }
+        let baseKey = DataSourceUtils.a2d2Base!
+        ref = getDataSourceTypeRef(baseKey: baseKey, dataTable: type)
+        if( delegate != nil) {
+            startSync()
+        }
     }
     
     

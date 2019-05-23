@@ -15,6 +15,7 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
     @IBOutlet var agreeButton: MyButton!
     @IBOutlet weak var loadingEffect: UIVisualEffectView!
     var locationManager = CLLocationManager()
+    var mostCurrentLocation : CLLocation?
     var didAgreeToRules = false
     var baseLocationString : String?
     var a2d2Number : String?
@@ -23,75 +24,83 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
-        agreeButton.isEnabled = false
+        DataSourceUtils.resources.delegate = self
+        DataSourceUtils.locations.delegate = self
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        DataSourceUtils.resources.delegate = self
-        DataSourceUtils.locations.delegate = self
-        loadingEffect.isHidden = true
-    }
-    
-    
-    func dataSource(_ dataSource: DataSource, dataValues: [String : Any]) {
-        if(dataSource === DataSourceUtils.locations) {
-            baseLocationString = (dataValues[DataSourceUtils.a2d2Base] as! String)
-        } else {
-            a2d2Number = (dataValues["phone_number"] as! String)
-        }
-        
-        if(baseLocationString != nil && a2d2Number != nil){
-            agreeButton.isEnabled = true
-        }
-    }
-    
-    
-    override func viewWillDisappear(_ animated: Bool) {
+        //Make sure loading effect is always hidden when the page is shown
+        stopLoadingEffect()
         didAgreeToRules = false
     }
     
     
     @IBAction func agreeButtonTapped() {
+        startLoadingEffect()
         didAgreeToRules = true
         checkLocationPermissions()
     }
-
+    
     
     func checkLocationPermissions() {
-        if(CLLocationManager.authorizationStatus() == .notDetermined ) {
-            locationManager.requestWhenInUseAuthorization()
-        } else if didDenyLocationPermission() {
+        if didDenyLocationPermission() {
             alertNoLocationPermissions()
         } else if hasLocationPermissions() {
             locationManager.requestLocation()
-            loadingEffect.isHidden = false
+        } else {
+            locationManager.requestWhenInUseAuthorization()
         }
     }
+
     
-    
+    //Called by locationManager when Authorization Status changes
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if hasLocationPermissions() && didAgreeToRules {
             locationManager.requestLocation()
-            loadingEffect.isHidden = false
         }
     }
     
     
+    //Called by locationManager when location update(s) become available
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        loadingEffect.isHidden = true
         if didAgreeToRules {
-            let mostCurrentLocation = locations.last!
-            checkLocation(location: mostCurrentLocation)
+            mostCurrentLocation = locations.last!
+            DataSourceUtils.resolveA2D2Base(location: mostCurrentLocation!)
         }
     }
     
     
+    //Called by locationManager when an error occurs while trying to update location
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Error updating location: \(error)")
+        //TODO Error logging
     }
     
+    
+    //Called by DataSource(s) when values are available
+    func dataSource(_ dataSource: DataSource, dataValues: [String : Any]) {
+        guard DataSourceUtils.a2d2Base != nil else {
+            return
+        }
+        if(dataSource === DataSourceUtils.locations) {
+            baseLocationString = (dataValues[DataSourceUtils.a2d2Base!] as! String)
+            checkLocation(location: mostCurrentLocation!)
+        } else {
+            a2d2Number = (dataValues["phone_number"] as! String)
+        }
+    }
+
+    
+    func checkLocation(location : CLLocation) {
+        if isWithinRange(location: location) {
+            proceedToRequestPage()
+        } else {
+            alertOutOfRange()
+        }
+        loadingEffect.isHidden = true
+    }
+
     
     func hasLocationPermissions() -> Bool {
         return CLLocationManager.authorizationStatus() == .authorizedAlways ||
@@ -101,15 +110,6 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
     
     func didDenyLocationPermission() -> Bool {
         return CLLocationManager.authorizationStatus() == .denied
-    }
-    
-    
-    func checkLocation(location : CLLocation) {
-        if isWithinRange(location: location) {
-            proceedToRequestPage()
-        } else {
-            alertOutOfRange()
-        }
     }
     
     
@@ -145,5 +145,15 @@ class Rider_RulesController: UIViewController, CLLocationManagerDelegate, DataSo
     
     func callA2D2() {
         SystemUtils.call(number: a2d2Number!)
+    }
+    
+    
+    func startLoadingEffect(){
+        loadingEffect.isHidden = false
+    }
+    
+    
+    func stopLoadingEffect() {
+        loadingEffect.isHidden = true
     }
 }
