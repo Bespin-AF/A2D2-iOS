@@ -11,7 +11,7 @@ import Firebase
 class AuthenticationUtils {
     public static var currentUser : User?
     
-    public static func login(email : String, password : String, completion : @escaping (Bool) -> ()){
+    public static func login(email : String, password : String, completion : @escaping (Bool) -> ()) {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if let error = error {
                 handleLoginError(error)
@@ -21,6 +21,17 @@ class AuthenticationUtils {
         }
     }
     
+    
+    public static func isRegisteredUserEmail (email : String, completion : @escaping (Bool) -> ()) {
+        Auth.auth().fetchSignInMethods(forEmail: email, completion: { (results,error) in
+            if results == nil {
+                completion(false)
+            } else {
+                completion(true)
+            }
+        })
+    }
+
     
     //TODO
     private static func handleLoginError(_ error : Error) {
@@ -34,5 +45,15 @@ class AuthenticationUtils {
             return true
         }
         return false
+    }
+    
+    
+    public static func requestPasswordReset(forEmail email: String){
+        Auth.auth().sendPasswordReset(withEmail: email, completion: requestResetError(_:))
+    }
+    
+    
+    private static func requestResetError(_ : Error?){
+        print("Email Sent")
     }
 }

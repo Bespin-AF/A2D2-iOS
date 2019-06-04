@@ -17,7 +17,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Gh1-OC-8OP">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.26925605535507202" green="0.33530300855636597" blue="0.39382681250572205" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.27058823529411763" green="0.33725490196078434" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -61,7 +61,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="qW0-2T-Wdm">
-                                <rect key="frame" x="20" y="266" width="374" height="120"/>
+                                <rect key="frame" x="20" y="266" width="374" height="172.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ykv-Ud-Zt6">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
@@ -83,6 +83,24 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HtW-FV-8JG">
+                                        <rect key="frame" x="0.0" y="140" width="374" height="32.5"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="btn_Forgot_Password"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Forgot Password">
+                                                    <attributes>
+                                                        <font key="NSFont" metaFont="system" size="17"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        <integer key="NSUnderline" value="1"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="ForgotPasswordButtonTapped:" destination="BrQ-ep-bwc" eventType="touchUpInside" id="eZ5-Dd-CM4"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="8AU-bH-YmJ"/>
@@ -128,14 +146,17 @@
                             <outletCollection property="gestureRecognizers" destination="X42-9Z-rbd" appends="YES" id="AXu-Ed-Khx"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Driver Login" id="YFM-Ru-RX7"/>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="Driver Login" id="zjs-F5-bUa"/>
                     <connections>
                         <outlet property="dismissKeyboardSwipe" destination="X42-9Z-rbd" id="Epf-6g-Ob4"/>
                         <outlet property="dismissKeyboardTap" destination="I6B-ln-niJ" id="eNJ-Vo-Mwn"/>
                         <outlet property="emailTextField" destination="Ykv-Ud-Zt6" id="CvX-ML-Xsh"/>
+                        <outlet property="forgotPasswordButton" destination="HtW-FV-8JG" id="Gii-BT-4oM"/>
                         <outlet property="loginButton" destination="BZ8-i8-Bd5" id="L4A-yB-tT3"/>
                         <outlet property="passwordTextField" destination="4GQ-d0-v3f" id="cLr-XZ-71Z"/>
-                        <segue destination="kKn-mr-OHu" kind="show" identifier="ride_requests" id="Lc2-Iy-Ksk"/>
+                        <segue destination="kKn-mr-OHu" kind="showDetail" identifier="ride_requests" id="Lc2-Iy-Ksk"/>
+                        <segue destination="lDy-Fl-zmT" kind="show" identifier="reset_password" id="2sx-IO-m9K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXv-Jq-5yL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -151,6 +172,102 @@
                 </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1730" y="106"/>
+        </scene>
+        <!--Reset Password-->
+        <scene sceneID="Au9-3G-JeJ">
+            <objects>
+                <viewController title="Reset Password" id="lDy-Fl-zmT" customClass="Driver_ResetPasswordController" customModule="A2D2_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wdi-iP-AFD" customClass="GradientView" customModule="A2D2_iOS" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tF2-sj-H1j">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="barTintColor" red="0.27450980392156865" green="0.32549019607843138" blue="0.38431372549019605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Reset Password" id="RHv-tq-ls1">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="weP-J9-gNI">
+                                            <connections>
+                                                <action selector="cancelButtonTapped:" destination="lDy-Fl-zmT" id="W3Q-yC-mDf"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="0p6-kv-sNg">
+                                <rect key="frame" x="20" y="109" width="374" height="120"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lcy-Ry-JBC">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="txtFld_Email"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="750" constant="50" id="31X-k4-eVd"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Gkd-ya-TiH"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="email"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l4U-YB-hDx">
+                                        <rect key="frame" x="0.0" y="70" width="374" height="50"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="txtFld_Email"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="email"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="750" constant="500" id="FPZ-lp-96o"/>
+                                    <constraint firstItem="l4U-YB-hDx" firstAttribute="height" secondItem="Lcy-Ry-JBC" secondAttribute="height" id="K6f-a0-SDQ"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="gLw-cr-jcY"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pnb-qp-C2F" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
+                                <rect key="frame" x="20" y="772" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="W9o-JZ-ox8"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="gNY-w4-Jpu"/>
+                                    <constraint firstAttribute="width" priority="750" constant="500" id="tNR-Pi-rIZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Send link"/>
+                                <connections>
+                                    <action selector="sendLinkButtonTapped:" destination="lDy-Fl-zmT" eventType="touchUpInside" id="C88-vL-Mu9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tF2-sj-H1j" firstAttribute="width" secondItem="wdi-iP-AFD" secondAttribute="width" id="549-tg-FYL"/>
+                            <constraint firstItem="Pnb-qp-C2F" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="b1S-M9-gzg" secondAttribute="leading" constant="20" id="5qb-6u-lVQ"/>
+                            <constraint firstItem="b1S-M9-gzg" firstAttribute="bottom" secondItem="Pnb-qp-C2F" secondAttribute="bottom" priority="750" constant="40" id="DhM-fa-lAy"/>
+                            <constraint firstItem="b1S-M9-gzg" firstAttribute="trailing" secondItem="tF2-sj-H1j" secondAttribute="trailing" id="RRJ-xN-CVC"/>
+                            <constraint firstItem="0p6-kv-sNg" firstAttribute="top" secondItem="tF2-sj-H1j" secondAttribute="bottom" constant="21" id="WPB-Ni-PPQ"/>
+                            <constraint firstItem="Pnb-qp-C2F" firstAttribute="centerX" secondItem="b1S-M9-gzg" secondAttribute="centerX" id="c52-2w-QUb"/>
+                            <constraint firstItem="tF2-sj-H1j" firstAttribute="leading" secondItem="b1S-M9-gzg" secondAttribute="leading" id="c79-5e-e2d"/>
+                            <constraint firstItem="b1S-M9-gzg" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Pnb-qp-C2F" secondAttribute="bottom" constant="10" id="ff3-e2-hev"/>
+                            <constraint firstItem="tF2-sj-H1j" firstAttribute="top" secondItem="b1S-M9-gzg" secondAttribute="top" id="fha-uP-F13"/>
+                            <constraint firstItem="0p6-kv-sNg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="b1S-M9-gzg" secondAttribute="leading" constant="20" id="mm4-kx-4sv"/>
+                            <constraint firstItem="0p6-kv-sNg" firstAttribute="centerX" secondItem="b1S-M9-gzg" secondAttribute="centerX" id="rCM-1l-UBO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="b1S-M9-gzg"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <connections>
+                        <outlet property="confirmEmailTextBox" destination="l4U-YB-hDx" id="z5f-Sp-J81"/>
+                        <outlet property="emailTextBox" destination="Lcy-Ry-JBC" id="Zbf-NH-yDz"/>
+                        <segue destination="mFs-qr-S1g" kind="unwind" identifier="return_to_login" unwindAction="unwindToLoginWithSegue:" id="uqC-F6-Fuh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NJ0-tO-ykk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="mFs-qr-S1g" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1729" y="822"/>
         </scene>
         <!--Ride Request Details-->
         <scene sceneID="T4v-w9-rQw">
@@ -360,8 +477,8 @@
                         <outlet property="textRiderButton" destination="35X-FU-cah" id="27e-sq-z5Y"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UpV-9T-NHm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="DZz-gI-cBn" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UpV-9T-NHm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4040.8000000000002" y="107.88177339901478"/>
         </scene>

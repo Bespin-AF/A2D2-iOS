@@ -16,12 +16,22 @@ class Driver_LoginController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: MyButton!
+    @IBOutlet weak var forgotPasswordButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         emailTextField.delegate = self
         passwordTextField.delegate = self
+    }
+    
+    
+    @IBAction func ForgotPasswordButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "reset_password", sender: self)
+    }
+    
+    
+    @IBAction func unwindToLogin(segue: UIStoryboardSegue){
     }
     
     
@@ -36,7 +46,7 @@ class Driver_LoginController: UIViewController, UITextFieldDelegate{
     }
     
     
-    func notifyLoginAttempt(result wasValid: Bool){
+    func notifyLoginAttempt(result wasValid: Bool ){
         if wasValid {
             self.performSegue(withIdentifier: "ride_requests", sender: self)
         } else if !SystemUtils.isConnectedToNetwork(){
