@@ -17,7 +17,9 @@ class Driver_LoginController: UIViewController, UITextFieldDelegate, CLLocationM
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: MyButton!
     @IBOutlet weak var loadingEffect: UIVisualEffectView!
+    @IBOutlet weak var forgotPasswordButton: UIButton!
     var locationManager = CLLocationManager()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,15 @@ class Driver_LoginController: UIViewController, UITextFieldDelegate, CLLocationM
         passwordTextField.delegate = self
         loadingEffect.isHidden = true
         locationManager.delegate = self
+    }
+    
+    
+    @IBAction func ForgotPasswordButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "reset_password", sender: self)
+    }
+    
+    
+    @IBAction func unwindToLogin(segue: UIStoryboardSegue){
     }
     
     
@@ -41,7 +52,7 @@ class Driver_LoginController: UIViewController, UITextFieldDelegate, CLLocationM
     }
     
     
-    func notifyLoginAttempt(result wasValid: Bool){
+    func notifyLoginAttempt(result wasValid: Bool ){
         if wasValid {
             checkLocationPermissions()
         } else if !SystemUtils.isConnectedToNetwork(){

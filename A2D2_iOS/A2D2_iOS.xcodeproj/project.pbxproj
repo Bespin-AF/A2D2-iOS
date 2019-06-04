@@ -48,6 +48,7 @@
 		5DE1A344224D3607009F56CB /* Rider_Rules_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A343224D3607009F56CB /* Rider_Rules_Tests.swift */; };
 		5DE1A346224D3680009F56CB /* Rider_Create_Request_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A345224D3680009F56CB /* Rider_Create_Request_Tests.swift */; };
 		5DE1A349224D379A009F56CB /* A2D2_Home_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A348224D379A009F56CB /* A2D2_Home_Tests.swift */; };
+		5DE7780C229DD8C700F9F829 /* Driver_ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE7780B229DD8C700F9F829 /* Driver_ResetPasswordController.swift */; };
 		5DF33BFC225FCFB0004647CE /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF33BFB225FCFB0004647CE /* DataSource.swift */; };
 		5DF33BFE225FD040004647CE /* DataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF33BFD225FD040004647CE /* DataSourceDelegate.swift */; };
 		7C193E3621A45C660095728D /* Rider_RulesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C193E3521A45C660095728D /* Rider_RulesController.swift */; };
@@ -141,6 +142,7 @@
 		5DE1A343224D3607009F56CB /* Rider_Rules_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rider_Rules_Tests.swift; sourceTree = "<group>"; };
 		5DE1A345224D3680009F56CB /* Rider_Create_Request_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rider_Create_Request_Tests.swift; sourceTree = "<group>"; };
 		5DE1A348224D379A009F56CB /* A2D2_Home_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A2D2_Home_Tests.swift; sourceTree = "<group>"; };
+		5DE7780B229DD8C700F9F829 /* Driver_ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver_ResetPasswordController.swift; sourceTree = "<group>"; };
 		5DF33BFB225FCFB0004647CE /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		5DF33BFD225FD040004647CE /* DataSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceDelegate.swift; sourceTree = "<group>"; };
 		7C193E3521A45C660095728D /* Rider_RulesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rider_RulesController.swift; sourceTree = "<group>"; };
@@ -208,8 +210,9 @@
 				5D868BDD2270D1BB00FBF80C /* Loading_Controller.swift */,
 				5DC4F432224E84C0005F82B0 /* Home_Controller.swift */,
 				5D0F6EB721EE795100F8CD54 /* Driver_LoginController.swift */,
-				5DA0070F21EFB4D800C31F42 /* Driver_RequestListController.swift */,
+				5DE7780B229DD8C700F9F829 /* Driver_ResetPasswordController.swift */,
 				5D15458021FF8B4800613E04 /* Driver_RequestDetailsController.swift */,
+				5DA0070F21EFB4D800C31F42 /* Driver_RequestListController.swift */,
 				7C193E3521A45C660095728D /* Rider_RulesController.swift */,
 				1D2E769721B1998E00F9EF84 /* Rider_CreateRequestController.swift */,
 				5D01C03121F8C07D0067948F /* Rider_RequestStatusController.swift */,
@@ -554,6 +557,7 @@
 				5DA0070E21EFAE6900C31F42 /* RequestStatusCell.swift in Sources */,
 				5DF33BFE225FD040004647CE /* DataSourceDelegate.swift in Sources */,
 				7C94E7C4219B4E0900A623D9 /* AppDelegate.swift in Sources */,
+				5DE7780C229DD8C700F9F829 /* Driver_ResetPasswordController.swift in Sources */,
 				5D01C03221F8C07D0067948F /* Rider_RequestStatusController.swift in Sources */,
 				7C193E3621A45C660095728D /* Rider_RulesController.swift in Sources */,
 				5DC4F43622526576005F82B0 /* GradientView.swift in Sources */,

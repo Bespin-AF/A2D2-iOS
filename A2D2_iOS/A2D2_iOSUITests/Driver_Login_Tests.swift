@@ -20,6 +20,8 @@ class Driver_Login_Tests: A2D2_iOSUITests {
         XCTAssert(app.secureTextFields["txtFld_Password"].isEnabled)
         XCTAssert(app.buttons["btn_Login"].exists)
         XCTAssert(app.buttons["btn_Login"].isEnabled)
+        XCTAssert(app.buttons["btn_Forgot_Password"].exists)
+        XCTAssert(app.buttons["btn_Forgot_Password"].isEnabled)
     }
     
     
@@ -37,6 +39,13 @@ class Driver_Login_Tests: A2D2_iOSUITests {
         goToRideRequestsPage()
         XCTAssert(app.navigationBars["Ride Requests"].waitForExistence(timeout: 10))
         XCTAssert(app.cells["cell_RequestStatus"].waitForExistence(timeout: 10))
+    }
+    
+    
+    func testDriverLogin_PasswordResetAlert(){
+        goToDriverLoginPage()
+        app.buttons["btn_Forgot_Password"].tap()
+        XCTAssert(app.alerts["Password Reset Email Sent"].waitForExistence(timeout: 10))
     }
 
 }
