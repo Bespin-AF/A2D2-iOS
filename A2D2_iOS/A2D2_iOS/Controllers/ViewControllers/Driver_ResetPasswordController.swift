@@ -23,25 +23,23 @@ class Driver_ResetPasswordController: UIViewController {
         let emailConfirm = confirmEmailTextBox.text!
         
         if (email == "" || emailConfirm == ""){
-            notify("Please fill out both boxes");
+            notify(title: "",message: "Please fill out both boxes");
         } else if (email != emailConfirm) {
-            notify("Emails do not match")
+            notify(title: "", message: "Emails do not match")
         } else {
             AuthenticationUtils.isRegisteredUserEmail(email: email) { (isRegistered) in
                 if isRegistered {
                     AuthenticationUtils.requestPasswordReset(forEmail: email)
-                    self.notify("Email Sent")
-                } else {
-                    self.notify("Email not Registered")
                 }
+                self.notify(title: "Message Sent",message: "Check following email for instructions: \(email)")
             }
         }
     }
     
     
-    func notify(_ message:String){
-        let nilNameAlert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
-        nilNameAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+    func notify(title : String, message : String){
+        let nilNameAlert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        nilNameAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
         self.present(nilNameAlert, animated: true)
     }
 }
