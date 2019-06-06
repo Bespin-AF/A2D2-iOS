@@ -50,6 +50,7 @@
 		5DE1A349224D379A009F56CB /* A2D2_Home_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A348224D379A009F56CB /* A2D2_Home_Tests.swift */; };
 		5DF33BFC225FCFB0004647CE /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF33BFB225FCFB0004647CE /* DataSource.swift */; };
 		5DF33BFE225FD040004647CE /* DataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF33BFD225FD040004647CE /* DataSourceDelegate.swift */; };
+		5DF690F422A81B8E009BA925 /* RideRequestTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF690F322A81B8E009BA925 /* RideRequestTableView.swift */; };
 		7C193E3621A45C660095728D /* Rider_RulesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C193E3521A45C660095728D /* Rider_RulesController.swift */; };
 		7C94E7C4219B4E0900A623D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C94E7C3219B4E0900A623D9 /* AppDelegate.swift */; };
 		7C94E7C9219B4E0900A623D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C94E7C7219B4E0900A623D9 /* Main.storyboard */; };
@@ -143,6 +144,7 @@
 		5DE1A348224D379A009F56CB /* A2D2_Home_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A2D2_Home_Tests.swift; sourceTree = "<group>"; };
 		5DF33BFB225FCFB0004647CE /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		5DF33BFD225FD040004647CE /* DataSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceDelegate.swift; sourceTree = "<group>"; };
+		5DF690F322A81B8E009BA925 /* RideRequestTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRequestTableView.swift; sourceTree = "<group>"; };
 		7C193E3521A45C660095728D /* Rider_RulesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rider_RulesController.swift; sourceTree = "<group>"; };
 		7C94E7C0219B4E0900A623D9 /* A2D2_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = A2D2_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C94E7C3219B4E0900A623D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -240,7 +242,6 @@
 		5D82743721FF424400D89A9D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5DA0070D21EFAE6900C31F42 /* RequestStatusCell.swift */,
 				5DD42AB62200EB390000AE86 /* Request.swift */,
 				5DD42AB42200E24F0000AE86 /* Status.swift */,
 				5DC4F43522526576005F82B0 /* GradientView.swift */,
@@ -248,6 +249,8 @@
 				5D2A78F022526DBF00B2290A /* MyTextField.swift */,
 				5DF33BFB225FCFB0004647CE /* DataSource.swift */,
 				5DF33BFD225FD040004647CE /* DataSourceDelegate.swift */,
+				5DF690F322A81B8E009BA925 /* RideRequestTableView.swift */,
+				5DA0070D21EFAE6900C31F42 /* RequestStatusCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				5DC4F43622526576005F82B0 /* GradientView.swift in Sources */,
 				5D868BDE2270D1BB00FBF80C /* Loading_Controller.swift in Sources */,
 				5DB5EA3F21F260A20030D304 /* DataSourceUtils.swift in Sources */,
+				5DF690F422A81B8E009BA925 /* RideRequestTableView.swift in Sources */,
 				5D2A78F122526DBF00B2290A /* MyTextField.swift in Sources */,
 				5DD42AB32200E2080000AE86 /* SystemUtils.swift in Sources */,
 				5D15458121FF8B4800613E04 /* Driver_RequestDetailsController.swift in Sources */,
