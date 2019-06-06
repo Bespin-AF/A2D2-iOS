@@ -244,7 +244,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l4U-YB-hDx">
                                         <rect key="frame" x="0.0" y="70" width="374" height="50"/>
@@ -252,7 +252,7 @@
                                         <accessibility key="accessibilityConfiguration" identifier="txtFld_Email"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" textContentType="email"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -263,6 +263,7 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pnb-qp-C2F" customClass="MyButton" customModule="A2D2_iOS" customModuleProvider="target">
                                 <rect key="frame" x="20" y="772" width="374" height="50"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="W9o-JZ-ox8"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="gNY-w4-Jpu"/>
@@ -276,6 +277,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="tF2-sj-H1j" firstAttribute="width" secondItem="wdi-iP-AFD" secondAttribute="width" id="549-tg-FYL"/>
                             <constraint firstItem="Pnb-qp-C2F" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="b1S-M9-gzg" secondAttribute="leading" constant="20" id="5qb-6u-lVQ"/>
@@ -291,6 +293,10 @@
                             <constraint firstItem="0p6-kv-sNg" firstAttribute="centerX" secondItem="b1S-M9-gzg" secondAttribute="centerX" id="rCM-1l-UBO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b1S-M9-gzg"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="5r4-Tb-TOt" appends="YES" id="bRU-Uq-ZQ9"/>
+                            <outletCollection property="gestureRecognizers" destination="C4d-LK-lLz" appends="YES" id="Hxo-4I-nfV"/>
+                        </connections>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
@@ -301,6 +307,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NJ0-tO-ykk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="mFs-qr-S1g" userLabel="Exit" sceneMemberID="exit"/>
+                <swipeGestureRecognizer direction="down" id="5r4-Tb-TOt">
+                    <connections>
+                        <action selector="swipeHandler:" destination="lDy-Fl-zmT" id="yL1-zU-H84"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <tapGestureRecognizer id="C4d-LK-lLz">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="lDy-Fl-zmT" id="ejC-mb-us1"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1729" y="822"/>
         </scene>

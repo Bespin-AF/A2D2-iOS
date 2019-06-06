@@ -42,4 +42,17 @@ class Driver_ResetPasswordController: UIViewController {
         nilNameAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
         self.present(nilNameAlert, animated: true)
     }
+    
+    
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    
+    @IBAction func swipeHandler (_ sender: UISwipeGestureRecognizer){
+        if sender.state == .ended {
+            view.endEditing(true)
+        }
+    }
+    
 }
