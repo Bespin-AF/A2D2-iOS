@@ -26,13 +26,13 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>4</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Please allow us to access your location</string>
+	<string>A2D2 will use your location data to find you and ensure safe pickup. A2D2 will not store this data or use it in any other way.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Please allow us to accsss your location</string>
+	<string>A2D2 will use your location data to find you and ensure safe pickup. A2D2 will not store this data or use it in any other way.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
