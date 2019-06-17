@@ -27,7 +27,7 @@ class SystemUtils {
     
     
     public static func map(lat : Double, lon : Double){
-        let url = URL(string: "http://maps.apple.com/?sll=\(lat),\(lon)&t=s")!
+        let url = URL(string: "http://maps.apple.com/?daddr=\(lat),\(lon)&dirflg=d")!
         UIApplication.shared.open(url)
     }
     
