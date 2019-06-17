@@ -41,7 +41,6 @@
 		5DD42AB32200E2080000AE86 /* SystemUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD42AB22200E2080000AE86 /* SystemUtils.swift */; };
 		5DD42AB52200E24F0000AE86 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD42AB42200E24F0000AE86 /* Status.swift */; };
 		5DD42AB72200EB390000AE86 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD42AB62200EB390000AE86 /* Request.swift */; };
-		5DE1A332224BE6A7009F56CB /* A2D2_iOSUITests_InvalidLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A331224BE6A7009F56CB /* A2D2_iOSUITests_InvalidLocation.swift */; };
 		5DE1A33C224D33C0009F56CB /* Driver_Login_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A339224D322D009F56CB /* Driver_Login_Tests.swift */; };
 		5DE1A33F224D34AF009F56CB /* Driver_Requests_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A33E224D34AF009F56CB /* Driver_Requests_Tests.swift */; };
 		5DE1A341224D3523009F56CB /* Driver_Request_Details_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A340224D3523009F56CB /* Driver_Request_Details_Tests.swift */; };
@@ -133,8 +132,6 @@
 		5DE1A327224BE45C009F56CB /* MaxwellAFB.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MaxwellAFB.gpx; sourceTree = "<group>"; };
 		5DE1A328224BE495009F56CB /* Cupertino.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Cupertino.gpx; sourceTree = "<group>"; };
 		5DE1A32F224BE6A7009F56CB /* A2D2_iOSUITests_InvalidLocation.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = A2D2_iOSUITests_InvalidLocation.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5DE1A331224BE6A7009F56CB /* A2D2_iOSUITests_InvalidLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A2D2_iOSUITests_InvalidLocation.swift; sourceTree = "<group>"; };
-		5DE1A333224BE6A7009F56CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DE1A339224D322D009F56CB /* Driver_Login_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver_Login_Tests.swift; sourceTree = "<group>"; };
 		5DE1A33E224D34AF009F56CB /* Driver_Requests_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver_Requests_Tests.swift; sourceTree = "<group>"; };
 		5DE1A340224D3523009F56CB /* Driver_Request_Details_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver_Request_Details_Tests.swift; sourceTree = "<group>"; };
@@ -275,15 +272,6 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		5DE1A330224BE6A7009F56CB /* A2D2_iOSUITests_InvalidLocation */ = {
-			isa = PBXGroup;
-			children = (
-				5DE1A331224BE6A7009F56CB /* A2D2_iOSUITests_InvalidLocation.swift */,
-				5DE1A333224BE6A7009F56CB /* Info.plist */,
-			);
-			path = A2D2_iOSUITests_InvalidLocation;
-			sourceTree = "<group>";
-		};
 		5DE1A33D224D3471009F56CB /* Driver */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,7 +308,6 @@
 				7C94E7C2219B4E0900A623D9 /* A2D2_iOS */,
 				7C94E7D7219B4E0A00A623D9 /* A2D2_iOSTests */,
 				7C94E7E2219B4E0A00A623D9 /* A2D2_iOSUITests */,
-				5DE1A330224BE6A7009F56CB /* A2D2_iOSUITests_InvalidLocation */,
 				7C94E7C1219B4E0900A623D9 /* Products */,
 				5D3EA8DA21FBAB1400249C27 /* Frameworks */,
 			);
@@ -541,7 +528,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DE1A332224BE6A7009F56CB /* A2D2_iOSUITests_InvalidLocation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
