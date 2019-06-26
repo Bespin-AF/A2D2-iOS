@@ -25,7 +25,7 @@ class DataSourceUtils{
         }
     }
     static let resources = DataSource(.BaseInfo)
-    static let requests = DataSource(.Requests)
+    static let requests = DataSource(.TestRequests)
     static let locations = DataSource(.BaseLocation)
     
 
